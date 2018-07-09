@@ -5,6 +5,7 @@ This project is a [React Native](https://facebook.github.io/react-native/) boile
 This boilerplate contains:
 
 - an empty React Native application created with `react-native init`
+- [prettier](https://prettier.io/) and [eslint](https://eslint.org/) preconfigured for React Native
 
 ## Installation
 
