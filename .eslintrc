@@ -1,0 +1,38 @@
+{
+  "plugins": [
+    "react",
+    "react-native",
+    "prettier"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    },
+    "sourceType": "module"
+  },
+  "env": {
+    "react-native/react-native": true
+  },
+  "extends": [
+    "standard",
+    "plugin:react/recommended",
+    "plugin:react-native/all",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "prettier/prettier": "error",
+    "comma-dangle" : ["error", "always-multiline"],
+    "space-before-function-paren": ["error", {
+      "anonymous": "never",
+      "named": "never",
+      "asyncArrow": "always"
+    }],
+    "no-fallthrough": ["error", { "commentPattern": "break[\\s\\w]*omitted" }],
+    "react/jsx-uses-vars": 2,
+    "react/jsx-indent-props": [2, 2],
+    "react/prop-types": [2,{ "skipUndeclared": true}],
+    "react/display-name": [0, { "ignoreTranspilerName": false }]
+  }
+}

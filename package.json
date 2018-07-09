@@ -4,7 +4,11 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "jest",
+    "prettier-fix": "prettier --write **/*.js",
+    "prettier-check": "prettier --list-different **/*.js",
+    "lint-fix": "eslint --fix .",
+    "lint-check": "eslint ."
   },
   "dependencies": {
     "react": "16.3.1",
@@ -13,7 +17,18 @@
   "devDependencies": {
     "babel-jest": "23.2.0",
     "babel-preset-react-native": "4.0.0",
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-react": "^7.7.0",
+    "eslint-plugin-react-native": "^3.2.1",
+    "eslint-plugin-standard": "^3.0.1",
     "jest": "23.3.0",
+    "prettier": "^1.11.1",
     "react-test-renderer": "16.3.1"
   },
   "jest": {
