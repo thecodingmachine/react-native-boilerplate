@@ -1,0 +1,16 @@
+image: node:8.10.0
+
+cache:
+  paths:
+    - node_modules
+
+before_script:
+  - yarn
+
+prettier:
+  script:
+    - npm run prettier-check
+
+eslint:
+  script:
+    - npm run lint-check
