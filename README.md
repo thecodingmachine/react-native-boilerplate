@@ -1,12 +1,6 @@
-# React Native boilerplate
+# Now Coworking social app
 
-This project is a [React Native](https://facebook.github.io/react-native/) boilerplate that can be used to kickstart a mobile application.
-
-This boilerplate contains:
-
-- an empty React Native application created with `react-native init`
-- [prettier](https://prettier.io/) and [eslint](https://eslint.org/) preconfigured for React Native
-- a [directory layout](#directory-layout) for organizing the code of the application
+This project is the Now Coworking Social app built using [React Native](https://facebook.github.io/react-native/).
 
 ## Directory layout
 
