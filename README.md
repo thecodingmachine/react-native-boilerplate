@@ -12,6 +12,8 @@ This boilerplate contains:
 
 - [`App/Components`](App/Components): presentational components
 - [`App/Containers`](App/Containers): container components
+- [`App/Stores`](App/Stores): redux [actions, reducers and stores](https://redux.js.org/basics)
+- [`App/Sagas`](App/Sagas): redux sagas
 
 For more information on each directory, click the link and read the directory's README.
 
