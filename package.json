@@ -16,7 +16,6 @@
     "prop-types": "^15.6.1",
     "react": "16.3.1",
     "react-native": "0.55.4",
-    "react-native-sensitive-info": "^5.1.0",
     "react-redux": "^5.0.7",
     "redux": "^3.7.2",
     "redux-persist": "^5.9.1",
