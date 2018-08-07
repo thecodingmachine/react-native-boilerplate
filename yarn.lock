@@ -4709,10 +4709,6 @@ react-native-rename@^2.2.2:
     node-replace "^0.3.3"
     shelljs "^0.7.7"
 
-react-native-sensitive-info@^5.1.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/react-native-sensitive-info/-/react-native-sensitive-info-5.1.0.tgz#1655c482f99c80023a23b2d9adab1ae260b1988a"
-
 react-native@0.55.4:
   version "0.55.4"
   resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.55.4.tgz#eecffada3750a928e2ddd07cf11d857ae9751c30"
