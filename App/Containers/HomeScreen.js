@@ -4,10 +4,12 @@ import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import ExampleActions from 'App/Stores/Example/Actions'
 import { isHot } from 'App/Stores/Example/Selectors'
+import Fonts from 'App/Theme/Fonts'
+import ApplicationStyles from 'App/Theme/ApplicationStyles'
 
 const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' + 'Shake or press menu button for dev menu',
+  ios: 'Press Cmd+R to reload,\nCmd+D or shake for dev menu.',
+  android: 'Double tap R on your keyboard to reload,\nShake or press menu button for dev menu.',
 })
 
 class HomeScreen extends React.Component {
@@ -23,12 +25,12 @@ class HomeScreen extends React.Component {
 
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
+        <Text style={styles.title}>Welcome to React Native!</Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-        <Text style={styles.instructions}>The weather temperature is: {temperature}</Text>
-        <Text style={styles.instructions}>{this.props.isHot ? "It's pretty hot!" : ''}</Text>
-        <Text style={styles.instructions}>{this.props.temperatureErrorMessage}</Text>
+        <Text style={styles.text}>{instructions}</Text>
+        <Text style={styles.text}>The weather temperature is: {temperature}</Text>
+        <Text style={styles.text}>{this.props.isHot ? "It's pretty hot!" : ''}</Text>
+        <Text style={styles.text}>{this.props.temperatureErrorMessage}</Text>
         <Button onPress={this.props.fetchTemperature} title="Refresh" />
       </View>
     )
@@ -37,16 +39,15 @@ class HomeScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    ...ApplicationStyles.screen.container,
   },
-  welcome: {
-    fontSize: 20,
+  title: {
+    ...Fonts.style.h1,
     textAlign: 'center',
     margin: 10,
   },
-  instructions: {
+  text: {
+    ...Fonts.style.normal,
     textAlign: 'center',
     marginBottom: 5,
   },
