@@ -3,7 +3,15 @@ import createSagaMiddleware from 'redux-saga'
 import { persistReducer, persistStore } from 'redux-persist'
 import immutableTransform from 'redux-persist-transform-immutable'
 
-// Defaults to localStorage for web and AsyncStorage for react-native
+/**
+ * This import defaults to localStorage for web and AsyncStorage for react-native.
+ *
+ * Kind in mind this storage *is not secure*. Do not use it to store sensitive information
+ * (like API tokens, private and sensitive data, etc.).
+ *
+ * If you need to store sensitive information, use redux-persist-sensitive-storage.
+ * @see https://github.com/CodingZeal/redux-persist-sensitive-storage
+ */
 import storage from 'redux-persist/lib/storage'
 
 const persistConfig = {
