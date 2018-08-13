@@ -12,6 +12,7 @@
     "rename": "react-native-rename"
   },
   "dependencies": {
+    "apisauce": "^0.15.2",
     "immutable": "^3.8.2",
     "prop-types": "^15.6.1",
     "react": "16.3.1",

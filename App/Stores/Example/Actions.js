@@ -19,10 +19,12 @@ import { createActions } from 'reduxsauce'
  * @see https://github.com/infinitered/reduxsauce#createactions
  */
 const { Types, Creators } = createActions({
-  // Request to fetch the current weather temperature
-  requestWeatherTemperature: null,
-  // Update the current weather temperature (after it was fetched)
-  updateWeatherTemperature: ['temperature'],
+  // Fetch the current weather temperature
+  fetchTemperature: null,
+  // The temperature was successfully fetched
+  fetchTemperatureSuccess: ['temperature'],
+  // An error occurred
+  fetchTemperatureFailure: ['errorMessage'],
 })
 
 export const ExampleTypes = Types

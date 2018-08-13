@@ -11,7 +11,7 @@ const instructions = Platform.select({
 
 class HomeScreen extends React.Component {
   componentDidMount() {
-    this.props.refreshTemperature()
+    this.props.fetchTemperature()
   }
 
   render() {
@@ -23,6 +23,7 @@ class HomeScreen extends React.Component {
         <Text style={styles.instructions}>
           The weather temperature is: {this.props.temperature}
         </Text>
+        <Text style={styles.instructions}>{this.props.errorMessage}</Text>
       </View>
     )
   }
@@ -47,14 +48,16 @@ const styles = StyleSheet.create({
 
 HomeScreen.propsTypes = {
   temperature: PropTypes.number,
+  errorMessage: PropTypes.string,
 }
 
 const mapStateToProps = (state) => ({
-  temperature: state.example.get('weatherTemperature'),
+  temperature: state.example.get('temperature'),
+  errorMessage: state.example.get('errorMessage'),
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  refreshTemperature: () => dispatch(ExampleActions.requestWeatherTemperature()),
+  fetchTemperature: () => dispatch(ExampleActions.fetchTemperature()),
 })
 
 export default connect(

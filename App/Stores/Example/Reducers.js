@@ -5,14 +5,25 @@ import { ExampleTypes } from './Actions'
 /**
  * Example of a reducer that updates the `temperature` property.
  */
-export const updateWeatherTemperature = (state, { temperature }) =>
+export const updateTemperature = (state, { temperature }) =>
   state.merge({
-    weatherTemperature: temperature,
+    temperature: temperature,
+    errorMessage: null,
+  })
+
+/**
+ * Example of a reducer that updates the `errorMessage` property.
+ */
+export const showErrorMessage = (state, { errorMessage }) =>
+  state.merge({
+    temperature: '??',
+    errorMessage: errorMessage,
   })
 
 /**
  * @see https://github.com/infinitered/reduxsauce#createreducer
  */
 export const reducer = createReducer(INITIAL_STATE, {
-  [ExampleTypes.UPDATE_WEATHER_TEMPERATURE]: updateWeatherTemperature,
+  [ExampleTypes.FETCH_TEMPERATURE_SUCCESS]: updateTemperature,
+  [ExampleTypes.FETCH_TEMPERATURE_FAILURE]: showErrorMessage,
 })
