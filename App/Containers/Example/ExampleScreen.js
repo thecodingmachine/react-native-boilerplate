@@ -1,18 +1,17 @@
 import React from 'react'
-import { Platform, StyleSheet, Text, View, Button } from 'react-native'
+import { Platform, Text, View, Button } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import ExampleActions from 'App/Stores/Example/Actions'
 import { isHot } from 'App/Stores/Example/Selectors'
-import Fonts from 'App/Theme/Fonts'
-import ApplicationStyles from 'App/Theme/ApplicationStyles'
+import Style from './ExampleScreenStyle'
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\nCmd+D or shake for dev menu.',
   android: 'Double tap R on your keyboard to reload,\nShake or press menu button for dev menu.',
 })
 
-class HomeScreen extends React.Component {
+class ExampleScreen extends React.Component {
   componentDidMount() {
     this.props.fetchTemperature()
   }
@@ -24,36 +23,20 @@ class HomeScreen extends React.Component {
     }
 
     return (
-      <View style={styles.container}>
-        <Text style={styles.title}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.text}>{instructions}</Text>
-        <Text style={styles.text}>The weather temperature is: {temperature}</Text>
-        <Text style={styles.text}>{this.props.isHot ? "It's pretty hot!" : ''}</Text>
-        <Text style={styles.text}>{this.props.temperatureErrorMessage}</Text>
+      <View style={Style.container}>
+        <Text style={Style.title}>Welcome to React Native!</Text>
+        <Text style={Style.text}>To get started, edit App.js</Text>
+        <Text style={Style.text}>{instructions}</Text>
+        <Text style={Style.text}>The weather temperature is: {temperature}</Text>
+        <Text style={Style.text}>{this.props.isHot ? "It's pretty hot!" : ''}</Text>
+        <Text style={Style.text}>{this.props.temperatureErrorMessage}</Text>
         <Button onPress={this.props.fetchTemperature} title="Refresh" />
       </View>
     )
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    ...ApplicationStyles.screen.container,
-  },
-  title: {
-    ...Fonts.style.h1,
-    textAlign: 'center',
-    margin: 10,
-  },
-  text: {
-    ...Fonts.style.normal,
-    textAlign: 'center',
-    marginBottom: 5,
-  },
-})
-
-HomeScreen.propsTypes = {
+ExampleScreen.propsTypes = {
   temperature: PropTypes.number,
   temperatureErrorMessage: PropTypes.string,
 }
@@ -72,4 +55,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(HomeScreen)
+)(ExampleScreen)
