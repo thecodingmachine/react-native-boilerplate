@@ -21,6 +21,8 @@ import { createActions } from 'reduxsauce'
 const { Types, Creators } = createActions({
   // Fetch the current weather temperature
   fetchTemperature: null,
+  // The operation has started and is loading
+  fetchTemperatureLoading: null,
   // The temperature was successfully fetched
   fetchTemperatureSuccess: ['temperature'],
   // An error occurred

@@ -8,11 +8,13 @@ import { WeatherService } from 'App/Service/WeatherService'
  * This example saga contains only one to fetch the weather temperature.
  */
 export function* fetchTemperature() {
+  // Dispatch a redux action using `put()`
+  // @see https://redux-saga.js.org/docs/basics/DispatchingActions.html
+  yield put(ExampleActions.fetchTemperatureLoading())
+
   // Fetch the temperature from an API
   const temperature = yield call(WeatherService.fetchTemperature)
 
-  // Dispatch a redux action using `put()`
-  // @see https://redux-saga.js.org/docs/basics/DispatchingActions.html
   if (temperature) {
     yield put(ExampleActions.fetchTemperatureSuccess(temperature))
   } else {
