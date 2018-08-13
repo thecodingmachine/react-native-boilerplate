@@ -5,5 +5,5 @@ import { Map } from 'immutable'
  */
 export const INITIAL_STATE = Map({
   temperature: null,
-  errorMessage: null,
+  temperatureErrorMessage: null,
 })

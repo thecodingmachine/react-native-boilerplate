@@ -25,7 +25,7 @@ class HomeScreen extends React.Component {
           The weather temperature is: {this.props.temperature}
         </Text>
         <Text style={styles.instructions}>{this.props.isHot ? "It's pretty hot!" : ''}</Text>
-        <Text style={styles.instructions}>{this.props.errorMessage}</Text>
+        <Text style={styles.instructions}>{this.props.temperatureErrorMessage}</Text>
         <Button onPress={this.props.fetchTemperature} title="Refresh" />
       </View>
     )
@@ -51,12 +51,12 @@ const styles = StyleSheet.create({
 
 HomeScreen.propsTypes = {
   temperature: PropTypes.number,
-  errorMessage: PropTypes.string,
+  temperatureErrorMessage: PropTypes.string,
 }
 
 const mapStateToProps = (state) => ({
   temperature: state.example.get('temperature'),
-  errorMessage: state.example.get('errorMessage'),
+  temperatureErrorMessage: state.example.get('temperatureErrorMessage'),
   isHot: isHot(state),
 })
 

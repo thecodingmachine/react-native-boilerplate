@@ -8,16 +8,16 @@ import { ExampleTypes } from './Actions'
 export const updateTemperature = (state, { temperature }) =>
   state.merge({
     temperature: temperature,
-    errorMessage: null,
+    temperatureErrorMessage: null,
   })
 
 /**
- * Example of a reducer that updates the `errorMessage` property.
+ * Example of a reducer that updates the `temperatureErrorMessage` property.
  */
 export const showErrorMessage = (state, { errorMessage }) =>
   state.merge({
     temperature: '??',
-    errorMessage: errorMessage,
+    temperatureErrorMessage: errorMessage,
   })
 
 /**
