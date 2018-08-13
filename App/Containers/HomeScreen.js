@@ -1,5 +1,5 @@
 import React from 'react'
-import { Platform, StyleSheet, Text, View } from 'react-native'
+import { Platform, StyleSheet, Text, View, Button } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import ExampleActions from 'App/Stores/Example/Actions'
@@ -24,6 +24,7 @@ class HomeScreen extends React.Component {
           The weather temperature is: {this.props.temperature}
         </Text>
         <Text style={styles.instructions}>{this.props.errorMessage}</Text>
+        <Button onPress={this.props.fetchTemperature} title="Refresh"/>
       </View>
     )
   }
