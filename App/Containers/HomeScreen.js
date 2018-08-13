@@ -3,6 +3,7 @@ import { Platform, StyleSheet, Text, View, Button } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import ExampleActions from 'App/Stores/Example/Actions'
+import { isHot } from 'App/Stores/Example/Selectors'
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -23,6 +24,7 @@ class HomeScreen extends React.Component {
         <Text style={styles.instructions}>
           The weather temperature is: {this.props.temperature}
         </Text>
+        <Text style={styles.instructions}>{this.props.isHot ? "It's pretty hot!" : ''}</Text>
         <Text style={styles.instructions}>{this.props.errorMessage}</Text>
         <Button onPress={this.props.fetchTemperature} title="Refresh" />
       </View>
@@ -55,6 +57,7 @@ HomeScreen.propsTypes = {
 const mapStateToProps = (state) => ({
   temperature: state.example.get('temperature'),
   errorMessage: state.example.get('errorMessage'),
+  isHot: isHot(state),
 })
 
 const mapDispatchToProps = (dispatch) => ({
