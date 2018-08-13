@@ -13,8 +13,8 @@ function fetchTemperature() {
   // Simulate an error 50% of the time just for testing purposes
   if (Math.random() > 0.5) {
     return new Promise(function(resolve, reject) {
-      resolve(null);
-    });
+      resolve(null)
+    })
   }
 
   const locationQuery = escape(

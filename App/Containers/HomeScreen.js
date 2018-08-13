@@ -24,7 +24,7 @@ class HomeScreen extends React.Component {
           The weather temperature is: {this.props.temperature}
         </Text>
         <Text style={styles.instructions}>{this.props.errorMessage}</Text>
-        <Button onPress={this.props.fetchTemperature} title="Refresh"/>
+        <Button onPress={this.props.fetchTemperature} title="Refresh" />
       </View>
     )
   }
