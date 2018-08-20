@@ -5,7 +5,7 @@
  * That allows to change them more easily later on.
  */
 
-const colors = {
+export default {
   transparent: 'rgba(0,0,0,0)',
   // Example colors:
   text: '#212529',
@@ -13,5 +13,3 @@ const colors = {
   success: '#28a745',
   error: '#dc3545',
 }
-
-export default colors

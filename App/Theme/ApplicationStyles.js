@@ -4,12 +4,10 @@
  * Use it to define generic component styles (e.g. the default text styles, default button styles...).
  */
 
-const ApplicationStyles = {
+export default {
   screen: {
     container: {
       flex: 1,
     },
   },
 }
-
-export default ApplicationStyles
