@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import HomeScreen from 'App/Containers/HomeScreen'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/lib/integration/react'
 import createStore from 'App/Stores'
+import ExampleScreen from './Containers/Example/ExampleScreen'
 
 const { store, persistor } = createStore()
 
@@ -21,7 +21,7 @@ export default class App extends Component {
          * @see https://github.com/rt2zz/redux-persist/blob/master/docs/PersistGate.md
          */}
         <PersistGate loading={null} persistor={persistor}>
-          <HomeScreen />
+          <ExampleScreen />
         </PersistGate>
       </Provider>
     )
