@@ -10,6 +10,5 @@ fastlane/screenshots
 # scan temporary files
 fastlane/test_output
 
-# certificates
-*.cer
-*.mobileprovision
+# Faslane builds
+builds/*
