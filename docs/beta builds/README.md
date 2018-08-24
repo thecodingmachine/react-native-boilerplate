@@ -105,7 +105,7 @@ Be sure you have are connected to internet
 
    Select the right team 
 
-8. If you don't have already create the App on the Developer Portal, Fastlane can do it for you !  
+8. If you don't have already create the App on the Developer Portal, Fastlane can do it for you ! (else you must have a message `Your app 'com.tcm.boilerplate' is available in your Apple Developer Portal`)
 
    It will ask `Do you want fastlane to create the App ID for you on the Apple Developer Portal? (y/n)`
    Type `y`
@@ -116,7 +116,7 @@ At this step, Fastlane will prompt a summary an ask you some more questions if y
 
    `TCM React Native Boilerplate`
 
-10. If you don't have already create the App on the App Store Connect, Fastlane can do it for you ! 
+10. If you don't have already create the App on the App Store Connect, Fastlane can do it for you ! (else you must have a message `Your app 'com.tcm.boilerplate' is available on App Store Connect`)
 
    It will ask `Would you like fastlane to create the App on App Store Connect for you? (y/n)`
    Type `y`
