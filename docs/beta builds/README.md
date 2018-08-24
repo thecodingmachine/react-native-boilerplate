@@ -34,16 +34,21 @@ sudo gem install fastlane -NV
 
  You are now ready to setting up Fastlane for IOS and Android 
 
-## IOS
+## iOS
 
 ### Prerequisites
 
 Before continue reading, make sure you have :
 
-- [ ] Choose a [bundle identifier](https://cocoacasts.com/what-are-app-ids-and-bundle-identifiers/) of your app (for example `com.tcm.boilerplate`)
-- [ ] Your Apple ID Username ; your email used for login into IOS developper acccount (for example `a.mutin@thecodingmachine.com`)
-- [ ] Your Apple ID password ; your password used for login into IOS developper acccount (for example `keep it secret`)
-- [ ] Your app name, if not alreay created on the Developer Portal (for example `TCM React Native Boilerplate`)
+- [ ] Choose the [bundle identifier](https://cocoacasts.com/what-are-app-ids-and-bundle-identifiers/) of your app (for example `com.tcm.boilerplate`)
+- [ ] Your Apple ID username ; your email used for login into IOS developper portal (for example `dev-team@thecodingmachine.com`)
+- [ ] Your Apple ID password ; your password used for login into IOS developper portal (for example `keep it secret`)
+- [ ] Your app name, if not alreay created on the Developer Portal (for example `TCM React Native Boilerplate`). Fastlane can create applications in Developer Portal and App Store Connect, so it's recommended to let Fastlane do the right job for you.
+
+Open your Xcode project, and modify some information:
+- [ ] : In the `General` tab, `Identity` section, change your `Bundle Identifier` with the good one
+- [ ] : In the `General` tab, `Signing` section, disable `Automatically manage signing` 
+- [ ] : In the `Build Settings` tab, under `Signing`, set `iOS Developer` as the `debug` codesigning identitiy and `iOS Distribution` as the `release` codesigning identitiy.
 
 ### Setting up
 
@@ -57,53 +62,144 @@ Fastlane will automatically detect your project, and ask for any missing informa
 
 Following questions will be asked :
 1. `What would you like to use fastlane for?`
-For this tutorial, good answer is `2` (Automate beta distribution to TestFlight)
+
+   For this tutorial, good answer is `2` (Automate beta distribution to TestFlight)
+
 2. `Select Scheme:`
-Here, we will select the scheme without `-tvOS` suffix
+
+   Here, we will select the scheme without `-tvOS` suffix
+
 3. `Bundler identifier of your app`
-If you don't know, you don't have read the "Prerequisites" step :)  
-Our answer is `com.tcm.boilerplate`
+
+   If you don't know, you don't have read the "Prerequisites" step :)  
+   Our answer is `com.tcm.boilerplate`
+
 4. `Apple ID Username:`
-If you don't know, you don't have read the "Prerequisites" step :)  
-Our answer is `a.mutin@thecodingmachine.com`
+
+   If you don't know, you don't have read the "Prerequisites" step :)  
+   Our answer is `dev-team@thecodingmachine.com`
+
 5. `Password (for Apple ID Username):`
-If you don't know, you don't have read the "Prerequisites" step :)  
-Our answer is `keep it secret`
+
+   If you don't know, you don't have read the "Prerequisites" step :)  
+   Our answer is `keep it secret`
+
 
 At this step, you can have the following issue:
 ```
 fastlane init failed
 ["The request could not be completed because:", "Could not receive latest API key from App Store Connect, this might be a server issue."]
 Something failed while running `fastlane init`
-Tried using Apple ID with email 'a.mutin@thecodingmachine.com'
+Tried using Apple ID with email 'dev-team@thecodingmachine.com'
 You can either retry, or fallback to manual setup which will create a basic Fastfile
 Would you like to fallback to a manual Fastfile? (y/n)
 ```
 Answer `n`, and retry previous steps, with a good Apple ID and password.  
-Be sure you have a good internet connection
+Be sure you have are connected to internet
 
 6. If your account has multiple teams in the App Store Connect, you may have this question: `Multiple App Store Connect teams found, please enter the number of the team you want to use:`
-Select the right team 
+
+   Select the right team 
+
 7. If your account has multiple teams in the Developer Portal, you may have this question: `Multiple teams found on the Developer Portal, please enter the number of the team you want to use:`
-Select the right team 
+
+   Select the right team 
+
 8. If you don't have already create the App on the Developer Portal, Fastlane can do it for you !  
-It will ask `Do you want fastlane to create the App ID for you on the Apple Developer Portal? (y/n)`
-Type `y`
+
+   It will ask `Do you want fastlane to create the App ID for you on the Apple Developer Portal? (y/n)`
+   Type `y`
 
 At this step, Fastlane will prompt a summary an ask you some more questions if you answer `yes` at the previous question
 
 9. App Name:
-`TCM React Native Boilerplate`
+
+   `TCM React Native Boilerplate`
+
 10. If you don't have already create the App on the App Store Connect, Fastlane can do it for you ! 
-It will ask `Would you like fastlane to create the App on App Store Connect for you? (y/n)`
-Type `y`
+
+   It will ask `Would you like fastlane to create the App on App Store Connect for you? (y/n)`
+   Type `y`
+
+At this step, Fastlane will prompt a summary an ask you some more questions if you answer `yes` at the previous question
+
 11. App Name:
-`TCM React Native Boilerplate`
+   `TCM React Native Boilerplate`
+
 
 Then, Fastlane will give you some informations about git, files it will create, etc. Juste type `enter` to continue.
 
 Congrats! Fastlane has created some files.  
 If you are using Git, commit all generated files.
+
+
+Once setup is ended, you can see a new folder inside the `ios` folder
+```
+ - fastlane/
+   - Appfile
+   - Fastfile
+```
+
+`Appfile` contains identifiers used for the connection with Developer Portal and App Store Connect.  
+You can read more about this file [here](https://docs.fastlane.tools/advanced/#appfile)
+`Fastfile` contains all actions you can launch  
+You can read more about this file [here](https://docs.fastlane.tools/actions)  
+
+Because we previously choose `Automate beta distribution to TestFlight` on setting up step, a `beta` script is available by default.  
+This script contains three actions:
+* increment the build number of your app
+* build your app
+* upload to TestFlight
+
+### Code signing
+
+Code signing your app assures users that it is from a known source and the app hasn’t been modified since it was last signed. Before your app can integrate app services, be installed on a device, or be submitted to the App Store, it must be signed with a certificate issued by Apple.
+
+A full guide is available on the fastlane doc, describing best approachs for your [code signing process](https://docs.fastlane.tools/codesigning/getting-started/)
+
+Using `match` is probably [the best solution](https://codesigning.guide/).  
+Because we don't want to revoke our existing certificates, but still want an automated setup, we will use [cert and sigh](https://docs.fastlane.tools/codesigning/getting-started/#using-cert-and-sigh).
+
+Add the following to your `Fastfile`, just after `lane :beta do` and before `increment_build_number`:
+```
+  get_certificates
+  get_provisioning_profile(force: true)
+```
+If you have multiple teams, you can add the following before the `get_certificates` method :
+```
+  	update_project_team(
+	  teamid: "yourteamid"
+	)
+```
+
+Then, we need to configure provisionning profile for the build step.  
+Note: if you are not using Xcode 9 or higher, please read [this doc](https://docs.fastlane.tools/codesigning/xcode-project/), else you can continue with the next step.  
+
+Add the following to your `Fastfile`, inside the `build_app` function, just after the `scheme` parameter:
+```
+	clean: true,
+    export_method: "app-store",
+    export_options: {
+      provisioningProfiles: { 
+	    "com.tcm.boilerplate" => "com.tcm.boilerplate AppStore"
+      }
+    },
+	export_xcargs: "-allowProvisioningUpdates"
+```	
+
+The complete file can be found [here](ios/fastlane/Fastfile)
+
+Doing this step, when you will create a beta build, the Provisioning Profile will be automatically created !
+
+
+### Create a beta build
+
+So, you can now easily upload your app into TestFlight with:
+```
+cd my-project/ios
+fastlane beta
+```
+
 
 ## Android
 
