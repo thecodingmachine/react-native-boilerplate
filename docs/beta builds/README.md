@@ -40,15 +40,16 @@ sudo gem install fastlane -NV
 
 Before continue reading, make sure you have :
 
+- [ ] Xcode 9 or higher
 - [ ] Choose the [bundle identifier](https://cocoacasts.com/what-are-app-ids-and-bundle-identifiers/) of your app (for example `com.tcm.boilerplate`)
 - [ ] Your Apple ID username ; your email used for login into IOS developper portal (for example `dev-team@thecodingmachine.com`)
 - [ ] Your Apple ID password ; your password used for login into IOS developper portal (for example `keep it secret`)
 - [ ] Your app name, if not alreay created on the Developer Portal (for example `TCM React Native Boilerplate`). Fastlane can create applications in Developer Portal and App Store Connect, so it's recommended to let Fastlane do the right job for you.
 
 Open your Xcode project, and modify some information:
+
 - [ ] : In the `General` tab, `Identity` section, change your `Bundle Identifier` with the good one
-- [ ] : In the `General` tab, `Signing` section, disable `Automatically manage signing` 
-- [ ] : In the `Build Settings` tab, under `Signing`, set `iOS Developer` as the `debug` codesigning identitiy and `iOS Distribution` as the `release` codesigning identitiy.
+- [ ] : In the `Build Settings` tab, under `Signing`, set `Don't Code Sign` as the `debug` codesigning identitiy and `iOS Distribution` as the `release` codesigning identitiy.
 
 ### Setting up
 
@@ -61,25 +62,25 @@ fastlane init
 Fastlane will automatically detect your project, and ask for any missing information.
 
 Following questions will be asked :
-1. `What would you like to use fastlane for?`
+* `What would you like to use fastlane for?`
 
    For this tutorial, good answer is `2` (Automate beta distribution to TestFlight)
 
-2. `Select Scheme:`
+* `Select Scheme:`
 
    Here, we will select the scheme without `-tvOS` suffix
 
-3. `Bundler identifier of your app`
+* `Bundler identifier of your app`
 
    If you don't know, you don't have read the "Prerequisites" step :)  
    Our answer is `com.tcm.boilerplate`
 
-4. `Apple ID Username:`
+* `Apple ID Username:`
 
    If you don't know, you don't have read the "Prerequisites" step :)  
    Our answer is `dev-team@thecodingmachine.com`
 
-5. `Password (for Apple ID Username):`
+* `Password (for Apple ID Username):`
 
    If you don't know, you don't have read the "Prerequisites" step :)  
    Our answer is `keep it secret`
@@ -97,33 +98,33 @@ Would you like to fallback to a manual Fastfile? (y/n)
 Answer `n`, and retry previous steps, with a good Apple ID and password.  
 Be sure you have are connected to internet
 
-6. If your account has multiple teams in the App Store Connect, you may have this question: `Multiple App Store Connect teams found, please enter the number of the team you want to use:`
+* If your account has multiple teams in the App Store Connect, you may have this question: `Multiple App Store Connect teams found, please enter the number of the team you want to use:`
 
    Select the right team 
 
-7. If your account has multiple teams in the Developer Portal, you may have this question: `Multiple teams found on the Developer Portal, please enter the number of the team you want to use:`
+* If your account has multiple teams in the Developer Portal, you may have this question: `Multiple teams found on the Developer Portal, please enter the number of the team you want to use:`
 
    Select the right team 
 
-8. If you don't have already create the App on the Developer Portal, Fastlane can do it for you ! (else you must have a message `Your app 'com.tcm.boilerplate' is available in your Apple Developer Portal`)
+* If you don't have already create the App on the Developer Portal, Fastlane can do it for you ! (else you must have a message `Your app 'com.tcm.boilerplate' is available in your Apple Developer Portal`)
 
    It will ask `Do you want fastlane to create the App ID for you on the Apple Developer Portal? (y/n)`
    Type `y`
 
 At this step, Fastlane will prompt a summary an ask you some more questions if you answer `yes` at the previous question
 
-9. App Name:
+* App Name:
 
    `TCM React Native Boilerplate`
 
-10. If you don't have already create the App on the App Store Connect, Fastlane can do it for you ! (else you must have a message `Your app 'com.tcm.boilerplate' is available on App Store Connect`)
+* If you don't have already create the App on the App Store Connect, Fastlane can do it for you ! (else you must have a message `Your app 'com.tcm.boilerplate' is available on App Store Connect`)
 
    It will ask `Would you like fastlane to create the App on App Store Connect for you? (y/n)`
    Type `y`
 
 At this step, Fastlane will prompt a summary an ask you some more questions if you answer `yes` at the previous question
 
-11. App Name:
+* App Name:
    `TCM React Native Boilerplate`
 
 
@@ -160,31 +161,44 @@ A full guide is available on the fastlane doc, describing best approachs for you
 Using `match` is probably [the best solution](https://codesigning.guide/).  
 Because we don't want to revoke our existing certificates, but still want an automated setup, we will use [cert and sigh](https://docs.fastlane.tools/codesigning/getting-started/#using-cert-and-sigh).
 
-Add the following to your `Fastfile`, just after `lane :beta do` and before `increment_build_number`:
+Add the following to your `Fastfile`, just after `increment_build_number` and before `build_app`:
 ```
   get_certificates
   get_provisioning_profile(force: true)
 ```
 If you have multiple teams, you can add the following before the `get_certificates` method :
 ```
-  	update_project_team(
-	  teamid: "yourteamid"
-	)
+    get_certificates( # Create or get certificate, and install it
+      output_path: "./builds" # Download certificate in the build folder (you don't need to create the folder)
+    )
+    get_provisioning_profile( # Create or get provisioning profile
+      output_path: "./builds",  # Download provisioning profile in the build folder
+      filename: "provisioning.mobileprovision" # Rename the local provisioning profile
+    )
+    update_project_provisioning( # Set the project provisioning profile (related in Xcode to the General > Signing Release section)
+      xcodeproj: "Boilerplate.xcodeproj",
+      target_filter: "Boilerplate", # Name of your project
+      profile: "./builds/provisioning.mobileprovision",
+      build_configuration: "Release"
+    )
+    update_project_team( # Set the right team on your project
+      teamid: CredentialsManager::AppfileConfig.try_fetch_value(:team_id)
+    )
 ```
 
 Then, we need to configure provisionning profile for the build step.  
-Note: if you are not using Xcode 9 or higher, please read [this doc](https://docs.fastlane.tools/codesigning/xcode-project/), else you can continue with the next step.  
 
 Add the following to your `Fastfile`, inside the `build_app` function, just after the `scheme` parameter:
 ```
-	clean: true,
+    clean: true,
     export_method: "app-store",
     export_options: {
       provisioningProfiles: { 
-	    "com.tcm.boilerplate" => "com.tcm.boilerplate AppStore"
+        CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier) => "com.tcm.boilerplate AppStore"
       }
     },
-	export_xcargs: "-allowProvisioningUpdates"
+    build_path: "./builds",
+    archive_path: "./builds"
 ```	
 
 The complete file can be found [here](ios/fastlane/Fastfile)
