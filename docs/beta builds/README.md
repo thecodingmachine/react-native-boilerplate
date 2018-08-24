@@ -48,12 +48,12 @@ Before continue reading, make sure you have :
 
 Open your Xcode project, and modify some information:
 
-- [ ] : In the `General` tab, `Identity` section, change your `Bundle Identifier` with the good one
-- [ ] : In the `Build Settings` tab, under `Signing`, set `Don't Code Sign` as the `debug` codesigning identitiy and `iOS Distribution` as the `release` codesigning identitiy.
+- [ ] In the `General` tab, `Identity` section, change your `Bundle Identifier` with the good one
+- [ ] In the `Build Settings` tab, under `Signing`, set `Don't Code Sign` as the `debug` codesigning identitiy and `iOS Distribution` as the `release` codesigning identitiy (for both `Debug`/`Release` and `Any iOS SDK`).
 
 ### Setting up
 
-First, you need to setting up fastlane for your IOS project.
+First, you need to setting up fastlane for your iOS project.
 ```
 cd my-project/ios
 fastlane init
@@ -69,11 +69,6 @@ Following questions will be asked :
 * `Select Scheme:`
 
    Here, we will select the scheme without `-tvOS` suffix
-
-* `Bundler identifier of your app`
-
-   If you don't know, you don't have read the "Prerequisites" step :)  
-   Our answer is `com.tcm.boilerplate`
 
 * `Apple ID Username:`
 
@@ -96,7 +91,7 @@ You can either retry, or fallback to manual setup which will create a basic Fast
 Would you like to fallback to a manual Fastfile? (y/n)
 ```
 Answer `n`, and retry previous steps, with a good Apple ID and password.  
-Be sure you have are connected to internet
+Be sure you are connected to internet
 
 * If your account has multiple teams in the App Store Connect, you may have this question: `Multiple App Store Connect teams found, please enter the number of the team you want to use:`
 
@@ -128,7 +123,7 @@ At this step, Fastlane will prompt a summary an ask you some more questions if y
    `TCM React Native Boilerplate`
 
 
-Then, Fastlane will give you some informations about git, files it will create, etc. Juste type `enter` to continue.
+Then, Fastlane will give you some informations about git, files it will create, etc. Just type `enter` to continue.
 
 Congrats! Fastlane has created some files.  
 If you are using Git, commit all generated files.
@@ -142,10 +137,10 @@ Once setup is ended, you can see a new folder inside the `ios` folder
 ```
 
 `Appfile` contains identifiers used for the connection with Developer Portal and App Store Connect.  
-You can read more about this file [here](https://docs.fastlane.tools/advanced/#appfile)
+You can read more about this file [here](https://docs.fastlane.tools/advanced/#appfile)  
+
 `Fastfile` contains all actions you can launch  
 You can read more about this file [here](https://docs.fastlane.tools/actions)  
-
 Because we previously choose `Automate beta distribution to TestFlight` on setting up step, a `beta` script is available by default.  
 This script contains three actions:
 * increment the build number of your app
@@ -161,13 +156,9 @@ A full guide is available on the fastlane doc, describing best approachs for you
 Using `match` is probably [the best solution](https://codesigning.guide/).  
 Because we don't want to revoke our existing certificates, but still want an automated setup, we will use [cert and sigh](https://docs.fastlane.tools/codesigning/getting-started/#using-cert-and-sigh).
 
-Add the following to your `Fastfile`, just after `increment_build_number` and before `build_app`:
+Add the following to your `Fastfile`, just after the `increment_build_number` function and before `build_app`:
 ```
-  get_certificates
-  get_provisioning_profile(force: true)
-```
-If you have multiple teams, you can add the following before the `get_certificates` method :
-```
+    disable_automatic_code_signing # Disable Xcode automatic code signing
     get_certificates( # Create or get certificate, and install it
       output_path: "./builds" # Download certificate in the build folder (you don't need to create the folder)
     )
@@ -194,16 +185,19 @@ Add the following to your `Fastfile`, inside the `build_app` function, just afte
     export_method: "app-store",
     export_options: {
       provisioningProfiles: { 
-        CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier) => "com.tcm.boilerplate AppStore"
-      }
+        CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier) => "com.tcm.boilerplate AppStore" # Value of this parameter is the name of the Provisioning Profile. By default, it will be "bundleId AppStore"
+      },
+      signingStyle: "manual"
     },
     build_path: "./builds",
     archive_path: "./builds"
 ```	
+Make sure you added a `,` after the `scheme` parameter  
 
 The complete file can be found [here](ios/fastlane/Fastfile)
 
-Doing this step, when you will create a beta build, the Provisioning Profile will be automatically created !
+Doing this step, when you will create a beta build, the Certificates and Provisioning Profile will be automatically created !  
+:rocket: You are now ready to create your first beta build  
 
 
 ### Create a beta build
