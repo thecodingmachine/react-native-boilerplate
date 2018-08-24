@@ -190,7 +190,8 @@ Add the following to your `Fastfile`, inside the `build_app` function, just afte
       signingStyle: "manual"
     },
     build_path: "./builds",
-    archive_path: "./builds"
+    archive_path: "./builds",
+    output_directory: "./builds"
 ```	
 Make sure you added a `,` after the `scheme` parameter  
 
