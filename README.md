@@ -29,7 +29,8 @@ Make sure you have installed [everything needed to run React Native](https://fac
 
 You can now start the application, for example with `react-native run-android`.
 
-## Distribute beta builds
+## Usefull documentations
 
-With [Fastlane](https://fastlane.tools/), [TestFlight](https://developer.apple.com/testflight/) and [Google Play](https://support.google.com/googleplay/android-developer/answer/3131213?hl=fr), distribute beta builds automatically !  
-More documentation [here](docs/beta%20builds/README.md)
+### Distribute beta builds
+
+With [Fastlane](https://fastlane.tools/), [TestFlight](https://developer.apple.com/testflight/) and [Google Play](https://support.google.com/googleplay/android-developer/answer/3131213?hl=fr), [how to distribute beta builds automatically](docs/beta%20builds/README.md)
