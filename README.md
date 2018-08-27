@@ -28,3 +28,7 @@ Make sure you have installed [everything needed to run React Native](https://fac
 - rename the React Native project to your own project name: `npm run rename -- <YourProjectName>` (the default name is `Boilerplate`)
 
 You can now start the application, for example with `react-native run-android`.
+
+## License
+
+This project is released under the [MIT License](LICENSE).
