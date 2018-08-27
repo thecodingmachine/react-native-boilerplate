@@ -89,8 +89,8 @@ Make sure you are connected to internet.
   * Select the right team 
 * If your account has multiple teams in the Developer Portal, you may have this question: `Multiple teams found on the Developer Portal, please enter the number of the team you want to use:`
   * Select the right team 
-* If you don't have already created the App on the Developer Portal, Fastlane can do it for you! (else you must have a message `Your app 'com.tcm.boilerplate' is available in your Apple Developer Portal`)
-  * It will ask `Do you want fastlane to create the App ID for you on the Apple Developer Portal? (y/n)`
+* If you havent't already created the App on the Developer Portal and or App Store Connect, Fastlane can do it for you! (else you must have a message `Your app 'com.tcm.boilerplate' is available in your Apple Developer Portal / App Store Connect`)
+  * It will ask `Do you want fastlane to create the App ID for you on the Apple Developer Portal / App Store Connect? (y/n)`
     * Type `y`
   * `App Name`:
     * `TCM React Native Boilerplate`
