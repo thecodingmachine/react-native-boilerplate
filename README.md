@@ -29,7 +29,7 @@ Make sure you have installed [everything needed to run React Native](https://fac
 
 You can now start the application, for example with `react-native run-android`.
 
-## Useful documentations
+## Useful documentation
 
 ### Distribute beta builds
 
