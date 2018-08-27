@@ -34,3 +34,7 @@ You can now start the application, for example with `react-native run-android`.
 ### Distribute beta builds
 
 [Distributing beta builds](docs/beta%20builds.md)
+
+## License
+
+This project is released under the [MIT License](LICENSE).
