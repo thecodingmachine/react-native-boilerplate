@@ -161,7 +161,7 @@ Add the following to your `Fastfile`, inside the `build_app` function, just afte
     build_path: "./builds",
     output_directory: "./builds"
 ```
-Make sure you add a `,` after the `scheme` parameter.
+Make sure you have a `,` after the `scheme` parameter.
 
 The complete file can be found [here](ios/fastlane/Fastfile).
 
