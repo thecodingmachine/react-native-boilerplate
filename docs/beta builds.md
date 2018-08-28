@@ -163,8 +163,6 @@ Add the following to your `Fastfile`, inside the `build_app` function, just afte
 ```
 Make sure you have a `,` after the `scheme` parameter.
 
-The complete file can be found [here](ios/fastlane/Fastfile).
-
 Thanks to this the Certificates and Provisioning Profile will be automatically created when you will create a beta build!  
 :rocket: You are now ready to create your first beta build.
 
