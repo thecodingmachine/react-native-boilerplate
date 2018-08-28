@@ -1,5 +1,5 @@
 import { create } from 'apisauce'
-import config from 'App/Config/config'
+import config from 'App/Config'
 
 const weatherApiClient = create({
   baseURL: config.API_URL,
