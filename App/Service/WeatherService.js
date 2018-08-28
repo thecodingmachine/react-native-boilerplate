@@ -1,7 +1,8 @@
 import { create } from 'apisauce'
+import config from 'App/Config/config'
 
 const weatherApiClient = create({
-  baseURL: 'https://query.yahooapis.com/v1/public/',
+  baseURL: config.API_URL,
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
