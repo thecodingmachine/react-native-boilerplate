@@ -1,8 +1,8 @@
 import { create } from 'apisauce'
-import config from 'App/Config'
+import { Config } from 'App/Config'
 
 const weatherApiClient = create({
-  baseURL: config.API_URL,
+  baseURL: Config.API_URL,
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',

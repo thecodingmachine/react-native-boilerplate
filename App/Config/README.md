@@ -5,19 +5,21 @@ This directory contains configuration variables in 3 files:
 
 You need to create `index.js` by copying the right file.
 
-####Careful
+#### Warning
 Each time you need to build, you need to verify if your `index.js` is the right one.
 For example, during development, before building your app do:
 ```
 cp App\Config\index.dev.js App\Config\index.js
 ```
+In other environment, you must pay attention to change your `index.js` with the good one.
+Also, make sure you add each configuration variable in each configuration file.
 
-####Usage
+#### Usage
 ```
-import config from 'App/Config'
+import Config from 'App/Config'
 
 ...
-let uri = config.API_URL
+let uri = Config.API_URL
 ...
 
 ```
