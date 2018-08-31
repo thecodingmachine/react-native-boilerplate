@@ -29,6 +29,12 @@ Make sure you have installed [everything needed to run React Native](https://fac
 
 You can now start the application, for example with `react-native run-android`.
 
+## Useful documentation
+
+### Distribute beta builds
+
+[Distributing beta builds](docs/beta%20builds.md)
+
 ## License
 
 This project is released under the [MIT License](LICENSE).
