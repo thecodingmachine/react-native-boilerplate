@@ -184,5 +184,27 @@ fastlane beta
 
 Before continuing make sure you have:
 
-- [ ] This thing
-- [ ] This thing
+- [ ] An Google Play Console account with an admin rights, with its username (email, for example `dev-team@yourcompany.com`) and password
+- [ ] Your app name, if not already created on Google Play (for example `TCM React Native Boilerplate`). Fastlane can create applications in the Google Play Console so it's recommended to let Fastlane do the job for you.
+- [ ] Use the right [.gitignore](android/.gitignore) file inside the `android` directory
+- [Collect your Google Credentials](https://docs.fastlane.tools/getting-started/android/setup/#collect-your-google-credentials) :warning: hl=en
+Créer le fichier dans un dossier /builds/api-7464680612454675996-156274-380a41c4a589
+
+
+### Setting up
+
+First you need to set up Fastlane for your android project:
+```
+cd my-project/android
+fastlane init
+```
+
+Fastlane will automatically detect your project and ask for any missing information.
+
+The following questions will be asked:
+* `Package Name (com.krausefx.app)`
+  * Our answer is `com.tcm.boilerplate`
+* `Path to the json secret file`
+  * ./key.json
+* Download existing metadata and setup metadata management?
+  * y
