@@ -13,10 +13,6 @@ const instructions = Platform.select({
 })
 
 class ExampleScreen extends React.Component {
-  componentDidMount() {
-    this.props.startup()
-  }
-
   render() {
     let temperature = this.props.temperatureIsLoading ? '...' : this.props.temperature
     if (temperature === null) {
@@ -50,7 +46,6 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  startup: () => dispatch(StartupActions.startup()),
   fetchTemperature: () => dispatch(ExampleActions.fetchTemperature()),
 })
 
