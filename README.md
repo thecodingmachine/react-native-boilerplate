@@ -25,8 +25,10 @@ The boilerplate will follow new React-Native releases as soon as libraries and t
 
 - [`App/Components`](App/Components): presentational components
 - [`App/Containers`](App/Containers): container components
+- [`App/Images`](App/Images): images used by the application
 - [`App/Stores`](App/Stores): redux [actions, reducers and stores](https://redux.js.org/basics)
 - [`App/Sagas`](App/Sagas): redux sagas
+- [`App/Theme`](App/Theme): base styles for the application
 
 For more information on each directory, click the link and read the directory's README.
 
@@ -48,3 +50,7 @@ Then:
 - rename the React Native project to your own project name: `npm run rename -- <YourProjectName>` (the default name is `Boilerplate`)
 
 You can now start the application, for example with `react-native run-android`.
+
+## License
+
+This project is released under the [MIT License](LICENSE).
