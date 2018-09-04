@@ -12,6 +12,10 @@ const instructions = Platform.select({
 })
 
 class ExampleScreen extends React.Component {
+  componentDidMount() {
+    this.props.fetchTemperature()
+  }
+
   render() {
     let temperature = this.props.temperatureIsLoading ? '...' : this.props.temperature
     if (temperature === null) {
