@@ -58,3 +58,9 @@ This project is released under the [MIT License](LICENSE).
 ## About us
 
 [TheCodingMachine](https://www.thecodingmachine.com/) is a web and mobile agency based in Paris and Lyon.
+
+## See also
+
+Here are alternative boilerplates that you may want to check out:
+
+- [Ignite boilerplate](https://github.com/infinitered/ignite-ir-boilerplate-andross): this boilerplate is much more opinionated and packed that this one, we wanted something lighter which is why we did no go with it
