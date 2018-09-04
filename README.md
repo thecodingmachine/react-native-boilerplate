@@ -54,3 +54,7 @@ You can now start the application, for example with `react-native run-android`.
 ## License
 
 This project is released under the [MIT License](LICENSE).
+
+## About us
+
+[TheCodingMachine](https://www.thecodingmachine.com/) is a web and mobile agency based in Paris and Lyon.
