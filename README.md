@@ -57,7 +57,7 @@ This project is released under the [MIT License](LICENSE).
 
 ## About us
 
-[TheCodingMachine](https://www.thecodingmachine.com/) is a web and mobile agency based in Paris and Lyon.
+[TheCodingMachine](https://www.thecodingmachine.com/) is a web and mobile agency based in Paris and Lyon, France. We are [constantly looking for new developers and team leaders](https://www.thecodingmachine.com/nous-rejoindre/) and we love [working with freelancers](https://coders.thecodingmachine.com/). You'll find [an overview of all our open source projects on our website](https://thecodingmachine.io/open-source) and on [Github](https://github.com/thecodingmachine).
 
 ## See also
 
