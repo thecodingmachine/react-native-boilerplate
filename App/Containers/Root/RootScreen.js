@@ -6,7 +6,7 @@ import styles from './RootScreenStyle'
 import ExampleScreen from 'App/Containers/Example/ExampleScreen'
 import SplashScreen from 'App/Containers/SplashScreen/SplashScreen'
 import { connect } from 'react-redux'
-import StartupActions from '../../Stores/Startup/Actions'
+import StartupActions from 'App/Stores/Startup/Actions'
 
 const AppNav = createStackNavigator(
   {
