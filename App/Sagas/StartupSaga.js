@@ -12,5 +12,5 @@ export function* startup() {
   // Do operation here :
   // ...
   // When operations are finished redirect to InitialPage
-  NavigationService.navigate('InitialPage')
+  NavigationService.navigateAndReset('InitialPage')
 }
