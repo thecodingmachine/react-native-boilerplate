@@ -11,7 +11,7 @@ import StartupActions from 'App/Stores/Startup/Actions'
 const AppNav = createStackNavigator(
   {
     SplashScreen: { screen: SplashScreen },
-    InitialPage: { screen: ExampleScreen },
+    MainScreen: { screen: ExampleScreen },
   },
   {
     // By default the application will show the splash screen
