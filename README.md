@@ -7,7 +7,7 @@ This boilerplate contains:
 - an empty React Native application created with `react-native init`
 - [prettier](https://prettier.io/) and [eslint](https://eslint.org/) preconfigured for React Native
 - a [directory layout](#directory-layout) for organizing the code of the application
-- a navigation using [react-native-navigation](https://github.com/wix/react-native-navigation)
+- a navigation using [react-native-navigation](https://reactnavigation.org)
 
 ## Directory layout
 
