@@ -8,6 +8,11 @@ import SplashScreen from 'App/Containers/SplashScreen/SplashScreen'
 import { connect } from 'react-redux'
 import StartupActions from 'App/Stores/Startup/Actions'
 
+/**
+ * The root screen contains the application's navigation.
+ *
+ * The navigation is handled using https://reactnavigation.org
+ */
 const AppNav = createStackNavigator(
   {
     SplashScreen: { screen: SplashScreen },
