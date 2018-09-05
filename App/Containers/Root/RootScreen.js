@@ -11,12 +11,13 @@ import StartupActions from 'App/Stores/Startup/Actions'
 /**
  * The root screen contains the application's navigation.
  *
- * The navigation is handled using https://reactnavigation.org
+ * @see https://reactnavigation.org/docs/en/hello-react-navigation.html#creating-a-stack-navigator
  */
 const AppNav = createStackNavigator(
   {
-    SplashScreen: { screen: SplashScreen },
-    MainScreen: { screen: ExampleScreen },
+    // Create the application routes here (the key is the route name, the value is the target screen)
+    SplashScreen: SplashScreen,
+    MainScreen: ExampleScreen,
   },
   {
     // By default the application will show the splash screen
