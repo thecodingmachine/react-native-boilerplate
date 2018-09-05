@@ -15,6 +15,7 @@ This boilerplate contains:
 - [`App/Images`](App/Images): images used by the application
 - [`App/Stores`](App/Stores): redux [actions, reducers and stores](https://redux.js.org/basics)
 - [`App/Sagas`](App/Sagas): redux sagas
+- [`App/Services`](App/Services): application services
 - [`App/Theme`](App/Theme): base styles for the application
 
 For more information on each directory, click the link and read the directory's README.
