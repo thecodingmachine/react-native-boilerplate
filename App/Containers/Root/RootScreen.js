@@ -14,6 +14,7 @@ const AppNav = createStackNavigator(
     InitialPage: { screen: ExampleScreen },
   },
   {
+    // By default the application will show the splash screen
     initialRouteName: 'SplashScreen',
     headerMode: 'none',
   }
