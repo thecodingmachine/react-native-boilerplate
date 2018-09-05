@@ -9,8 +9,10 @@ export function* startup() {
   // Dispatch a redux action using `put()`
   // @see https://redux-saga.js.org/docs/basics/DispatchingActions.html
   yield put(ExampleActions.fetchTemperature())
-  // Do operation here :
+
+  // Add more operations you need to do at startup here
   // ...
-  // When operations are finished redirect to InitialPage
+
+  // When those operations are finished we redirect to the main screen
   NavigationService.navigateAndReset('InitialPage')
 }
