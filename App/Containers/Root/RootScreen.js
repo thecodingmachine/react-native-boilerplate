@@ -16,7 +16,7 @@ const AppNav = createStackNavigator(
   {
     initialRouteName: 'SplashScreen',
     headerMode: 'none',
-  }
+  },
 )
 
 class RootScreen extends Component {
@@ -37,6 +37,7 @@ class RootScreen extends Component {
     )
   }
 }
+
 const mapStateToProps = (state) => ({})
 
 const mapDispatchToProps = (dispatch) => ({
