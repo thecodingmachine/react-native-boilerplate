@@ -16,7 +16,7 @@ const AppNav = createStackNavigator(
   {
     initialRouteName: 'SplashScreen',
     headerMode: 'none',
-  },
+  }
 )
 
 class RootScreen extends Component {
