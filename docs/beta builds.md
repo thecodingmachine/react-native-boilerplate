@@ -39,7 +39,7 @@ sudo gem install fastlane -NV
 
 Before continuing make sure you have:
 
-- [ ] Xcode 9 or higher
+- [ ] Install all [required dependencies](https://facebook.github.io/react-native/docs/getting-started.html#installing-dependencies), with Xcode 9 or higher
 - [ ] Choose the [bundle identifier](https://cocoacasts.com/what-are-app-ids-and-bundle-identifiers/) of your app (for example `com.tcm.boilerplate`)
 - [ ] An Apple ID with an admin user, with its username (email, for example `dev-team@yourcompany.com`) and password
 - [ ] Your app name, if not already created on the Developer Portal (for example `TCM React Native Boilerplate`). Fastlane can create applications in the Developer Portal and App Store Connect, so it's recommended to let Fastlane do the job for you.
@@ -185,10 +185,12 @@ fastlane beta
 Before continuing make sure you have:
 
 - [ ] An Google Play Console account with an admin rights, with its username (email, for example `dev-team@yourcompany.com`) and password
-- [ ] Your app name, if not already created on Google Play (for example `TCM React Native Boilerplate`). Fastlane can create applications in the Google Play Console so it's recommended to let Fastlane do the job for you.
+- [ ] Unlike for iOS, Fastlane can't create applications in the Google Play Console. You must create your application before in the Google Play Console
 - [ ] Use the right [.gitignore](android/.gitignore) file inside the `android` directory
-- [Collect your Google Credentials](https://docs.fastlane.tools/getting-started/android/setup/#collect-your-google-credentials) :warning: hl=en
-Créer le fichier dans un dossier /builds/api-7464680612454675996-156274-380a41c4a589
+- [ ] [Collect your Google Credentials](https://docs.fastlane.tools/getting-started/android/setup/#collect-your-google-credentials) 
+:warning: In the Google Play Console, add the parameter `&hl=en` at the end of the URL (before any #) to switch to English. In some languages, the "Create Service Account" will not be able.
+Download the JSON key file, and copy it into `my-project/android/key.json`
+- [ ] Install [all dependencies](https://facebook.github.io/react-native/docs/getting-started.html#installing-dependencies-1) for macOS and Android
 
 
 ### Setting up
@@ -205,6 +207,54 @@ The following questions will be asked:
 * `Package Name (com.krausefx.app)`
   * Our answer is `com.tcm.boilerplate`
 * `Path to the json secret file`
-  * ./key.json
+  * Type `key.json` (path to the file previously created in the Prerequisites step)
 * Download existing metadata and setup metadata management?
   * y
+
+Fastlane will then give you some information about git, the files it will create, etc. Just type `enter` to continue.
+
+Congrats! Fastlane has created some files.  
+If you are using Git, commit all generated files.
+
+Once the setup has finished you can see a new folder inside the `ios` folder:
+```
+ - fastlane/
+   - Appfile
+   - Fastfile
+```
+
+`Appfile` contains identifiers used to connect to the Google Play Console and the link to the `key.json` file.
+You can read more about this file [here](https://docs.fastlane.tools/advanced/#appfile).
+
+`Fastfile` contains all actions you can launch.
+You can read more about this file [here](https://docs.fastlane.tools/actions).  
+A `beta` [lane](https://docs.fastlane.tools/advanced/lanes/) a `deploy` lane and a `test` are available by default.  
+
+You can remove the `deploy` lane to avoid some mistakes, and replace the `beta` lane by the following:
+```
+  desc "Submit a new Beta Build to Play Store"
+  lane :beta do
+    gradle(
+      task: 'assemble',
+      build_type: 'Release'
+    )
+    upload_to_play_store(
+      track: 'beta'
+    )
+```
+
+
+### Creating a beta build
+
+Creating a beta build and uploading it on Google Play is now really easy.  
+Just type the following:
+
+```
+cd my-project/ios
+fastlane beta
+```
+
+If you have a `Permission denied` issue, please run:
+```
+chmod a+x /my-project/android/gradlew
+```
