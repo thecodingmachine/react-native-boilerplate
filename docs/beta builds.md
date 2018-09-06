@@ -250,7 +250,7 @@ Creating a beta build and uploading it on Google Play is now really easy.
 Just type the following:
 
 ```
-cd my-project/ios
+cd my-project/android
 fastlane beta
 ```
 
