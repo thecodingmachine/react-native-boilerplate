@@ -258,3 +258,10 @@ If you have a `Permission denied` issue, please run:
 ```
 chmod a+x /my-project/android/gradlew
 ```
+
+## Troubleshooting
+
+### Stuck at `bundle install` running `fastlane init`
+
+If the `fastlane init` process is stuck when running `bundle install` it may mean that `bundle install` is asking for root permissions.  
+You can stop the process and retry again with `sudo fastlane init`, however you will need to change back ownership of the generated files to your user when it finishes (`sudo chown <your-user> <files>`).
