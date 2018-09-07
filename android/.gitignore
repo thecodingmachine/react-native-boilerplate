@@ -10,5 +10,5 @@ fastlane/screenshots
 # scan temporary files
 fastlane/test_output
 
-# Faslane builds
+# Fastlane builds
 builds/*
