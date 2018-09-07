@@ -85,8 +85,6 @@ Would you like to fallback to a manual Fastfile? (y/n)
 Answer `n`, and retry previous steps with a correct Apple ID and password.  
 Make sure you are connected to internet.
 
-If the `fastlane init` process is stuck when running `bundle install` it may mean that `bundle install` is asking for root permissions. You can stop the process and retry again with `sudo fastlane init`, however you will need to change back ownership of the generated files to your user when it finishes (`sudo chown <your-user> <files>`).
-
 * If your account has multiple teams in the App Store Connect, you may have this question: `Multiple App Store Connect teams found, please enter the number of the team you want to use:`
   * Select the right team 
 * If your account has multiple teams in the Developer Portal, you may have this question: `Multiple teams found on the Developer Portal, please enter the number of the team you want to use:`
@@ -188,3 +186,11 @@ Before continuing make sure you have:
 
 - [ ] This thing
 - [ ] This thing
+
+
+## Troubleshooting
+
+### Stuck at `bundle install` running `fastlane init`
+
+If the `fastlane init` process is stuck when running `bundle install` it may mean that `bundle install` is asking for root permissions.  
+You can stop the process and retry again with `sudo fastlane init`, however you will need to change back ownership of the generated files to your user when it finishes (`sudo chown <your-user> <files>`).
