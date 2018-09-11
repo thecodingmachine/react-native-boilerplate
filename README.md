@@ -34,22 +34,31 @@ For more information on each directory, click the link and read the directory's 
 
 ## Requirements
 
-Node 8 or greater is required. Development for iOS requires Xcode 9 or up and will target iOS 9 and up.
+Node 8 or greater is required. Development for iOS requires a Mac and Xcode 9 or up, and will target iOS 9 and up.
 
-## Installation
-
-First install all the dependencies required by React Native:
+You also need to install the dependencies required by React Native:
 
 - for [Android development](https://facebook.github.io/react-native/docs/getting-started.html#installing-dependencies-3)
 - for [iOS development](https://facebook.github.io/react-native/docs/getting-started.html#installing-dependencies)
 
-Then:
+## Usage
+
+To create a new project using the boilerplate:
 
 - clone this repository
 - remove the previous git history: `rm -rf .git/`
 - rename the React Native project to your own project name: `npm run rename -- <YourProjectName>` (the default name is `Boilerplate`)
+- remove the LICENSE file and the License section from the README if your project is not open source
 
-You can now start the application, for example with `react-native run-android`.
+Feel free to remove this section from the README as you will no longer need it in your project. You are encouraged to keep the rest of the documentation in your project so that it is self-explanatory.
+
+## Running the project
+
+Assuming you have all the requirements installed, you can setup and run the project by running:
+
+- `yarn install` to install the dependencies
+- `react-native run-android` to run the Android application (remember to start a simulator or connect an Android phone)
+- `react-native run-ios` to run the iOS application (remember to start a simulator or connect an iPhone phone)
 
 ## License
 
