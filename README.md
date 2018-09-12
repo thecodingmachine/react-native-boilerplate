@@ -24,6 +24,7 @@ The boilerplate will follow new React-Native releases as soon as libraries and t
 ## Directory layout
 
 - [`App/Components`](App/Components): presentational components
+- [`App/Config`](App/Config): configuration of the application
 - [`App/Containers`](App/Containers): container components
 - [`App/Images`](App/Images): images used by the application
 - [`App/Stores`](App/Stores): redux [actions, reducers and stores](https://redux.js.org/basics)
@@ -41,22 +42,26 @@ You also need to install the dependencies required by React Native:
 - for [Android development](https://facebook.github.io/react-native/docs/getting-started.html#installing-dependencies-3)
 - for [iOS development](https://facebook.github.io/react-native/docs/getting-started.html#installing-dependencies)
 
-## Usage
+## Using the boilerplate
 
 To create a new project using the boilerplate:
 
 - clone this repository
 - remove the previous git history: `rm -rf .git/`
+- install the npm dependencies by running `yarn`
 - rename the React Native project to your own project name: `npm run rename -- <YourProjectName>` (the default name is `Boilerplate`)
-- remove the LICENSE file and the License section from the README if your project is not open source
+- remove the LICENSE file and the "License" section from the README if your project is not open source
 
-Feel free to remove this section from the README as you will no longer need it in your project. You are encouraged to keep the rest of the documentation in your project so that it is self-explanatory.
+Feel free to remove the section "Using the boilerplate" from the README (you will not need it anymore in your project). You are encouraged to keep the rest of the documentation in your project so that it is self-explanatory.
+
+You can now create a new git repository for your project (using `git init`) and create the first commit.
 
 ## Running the project
 
 Assuming you have all the requirements installed, you can setup and run the project by running:
 
 - `yarn install` to install the dependencies
+- create your [configuration file `App/Config/index.js`](App/Config) from `index.dev.js` (in you are in dev environment) and fill the missing values
 - `react-native run-android` to run the Android application (remember to start a simulator or connect an Android phone)
 - `react-native run-ios` to run the iOS application (remember to start a simulator or connect an iPhone phone)
 
