@@ -60,6 +60,12 @@ Assuming you have all the requirements installed, you can setup and run the proj
 - `react-native run-android` to run the Android application (remember to start a simulator or connect an Android phone)
 - `react-native run-ios` to run the iOS application (remember to start a simulator or connect an iPhone phone)
 
+## Useful documentation
+
+### Distribute beta builds
+
+[Distributing beta builds](docs/beta%20builds.md)
+
 ## License
 
 This project is released under the [MIT License](LICENSE).
