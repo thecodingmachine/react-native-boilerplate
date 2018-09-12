@@ -2,6 +2,9 @@ import { create } from 'apisauce'
 import { Config } from 'App/Config'
 
 const weatherApiClient = create({
+  /**
+   * Import the config from the App/Config/index.js file
+   */
   baseURL: Config.API_URL,
   headers: {
     Accept: 'application/json',
