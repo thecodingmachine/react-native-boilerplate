@@ -29,7 +29,7 @@ The boilerplate will follow new React-Native releases as soon as libraries and t
 - [`App/Containers`](App/Containers): container components
 - [`App/Images`](App/Images): images used by the application
 - [`App/Stores`](App/Stores): redux [actions, reducers and stores](https://redux.js.org/basics)
-- [`App/Sagas`](App/Sagas): redux sagas
+- [`App/Saga`](App/Sagas): redux sagas
 - [`App/Services`](App/Services): application services
 - [`App/Theme`](App/Theme): base styles for the application
 
