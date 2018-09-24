@@ -184,12 +184,12 @@ fastlane beta
 
 Before continuing make sure you have:
 
-- [ ] A Google Play Console account with an admin rights, with its username (email, for example `dev-team@yourcompany.com`) and password
-- [ ] Unlike for iOS, Fastlane can't create applications in the Google Play Console. You must create your application before in the Google Play Console
-- [ ] Use the right [.gitignore](android/.gitignore) file inside the `android` directory
+- [ ] A Google Play Console *admin* account and its username (email, for example `dev-team@yourcompany.com`) and password
+- [ ] Create your application in the Google Play Console (unlike for iOS Fastlane cannot do that for you)
+- [ ] Use the right [.gitignore](android/.gitignore) file inside the `android` directory (if you are using this boilerplate you are good to go)
 - [ ] [Collect your Google Credentials](https://docs.fastlane.tools/getting-started/android/setup/#collect-your-google-credentials)  
-:warning: In the Google Play Console, add the parameter `&hl=en` at the end of the URL (before any #) to switch to English. In some languages, the "Create Service Account" will not be able.  
-Download the JSON key file, and copy it into `my-project/android/key.json`
+    :warning: In the Google Play Console, add the parameter `&hl=en` at the end of the URL (before any #) to switch to English. In some languages, the "Create Service Account" will not be available. 
+    Download the JSON key file, and copy it into `my-project/android/key.json`
 - [ ] Install [all dependencies](https://facebook.github.io/react-native/docs/getting-started.html#installing-dependencies-1) for macOS and Android
 
 
