@@ -16,6 +16,7 @@ The boilerplate contains:
 - [reduxsauce](https://github.com/infinitered/reduxsauce) (v0.7) to facilitate using Redux
 - [apisauce](https://github.com/infinitered/apisauce) (v0.15) to make [axios](https://github.com/axios/axios) even better
 - [prettier](https://prettier.io/) and [eslint](https://eslint.org/) preconfigured for React Native
+- [react-native-navigation](https://reactnavigation.org) (v2.12) with a [`NavigationService`](App/Services/NavigationService.js) for the application's navigation
 
 ## Updates
 
@@ -29,6 +30,7 @@ The boilerplate will follow new React-Native releases as soon as libraries and t
 - [`App/Images`](App/Images): images used by the application
 - [`App/Stores`](App/Stores): redux [actions, reducers and stores](https://redux.js.org/basics)
 - [`App/Sagas`](App/Sagas): redux sagas
+- [`App/Services`](App/Services): application services
 - [`App/Theme`](App/Theme): base styles for the application
 
 For more information on each directory, click the link and read the directory's README.
