@@ -16,7 +16,7 @@ The boilerplate contains:
 - [reduxsauce](https://github.com/infinitered/reduxsauce) (v0.7) to facilitate using Redux
 - [apisauce](https://github.com/infinitered/apisauce) (v0.15) to make [axios](https://github.com/axios/axios) even better
 - [prettier](https://prettier.io/) and [eslint](https://eslint.org/) preconfigured for React Native
-- [react-native-navigation](https://reactnavigation.org) (v2.12) for the application's navigation
+- [react-native-navigation](https://reactnavigation.org) (v2.12) with a [`NavigationService`](App/Services/NavigationService.js) for the application's navigation
 
 ## Updates
 

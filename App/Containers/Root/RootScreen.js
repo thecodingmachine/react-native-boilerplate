@@ -16,12 +16,14 @@ import StartupActions from 'App/Stores/Startup/Actions'
 const AppNav = createStackNavigator(
   {
     // Create the application routes here (the key is the route name, the value is the target screen)
+    // See https://reactnavigation.org/docs/en/stack-navigator.html#routeconfigs
     SplashScreen: SplashScreen,
     MainScreen: ExampleScreen,
   },
   {
     // By default the application will show the splash screen
     initialRouteName: 'SplashScreen',
+    // See https://reactnavigation.org/docs/en/stack-navigator.html#stacknavigatorconfig
     headerMode: 'none',
   }
 )
@@ -36,6 +38,7 @@ class RootScreen extends Component {
     return (
       <View style={styles.container}>
         <AppNav
+          // Initialize the NavigationService (see https://reactnavigation.org/docs/en/navigating-without-navigation-prop.html)
           ref={(navigatorRef) => {
             NavigationService.setTopLevelNavigator(navigatorRef)
           }}
