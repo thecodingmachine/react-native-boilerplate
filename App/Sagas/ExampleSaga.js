@@ -6,6 +6,7 @@ import { WeatherService } from 'App/Services/WeatherService'
  * A saga can contain multiple functions.
  *
  * This example saga contains only one to fetch the weather temperature.
+ * Feel free to remove it.
  */
 export function* fetchTemperature() {
   // Dispatch a redux action using `put()`

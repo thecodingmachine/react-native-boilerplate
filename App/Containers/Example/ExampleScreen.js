@@ -6,6 +6,13 @@ import ExampleActions from 'App/Stores/Example/Actions'
 import { isHot } from 'App/Stores/Example/Selectors'
 import Style from './ExampleScreenStyle'
 
+/**
+ * This is an example of a container component.
+ *
+ * This screen displays a little help message and shows the weather temperature.
+ * Feel free to remove it.
+ */
+
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\nCmd+D or shake for dev menu.',
   android: 'Double tap R on your keyboard to reload,\nShake or press menu button for dev menu.',
