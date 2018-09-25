@@ -24,7 +24,7 @@ class ExampleScreen extends React.Component {
 
     return (
       <View style={Style.container}>
-        <Text style={Style.title}>Welcome to React Native!</Text>
+        <Text style={Style.title}>TheCodingMachine boilerplate</Text>
         <Text style={Style.text}>To get started, edit App.js</Text>
         <Text style={Style.text}>{instructions}</Text>
         <Text style={Style.text}>The weather temperature is: {temperature}</Text>
