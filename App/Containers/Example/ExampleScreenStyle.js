@@ -5,11 +5,14 @@ import ApplicationStyles from 'App/Theme/ApplicationStyles'
 export default StyleSheet.create({
   container: {
     ...ApplicationStyles.screen.container,
+    margin: 30,
+    flex: 1,
+    justifyContent: 'center',
   },
   title: {
-    ...Fonts.style.h1,
+    ...Fonts.style.h2,
     textAlign: 'center',
-    margin: 10,
+    marginBottom: 10,
   },
   text: {
     ...Fonts.style.normal,
