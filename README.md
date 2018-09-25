@@ -8,15 +8,15 @@ The boilerplate provides **an architecture optimized for building solid applicat
 
 The boilerplate contains:
 
-- an "[ejected](https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md)" React Native application (v0.55) created with `react-native init`
+- a [React Native](https://facebook.github.io/react-native/) application (in "[ejected](https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md)" mode to allow using dependencies that rely on native code)
 - a [clear directory layout](#directory-layout) to provide a base architecture for your application
 - [Redux](https://redux.js.org/) (v3.7) to help manage state
 - [Redux Persist](https://github.com/rt2zz/redux-persist) (v5.9) to persist the Redux state
 - [Redux Sagas](https://redux-saga.js.org) (v5.0) to separate side-effects and logic from state and UI logic
+- [React Navigation](https://reactnavigation.org/) (v2.12) with a [`NavigationService`](App/Services/NavigationService.js) to handle routing and navigation in the app, with a splash screen setup by default
 - [reduxsauce](https://github.com/infinitered/reduxsauce) (v0.7) to facilitate using Redux
 - [apisauce](https://github.com/infinitered/apisauce) (v0.15) to make [axios](https://github.com/axios/axios) even better
 - [prettier](https://prettier.io/) and [eslint](https://eslint.org/) preconfigured for React Native
-- [react-native-navigation](https://reactnavigation.org) (v2.12) with a [`NavigationService`](App/Services/NavigationService.js) for the application's navigation
 
 ## Updates
 
@@ -26,11 +26,11 @@ The boilerplate will follow new React-Native releases as soon as libraries and t
 
 - [`App/Components`](App/Components): presentational components
 - [`App/Config`](App/Config): configuration of the application
-- [`App/Containers`](App/Containers): container components
+- [`App/Containers`](App/Containers): container components, i.e. the application's screens
 - [`App/Images`](App/Images): images used by the application
+- [`App/Sagas`](App/Sagas): redux sagas
+- [`App/Services`](App/Services): application services, e.g. API clients
 - [`App/Stores`](App/Stores): redux [actions, reducers and stores](https://redux.js.org/basics)
-- [`App/Saga`](App/Sagas): redux sagas
-- [`App/Services`](App/Services): application services
 - [`App/Theme`](App/Theme): base styles for the application
 
 For more information on each directory, click the link and read the directory's README.
@@ -51,7 +51,7 @@ To create a new project using the boilerplate:
 - clone this repository
 - remove the previous git history: `rm -rf .git/`
 - install the npm dependencies by running `yarn`
-- rename the React Native project to your own project name: `npm run rename -- <YourProjectName>` (the default name is `Boilerplate`)
+- rename the React Native project to your own project name: `yarn run rename -- <YourProjectName>` (the default name is `Boilerplate`)
 - remove the LICENSE file and the "License" section from the README if your project is not open source
 
 Feel free to remove the section "Using the boilerplate" from the README (you will not need it anymore in your project). You are encouraged to keep the rest of the documentation in your project so that it is self-explanatory.
