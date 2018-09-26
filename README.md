@@ -2,7 +2,7 @@
 
 This project is a [React Native](https://facebook.github.io/react-native/) boilerplate that can be used to kickstart a mobile application.
 
-The boilerplate provides **an architecture optimized for building solid applications** through separation of concerns between the UI and business logic. It is extremely documented so that each piece of code that lands in your application can be understood and used.
+The boilerplate provides **an architecture optimized for building solid cross-platform mobile applications** through separation of concerns between the UI and business logic. It is extremely documented so that each piece of code that lands in your application can be understood and used.
 
 ## Architecture
 
