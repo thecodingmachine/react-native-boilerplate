@@ -32,7 +32,7 @@ The driving goal of the architecture of the boilerplate is separation of concern
 
 The boilerplate contains:
 
-- a [React Native](https://facebook.github.io/react-native/) application (in "[ejected](https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md)" mode to allow using dependencies that rely on native code)
+- a [React Native](https://facebook.github.io/react-native/) (v0.57.1) application (in "[ejected](https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md)" mode to allow using dependencies that rely on native code)
 - a [clear directory layout](#directory-layout) to provide a base architecture for your application
 - [Redux](https://redux.js.org/) (v3.7) to help manage state
 - [Redux Persist](https://github.com/rt2zz/redux-persist) (v5.9) to persist the Redux state

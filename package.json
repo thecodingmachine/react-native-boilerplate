@@ -15,8 +15,8 @@
     "apisauce": "^0.15.2",
     "immutable": "^3.8.2",
     "prop-types": "^15.6.1",
-    "react": "16.3.1",
-    "react-native": "0.55.4",
+    "react": "16.5.0",
+    "react-native": "0.57.1",
     "react-navigation": "^2.12.1",
     "react-redux": "^5.0.7",
     "redux": "^3.7.2",
@@ -26,8 +26,9 @@
     "reduxsauce": "^0.7.0"
   },
   "devDependencies": {
+    "babel-core": "7.0.0-bridge.0",
     "babel-jest": "23.2.0",
-    "babel-preset-react-native": "4.0.0",
+    "metro-react-native-babel-preset": "^0.45.0",
     "eslint": "^4.19.1",
     "eslint-config-prettier": "^2.9.0",
     "eslint-config-standard": "^11.0.0",
