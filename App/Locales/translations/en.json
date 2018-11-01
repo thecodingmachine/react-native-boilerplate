@@ -1,0 +1,23 @@
+{
+  "general": {
+    "refresh": "Refresh"
+  },
+  "login": {
+    "welcome": "Welcome {{name}} to our localized app!",
+    "login_button": "Login",
+    "signup_button": "Sign Up"
+  },
+  "user_profile": {
+    "title": "Your Profile"  
+  }, 
+  "welcome": {
+    "instructions" : {
+      "ios": "Press Cmd+R to reload,\nCmd+D or shake for dev menu.",
+      "android": "Double tap R on your keyboard to reload,\nShake or press menu button for dev menu."
+    },
+    "title": "TheCodingMachine boilerplate",
+    "toGetStarted": "To get started, edit App.js",
+    "temperatureIs": "The weather temperature is",
+    "isHot": "It's pretty hot!"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "general": {
+    "refresh": "Refresh"
+  },  
+  "login": {
+    "welcome": "Bienvenido {{name}} a nuestra app con localizacion!",
+    "login_button": "Login",
+    "signup_button": "Sign Up"
+  },
+  "user_profile": {
+    "title": "Tu Profile"  
+  }, 
+  "welcome": {
+    "instructions" : {
+      "ios": "Presione Cmd+R para releer,\nCmd+D o shake para acceder al menu dev.",
+      "android": "Double tap R en su teclado para releer,\nShake o presiones el boton menu para acceder al menu  dev."
+    },
+    "title": "TheCodingMachine boilerplate",
+    "toGetStarted": "Para comenzar edite App.js",
+    "temperatureIs": "La temperatura actual es: ",
+    "isHot": "Hace un calorononon!"
+  }    
+}

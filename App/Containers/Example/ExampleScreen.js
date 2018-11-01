@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import ExampleActions from 'App/Stores/Example/Actions'
 import { isHot } from 'App/Stores/Example/Selectors'
+import i18n from 'App/Locales/i18n'
 import Style from './ExampleScreenStyle'
 
 /**
@@ -14,8 +15,8 @@ import Style from './ExampleScreenStyle'
  */
 
 const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\nCmd+D or shake for dev menu.',
-  android: 'Double tap R on your keyboard to reload,\nShake or press menu button for dev menu.',
+  ios: i18n.t('welcome.instructions.ios'),
+  android: i18n.t('welcome.instructions.android'),
 })
 
 class ExampleScreen extends React.Component {
@@ -31,13 +32,13 @@ class ExampleScreen extends React.Component {
 
     return (
       <View style={Style.container}>
-        <Text style={Style.title}>TheCodingMachine boilerplate</Text>
-        <Text style={Style.text}>To get started, edit App.js</Text>
+        <Text style={Style.title}>{i18n.t('welcome.title')}</Text>
+        <Text style={Style.text}>{i18n.t('welcome.toGetStarted')}</Text>
         <Text style={Style.text}>{instructions}</Text>
-        <Text style={Style.text}>The weather temperature is: {temperature}</Text>
-        <Text style={Style.text}>{this.props.isHot ? "It's pretty hot!" : ''}</Text>
+        <Text style={Style.text}>{`${i18n.t('welcome.temperatureIs')} : ${temperature}`}</Text>
+        <Text style={Style.text}>{this.props.isHot ? i18n.t('welcome.isHot') : ''}</Text>
         <Text style={Style.text}>{this.props.temperatureErrorMessage}</Text>
-        <Button onPress={this.props.fetchTemperature} title="Refresh" />
+        <Button onPress={this.props.fetchTemperature} title={i18n.t('general.refresh')} />
       </View>
     )
   }

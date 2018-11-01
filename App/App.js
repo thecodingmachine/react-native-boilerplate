@@ -1,12 +1,26 @@
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/lib/integration/react'
+import RNLanguages from 'react-native-languages'
 import createStore from 'App/Stores'
+import i18n from 'App/Locales/i18n'
 import RootScreen from './Containers/Root/RootScreen'
 
 const { store, persistor } = createStore()
 
 export default class App extends Component {
+  componentWillMount() {
+    RNLanguages.addEventListener('change', this._onLanguagesChange);
+  }
+
+  componentWillUnmount() {
+    RNLanguages.removeEventListener('change', this._onLanguagesChange)
+  }
+
+  _onLanguagesChange({ language }) {
+    i18n.locale = language
+  }
+
   render() {
     return (
       /**
