@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import { createStackNavigator } from 'react-navigation'
 import NavigationService from 'App/Services/NavigationService'
-import { View } from 'react-native'
-import styles from './RootScreenStyle'
-import ExampleScreen from 'App/Containers/Example/ExampleScreen'
-import SplashScreen from 'App/Containers/SplashScreen/SplashScreen'
+import ExampleContainer from 'App/Containers/ExampleContainer'
+import SplashContainer from 'App/Containers/SplashContainer'
+import RootScreen from 'App/Screens/Root'
 import { connect } from 'react-redux'
 import StartupActions from 'App/Stores/Startup/Actions'
 
@@ -17,10 +16,8 @@ const AppNav = createStackNavigator(
   {
     // Create the application routes here (the key is the route name, the value is the target screen)
     // See https://reactnavigation.org/docs/en/stack-navigator.html#routeconfigs
-    SplashScreen: SplashScreen,
-    // The main application screen is our "ExampleScreen". Feel free to replace it with your
-    // own screen and remove the example.
-    MainScreen: ExampleScreen,
+    SplashScreen: SplashContainer,
+    MainScreen: ExampleContainer,
   },
   {
     // By default the application will show the splash screen
@@ -30,7 +27,7 @@ const AppNav = createStackNavigator(
   }
 )
 
-class RootScreen extends Component {
+class RootContainer extends Component {
   componentDidMount() {
     // Run the startup saga when the application is starting
     this.props.startup()
@@ -38,14 +35,14 @@ class RootScreen extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <RootScreen>
         <AppNav
           // Initialize the NavigationService (see https://reactnavigation.org/docs/en/navigating-without-navigation-prop.html)
           ref={(navigatorRef) => {
             NavigationService.setTopLevelNavigator(navigatorRef)
           }}
         />
-      </View>
+      </RootScreen>
     )
   }
 }
@@ -59,4 +56,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(RootScreen)
+)(RootContainer)

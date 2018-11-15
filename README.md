@@ -48,7 +48,8 @@ The boilerplate includes an example (displaying the current weather temperature)
 
 - [`App/Components`](App/Components): presentational components
 - [`App/Config`](App/Config): configuration of the application
-- [`App/Containers`](App/Containers): container components, i.e. the application's screens
+- [`App/Containers`](App/Containers): container components, i.e. the application's screens logic
+- [`App/Screens`](App/Screens): Screens components, i.e. the application's screens
 - [`App/Images`](App/Images): images used by the application
 - [`App/Sagas`](App/Sagas): redux sagas
 - [`App/Services`](App/Services): application services, e.g. API clients
