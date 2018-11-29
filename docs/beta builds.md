@@ -106,8 +106,6 @@ Fastlane will then give you some information about git, the files it will create
 
 If you are using Git, commit all generated files.
 
-Before running any Fastlane command
-
 Once the setup has finished you can see a new folder inside the `ios` folder:
 ```
  - fastlane/
