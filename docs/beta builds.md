@@ -223,6 +223,8 @@ The following questions will be asked:
 
 Fastlane will then give you some information about git, the files it will create, etc. Just type `enter` to continue.
 
+Also make sure that you have the my-release-key.keystore in the android folder. (TODO: how to get the file)
+
 Congrats! Fastlane has created some files.  
 If you are using Git, commit all generated files.
 
