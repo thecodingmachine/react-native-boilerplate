@@ -268,7 +268,7 @@ As you can see, we need to sign our APK with a signing key.
 Don't worry, we will generate it in a moment, let's just explain what the lane do.
 
 First, script ask the user two values : signing store and alias key passwords, with the [`prompt`](https://docs.fastlane.tools/actions/prompt/) fastlane plugin.
-Asking the user thoses password ensure that no secret keys are stored into your app.  
+Asking the user those passwords ensure that no secret keys are stored into your app.  
 Then, this lane clean your project, assemble the application, automatically injecting signing configuration at runtime, before uploading it in the Google Play Store.  
 Upload is made `internaly`, that means only internal testers will be allowed to download the app. You can learn more about different test types [here](https://support.google.com/googleplay/android-developer/answer/3131213).
 
