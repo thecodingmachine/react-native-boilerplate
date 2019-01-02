@@ -70,6 +70,7 @@ You also need to install the dependencies required by React Native:
 - for [Android development](https://facebook.github.io/react-native/docs/getting-started.html#installing-dependencies-3)
 - for [iOS development](https://facebook.github.io/react-native/docs/getting-started.html#installing-dependencies)
 
+
 ## Using the boilerplate
 
 To create a new project using the boilerplate:
@@ -95,9 +96,14 @@ Assuming you have all the requirements installed, you can setup and run the proj
 
 ## Useful documentation
 
-### Distribute beta builds
+### Deployment
 
 [Distributing beta builds](docs/beta%20builds.md)
+
+
+### Package dependencies
+
+[Using CocoaPods to manage your packages](docs/setup%20cocoapods.md)
 
 ## License
 
