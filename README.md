@@ -98,12 +98,14 @@ Assuming you have all the requirements installed, you can setup and run the proj
 
 ### Deployment
 
-[Distributing beta builds](docs/beta%20builds.md)
+- Using [Fastlane](https://fastlane.tools/) to automate builds and store deployments (iOS and Android)
+  - [Distributing beta builds](docs/beta%20builds.md)
 
 
 ### Package dependencies
 
-[Using CocoaPods to manage your packages](docs/setup%20cocoapods.md)
+- You may want to use [CocoaPods](https://cocoapods.org/) to manage your dependencies (iOS only) 
+  - [Using CocoaPods to manage your package dependencies](docs/setup%20cocoapods.md)
 
 ## License
 

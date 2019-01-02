@@ -1,14 +1,12 @@
 # Setup CocoaPods
 
 [CocoaPods](https://cocoapods.org/) is a package management tool for iOS and macOS development.  
-You can use it to add the actual React Native framework code into our project, and especially to manage thirdparties packages.
+You can use it to add the actual React Native framework code into our project, and especially to manage thirdparty packages.
 
 In this boilerplate, we don't want to make CocoaPods as a required tool.  
 But if you planned to manage a lot of thirdparty dependencies, it should be a really good idea to follow this guide. 
 
-Finally, I didn't specify it yet, but this tool is for iOS dependencies only. On Android, react-native linking is enought.
-
-_You can read more why using CocoaPods can help you to avoid a lot of constraints [on this great article](https://engineering.brigad.co/demystifying-react-native-modules-linking-ae6c017a6b4a) from Brigad._
+Finally, we didn't specify it yet, but this tool is for iOS dependencies only. On Android, `react-native linking` seems to be enought.
 
 
 ## Setup CocoaPods
@@ -19,7 +17,7 @@ brew install cocoapods
 ```
 
 Then simply create a `Podfile` file, which will be the configuration file of all your dependencies.  
-The easiest way is bu running :
+The easiest way is by running :
 ```bash
 cd ios
 pod init
@@ -30,7 +28,7 @@ pod init
 ### React Native framework
 
 One of the main thing you must know about using CocoaPods, is that we need to manage React itself as a pod dependency to make it works well.  
-It means that you can decide what parts of React Native framework you would like to integrate into your app. So you must not forget to append each React Native `subspec` inside the [podfile]().  
+It means that you can decide what parts of React Native framework you would like to integrate into your app. So you must not forget to append each React Native `subspec` inside the `Podfile`.    
 This part is fully explained in the [official React Native documentation](https://facebook.github.io/react-native/docs/integration-with-existing-apps#configuring-cocoapods-dependencies)
 
 So, add the following into your `Podfile` :
@@ -85,4 +83,11 @@ That's all ! :tada:
 
 
 - You must always use the `.xcworkspace` file inside Xcode instead of the `.xcodeproj` one.
-- Sometimes, running `react-native link  will automatically try to perform a pod install. Read carefuly each thirdparty package install doc.
+- Sometimes, running `react-native link  will automatically try to perform a pod install. Read carefuly each thirdparty package install doc.`
+
+---
+
+More resources :
+- [Demystifying react-native modules linking](https://engineering.brigad.co/demystifying-react-native-modules-linking-ae6c017a6b4a)
+- [Configuring CocoaPods dependencies](https://facebook.github.io/react-native/docs/integration-with-existing-apps#configuring-cocoapods-dependencies)
+- [Beginner’s Guide to Using CocoaPods with React Native](https://shift.infinite.red/beginner-s-guide-to-using-cocoapods-with-react-native-46cb4d372995)
