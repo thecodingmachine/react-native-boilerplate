@@ -6,7 +6,7 @@ You can use it to add the actual React Native framework code into our project, a
 In this boilerplate, we don't want to make CocoaPods as a required tool.  
 But if you planned to manage a lot of thirdparty dependencies, it should be a really good idea to follow this guide. 
 
-Finally, we didn't specify it yet, but this tool is for iOS dependencies only. On Android, `react-native linking` seems to be enought.
+Finally, we didn't specify it yet, but this tool is for iOS dependencies only. On Android, `react-native linking` seems to be enough.
 
 
 ## Setup CocoaPods
