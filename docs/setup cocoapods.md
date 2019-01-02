@@ -83,7 +83,7 @@ That's all ! :tada:
 
 
 - You must always use the `.xcworkspace` file inside Xcode instead of the `.xcodeproj` one.
-- Sometimes, running `react-native link  will automatically try to perform a pod install. Read carefuly each thirdparty package install doc.`
+- Sometimes, running `react-native link`  will automatically try to perform a pod install. Read carefuly each thirdparty package install doc.`
 
 ---
 
