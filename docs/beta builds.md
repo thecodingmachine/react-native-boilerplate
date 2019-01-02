@@ -244,17 +244,65 @@ You can remove the `deploy lane` to avoid some mistakes, and replace the `beta` 
 ```
   desc "Submit a new Beta Build to Play Store"
   lane :beta do
+    store_password = prompt(text: "Signing Store Password: ", secure_text: true)
+    key_password = prompt(text: "Alias Key Password: ", secure_text: true)
+    releaseFilePath = File.join(Dir.pwd, "..", "my-release-key.keystore")
+    gradle(task: 'clean')
     gradle(
       task: 'assemble',
-      build_type: 'Release'
+      build_type: 'Release',
+      print_command: false,
+      properties: {
+        "android.injected.signing.store.file" => releaseFilePath,
+        "android.injected.signing.store.password" => store_password,
+        "android.injected.signing.key.alias" => "my-key-alias",
+        "android.injected.signing.key.password" => key_password,
+      }
     )
     upload_to_play_store(
-      track: 'beta'
+      track: 'internal'
     )
 ```
 
+As you can see, we need to sign our APK with a signing key.
+Don't worry, we will generate it in a moment, let's just explain what the lane do.
+
+First, script ask the user two values : signing store and alias key passwords, with the [`prompt`](https://docs.fastlane.tools/actions/prompt/) fastlane plugin.
+Asking the user those passwords ensure that no secret keys are stored into your app.  
+Then, this lane clean your project, assemble the application, automatically injecting signing configuration at runtime, before uploading it in the Google Play Store.  
+Upload is made `internaly`, that means only internal testers will be allowed to download the app. You can learn more about different test types [here](https://support.google.com/googleplay/android-developer/answer/3131213).
+
+
+#### Generating a signing key
+
+[Official documentation](https://facebook.github.io/react-native/docs/signed-apk-android#generating-a-signing-key) well explained how to generate a signing key. 
+
+You simply need to run the following :
+```bash
+keytool -genkey -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
+```
+This command prompts you for passwords for the keystore and key and for the Distinguished Name fields for your key.  
+It then generates the keystore as a file called `my-release-key.keystore`
+
+Note: Remember to keep your keystore file private and never commit it to version control.
+
+Copy the generated `my-release-key.keystore` file into the root of `android` folder.
+
+You're now good to build and deploy !
+
 
 ### Creating a beta build
+
+:warning: The first time you deploy your application, you MUST upload it into Google Play Console `manually`.
+Google don't allow to use theirs APIs for the first upload.  
+To do this, comment the three last lines of the `Fastfile`
+```
+#upload_to_play_store(
+#      track: 'internal'
+#    )
+```
+or create a new lane without thoses lines.
+
 
 Creating a beta build and uploading it on Google Play is now really easy.  
 Just type the following:
@@ -262,11 +310,6 @@ Just type the following:
 ```
 $ cd my-project/android
 $ fastlane beta
-```
-
-If you have a `Permission denied` issue, please run:
-```
-$ chmod a+x /my-project/android/gradlew
 ```
 
 
@@ -280,6 +323,12 @@ You can stop the process and retry again with `sudo fastlane init`, however you 
 $ sudo chown <your-user> <files>
 ```
 
+### Permission denied running android beta lane
+
+If you have a `Permission denied` issue on an android beta build, please run:
+```
+$ chmod a+x /my-project/android/gradlew
+```
 
 ### Fastlane init failed
 ```
@@ -292,3 +341,7 @@ Would you like to fallback to a manual Fastfile? (y/n)
 ```
 Answer `n`, and retry previous steps with a correct Apple ID and password.  
 Make sure you are connected to internet.
+
+
+---
+If you need more informations, don't hesitate to read the [fastlane documentation](https://docs.fastlane.tools/)
