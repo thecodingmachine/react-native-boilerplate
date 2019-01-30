@@ -9,7 +9,7 @@ import Style from './ExampleScreenStyle'
 /**
  * This is an example of a container component.
  *
- * This screen displays a little help message and shows the weather temperature.
+ * This screen displays a little help message and informations about a fake user.
  * Feel free to remove it.
  */
 
@@ -20,13 +20,13 @@ const instructions = Platform.select({
 
 class ExampleScreen extends React.Component {
   componentDidMount() {
-    this.props.fetchTemperature()
+    this.props.fetchUser()
   }
 
   render() {
-    let temperature = this.props.temperatureIsLoading ? '...' : this.props.temperature
-    if (temperature === null) {
-      temperature = '??'
+    let user = this.props.userIsLoading ? '...' : this.props.user
+    if (user === null) {
+      user = '??'
     }
 
     return (
@@ -34,29 +34,34 @@ class ExampleScreen extends React.Component {
         <Text style={Style.title}>TheCodingMachine boilerplate</Text>
         <Text style={Style.text}>To get started, edit App.js</Text>
         <Text style={Style.text}>{instructions}</Text>
-        <Text style={Style.text}>The weather temperature is: {temperature}</Text>
-        <Text style={Style.text}>{this.props.isHot ? "It's pretty hot!" : ''}</Text>
-        <Text style={Style.text}>{this.props.temperatureErrorMessage}</Text>
-        <Button onPress={this.props.fetchTemperature} title="Refresh" />
+        <Text style={Style.text}>
+          {user === '...'
+            ? 'Data are loading...'
+            : this.props.userErrorMessage
+              ? this.props.userErrorMessage
+              : ''}
+        </Text>
+        <Text style={Style.text}>{user ? "I'm a fake user, my name is " + user.name : ''}.</Text>
+        <Button onPress={this.props.fetchUser} title="Refresh" />
       </View>
     )
   }
 }
 
 ExampleScreen.propsTypes = {
-  temperature: PropTypes.number,
-  temperatureErrorMessage: PropTypes.string,
+  user: PropTypes.number,
+  userIsLoading: PropTypes.bool,
+  userErrorMessage: PropTypes.string,
 }
 
 const mapStateToProps = (state) => ({
-  temperature: state.example.get('temperature'),
-  temperatureErrorMessage: state.example.get('temperatureErrorMessage'),
-  temperatureIsLoading: state.example.get('temperatureIsLoading'),
-  isHot: isHot(state),
+  user: state.example.get('user').toJS(),
+  userIsLoading: state.example.get('userIsLoading'),
+  userErrorMessage: state.example.get('userErrorMessage'),
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchTemperature: () => dispatch(ExampleActions.fetchTemperature()),
+  fetchUser: () => dispatch(ExampleActions.fetchUser()),
 })
 
 export default connect(
