@@ -1,26 +1,25 @@
 import { put, call } from 'redux-saga/effects'
 import ExampleActions from 'App/Stores/Example/Actions'
-import { WeatherService } from 'App/Services/WeatherService'
+import { userService } from 'App/Services/UserService'
 
 /**
  * A saga can contain multiple functions.
  *
- * This example saga contains only one to fetch the weather temperature.
+ * This example saga contains only one to fetch fake user informations.
  * Feel free to remove it.
  */
-export function* fetchTemperature() {
+export function* fetchUser() {
   // Dispatch a redux action using `put()`
   // @see https://redux-saga.js.org/docs/basics/DispatchingActions.html
-  yield put(ExampleActions.fetchTemperatureLoading())
+  yield put(ExampleActions.fetchUserLoading())
 
-  // Fetch the temperature from an API
-  const temperature = yield call(WeatherService.fetchTemperature)
-
-  if (temperature) {
-    yield put(ExampleActions.fetchTemperatureSuccess(temperature))
+  // Fetch user informations from an API
+  const user = yield call(userService.fetchUser)
+  if (user) {
+    yield put(ExampleActions.fetchUserSuccess(user))
   } else {
     yield put(
-      ExampleActions.fetchTemperatureFailure('There was an error while fetching the temperature.')
+      ExampleActions.fetchUserFailure('There was an error while fetching user informations.')
     )
   }
 }
