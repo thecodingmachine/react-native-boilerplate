@@ -42,7 +42,7 @@ The boilerplate contains:
 - [apisauce](https://github.com/infinitered/apisauce) (v0.15) to make [axios](https://github.com/axios/axios) even better
 - [prettier](https://prettier.io/) and [eslint](https://eslint.org/) preconfigured for React Native
 
-The boilerplate includes an example (displaying the current weather temperature) from UI components to the saga. The example is easy to remove so that it doesn't get in the way.
+The boilerplate includes an example (displaying fake user data) from UI components to the saga. The example is easy to remove so that it doesn't get in the way.
 
 ## Directory layout
 
