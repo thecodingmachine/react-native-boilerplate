@@ -27,10 +27,8 @@ function fetchUser() {
   //   })
   // }
   let number = Math.floor(Math.random() / 0.1) + 1
-  console.log(number)
 
   return userApiClient.get(number.toString()).then((response) => {
-    console.log(response.data)
     if (response.ok) {
       return response.data
     }
