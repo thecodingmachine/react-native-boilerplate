@@ -1,10 +1,10 @@
-import { Map } from 'immutable'
+import { Map, List } from 'immutable'
 
 /**
  * The initial values for the redux state.
  */
 export const INITIAL_STATE = Map({
-  user: null,
+  user: List(),
   userIsLoading: false,
   userErrorMessage: null,
 })

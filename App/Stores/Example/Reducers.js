@@ -7,6 +7,7 @@
 import { INITIAL_STATE } from './InitialState'
 import { createReducer } from 'reduxsauce'
 import { ExampleTypes } from './Actions'
+import { List } from 'immutable'
 
 export const fetchUserLoading = (state) =>
   state.merge({
@@ -23,7 +24,7 @@ export const fetchUserSuccess = (state, { user }) =>
 
 export const fetchUserFailure = (state, { errorMessage }) =>
   state.merge({
-    user: null,
+    user: List(),
     userIsLoading: false,
     userErrorMessage: errorMessage,
   })

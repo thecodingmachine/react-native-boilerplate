@@ -7,7 +7,7 @@
  */
 
 export const liveInEurope = (state) => {
-  if (!state.example.get('user')) return null
+  if (state.example.get('user').isEmpty()) return null
 
   // For this example, we imagine this cities are european cities
   let europeanCities = ['Gwenborough', 'Wisokyburgh', 'McKenziehaven', 'South Elvis', 'Roscoeview']
