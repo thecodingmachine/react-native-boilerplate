@@ -3,7 +3,7 @@ import { Platform, Text, View, Button } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import ExampleActions from 'App/Stores/Example/Actions'
-import { isHot } from 'App/Stores/Example/Selectors'
+import { liveInEurope } from 'App/Stores/Example/Selectors'
 import Style from './ExampleScreenStyle'
 
 /**
@@ -42,6 +42,9 @@ class ExampleScreen extends React.Component {
               : ''}
         </Text>
         <Text style={Style.text}>{user ? "I'm a fake user, my name is " + user.name : ''}.</Text>
+        <Text style={Style.text}>
+          {this.props.liveInEurope ? 'I live in Europe !' : "I don't live in Europe."}
+        </Text>
         <Button onPress={this.props.fetchUser} title="Refresh" />
       </View>
     )
@@ -58,6 +61,7 @@ const mapStateToProps = (state) => ({
   user: state.example.get('user').toJS(),
   userIsLoading: state.example.get('userIsLoading'),
   userErrorMessage: state.example.get('userErrorMessage'),
+  liveInEurope: liveInEurope(state),
 })
 
 const mapDispatchToProps = (dispatch) => ({
