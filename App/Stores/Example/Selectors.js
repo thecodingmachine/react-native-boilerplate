@@ -6,6 +6,11 @@
  * Writing selectors is optional as it is not always necessary, we provide a simple example below.
  */
 
-export const isHot = (state) => {
-  return state.example.get('temperature') && state.example.get('temperature') > 25
+export const liveInEurope = (state) => {
+  if (!state.example.get('user')) return null
+
+  // For this example, we imagine this cities are european cities
+  let europeanCities = ['Gwenborough', 'Wisokyburgh', 'McKenziehaven', 'South Elvis', 'Roscoeview']
+
+  return europeanCities.includes(state.example.get('user').toJS().address.city)
 }
