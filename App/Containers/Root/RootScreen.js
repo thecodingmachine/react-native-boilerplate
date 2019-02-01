@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { createStackNavigator } from 'react-navigation'
+import { createStackNavigator, createAppContainer } from 'react-navigation'
 import NavigationService from 'App/Services/NavigationService'
 import { View } from 'react-native'
 import styles from './RootScreenStyle'
@@ -30,6 +30,8 @@ const AppNav = createStackNavigator(
   }
 )
 
+const App = createAppContainer(AppNav)
+
 class RootScreen extends Component {
   componentDidMount() {
     // Run the startup saga when the application is starting
@@ -39,7 +41,7 @@ class RootScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <AppNav
+        <App
           // Initialize the NavigationService (see https://reactnavigation.org/docs/en/navigating-without-navigation-prop.html)
           ref={(navigatorRef) => {
             NavigationService.setTopLevelNavigator(navigatorRef)
