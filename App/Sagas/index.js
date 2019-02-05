@@ -5,7 +5,6 @@ import { fetchTemperature } from './ExampleSaga'
 import { startup } from './StartupSaga'
 
 export default function* root() {
-  console.log('index.js saga')
   yield all([
     /**
      * @see https://redux-saga.js.org/docs/basics/UsingSagaHelpers.html
