@@ -24,27 +24,28 @@ class ExampleScreen extends React.Component {
   }
 
   render() {
-    let user = this.props.userIsLoading ? '...' : this.props.user
-    if (user === null) {
-      user = '??'
+    let isLoading = this.props.userIsLoading ? 'Data are loading...' : ''
+    let user = this.props.user
+    let error = this.props.userErrorMessage
+    let result = null
+    if (user && !error) {
+      result =
+        "I'm a fake user, my name is " + user.name + '.\n' + this.props.liveInEurope
+          ? 'I live in Europe !'
+          : "I don't live in Europe."
     }
 
     return (
       <View style={Style.container}>
         <Text style={Style.title}>TheCodingMachine boilerplate</Text>
         <Text style={Style.text}>To get started, edit App.js</Text>
-        <Text style={Style.text}>{instructions}</Text>
-        <Text style={Style.text}>
-          {user === '...'
-            ? 'Data are loading...'
-            : this.props.userErrorMessage
-              ? this.props.userErrorMessage
-              : ''}
-        </Text>
-        <Text style={Style.text}>{user ? "I'm a fake user, my name is " + user.name : ''}.</Text>
-        <Text style={Style.text}>
-          {this.props.liveInEurope ? 'I live in Europe !' : "I don't live in Europe."}
-        </Text>
+        <Text style={Style.instructions}>{instructions}</Text>
+        <Text style={Style.loading}>{isLoading}</Text>
+        {user && !error ? (
+          <Text style={Style.result}>{result}</Text>
+        ) : (
+          <Text style={Style.error}>{error}</Text>
+        )}
         <Button onPress={this.props.fetchUser} title="Refresh" />
       </View>
     )
