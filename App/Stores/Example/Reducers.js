@@ -7,32 +7,33 @@
 import { INITIAL_STATE } from './InitialState'
 import { createReducer } from 'reduxsauce'
 import { ExampleTypes } from './Actions'
+import { List } from 'immutable'
 
-export const fetchTemperatureLoading = (state) =>
+export const fetchUserLoading = (state) =>
   state.merge({
-    temperatureIsLoading: true,
-    temperatureErrorMessage: '',
+    userIsLoading: true,
+    userErrorMessage: '',
   })
 
-export const fetchTemperatureSuccess = (state, { temperature }) =>
+export const fetchUserSuccess = (state, { user }) =>
   state.merge({
-    temperature: temperature,
-    temperatureIsLoading: false,
-    temperatureErrorMessage: null,
+    user: user,
+    userIsLoading: false,
+    userErrorMessage: null,
   })
 
-export const fetchTemperatureFailure = (state, { errorMessage }) =>
+export const fetchUserFailure = (state, { errorMessage }) =>
   state.merge({
-    temperature: null,
-    temperatureIsLoading: false,
-    temperatureErrorMessage: errorMessage,
+    user: List(),
+    userIsLoading: false,
+    userErrorMessage: errorMessage,
   })
 
 /**
  * @see https://github.com/infinitered/reduxsauce#createreducer
  */
 export const reducer = createReducer(INITIAL_STATE, {
-  [ExampleTypes.FETCH_TEMPERATURE_LOADING]: fetchTemperatureLoading,
-  [ExampleTypes.FETCH_TEMPERATURE_SUCCESS]: fetchTemperatureSuccess,
-  [ExampleTypes.FETCH_TEMPERATURE_FAILURE]: fetchTemperatureFailure,
+  [ExampleTypes.FETCH_USER_LOADING]: fetchUserLoading,
+  [ExampleTypes.FETCH_USER_SUCCESS]: fetchUserSuccess,
+  [ExampleTypes.FETCH_USER_FAILURE]: fetchUserFailure,
 })
