@@ -30,9 +30,10 @@ class ExampleScreen extends React.Component {
     let result = null
     if (user && !error) {
       result =
-        "I'm a fake user, my name is " + user.name + '.\n' + this.props.liveInEurope
-          ? 'I live in Europe !'
-          : "I don't live in Europe."
+        "I'm a fake user, my name is " +
+        user.name +
+        '.\n' +
+        (this.props.liveInEurope ? 'I live in Europe !' : "I don't live in Europe.")
     }
 
     return (
