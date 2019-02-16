@@ -19,4 +19,26 @@ export default StyleSheet.create({
     textAlign: 'center',
     marginBottom: 5,
   },
+  instructions: {
+    ...Fonts.style.normal,
+    textAlign: 'center',
+    marginBottom: 5,
+    fontStyle: 'italic',
+  },
+  loading: {
+    ...Fonts.style.normal,
+    textAlign: 'center',
+    marginBottom: 5,
+  },
+  result: {
+    ...Fonts.style.normal,
+    textAlign: 'center',
+    marginBottom: 5,
+  },
+  error: {
+    ...Fonts.style.normal,
+    textAlign: 'center',
+    marginBottom: 5,
+    color: 'red',
+  },
 })

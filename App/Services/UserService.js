@@ -7,7 +7,7 @@ import { Config } from 'App/Config'
  * Feel free to remove this example from your application.
  */
 
-const weatherApiClient = create({
+const userApiClient = create({
   /**
    * Import the config from the App/Config/index.js file
    */
@@ -19,7 +19,7 @@ const weatherApiClient = create({
   timeout: 3000,
 })
 
-function fetchTemperature() {
+function fetchUser() {
   // Simulate an error 50% of the time just for testing purposes
   if (Math.random() > 0.5) {
     return new Promise(function(resolve, reject) {
@@ -27,19 +27,17 @@ function fetchTemperature() {
     })
   }
 
-  const locationQuery = escape(
-    "select item.condition.temp from weather.forecast where woeid in (select woeid from geo.places where text='Lyon, Rhone-Alpes, FR') and u='c'"
-  )
+  let number = Math.floor(Math.random() / 0.1) + 1
 
-  return weatherApiClient.get('yql?q=' + locationQuery + '&format=json').then((response) => {
+  return userApiClient.get(number.toString()).then((response) => {
     if (response.ok) {
-      return response.data.query.results.channel.item.condition.temp
+      return response.data
     }
 
     return null
   })
 }
 
-export const WeatherService = {
-  fetchTemperature,
+export const userService = {
+  fetchUser,
 }
