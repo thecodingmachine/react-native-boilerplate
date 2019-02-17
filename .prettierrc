@@ -9,7 +9,6 @@
   jsxBracketSameLine : false,
   arrowParens : "always",
   rangeStart : 0,
-  rangeEnd : Infinity,
   parser : "babylon",
   requirePragma : false,
   insertPragma : false,
