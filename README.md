@@ -32,14 +32,14 @@ The driving goal of the architecture of the boilerplate is separation of concern
 
 The boilerplate contains:
 
-- a [React Native](https://facebook.github.io/react-native/) (v0.57.8) application (in "[ejected](https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md)" mode to allow using dependencies that rely on native code)
+- a [React Native](https://facebook.github.io/react-native/) (v0.59.2) application (in "[ejected](https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md)" mode to allow using dependencies that rely on native code)
 - a [clear directory layout](#directory-layout) to provide a base architecture for your application
-- [Redux](https://redux.js.org/) (v3.7) to help manage state
-- [Redux Persist](https://github.com/rt2zz/redux-persist) (v5.9) to persist the Redux state
-- [Redux Sagas](https://redux-saga.js.org) (v5.0) to separate side-effects and logic from state and UI logic
-- [React Navigation](https://reactnavigation.org/) (v3.0.9) with a [`NavigationService`](App/Services/NavigationService.js) to handle routing and navigation in the app, with a splash screen setup by default
-- [reduxsauce](https://github.com/infinitered/reduxsauce) (v0.7) to facilitate using Redux
-- [apisauce](https://github.com/infinitered/apisauce) (v0.15) to make [axios](https://github.com/axios/axios) even better
+- [Redux](https://redux.js.org/) (v4.0.1) to help manage state
+- [Redux Persist](https://github.com/rt2zz/redux-persist) (v5.10.0) to persist the Redux state
+- [Redux Sagas](https://redux-saga.js.org) (v1.0.2) to separate side-effects and logic from state and UI logic
+- [React Navigation](https://reactnavigation.org/) (v3.6.0) with a [`NavigationService`](App/Services/NavigationService.js) to handle routing and navigation in the app, with a splash screen setup by default
+- [reduxsauce](https://github.com/infinitered/reduxsauce) (v1.0.1) to facilitate using Redux
+- [apisauce](https://github.com/infinitered/apisauce) (v1.0.2) to make [axios](https://github.com/axios/axios) even better
 - [prettier](https://prettier.io/) and [eslint](https://eslint.org/) preconfigured for React Native
 
 The boilerplate includes an example (displaying fake user data) from UI components to the saga. The example is easy to remove so that it doesn't get in the way.
