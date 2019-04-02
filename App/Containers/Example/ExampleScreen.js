@@ -60,9 +60,9 @@ ExampleScreen.propsTypes = {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.example.get('user').toJS(),
-  userIsLoading: state.example.get('userIsLoading'),
-  userErrorMessage: state.example.get('userErrorMessage'),
+  user: state.example.user,
+  userIsLoading: state.example.userIsLoading,
+  userErrorMessage: state.example.userErrorMessage,
   liveInEurope: liveInEurope(state),
 })
 

@@ -7,27 +7,26 @@
 import { INITIAL_STATE } from './InitialState'
 import { createReducer } from 'reduxsauce'
 import { ExampleTypes } from './Actions'
-import { List } from 'immutable'
 
-export const fetchUserLoading = (state) =>
-  state.merge({
-    userIsLoading: true,
-    userErrorMessage: '',
-  })
+export const fetchUserLoading = (state) => ({
+  ...state,
+  userIsLoading: true,
+  userErrorMessage: null,
+})
 
-export const fetchUserSuccess = (state, { user }) =>
-  state.merge({
-    user: user,
-    userIsLoading: false,
-    userErrorMessage: null,
-  })
+export const fetchUserSuccess = (state, { user }) => ({
+  ...state,
+  user: user,
+  userIsLoading: false,
+  userErrorMessage: null,
+})
 
-export const fetchUserFailure = (state, { errorMessage }) =>
-  state.merge({
-    user: List(),
-    userIsLoading: false,
-    userErrorMessage: errorMessage,
-  })
+export const fetchUserFailure = (state, { errorMessage }) => ({
+  ...state,
+  user: {},
+  userIsLoading: false,
+  userErrorMessage: errorMessage,
+})
 
 /**
  * @see https://github.com/infinitered/reduxsauce#createreducer
