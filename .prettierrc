@@ -9,7 +9,7 @@
   jsxBracketSameLine : false,
   arrowParens : "always",
   rangeStart : 0,
-  parser : "babylon",
+  parser : "babel",
   requirePragma : false,
   insertPragma : false,
   proseWrap : "preserve"
