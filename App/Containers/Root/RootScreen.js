@@ -7,6 +7,7 @@ import ExampleScreen from 'App/Containers/Example/ExampleScreen'
 import SplashScreen from 'App/Containers/SplashScreen/SplashScreen'
 import { connect } from 'react-redux'
 import StartupActions from 'App/Stores/Startup/Actions'
+import { PropTypes } from 'prop-types'
 
 /**
  * The root screen contains the application's navigation.
@@ -50,6 +51,10 @@ class RootScreen extends Component {
       </View>
     )
   }
+}
+
+RootScreen.propTypes = {
+  startup: PropTypes.func,
 }
 
 const mapStateToProps = (state) => ({})
