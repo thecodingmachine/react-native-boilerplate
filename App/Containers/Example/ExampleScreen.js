@@ -1,5 +1,5 @@
 import React from 'react'
-import { Platform, Text, View, Button } from 'react-native'
+import { Platform, Text, View, Button, ActivityIndicator } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import ExampleActions from 'App/Stores/Example/Actions'
@@ -24,39 +24,42 @@ class ExampleScreen extends React.Component {
   }
 
   render() {
-    let isLoading = this.props.userIsLoading ? 'Data are loading...' : ''
-    let user = this.props.user
-    let error = this.props.userErrorMessage
-    let result = null
-    if (user && !error) {
-      result =
-        "I'm a fake user, my name is " +
-        user.name +
-        '.\n' +
-        (this.props.liveInEurope ? 'I live in Europe !' : "I don't live in Europe.")
-    }
-
     return (
       <View style={Style.container}>
-        <Text style={Style.title}>TheCodingMachine boilerplate</Text>
-        <Text style={Style.text}>To get started, edit App.js</Text>
-        <Text style={Style.instructions}>{instructions}</Text>
-        <Text style={Style.loading}>{isLoading}</Text>
-        {user && !error ? (
-          <Text style={Style.result}>{result}</Text>
+        {this.props.userIsLoading ? (
+          <ActivityIndicator size="large" color="#0000ff" />
         ) : (
-          <Text style={Style.error}>{error}</Text>
+          <View>
+            <Text style={Style.title}>TheCodingMachine boilerplate</Text>
+            <Text style={Style.text}>To get started, edit App.js</Text>
+            <Text style={Style.instructions}>{instructions}</Text>
+            {this.props.userErrorMessage ? (
+              <Text style={Style.error}>{this.props.userErrorMessage}</Text>
+            ) : (
+              <View>
+                <Text style={Style.result}>
+                  {"I'm a fake user, my name is "}
+                  {this.props.user.name}
+                </Text>
+                <Text style={Style.result}>
+                  {this.props.liveInEurope ? 'I live in Europe !' : "I don't live in Europe."}
+                </Text>
+              </View>
+            )}
+            <Button onPress={this.props.fetchUser} title="Refresh" />
+          </View>
         )}
-        <Button onPress={this.props.fetchUser} title="Refresh" />
       </View>
     )
   }
 }
 
-ExampleScreen.propsTypes = {
-  user: PropTypes.number,
+ExampleScreen.propTypes = {
+  user: PropTypes.object,
   userIsLoading: PropTypes.bool,
   userErrorMessage: PropTypes.string,
+  fetchUser: PropTypes.func,
+  liveInEurope: PropTypes.bool,
 }
 
 const mapStateToProps = (state) => ({
