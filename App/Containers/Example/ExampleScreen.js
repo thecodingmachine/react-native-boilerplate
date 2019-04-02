@@ -1,10 +1,11 @@
 import React from 'react'
-import { Platform, Text, View, Button, ActivityIndicator } from 'react-native'
+import { Platform, Text, View, Button, ActivityIndicator, Image } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import ExampleActions from 'App/Stores/Example/Actions'
 import { liveInEurope } from 'App/Stores/Example/Selectors'
 import Style from './ExampleScreenStyle'
+import { Images } from 'App/Theme'
 
 /**
  * This is an example of a container component.
@@ -30,7 +31,9 @@ class ExampleScreen extends React.Component {
           <ActivityIndicator size="large" color="#0000ff" />
         ) : (
           <View>
-            <Text style={Style.title}>TheCodingMachine boilerplate</Text>
+            <View style={Style.logoContainer}>
+              <Image style={Style.logo} source={Images.logo} resizeMode={'contain'} />
+            </View>
             <Text style={Style.text}>To get started, edit App.js</Text>
             <Text style={Style.instructions}>{instructions}</Text>
             {this.props.userErrorMessage ? (

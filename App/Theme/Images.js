@@ -3,5 +3,5 @@
  */
 
 export default {
-  // logo: require('../Images/logo.png'),
+  logo: require('App/Images/TOM.png'),
 }
