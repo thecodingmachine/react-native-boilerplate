@@ -1,1 +1,43 @@
 *.pbxproj -text
+* text=auto
+
+# Force the following filetypes to have unix eols, so Windows does not break them
+**/*.* text eol=lf
+
+# Windows forced line-endings
+/.idea/* text eol=crlf
+
+#
+## These files are binary and should be left untouched
+#
+
+# (binary is a macro for -text -diff)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.mov binary
+*.mp4 binary
+*.mp3 binary
+*.flv binary
+*.fla binary
+*.swf binary
+*.gz binary
+*.zip binary
+*.7z binary
+*.ttf binary
+*.eot binary
+*.woff binary
+*.woff2 binary
+*.pyc binary
+*.pdf binary
+*.ez binary
+*.bz2 binary
+*.swp binary
+*.swp binary
+*.ipa binary
+*.apk binary
+*.jar binary
+*gradlew binary
+*BUCK binary

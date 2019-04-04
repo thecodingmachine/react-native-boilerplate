@@ -13,39 +13,45 @@
   },
   "dependencies": {
     "apisauce": "^1.0.2",
-    "immutable": "^3.8.2",
-    "prop-types": "15.6.2",
-    "react": "16.6.3",
-    "react-native": "0.57.8",
-    "react-native-gesture-handler": "^1.0.15",
-    "react-navigation": "3.1.2",
-    "react-redux": "6.0.0",
+    "prop-types": "^15.7.2",
+    "react": "16.8.3",
+    "react-native": "0.59.3",
+    "react-native-gesture-handler": "^1.1.0",
+    "react-navigation": "^3.6.0",
+    "react-redux": "^6.0.1",
     "redux": "^4.0.1",
-    "redux-persist": "5.10.0",
-    "redux-persist-transform-immutable": "^5.0.0",
-    "redux-saga": "^1.0.0",
+    "redux-persist": "^5.10.0",
+    "redux-saga": "^1.0.2",
     "reduxsauce": "^1.0.1"
   },
   "devDependencies": {
-    "babel-core": "7.0.0-bridge.0",
-    "babel-jest": "23.2.0",
-    "eslint": "^4.19.1",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-config-standard": "^11.0.0",
-    "eslint-plugin-import": "^2.9.0",
-    "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-prettier": "^2.6.0",
-    "eslint-plugin-promise": "^3.7.0",
-    "eslint-plugin-react": "^7.7.0",
-    "eslint-plugin-react-native": "^3.2.1",
-    "eslint-plugin-standard": "^3.0.1",
-    "jest": "23.3.0",
-    "metro-react-native-babel-preset": "^0.45.0",
-    "prettier": "^1.11.1",
-    "react-native-rename": "^2.2.2",
-    "react-test-renderer": "16.3.1"
+    "@babel/core": "^7.4.0",
+    "@babel/runtime": "^7.4.2",
+    "@react-native-community/eslint-config": "^0.0.3",
+    "babel-jest": "^24.5.0",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-react-native": "^3.6.0",
+    "eslint-plugin-standard": "^4.0.0",
+    "jest": "^24.5.0",
+    "metro-react-native-babel-preset": "^0.53.1",
+    "prettier": "^1.16.4",
+    "react-native-rename": "^2.4.1",
+    "react-test-renderer": "16.8.3"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "transformIgnorePatterns": [
+      "node_modules/(?!(jest-)?react-native|react-navigation|@react-navigation.*)"
+    ],
+    "setupFiles": [
+      "./jest.setup.js"
+    ]
   }
 }

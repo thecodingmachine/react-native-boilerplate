@@ -5,12 +5,13 @@
     "prettier"
   ],
   "parserOptions": {
-    "ecmaVersion": 2017,
+    "ecmaVersion": 2018,
     "ecmaFeatures": {
       "jsx": true,
       "modules": true
     },
-    "sourceType": "module"
+    "sourceType": "module",
+    "useJSXTextNode": false
   },
   "env": {
     "react-native/react-native": true
@@ -21,18 +22,12 @@
     "plugin:react-native/all",
     "plugin:prettier/recommended"
   ],
+  "settings": {
+    "react": {
+      "version": "detect",
+    },
+  },
   "rules": {
-    "prettier/prettier": "error",
-    "comma-dangle" : ["error", "always-multiline"],
-    "space-before-function-paren": ["error", {
-      "anonymous": "never",
-      "named": "never",
-      "asyncArrow": "always"
-    }],
-    "no-fallthrough": ["error", { "commentPattern": "break[\\s\\w]*omitted" }],
-    "react/jsx-uses-vars": 2,
-    "react/jsx-indent-props": [2, 2],
-    "react/prop-types": [2,{ "skipUndeclared": true}],
-    "react/display-name": [0, { "ignoreTranspilerName": false }]
+    "react-native/no-raw-text": 0 // Avoid false positive, wait for fix
   }
 }
