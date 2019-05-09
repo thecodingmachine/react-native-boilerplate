@@ -107,11 +107,17 @@ Assuming you have all the requirements installed, you can setup and run the proj
 - Using [Fastlane](https://fastlane.tools/) to automate builds and store deployments (iOS and Android)
   - [Distributing beta builds](docs/beta%20builds.md)
 
-
 ### Package dependencies
 
 - You may want to use [CocoaPods](https://cocoapods.org/) to manage your dependencies (iOS only) 
   - [Using CocoaPods to manage your package dependencies](docs/setup%20cocoapods.md)
+  
+  
+## Troubleshooting
+
+### App fails to start after renaming
+
+If your applicaiton fails to start after using the `yarn run rename` command, please take a look at [this issue](https://github.com/thecodingmachine/react-native-boilerplate/issues/34)
 
 ## License
 
