@@ -12,7 +12,7 @@
     "rename": "react-native-rename"
   },
   "dependencies": {
-    "apisauce": "^1.0.2",
+    "axios": "^0.19.0",
     "prop-types": "^15.7.2",
     "react": "16.8.3",
     "react-native": "0.59.8",
