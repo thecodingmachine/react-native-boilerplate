@@ -15,7 +15,7 @@
     "axios": "^0.19.0",
     "prop-types": "^15.7.2",
     "react": "16.8.3",
-    "react-native": "0.59.8",
+    "react-native": "0.59.9",
     "react-native-gesture-handler": "^1.1.0",
     "react-navigation": "^3.6.0",
     "react-redux": "^6.0.1",
@@ -25,8 +25,8 @@
     "reduxsauce": "^1.0.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.0",
-    "@babel/runtime": "^7.4.2",
+    "@babel/core": "^7.4.5",
+    "@babel/runtime": "^7.4.5",
     "@react-native-community/eslint-config": "^0.0.3",
     "babel-jest": "^24.5.0",
     "eslint": "^5.16.0",
@@ -40,7 +40,7 @@
     "eslint-plugin-react-native": "^3.6.0",
     "eslint-plugin-standard": "^4.0.0",
     "jest": "^24.5.0",
-    "metro-react-native-babel-preset": "^0.53.1",
+    "metro-react-native-babel-preset": "^0.54.1",
     "prettier": "^1.16.4",
     "react-native-rename": "^2.4.1",
     "react-test-renderer": "16.8.3"
