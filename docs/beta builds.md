@@ -47,7 +47,7 @@ Before continuing make sure you have:
 - [ ] An Apple ID with an admin user, with its username (email, for example `dev-team@yourcompany.com`) and password
 - [ ] Your app name, if not already created on the Developer Portal (for example `TCM React Native Boilerplate`). Fastlane can create applications in the Developer Portal and App Store Connect, so it's recommended to let Fastlane do the job for you.
 - [ ] Use the right [.gitignore](ios/.gitignore) file inside the `ios` directory
-- [ ] You also need to create an App Icon to use Fastlane or you will get an error on running `fastlane beta`. You can simply create one on using the website [AppIconMaker](http://appiconmaker.co/)
+- [ ] You also need to create an App Icon to use Fastlane or you will get an error on running `fastlane beta`. You can simply create one using the website [MakeAppIcon](https://makeappicon.com/)
 
 Open your Xcode project and modify some information:
 
@@ -303,6 +303,9 @@ To do this, comment the three last lines of the `Fastfile`
 ```
 or create a new lane without thoses lines.
 
+:exclamation: There is no official plugin to automatically upgrade android version code (unlike the iOS lane).  
+Before each deployment, be sure to `manually` upgrade the `versionCode` value inside `android/app/build.gradle`.  
+We are working on an automatic way to do this.  
 
 Creating a beta build and uploading it on Google Play is now really easy.  
 Just type the following:
