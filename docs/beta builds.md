@@ -15,6 +15,12 @@ Let's explain which tools we are using to distribute beta builds:
 * [TestFlight](https://developer.apple.com/testflight/), part of App Store Connect, let you build your iOS app and invite internal or external users to test it
 * [Google Play](https://support.google.com/googleplay/android-developer/answer/3131213?hl=fr), which does the same job as TestFlight for Android apps
 
+```
+If you love this documentation, give us a star, you will be a ray of sunshine in our lives :)
+```
+
+_This documentation is a part of a React Native project template for building solid applications through separation of concerns between the UI, state management and business logic._
+_Just navigate to the [project home page](https://github.com/thecodingmachine/react-native-boilerplate) if you want to see more._
 
 ## Installing Fastlane
 
