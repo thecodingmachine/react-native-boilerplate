@@ -309,9 +309,10 @@ To do this, comment the three last lines of the `Fastfile`
 ```
 or create a new lane without thoses lines.
 
-:exclamation: There is no official plugin to automatically upgrade android version code (unlike the iOS lane).  
-Before each deployment, be sure to `manually` upgrade the `versionCode` value inside `android/app/build.gradle`.  
-We are working on an automatic way to do this.  
+Automatically upgrade `versionalCode` with
+```npx react-native-version -b -t android```
+Or `manually` upgrade the `versionCode` value inside `android/app/build.gradle`.  
+
 
 Creating a beta build and uploading it on Google Play is now really easy.  
 Just type the following:
