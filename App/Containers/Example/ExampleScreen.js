@@ -21,7 +21,7 @@ const instructions = Platform.select({
 
 class ExampleScreen extends React.Component {
   componentDidMount() {
-    this.props.fetchUser()
+    this._fetchUser()
   }
 
   render() {
@@ -49,11 +49,15 @@ class ExampleScreen extends React.Component {
                 </Text>
               </View>
             )}
-            <Button onPress={() => this.props.fetchUser} title="Refresh" />
+            <Button onPress={() => this._fetchUser()} title="Refresh" />
           </View>
         )}
       </View>
     )
+  }
+  
+  _fetchUser() {
+    this.props.fetchUser()
   }
 }
 
