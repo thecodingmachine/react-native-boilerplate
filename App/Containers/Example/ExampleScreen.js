@@ -49,7 +49,7 @@ class ExampleScreen extends React.Component {
                 </Text>
               </View>
             )}
-            <Button onPress={this.props.fetchUser} title="Refresh" />
+            <Button onPress={() => this.props.fetchUser} title="Refresh" />
           </View>
         )}
       </View>
