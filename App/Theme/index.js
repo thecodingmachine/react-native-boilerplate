@@ -5,4 +5,4 @@ import Images from './Images'
 import ApplicationStyles from './ApplicationStyles'
 import Helpers from './Helpers'
 
-export { Colors, Fonts, Images, Metrics, ApplicationStyles }
+export { Colors, Fonts, Images, Metrics, ApplicationStyles, Helpers }
