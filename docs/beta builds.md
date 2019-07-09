@@ -52,7 +52,7 @@ Before continuing make sure you have:
 - [ ] Choose the [bundle identifier](https://cocoacasts.com/what-are-app-ids-and-bundle-identifiers/) of your app (for example `com.tcm.boilerplate`)
 - [ ] An Apple ID with an admin user, with its username (email, for example `dev-team@yourcompany.com`) and password
 - [ ] Your app name, if not already created on the Developer Portal (for example `TCM React Native Boilerplate`). Fastlane can create applications in the Developer Portal and App Store Connect, so it's recommended to let Fastlane do the job for you.
-- [ ] Use the right [.gitignore](ios/.gitignore) file inside the `ios` directory
+- [ ] Use the right [.gitignore](../ios/.gitignore) file inside the `ios` directory
 - [ ] You also need to create an App Icon to use Fastlane or you will get an error on running `fastlane beta`. You can simply create one using the website [MakeAppIcon](https://makeappicon.com/)
 
 Open your Xcode project and modify some information:
@@ -202,7 +202,7 @@ Before continuing make sure you have:
 
 - [ ] A Google Play Console *admin* account and its username (email, for example `dev-team@yourcompany.com`) and password
 - [ ] Create your application in the Google Play Console (unlike for iOS Fastlane cannot do that for you)
-- [ ] Use the right [.gitignore](android/.gitignore) file inside the `android` directory (if you are using this boilerplate you are good to go)
+- [ ] Use the right [.gitignore](../android/.gitignore) file inside the `android` directory (if you are using this boilerplate you are good to go)
 - [ ] [Collect your Google Credentials](https://docs.fastlane.tools/getting-started/android/setup/#collect-your-google-credentials)  
     :warning: In the Google Play Console, add the parameter `&hl=en` at the end of the URL (before any #) to switch to English. In some languages, the "Create Service Account" will not be available. 
     Download the JSON key file, and copy it into `my-project/android/key.json`
