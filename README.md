@@ -117,7 +117,7 @@ Assuming you have all the requirements installed, you can setup and run the proj
 
 ### App fails to start after renaming
 
-If your applicaiton fails to start after using the `yarn run rename` command, please take a look at [this issue](https://github.com/thecodingmachine/react-native-boilerplate/issues/34)
+If your application fails to start after using the `yarn run rename` command, please take a look at [this issue](https://github.com/thecodingmachine/react-native-boilerplate/issues/34)
 
 ## License
 
