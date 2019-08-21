@@ -147,4 +147,21 @@ export default StyleSheet.create({
   fullWidth: {
     width: '100%',
   },
+  fullSize: {
+    width: '100%',
+    height: '100%',
+  },
+  mirror: {
+    transform: [{ scaleX: -1 }],
+  },
+  rotate90: {
+    transform: [{ rotate: '90deg' }],
+  },
+  rotate90Inverse: {
+    transform: [{ rotate: '-90deg' }],
+  },
+  scrollSpaceBetween: {
+    justifyContent: 'space-between',
+    flexGrow: 1,
+  },
 })
