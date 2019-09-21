@@ -46,7 +46,7 @@ The boilerplate contains:
 - [Redux](https://redux.js.org/) (v4.0.1) to help manage state
 - [Redux Persist](https://github.com/rt2zz/redux-persist) (v5.10.0) to persist the Redux state
 - [Redux Sagas](https://redux-saga.js.org) (v1.0.2) to separate side-effects and logic from state and UI logic
-- [React Navigation](https://reactnavigation.org/) (v3.6.0) with a [`NavigationService`](App/Services/NavigationService.js) to handle routing and navigation in the app, with a splash screen setup by default
+- [React Navigation](https://reactnavigation.org/) (v3.11.2) with a [`NavigationService`](App/Services/NavigationService.js) to handle routing and navigation in the app, with a splash screen setup by default
 - [reduxsauce](https://github.com/infinitered/reduxsauce) (v1.0.1) to facilitate using Redux
 - [axios](https://github.com/axios/axios) to make API calls (v0.19.0)
 - [prettier](https://prettier.io/) and [eslint](https://eslint.org/) preconfigured for React Native
