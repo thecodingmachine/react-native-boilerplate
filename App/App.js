@@ -11,7 +11,6 @@ import {
 
 import { Global } from 'App/Theme';
 import createStore from 'App/Stores';
-// import RootScreen from 'App/Containers/Root/RootScreen';
 import SplashScreen from 'App/Containers/Splash/SplashScreen';
 import AppNavigator from 'App/Navigators/AppNavigator';
 
