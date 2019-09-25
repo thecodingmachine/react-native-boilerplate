@@ -309,9 +309,49 @@ To do this, comment the three last lines of the `Fastfile`
 ```
 or create a new lane without thoses lines.
 
-:exclamation: There is no official plugin to automatically upgrade android version code (unlike the iOS lane).  
-Before each deployment, be sure to `manually` upgrade the `versionCode` value inside `android/app/build.gradle`.  
-We are working on an automatic way to do this.  
+Every uploaded binary to the Google Play Store must have an incremented `versionCode` inside `android/app/build.gradle`.
+One way to automate this is to use the number of `git` commits in the project, as that value. The `versionCode` is used
+internally, and isn't displayed to the user. The "version" which people see is called `versionName`, and we can automate
+that value by grabbing the `version` in your `package.json`, so that you only have one place to bump version numbers as
+builds are released.
+
+Open up `android/app/build.gradle`, import `JsonSlurper`, and add a couple of functions to generate the two version numbers.
+
+```
+import groovy.json.JsonSlurper
+
+def getNpmVersion() {
+    def inputFile = new File("../package.json")
+    def packageJson = new JsonSlurper().parseText(inputFile.text)
+    return packageJson["version"]
+}
+
+def getGitVersion() {
+    def process = "git rev-list HEAD --first-parent --count".execute()
+    return process.text.toInteger()
+}
+```
+
+Next, before the `android` declaration in that same file, create a couple of variables to hold the results of those function
+executions, and use them in the `defaultConfig`.
+
+```
+def googleVer = getGitVersion()
+def userVer = getNpmVersion()
+
+android {
+    ...
+
+    defaultConfig {
+        ...
+
+        versionCode googleVer
+        versionName userVer
+    }
+
+    ...
+}
+```
 
 Creating a beta build and uploading it on Google Play is now really easy.  
 Just type the following:
