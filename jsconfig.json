@@ -4,10 +4,10 @@
     "baseUrl": "./",
     "paths": {
       "App/*": [
-        "App/*"
+        "@App/*"
       ],
       "App": [
-        "App"
+        "@App"
       ]
     }
   },
