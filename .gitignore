@@ -57,3 +57,27 @@ buck-out/
 
 # CocoaPods
 /ios/Pods/
+
+# Fastlane
+/*.cer
+/fastlane/report.xml
+/fastlane/Preview.html
+/Deployment
+/Preview.html
+
+# CI
+/android/logcat.txt
+
+# Expo Client builds
+/client-builds
+node_modules/**/*
+.expo/*
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+web-report/

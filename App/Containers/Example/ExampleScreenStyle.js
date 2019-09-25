@@ -1,10 +1,10 @@
-import { StyleSheet } from 'react-native'
-import Fonts from 'App/Theme/Fonts'
-import ApplicationStyles from 'App/Theme/ApplicationStyles'
+import { StyleSheet } from 'react-native';
+import Fonts from 'App/Theme/Fonts';
+import Styles from 'App/Theme/Styles';
 
 export default StyleSheet.create({
   container: {
-    ...ApplicationStyles.screen.container,
+    ...Styles.screen.container,
     margin: 30,
     flex: 1,
     justifyContent: 'center',
@@ -50,4 +50,4 @@ export default StyleSheet.create({
     width: '100%',
     height: '100%',
   },
-})
+});

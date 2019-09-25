@@ -1,6 +1,7 @@
-import { applyMiddleware, compose, createStore } from 'redux'
-import createSagaMiddleware from 'redux-saga'
-import { persistReducer, persistStore } from 'redux-persist'
+import { applyMiddleware, compose, createStore } from 'redux';
+import { persistReducer, persistStore } from 'redux-persist';
+import createSagaMiddleware from 'redux-saga';
+import thunk from 'redux-thunk';
 
 /**
  * This import defaults to localStorage for web and AsyncStorage for react-native.
@@ -11,7 +12,7 @@ import { persistReducer, persistStore } from 'redux-persist'
  * If you need to store sensitive information, use redux-persist-sensitive-storage.
  * @see https://github.com/CodingZeal/redux-persist-sensitive-storage
  */
-import storage from 'redux-persist/lib/storage'
+import storage from 'redux-persist/lib/storage';
 
 const persistConfig = {
   key: 'root',
@@ -22,26 +23,50 @@ const persistConfig = {
   blacklist: [
     // 'auth',
   ],
-}
+};
 
 export default (rootReducer, rootSaga) => {
-  const middleware = []
-  const enhancers = []
+  // Redux persist
+  const persistedReducer = persistReducer(persistConfig, rootReducer);
 
   // Connect the sagas to the redux store
-  const sagaMiddleware = createSagaMiddleware()
-  middleware.push(sagaMiddleware)
+  const sagaMiddleware = createSagaMiddleware();
 
-  enhancers.push(applyMiddleware(...middleware))
+  // Add middleware here
+  const middleware = [];
+  middleware.push(sagaMiddleware);
+  middleware.push(thunk);
 
-  // Redux persist
-  const persistedReducer = persistReducer(persistConfig, rootReducer)
+  // Debug tool integration;
+  let composeEnhancers = compose;
+  if (__DEV__) {
+    // Use it if Remote debugging with RNDebugger, otherwise use remote-redux-devtools
+    // eslint-disable-next-line no-underscore-dangle
+    composeEnhancers = (window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ||
+      require('remote-redux-devtools').composeWithDevTools)({
+      name: Platform.OS,
+    });
+  }
 
-  const store = createStore(persistedReducer, compose(...enhancers))
-  const persistor = persistStore(store)
+  // Enable hot module replacement for reducers
+  if (module.hot) {
+    module.hot.accept(() => {
+      const nextRootReducer = require('App/Stores').default;
+      store.replaceReducer(nextRootReducer);
+    });
+  }
+
+  // Create the store
+  const store = createStore(
+    persistedReducer,
+    composeEnhancers(applyMiddleware(...middleware)),
+  );
 
   // Kick off the root saga
-  sagaMiddleware.run(rootSaga)
+  sagaMiddleware.run(rootSaga);
 
-  return { store, persistor }
-}
+  return {
+    persistor: persistStore(store),
+    store,
+  };
+};

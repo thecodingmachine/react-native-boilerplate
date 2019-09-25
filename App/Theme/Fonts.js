@@ -6,7 +6,7 @@ const size = {
   regular: 17,
   medium: 14,
   small: 12,
-}
+};
 
 const style = {
   h1: {
@@ -21,9 +21,9 @@ const style = {
   normal: {
     fontSize: size.regular,
   },
-}
+};
 
 export default {
   size,
   style,
-}
+};

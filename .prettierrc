@@ -1,10 +1,10 @@
 {
-  printWidth : 100,
+  printWidth : 90,
   tabWidth : 2,
   useTabs : false,
-  semi : false,
+  semi : true,
   singleQuote : true,
-  trailingComma : "es5",
+  trailingComma : "all",
   bracketSpacing : true,
   jsxBracketSameLine : false,
   arrowParens : "always",

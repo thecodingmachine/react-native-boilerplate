@@ -1,5 +1,6 @@
-platform :ios, '9.0'
+platform :ios, '10.0'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+require_relative '../node_modules/react-native-unimodules/cocoapods.rb'
 target 'Boilerplate' do
   # Pods for Boilerplate
   pod 'React', :path => '../node_modules/react-native/'
@@ -28,6 +29,7 @@ target 'Boilerplate' do
     # Pods for testing
   end
   use_native_modules!
+  use_unimodules!
 end
 target 'Boilerplate-tvOS' do
   # Pods for Boilerplate-tvOS

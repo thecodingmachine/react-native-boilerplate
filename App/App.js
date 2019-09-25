@@ -1,12 +1,32 @@
-import React, { Component } from 'react'
-import { Provider } from 'react-redux'
-import { PersistGate } from 'redux-persist/lib/integration/react'
-import createStore from 'App/Stores'
-import RootScreen from './Containers/Root/RootScreen'
+import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/lib/integration/react';
+import {
+  setCustomView,
+  setCustomText,
+  setCustomImage,
+  setCustomTextInput,
+  setCustomTouchableOpacity,
+} from 'react-native-global-props';
 
-const { store, persistor } = createStore()
+import { Global } from 'App/Theme';
+import createStore from 'App/Stores';
+// import RootScreen from 'App/Containers/Root/RootScreen';
+import SplashScreen from 'App/Containers/Splash/SplashScreen';
+import AppNavigator from 'App/Navigators/AppNavigator';
+
+const { store, persistor } = createStore();
 
 export default class App extends Component {
+  constructor(props) {
+    super(props);
+    // Calling the functions and passing the custom props into their respective params
+    setCustomView(Global.ViewProps);
+    setCustomText(Global.TextProps);
+    setCustomImage(Global.ImageProps);
+    setCustomTextInput(Global.TextInputProps);
+    setCustomTouchableOpacity(Global.TouchableOpacityProps);
+  }
   render() {
     return (
       /**
@@ -20,10 +40,10 @@ export default class App extends Component {
          * for example `loading={<SplashScreen />}`.
          * @see https://github.com/rt2zz/redux-persist/blob/master/docs/PersistGate.md
          */}
-        <PersistGate loading={null} persistor={persistor}>
-          <RootScreen />
+        <PersistGate loading={<SplashScreen />} persistor={persistor}>
+          <AppNavigator />
         </PersistGate>
       </Provider>
-    )
+    );
   }
 }
