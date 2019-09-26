@@ -3,5 +3,8 @@
  */
 export const INITIAL_STATE = {
   currentState: 'active',
+  currentTimeZone: '',
+  currentVersion: {},
+  currentLocales: [],
   isLoading: false,
 };
