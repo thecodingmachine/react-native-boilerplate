@@ -1,11 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Text, View } from 'react-native';
+import { bindActionCreators } from 'redux';
 
 import styles from './SplashScreenStyle';
 import StartupActions from 'App/Stores/Startup/Actions';
 
 class SplashScreen extends React.Component {
+  componentDidMount() {
+    __DEV__ && console.log('@enter SplashScreen!');
+  }
+
   render() {
     return (
       <View style={styles.container}>
