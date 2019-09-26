@@ -12,7 +12,7 @@ const EVENT = {
   CHANGE: 'change',
 };
 
-class AppEventHandler extends React.Component {
+class AppMonitor extends React.Component {
   static propTypes = {
     children: PropTypes.any.isRequired,
     handleAppStateUpdate: PropTypes.func.isRequired,
@@ -63,7 +63,7 @@ class AppEventHandler extends React.Component {
   /**
    * Handle app state changes
    * @see https://facebook.github.io/react-native/docs/appstate
-   * @memberof AppEventHandler
+   * @memberof AppMonitor
    */
   onAppStateChange = (nextAppState) => {
     __DEV__ && console.log('@onAppStateChange', nextAppState);
@@ -78,12 +78,12 @@ class AppEventHandler extends React.Component {
   /**
    * Handle app locale changes
    * @see https://github.com/react-native-community/react-native-localize
-   * @memberof AppEventHandler
+   * @memberof AppMonitor
    */
   onLocalizationChange = () => {
     const { handleAppLocaleUpdate } = this.props;
     handleAppLocaleUpdate({
-      currentLocale: RNLocalize.getLocales(),
+      currentLocales: RNLocalize.getLocales(),
       currentTimeZone: RNLocalize.getTimeZone(),
     });
   };
@@ -106,4 +106,4 @@ export default connect(
       },
       dispatch,
     ),
-)(AppEventHandler);
+)(AppMonitor);
