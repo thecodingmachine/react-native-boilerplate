@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 // import { LoadingIndicator } from 'ublocks-react-native';
 import { Actions, Router, Reducer } from 'react-native-router-flux';
 
-import AppEventHandler from './AppEventHandler';
+import AppMonitor from './AppMonitor';
 import AppScenes from './AppScenes';
 
 class AppNavigator extends React.Component {
@@ -32,7 +32,7 @@ class AppNavigator extends React.Component {
     const { isLoading } = this.props;
     const { scenes } = this.state;
     return (
-      <AppEventHandler>
+      <AppMonitor>
         {(appState) => (
           <React.Fragment>
             {scenes && (
@@ -53,7 +53,7 @@ class AppNavigator extends React.Component {
             {/* <LoadingIndicator open={isLoading} /> */}
           </React.Fragment>
         )}
-      </AppEventHandler>
+      </AppMonitor>
     );
   }
 }

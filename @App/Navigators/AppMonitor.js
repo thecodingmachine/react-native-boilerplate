@@ -1,21 +1,23 @@
-/* eslint-disable no-unused-expressions */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { AppState, View } from 'react-native';
+import * as RNLocalize from 'react-native-localize';
+import VersionNumber from 'react-native-version-number';
 
 import AppStateActions from 'App/Stores/AppState/Actions';
 
 const EVENT = {
-  APP_STATE_CHANGED: 'change',
+  CHANGE: 'change',
 };
 
 class AppEventHandler extends React.Component {
   static propTypes = {
     children: PropTypes.any.isRequired,
     handleAppStateUpdate: PropTypes.func.isRequired,
+    handleAppLocaleUpdate: PropTypes.func.isRequired,
+    handleAppVersionUpdate: PropTypes.func.isRequired,
   };
 
   /**
@@ -32,11 +34,19 @@ class AppEventHandler extends React.Component {
    * Register your event listeners when the app is mounted
    */
   componentDidMount() {
-    const { handleAppStateUpdate } = this.props;
-    handleAppStateUpdate(AppState.currentState);
+    // Update app version when starts
+    const { handleAppVersionUpdate } = this.props;
+    handleAppVersionUpdate(VersionNumber);
+
+    // kick off the state updates
+    this.onAppStateChange();
+    this.onLocalizationChange();
 
     // AppState change event listener
-    AppState.addEventListener(EVENT.APP_STATE_CHANGED, this.onAppStateChange);
+    AppState.addEventListener(EVENT.CHANGE, this.onAppStateChange);
+
+    // Locale change event listener
+    RNLocalize.addEventListener(EVENT.CHANGE, this.onLocalizationChange);
   }
 
   /**
@@ -44,9 +54,17 @@ class AppEventHandler extends React.Component {
    */
   componentWillUnmount() {
     // AppState change event listener
-    AppState.removeEventListener(EVENTS.APP_STATE_CHANGED, this.onAppStateChange);
+    AppState.removeEventListener(EVENTS.CHANGE, this.onAppStateChange);
+
+    // Locale change event listener
+    RNLocalize.addEventListener(EVENT.CHANGE, this.onLocalizationChange);
   }
 
+  /**
+   * Handle app state changes
+   * @see https://facebook.github.io/react-native/docs/appstate
+   * @memberof AppEventHandler
+   */
   onAppStateChange = (nextAppState) => {
     __DEV__ && console.log('@onAppStateChange', nextAppState);
 
@@ -54,6 +72,19 @@ class AppEventHandler extends React.Component {
     this.setState({ currentState: nextAppState }, () => {
       const { handleAppStateUpdate } = this.props;
       handleAppStateUpdate(nextAppState);
+    });
+  };
+
+  /**
+   * Handle app locale changes
+   * @see https://github.com/react-native-community/react-native-localize
+   * @memberof AppEventHandler
+   */
+  onLocalizationChange = () => {
+    const { handleAppLocaleUpdate } = this.props;
+    handleAppLocaleUpdate({
+      currentLocale: RNLocalize.getLocales(),
+      currentTimeZone: RNLocalize.getTimeZone(),
     });
   };
 
@@ -70,6 +101,8 @@ export default connect(
     bindActionCreators(
       {
         handleAppStateUpdate: AppStateActions.onStateChange,
+        handleAppLocaleUpdate: AppStateActions.onLocaleChange,
+        handleAppVersionUpdate: AppStateActions.onVersionChange,
       },
       dispatch,
     ),
