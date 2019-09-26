@@ -10,6 +10,7 @@ import {
 } from 'react-native-global-props';
 
 import { Global } from 'App/Theme';
+import { setI18nConfig } from 'App/Helpers/I18n';
 import createStore from 'App/Stores';
 import SplashScreen from 'App/Containers/Splash/SplashScreen';
 import AppNavigator from 'App/Navigators/AppNavigator';
@@ -19,12 +20,15 @@ const { store, persistor } = createStore();
 export default class App extends Component {
   constructor(props) {
     super(props);
+
     // Calling the functions and passing the custom props into their respective params
     setCustomView(Global.ViewProps);
     setCustomText(Global.TextProps);
     setCustomImage(Global.ImageProps);
     setCustomTextInput(Global.TextInputProps);
     setCustomTouchableOpacity(Global.TouchableOpacityProps);
+
+    __DEV__ && console.log('@Apply global theme!');
   }
   render() {
     return (

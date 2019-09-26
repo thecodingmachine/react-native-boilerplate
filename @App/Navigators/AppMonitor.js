@@ -6,11 +6,15 @@ import { AppState, View } from 'react-native';
 import * as RNLocalize from 'react-native-localize';
 import VersionNumber from 'react-native-version-number';
 
+import { setI18nConfig } from 'App/Helpers/I18n';
 import AppStateActions from 'App/Stores/AppState/Actions';
 
 const EVENT = {
   CHANGE: 'change',
 };
+
+// kick off i18n env.
+setI18nConfig();
 
 class AppMonitor extends React.Component {
   static propTypes = {
@@ -66,7 +70,7 @@ class AppMonitor extends React.Component {
    * @memberof AppMonitor
    */
   onAppStateChange = (nextAppState) => {
-    __DEV__ && console.log('@onAppStateChange', nextAppState);
+    __DEV__ && console.log('@onAppStateChange: ', nextAppState);
 
     // update appState when changes
     this.setState({ currentState: nextAppState }, () => {
@@ -86,6 +90,12 @@ class AppMonitor extends React.Component {
       currentLocales: RNLocalize.getLocales(),
       currentTimeZone: RNLocalize.getTimeZone(),
     });
+
+    // Update app locale
+    setI18nConfig();
+
+    // Force re-render
+    this.forceUpdate();
   };
 
   render() {

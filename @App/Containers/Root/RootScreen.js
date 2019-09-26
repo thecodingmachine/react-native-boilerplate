@@ -7,7 +7,7 @@ import StartupActions from 'App/Stores/Startup/Actions';
 
 class RootScreen extends React.Component {
   componentDidMount() {
-    __DEV__ && console.log('@enter RootScreen!');
+    __DEV__ && console.log('@Enter RootScreen!');
     // Run the startup saga when the application is starting
     this.props.startup();
   }

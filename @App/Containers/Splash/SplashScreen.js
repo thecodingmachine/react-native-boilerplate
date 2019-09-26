@@ -8,7 +8,7 @@ import StartupActions from 'App/Stores/Startup/Actions';
 
 class SplashScreen extends React.Component {
   componentDidMount() {
-    __DEV__ && console.log('@enter SplashScreen!');
+    __DEV__ && console.log('@Enter SplashScreen!');
   }
 
   render() {
