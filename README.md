@@ -2,6 +2,8 @@
     <img src="App/Assets/Images/TOM-Legend.png" alt="Logo" width="100%">
 </div>
 
+![GitHub Release Date](https://img.shields.io/github/release-date/thecodingmachine/react-native-boilerplate)
+![GitHub last commit](https://img.shields.io/github/last-commit/thecodingmachine/react-native-boilerplate)
 
 # TheCodingMachine React Native boilerplate
 
