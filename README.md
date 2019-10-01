@@ -4,6 +4,9 @@
 
 ![GitHub Release Date](https://img.shields.io/github/release-date/thecodingmachine/react-native-boilerplate)
 ![GitHub last commit](https://img.shields.io/github/last-commit/thecodingmachine/react-native-boilerplate)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/thecodingmachine/react-native-boilerplate)
+![GitHub commits since latest release](https://img.shields.io/github/commits-since/thecodingmachine/react-native-boilerplate/latest)
+![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/thecodingmachine/react-native-boilerplate)
 
 # TheCodingMachine React Native boilerplate
 
