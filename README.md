@@ -114,7 +114,8 @@ Assuming you have all the requirements installed, you can setup and run the proj
   - `cd android/app`
   - `keytool -genkey -v -keystore debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000`
   - `cd ../..` to come back to the root folder
-- `react-native run-android` to run the Android application (remember to start a simulator or connect an Android phone)
+- `yarn start` to start the metro bundler, in a dedicated terminal
+- `yarn react-native run-android` to run the Android application (remember to start a simulator or connect an Android phone)
 
 ### iOS
 
@@ -122,7 +123,7 @@ Assuming you have all the requirements installed, you can setup and run the proj
 - `pod install` to install pod dependencies
 - `cd ..` to come back to the root folder
 - `yarn start` to start the metro bundler, in a dedicated terminal
-- `react-native run-ios` to run the iOS application (remember to start a simulator or connect an iPhone phone)
+- `yarn react-native run-ios` to run the iOS application (remember to start a simulator or connect an iPhone phone)
 
 ## Useful documentation
 
