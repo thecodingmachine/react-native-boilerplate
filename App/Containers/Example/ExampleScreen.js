@@ -5,7 +5,7 @@ import { PropTypes } from 'prop-types'
 import ExampleActions from 'App/Stores/Example/Actions'
 import { liveInEurope } from 'App/Stores/Example/Selectors'
 import Style from './ExampleScreenStyle'
-import { Helpers, Images, Metrics } from 'App/Theme'
+import { ApplicationStyles, Helpers, Images, Metrics } from 'App/Theme'
 
 /**
  * This is an example of a container component.
@@ -56,7 +56,11 @@ class ExampleScreen extends React.Component {
                 </Text>
               </View>
             )}
-            <Button onPress={() => this._fetchUser()} title="Refresh" />
+            <Button
+              style={ApplicationStyles.button}
+              onPress={() => this._fetchUser()}
+              title="Refresh"
+            />
           </View>
         )}
       </View>
