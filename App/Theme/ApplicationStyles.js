@@ -3,11 +3,10 @@
  *
  * Use it to define generic component styles (e.g. the default text styles, default button styles...).
  */
+import Colors from './Colors'
 
 export default {
-  screen: {
-    container: {
-      flex: 1,
-    },
+  button: {
+    backgroundColor: Colors.primary,
   },
 }

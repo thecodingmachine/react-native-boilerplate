@@ -5,7 +5,7 @@ import { PropTypes } from 'prop-types'
 import ExampleActions from 'App/Stores/Example/Actions'
 import { liveInEurope } from 'App/Stores/Example/Selectors'
 import Style from './ExampleScreenStyle'
-import { Images } from 'App/Theme'
+import { ApplicationStyles, Helpers, Images, Metrics } from 'App/Theme'
 
 /**
  * This is an example of a container component.
@@ -26,13 +26,20 @@ class ExampleScreen extends React.Component {
 
   render() {
     return (
-      <View style={Style.container}>
+      <View
+        style={[
+          Helpers.fill,
+          Helpers.rowMain,
+          Metrics.mediumHorizontalMargin,
+          Metrics.mediumVerticalMargin,
+        ]}
+      >
         {this.props.userIsLoading ? (
           <ActivityIndicator size="large" color="#0000ff" />
         ) : (
           <View>
             <View style={Style.logoContainer}>
-              <Image style={Style.logo} source={Images.logo} resizeMode={'contain'} />
+              <Image style={Helpers.fullSize} source={Images.logo} resizeMode={'contain'} />
             </View>
             <Text style={Style.text}>To get started, edit App.js</Text>
             <Text style={Style.instructions}>{instructions}</Text>
@@ -49,13 +56,17 @@ class ExampleScreen extends React.Component {
                 </Text>
               </View>
             )}
-            <Button onPress={() => this._fetchUser()} title="Refresh" />
+            <Button
+              style={ApplicationStyles.button}
+              onPress={() => this._fetchUser()}
+              title="Refresh"
+            />
           </View>
         )}
       </View>
     )
   }
-  
+
   _fetchUser() {
     this.props.fetchUser()
   }
