@@ -46,7 +46,7 @@ The driving goal of the architecture of the boilerplate is separation of concern
 
 The boilerplate contains:
 
-- a [React Native](https://facebook.github.io/react-native/) (v**0.60.5**) application (in "[ejected](https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md)" mode to allow using dependencies that rely on native code)
+- a [React Native](https://facebook.github.io/react-native/) (v**0.61.5**) application (in "[ejected](https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md)" mode to allow using dependencies that rely on native code)
 - a [clear directory layout](#directory-layout) to provide a base architecture for your application
 - [Redux](https://redux.js.org/) (v4.0.1) to help manage state
 - [Redux Persist](https://github.com/rt2zz/redux-persist) (v5.10.0) to persist the Redux state
@@ -115,7 +115,7 @@ Assuming you have all the requirements installed, you can setup and run the proj
   - `keytool -genkey -v -keystore debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000`
   - `cd ../..` to come back to the root folder
 - `yarn start` to start the metro bundler, in a dedicated terminal
-- `yarn react-native run-android` to run the Android application (remember to start a simulator or connect an Android phone)
+- `yarn android` to run the Android application (remember to start a simulator or connect an Android phone)
 
 ### iOS
 
@@ -123,7 +123,7 @@ Assuming you have all the requirements installed, you can setup and run the proj
 - `pod install` to install pod dependencies
 - `cd ..` to come back to the root folder
 - `yarn start` to start the metro bundler, in a dedicated terminal
-- `yarn react-native run-ios` to run the iOS application (remember to start a simulator or connect an iPhone phone)
+- `yarn ios` to run the iOS application (remember to start a simulator or connect an iPhone phone)
 
 ## Useful documentation
 
