@@ -123,7 +123,7 @@ Assuming you have all the requirements installed, you can setup and run the proj
 - `pod install` to install pod dependencies
 - `cd ..` to come back to the root folder
 - `yarn start` to start the metro bundler, in a dedicated terminal
-- `react-native run-ios` to run the iOS application (remember to start a simulator or connect an iPhone phone)
+- `yarn react-native run-ios` to run the iOS application (remember to start a simulator or connect an iPhone phone)
 
 ## Useful documentation
 
