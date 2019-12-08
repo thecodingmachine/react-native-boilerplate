@@ -14,6 +14,9 @@ class RootScreen extends Component {
   }
 
   render() {
+    // Deep linking prefix
+    const prefix = 'boilerplate://';
+    
     return (
       <View style={Helpers.fill}>
         <AppNavigator
@@ -21,6 +24,7 @@ class RootScreen extends Component {
           ref={(navigatorRef) => {
             NavigationService.setTopLevelNavigator(navigatorRef)
           }}
+          uriPrefix={prefix}
         />
       </View>
     )
