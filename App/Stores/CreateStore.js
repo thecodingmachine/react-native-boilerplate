@@ -11,11 +11,11 @@ import { persistReducer, persistStore } from 'redux-persist'
  * If you need to store sensitive information, use redux-persist-sensitive-storage.
  * @see https://github.com/CodingZeal/redux-persist-sensitive-storage
  */
-import storage from 'redux-persist/lib/storage'
+import AsyncStorage from '@react-native-community/async-storage'
 
 const persistConfig = {
   key: 'root',
-  storage: storage,
+  storage: AsyncStorage,
   /**
    * Blacklist state that we do not need/want to persist
    */

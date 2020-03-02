@@ -1,4 +1,5 @@
-import { createAppContainer, createStackNavigator } from 'react-navigation'
+import { createAppContainer } from 'react-navigation'
+import { createStackNavigator } from 'react-navigation-stack'
 
 import ExampleScreen from 'App/Containers/Example/ExampleScreen'
 import SplashScreen from 'App/Containers/SplashScreen/SplashScreen'
