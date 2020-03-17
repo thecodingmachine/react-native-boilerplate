@@ -8,7 +8,7 @@ import NavigationService from 'App/Services/NavigationService'
 export function* startup() {
   // Dispatch a redux action using `put()`
   // @see https://redux-saga.js.org/docs/basics/DispatchingActions.html
-  yield put(ExampleActions.fetchUser())
+  yield put(ExampleActions.FETCH_USER())
 
   // Add more operations you need to do at startup here
   // ...

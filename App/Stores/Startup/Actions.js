@@ -1,9 +1,11 @@
-import { createActions } from 'reduxsauce'
+import {makeCreators, makeTypes} from "../utils";
 
-const { Types, Creators } = createActions({
-  // This action is triggered when the application starts
-  startup: null,
-})
 
-export const StartupTypes = Types
+const Types = {
+  STARTUP: null,
+}
+
+const Creators = makeCreators(Types)
+
+export const StartupTypes = makeTypes(Types)
 export default Creators
