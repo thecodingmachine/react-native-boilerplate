@@ -11,6 +11,16 @@ export default class SplashScreen extends React.Component {
           {/* You will probably want to insert your logo here */}
           <Text>LOGO</Text>
         </View>
+        {/* 
+        Example for navigating to another screen.
+         <TouchableHighlight
+          onPress={() => {
+            // eslint-disable-next-line react/prop-types
+            this.props.navigation.navigate('ExampleScreen')
+          }}
+        >
+          <Text>Go to Example Screen</Text>
+        </TouchableHighlight> */}
       </View>
     )
   }
