@@ -1,4 +1,4 @@
-import {makeCreators, makeTypes} from "../utils";
+import {makeCreators, makeTypes} from "App/Stores/utils";
 
 const Types = {
   // Fetch user informations
