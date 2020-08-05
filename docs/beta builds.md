@@ -58,7 +58,7 @@ Before continuing make sure you have:
 Open your Xcode project and modify some information:
 
 - [ ] In the `General` tab, `Identity` section, change the `Bundle Identifier` to your identifier (useful for Fastlane)
-- [ ] In the `General` tab, `Signing` section, disable `Automatically manage signing`
+- [ ] In the `Signing & Capabilities` tab, `Signing` section, disable `Automatically manage signing`
 - [ ] In the `Build Settings` tab, `Signing` section and into `Code Signing Identity`, set `Don't Code Sign` for the `debug` line (including `Any iOS SDK` also) and set `iOS Distribution` for the `release` line (including `Any iOS SDK` also).
 
 Like this:
@@ -97,10 +97,10 @@ The following questions will be asked:
   Our answer is `keep it secret`
 
 * If your account has multiple teams in the App Store Connect, you may have this question: `Multiple App Store Connect teams found, please enter the number of the team you want to use:`
-  * Select the right team 
+  * Select the right team
 * If your account has multiple teams in the Developer Portal, you may have this question: `Multiple teams found on the Developer Portal, please enter the number of the team you want to use:`
-  * Select the right team 
-* If you havent't already created the App on the Developer Portal or App Store Connect, Fastlane can do it for you! (else you must have a message `Your app 'com.tcm.boilerplate' is available in your Apple Developer Portal / App Store Connect`)
+  * Select the right team
+* If you haven't already created the App on the Developer Portal or App Store Connect, Fastlane can do it for you! (else you must have a message `Your app 'com.tcm.boilerplate' is available in your Apple Developer Portal / App Store Connect`)
   * It will ask `Do you want fastlane to create the App ID for you on the Apple Developer Portal / App Store Connect? (y/n)`
     * Type `y`
   * `App Name`:
@@ -171,7 +171,7 @@ Add the following lines to your `Fastfile`, inside the `build_app` function, jus
     clean: true,
     export_method: "app-store",
     export_options: {
-      provisioningProfiles: { 
+      provisioningProfiles: {
           CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier) => CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier) + " AppStore" # Value of this parameter is the name of the Provisioning Profile. By default, it will be "{bundleId} AppStore"
       }
     },
@@ -204,7 +204,7 @@ Before continuing make sure you have:
 - [ ] Create your application in the Google Play Console (unlike for iOS Fastlane cannot do that for you)
 - [ ] Use the right [.gitignore](../android/.gitignore) file inside the `android` directory (if you are using this boilerplate you are good to go)
 - [ ] [Collect your Google Credentials](https://docs.fastlane.tools/getting-started/android/setup/#collect-your-google-credentials)  
-    :warning: In the Google Play Console, add the parameter `&hl=en` at the end of the URL (before any #) to switch to English. In some languages, the "Create Service Account" will not be available. 
+    :warning: In the Google Play Console, add the parameter `&hl=en` at the end of the URL (before any #) to switch to English. In some languages, the "Create Service Account" will not be available.
     Download the JSON key file, and copy it into `my-project/android/key.json`
 - [ ] Install [all dependencies](https://facebook.github.io/react-native/docs/getting-started.html#installing-dependencies-1) for macOS and Android
 
@@ -276,12 +276,12 @@ Don't worry, we will generate it in a moment, let's just explain what the lane d
 First, script ask the user two values : signing store and alias key passwords, with the [`prompt`](https://docs.fastlane.tools/actions/prompt/) fastlane plugin.
 Asking the user those passwords ensure that no secret keys are stored into your app.  
 Then, this lane clean your project, assemble the application, automatically injecting signing configuration at runtime, before uploading it in the Google Play Store.  
-Upload is made `internaly`, that means only internal testers will be allowed to download the app. You can learn more about different test types [here](https://support.google.com/googleplay/android-developer/answer/3131213).
+Upload is made `internally`, that means only internal testers will be allowed to download the app. You can learn more about different test types [here](https://support.google.com/googleplay/android-developer/answer/3131213).
 
 
 #### Generating a signing key
 
-[Official documentation](https://facebook.github.io/react-native/docs/signed-apk-android#generating-a-signing-key) well explained how to generate a signing key. 
+[Official documentation](https://facebook.github.io/react-native/docs/signed-apk-android#generating-a-signing-key) well explained how to generate a signing key.
 
 You simply need to run the following :
 ```bash
@@ -307,7 +307,7 @@ To do this, comment the three last lines of the `Fastfile`
 #      track: 'internal'
 #    )
 ```
-or create a new lane without thoses lines.
+or create a new lane without those lines.
 
 :exclamation: There is no official plugin to automatically upgrade android version code (unlike the iOS lane).  
 Before each deployment, be sure to `manually` upgrade the `versionCode` value inside `android/app/build.gradle`.  
