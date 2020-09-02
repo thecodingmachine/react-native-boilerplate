@@ -20,6 +20,7 @@ What will be included :
 - usage of a debugger and a bug tracker :bug:
 - new documentations about fastlane deployments, component libraries, ... 
 - some refactoring about architecture and conventions
+- work on the `rename` script
 - and so more !
 
 See you soon :smiley:
