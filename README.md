@@ -8,6 +8,24 @@
 ![GitHub commits since latest release](https://img.shields.io/github/commits-since/thecodingmachine/react-native-boilerplate/latest)
 ![GitHub top language](https://img.shields.io/github/languages/top/thecodingmachine/react-native-boilerplate)
 
+
+# V2 IS COMING...
+
+Hey there !
+We are working on a major upgrade of this boilerplate, which will be available before the end of the year :rocket:  
+What will be included :
+- full upgrade of all dependencies, including React Navigation v5, last version of React Native, etc.
+- usage of Redux Toolkit
+- creation of a Redux helper to works with redux easily
+- usage of a debugger and a bug tracker :bug:
+- new documentations about fastlane deployments, component libraries, ... 
+- some refactoring about architecture and conventions
+- and so more !
+
+See you soon :smiley:
+
+Feel free to create an issue (feature request) with the `enhancement` label to propose some new features or improvments !
+
 # TheCodingMachine React Native boilerplate
 
 This project is a [React Native](https://facebook.github.io/react-native/) boilerplate that can be used to kickstart a mobile application.
