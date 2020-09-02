@@ -7,6 +7,9 @@ import { Helpers } from 'App/Theme'
 import { useDispatch } from 'react-redux'
 
 const RootScreen = () => {
+  // Deep linking prefix
+  const prefix = 'boilerplate://';
+  
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -20,6 +23,7 @@ const RootScreen = () => {
         ref={(navigatorRef) => {
           NavigationService.setTopLevelNavigator(navigatorRef)
         }}
+        uriPrefix={prefix}
       />
     </View>
   )
