@@ -1,7 +1,7 @@
 import { createAppContainer, createStackNavigator } from 'react-navigation'
 
 import ExampleScreen from 'App/Containers/Example/ExampleScreen'
-import ChatScreen from 'App/Containers/ChatScreen/ChatScreen'
+import DeepLinkingScreen from 'App/Containers/DeepLinking/DeepLinkingScreen'
 import SplashScreen from 'App/Containers/SplashScreen/SplashScreen'
 
 /**
@@ -19,9 +19,9 @@ const StackNavigator = createStackNavigator(
     MainScreen: {
       screen: ExampleScreen,
     },
-    ChatScreen: {
-      screen: ChatScreen,
-      path: 'chat',
+    DeepLinkingScreen: {
+      screen: DeepLinkingScreen,
+      path: 'deeplink',
     },
   },
   {
