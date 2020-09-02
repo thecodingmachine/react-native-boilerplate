@@ -28,12 +28,12 @@ const userApiClient = axios.create({
 function fetchUser() {
   // Simulate an error 50% of the time just for testing purposes
   if (Math.random() > 0.5) {
-    return new Promise(function(resolve, reject) {
+    return new Promise((resolve, reject) => {
       resolve(null)
     })
   }
 
-  let number = Math.floor(Math.random() / 0.1) + 1
+  const number = Math.floor(Math.random() / 0.1) + 1
 
   return userApiClient.get(number.toString()).then((response) => {
     if (in200s(response.status)) {

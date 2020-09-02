@@ -24,8 +24,8 @@
   ],
   "settings": {
     "react": {
-      "version": "detect",
-    },
+      "version": "detect"
+    }
   },
   "rules": {
     "react-native/no-raw-text": 0 // Avoid false positive, wait for fix

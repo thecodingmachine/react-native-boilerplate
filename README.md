@@ -156,7 +156,7 @@ This project is released under the [MIT License](LICENSE).
 
 We looked into existing boilerplates before starting this project, and while many of them are awesome, we did not find what we were looking for.
 
-The most popular is [mcnamee's Starter Kit](https://github.com/mcnamee/react-native-starter-kit), which is unfortunately [limited by *Expo*](https://facebook.github.io/react-native/docs/getting-started#caveats) and misses Redux Saga.
+The most popular is [Matt Mcnamee's React Native Starter Kit](https://github.com/mcnamee/react-native-starter-kit), which unfortunately misses Redux Saga.
 
 If we look at the rest (and ignore unmaintained projects), many popular boilerplates are too opinionated: they include 3rd party services or very strong architecture choices that we are not comfortable with. To name a few: [Snowflake](https://github.com/bartonhammond/snowflake) runs with a Hapi Server running on Redhat OpenShift, [Hasura's boilerplate](https://github.com/hasura/react-native-auth-boilerplate) uses Hasura's SaaS for authentication, [Apollo's StarterKit](https://github.com/sysgears/apollo-universal-starter-kit) is targeted at GraphQL using Apollo, the [Meteor Boilerplate](https://github.com/spencercarli/react-native-meteor-boilerplate) targets Meteor…
 
