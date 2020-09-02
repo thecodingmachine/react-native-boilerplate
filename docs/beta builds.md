@@ -59,7 +59,8 @@ Open your Xcode project and modify some information:
 
 - [ ] In the `General` tab, `Identity` section, change the `Bundle Identifier` to your identifier (useful for Fastlane)
 - [ ] In the `Signing & Capabilities` tab, `Signing` section, disable `Automatically manage signing`
-- [ ] In the `Build Settings` tab, `Signing` section and into `Code Signing Identity`, set `Don't Code Sign` for the `debug` line (including `Any iOS SDK` also) and set `iOS Distribution` for the `release` line (including `Any iOS SDK` also).
+- [ ] In the `Build Settings` tab, set view filter on top to `All` and `Combined`, then go to the `Signing` section and into `Code Signing Identity`, set `Don't Code Sign` for the `debug` line (including `Any iOS SDK` also) and set `iOS Distribution` for the `release` line (including `Any iOS SDK` also).
+
 
 Like this:
 
