@@ -23,7 +23,7 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen'
-import { Fonts, Layout } from '@/Theme'
+import { Fonts, Layout, Colors as ThemeColor } from '@/Theme'
 
 const App: () => React$Node = () => {
   return (
@@ -33,13 +33,13 @@ const App: () => React$Node = () => {
         <View
           style={[
             Layout.colCenter,
-            { height: 50, backgroundColor: Colors.primary },
+            { height: 50, backgroundColor: ThemeColor.primary },
           ]}>
           <View
             style={[
               Layout.fill,
               Layout.rowCenter,
-              { backgroundColor: Colors.white },
+              { backgroundColor: ThemeColor.white },
             ]}>
             <Text style={Fonts.textSmall}>EXAMPLE</Text>
           </View>
