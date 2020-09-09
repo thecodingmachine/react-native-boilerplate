@@ -1,30 +1,41 @@
 /**
  * This file contains all application's style relative to fonts
  */
-
 import { StyleSheet } from 'react-native'
-import { fontSize } from './Variables'
+import { FontSize } from './_Variables'
 
 export default StyleSheet.create({
   textSmall: {
-    fontSize: fontSize.small,
+    fontSize: FontSize.small,
   },
   textRegular: {
-    fontSize: fontSize.regular,
+    fontSize: FontSize.regular,
   },
   textLarge: {
-    fontSize: fontSize.large,
+    fontSize: FontSize.large,
   },
   titleSmall: {
-    fontSize: fontSize.small * 2,
+    fontSize: FontSize.small * 2,
     fontWeight: 'bold',
   },
   titleMedium: {
-    fontSize: fontSize.small * 2,
+    fontSize: FontSize.small * 2,
     fontWeight: 'bold',
   },
   titleLarge: {
-    fontSize: fontSize.small * 2,
+    fontSize: FontSize.small * 2,
     fontWeight: 'bold',
+  },
+  textCenter: {
+    textAlign: 'center',
+  },
+  textJustify: {
+    textAlign: 'justify',
+  },
+  textLeft: {
+    textAlign: 'left',
+  },
+  textRight: {
+    textAlign: 'right',
   },
 })

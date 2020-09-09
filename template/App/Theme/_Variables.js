@@ -5,7 +5,10 @@
  * That allows to change them more easily later on.
  */
 
-const colors = {
+/**
+ * Colors
+ */
+export const Colors = {
   transparent: 'rgba(0,0,0,0)',
   // Example colors:
   white: '#ffffff',
@@ -15,13 +18,25 @@ const colors = {
   error: '#dc3545',
 }
 
-const fontSize = {
+/**
+ * FontSize
+ */
+export const FontSize = {
   small: 12,
   regular: 14,
   large: 18,
 }
 
-export default {
-  colors,
-  fontSize,
+/**
+ * Metrics Sizes
+ */
+const tiny = 5 // 10
+const small = tiny * 2 // 10
+const regular = tiny * 3 // 15
+const large = regular * 2 // 30
+export const MetricsSizes = {
+  tiny,
+  small,
+  regular,
+  large,
 }

@@ -1,1 +1,1 @@
-This directory contains the base for the application styles.
+This directory contains the base for the application theme.

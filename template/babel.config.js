@@ -4,6 +4,7 @@ module.exports = {
     [
       require.resolve('babel-plugin-module-resolver'),
       {
+        root: ['.'],
         alias: {
           '@': './App',
         },

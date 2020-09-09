@@ -23,12 +23,27 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen'
+import { Fonts, Layout } from '@/Theme'
 
 const App: () => React$Node = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
+        <View
+          style={[
+            Layout.colCenter,
+            { height: 50, backgroundColor: Colors.primary },
+          ]}>
+          <View
+            style={[
+              Layout.fill,
+              Layout.rowCenter,
+              { backgroundColor: Colors.white },
+            ]}>
+            <Text style={Fonts.textSmall}>EXAMPLE</Text>
+          </View>
+        </View>
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
