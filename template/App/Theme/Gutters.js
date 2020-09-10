@@ -21,41 +21,41 @@ export default StyleSheet.create({
     (acc, [key, value]) => ({
       ...acc,
       /* Margins */
-      [`${key}BottomMargin`]: {
+      [`${key}BMargin`]: {
         marginBottom: value,
       },
-      [`${key}TopMargin`]: {
+      [`${key}TMargin`]: {
         marginBottom: value,
       },
-      [`${key}RightMargin`]: {
+      [`${key}RMargin`]: {
         marginBottom: value,
       },
-      [`${key}LeftMargin`]: {
+      [`${key}LMargin`]: {
         marginBottom: value,
       },
-      [`${key}VerticalMargin`]: {
+      [`${key}VMargin`]: {
         marginVertical: value,
       },
-      [`${key}HorizontalMargin`]: {
+      [`${key}HMargin`]: {
         marginHorizontal: value,
       },
       /* Paddings */
-      [`${key}BottomPadding`]: {
+      [`${key}BPadding`]: {
         paddingBottom: value,
       },
-      [`${key}TopPadding`]: {
+      [`${key}TPadding`]: {
         paddingBottom: value,
       },
-      [`${key}RightPadding`]: {
+      [`${key}RPadding`]: {
         paddingBottom: value,
       },
-      [`${key}LeftPadding`]: {
+      [`${key}LPadding`]: {
         paddingBottom: value,
       },
-      [`${key}VerticalPadding`]: {
+      [`${key}VPadding`]: {
         paddingVertical: value,
       },
-      [`${key}HorizontalPadding`]: {
+      [`${key}HPadding`]: {
         paddingHorizontal: value,
       },
     }),
