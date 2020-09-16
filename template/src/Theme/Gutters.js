@@ -1,7 +1,7 @@
 /**
  * This file contains metric styles that are global to the application.
  */
-import { MetricsSizes } from './_Variables'
+import { MetricsSizes } from './Variables'
 import { StyleSheet } from 'react-native'
 
 /**

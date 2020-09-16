@@ -2,7 +2,7 @@
  * This file contains all application's style relative to fonts
  */
 import { StyleSheet } from 'react-native'
-import { FontSize } from './_Variables'
+import { FontSize } from './Variables'
 
 export default StyleSheet.create({
   textSmall: {
