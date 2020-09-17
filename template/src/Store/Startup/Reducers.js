@@ -23,7 +23,7 @@ export const initApplicationError = (state, { errorMessage }) => ({
 /**
  * @see https://redux-toolkit.js.org/api/createReducer
  */
-export const reducer = createReducer(INITIAL_STATE, {
+export default createReducer(INITIAL_STATE, {
   [StartupTypes.INIT_APPLICATION_LOADING]: initApplicationLoading,
   [StartupTypes.INIT_APPLICATION_SUCCESS]: initApplicationSuccess,
   [StartupTypes.INIT_APPLICATION_ERROR]: initApplicationError,
