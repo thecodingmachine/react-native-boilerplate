@@ -4,19 +4,19 @@ import { StartupTypes } from './Actions'
 
 export const initApplicationLoading = (state) => ({
   ...state,
-  appIsReady: false,
+  applicationIsReady: false,
   appHandleError: false,
 })
 
 export const initApplicationSuccess = (state) => ({
   ...state,
-  appIsReady: true,
+  applicationIsReady: true,
   appHandleError: false,
 })
 
 export const initApplicationError = (state, { errorMessage }) => ({
   ...state,
-  appIsReady: true,
+  applicationIsReady: true,
   appHandleError: errorMessage,
 })
 

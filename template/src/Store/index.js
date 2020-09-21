@@ -1,8 +1,8 @@
-// import rootSaga from 'App/Sagas'
 import AsyncStorage from '@react-native-community/async-storage'
 import { persistReducer, persistStore } from 'redux-persist'
 import { combineReducers } from 'redux'
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
+import createDebugger from 'redux-flipper'
+import { configureStore } from '@reduxjs/toolkit'
 
 import startup from './Startup/Reducers'
 
@@ -23,10 +23,10 @@ const persistedReducer = persistReducer(persistConfig, reducers)
 
 const store = configureStore({
   reducer: persistedReducer,
-  // middleware: rootSaga,
-  middleware: getDefaultMiddleware({
-    serializableCheck: false,
-  }),
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }).concat(createDebugger()),
 })
 
 const persistor = persistStore(store)

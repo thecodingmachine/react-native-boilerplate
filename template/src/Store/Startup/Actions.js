@@ -1,7 +1,9 @@
 import initHelper from '@/Store/initHelper'
+// import { fetchUser } from '@/Services/ExampleService'
+// import { createAsyncThunk } from '@reduxjs/toolkit'
 
 const Types = {
-  // Action listenned by sagas
+  // Action listened by sagas
   INIT_APPLICATION: null,
   // The operation has started and is loading
   INIT_APPLICATION_LOADING: false,
@@ -12,3 +14,5 @@ const Types = {
 }
 
 export const [StartupActions, StartupTypes] = initHelper(Types)
+
+// export const fetchUsers = createAsyncThunk('users/fetchUser', fetchUser)

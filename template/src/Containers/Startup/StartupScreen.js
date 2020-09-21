@@ -1,18 +1,29 @@
 import React, { useEffect } from 'react'
-import { Button, SafeAreaView } from 'react-native'
+import { ActivityIndicator, SafeAreaView, Button } from 'react-native'
 import { Layout } from '@/Theme'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { StartupActions } from '@/Store/Startup/Actions'
 
 const StartupScreen = ({ navigation }) => {
-  const isReady = useSelector((state) => state.startup.appIsReady)
+  const dispatch = useDispatch()
+  const isApplicationReady = useSelector(
+    (state) => state.startup.applicationIsReady,
+  )
 
   useEffect(() => {
-    console.log('hein', isReady)
+    setTimeout(() => dispatch(StartupActions.initApplicationSuccess()), 5000)
   })
 
   return (
     <SafeAreaView style={[Layout.fill, Layout.rowCenter]}>
-      <Button title={'Continue'} onPress={() => navigation.navigate('Home')} />
+      {!isApplicationReady ? (
+        <ActivityIndicator />
+      ) : (
+        <Button
+          title={'Continue'}
+          onPress={() => navigation.navigate('Home')}
+        />
+      )}
     </SafeAreaView>
   )
 }

@@ -1,4 +1,4 @@
 export const INITIAL_STATE = {
-  appIsReady: false,
+  applicationIsReady: false,
   appHandleError: false,
 }

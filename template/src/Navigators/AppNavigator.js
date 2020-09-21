@@ -1,14 +1,35 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import { ExampleScreen, StartupScreen } from '@/Containers'
+import { StartupScreen } from '@/Containers'
+import { useSelector } from 'react-redux'
 
 const Stack = createStackNavigator()
 
-const AppNavigator = () => (
-  <Stack.Navigator>
-    <Stack.Screen name="Startup" component={StartupScreen} />
-    <Stack.Screen name="Home" component={ExampleScreen} />
-  </Stack.Navigator>
-)
+let ExampleScreen
+
+// @refresh reset
+const AppNavigator = () => {
+  const [isApplicationLoaded, setIsApplicationLoaded] = useState(false)
+
+  const applicationIsReady = useSelector(
+    (state) => state.startup.applicationIsReady,
+  )
+
+  useEffect(() => {
+    if (ExampleScreen == null && applicationIsReady) {
+      ExampleScreen = require('@/Containers').ExampleScreen
+      setIsApplicationLoaded(true)
+    }
+  }, [applicationIsReady])
+
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Startup" component={StartupScreen} />
+      {isApplicationLoaded && (
+        <Stack.Screen name="Home" component={ExampleScreen} />
+      )}
+    </Stack.Navigator>
+  )
+}
 
 export default AppNavigator
