@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 
 const Stack = createStackNavigator()
 
-let ExampleScreen
+let MainNavigator
 
 // @refresh reset
 const AppNavigator = () => {
@@ -16,8 +16,8 @@ const AppNavigator = () => {
   )
 
   useEffect(() => {
-    if (ExampleScreen == null && applicationIsReady) {
-      ExampleScreen = require('@/Containers').ExampleScreen
+    if (MainNavigator == null && applicationIsReady) {
+      MainNavigator = require('@/Navigators/MainNavigator').default
       setIsApplicationLoaded(true)
     }
   }, [applicationIsReady])
@@ -26,7 +26,7 @@ const AppNavigator = () => {
     <Stack.Navigator>
       <Stack.Screen name="Startup" component={StartupScreen} />
       {isApplicationLoaded && (
-        <Stack.Screen name="Home" component={ExampleScreen} />
+        <Stack.Screen name="Base" component={MainNavigator || null} />
       )}
     </Stack.Navigator>
   )

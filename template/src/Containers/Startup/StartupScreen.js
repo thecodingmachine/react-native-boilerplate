@@ -3,6 +3,7 @@ import { ActivityIndicator, SafeAreaView, Button } from 'react-native'
 import { Layout } from '@/Theme'
 import { useDispatch, useSelector } from 'react-redux'
 import { StartupActions } from '@/Store/Startup/Actions'
+import { CommonActions } from '@react-navigation/native'
 
 const StartupScreen = ({ navigation }) => {
   const dispatch = useDispatch()
@@ -21,7 +22,14 @@ const StartupScreen = ({ navigation }) => {
       ) : (
         <Button
           title={'Continue'}
-          onPress={() => navigation.navigate('Home')}
+          onPress={() =>
+            navigation.dispatch(
+              CommonActions.reset({
+                index: 0,
+                routes: [{ name: 'Base' }],
+              }),
+            )
+          }
         />
       )}
     </SafeAreaView>
