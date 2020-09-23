@@ -26,7 +26,7 @@ const AppNavigator = () => {
     <Stack.Navigator>
       <Stack.Screen name="Startup" component={StartupScreen} />
       {isApplicationLoaded && (
-        <Stack.Screen name="Base" component={MainNavigator || null} />
+        <Stack.Screen name="Base" component={MainNavigator} />
       )}
     </Stack.Navigator>
   )

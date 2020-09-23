@@ -1,6 +1,6 @@
 import { INITIAL_STATE } from './InitialState'
 import { createReducer } from '@reduxjs/toolkit'
-import { StartupTypes } from './Actions'
+import { initApplication } from './Actions'
 
 export const initApplicationLoading = (state) => ({
   ...state,
@@ -24,7 +24,7 @@ export const initApplicationError = (state, { errorMessage }) => ({
  * @see https://redux-toolkit.js.org/api/createReducer
  */
 export default createReducer(INITIAL_STATE, {
-  [StartupTypes.INIT_APPLICATION_LOADING]: initApplicationLoading,
-  [StartupTypes.INIT_APPLICATION_SUCCESS]: initApplicationSuccess,
-  [StartupTypes.INIT_APPLICATION_ERROR]: initApplicationError,
+  [initApplication.pending]: initApplicationLoading,
+  [initApplication.fulfilled]: initApplicationSuccess,
+  [initApplication.rejected]: initApplicationError,
 })

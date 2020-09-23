@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
-import { ActivityIndicator, SafeAreaView, Button } from 'react-native'
+import { ActivityIndicator, View, Button } from 'react-native'
 import { Layout } from '@/Theme'
 import { useDispatch, useSelector } from 'react-redux'
-import { StartupActions } from '@/Store/Startup/Actions'
+import { initApplication } from '@/Store/Startup/Actions'
 import { CommonActions } from '@react-navigation/native'
 
 const StartupScreen = ({ navigation }) => {
@@ -12,11 +12,11 @@ const StartupScreen = ({ navigation }) => {
   )
 
   useEffect(() => {
-    setTimeout(() => dispatch(StartupActions.initApplicationSuccess()), 5000)
-  })
+    dispatch(initApplication())
+  }, [dispatch])
 
   return (
-    <SafeAreaView style={[Layout.fill, Layout.rowCenter]}>
+    <View style={[Layout.fill, Layout.rowCenter]}>
       {!isApplicationReady ? (
         <ActivityIndicator />
       ) : (
@@ -32,7 +32,7 @@ const StartupScreen = ({ navigation }) => {
           }
         />
       )}
-    </SafeAreaView>
+    </View>
   )
 }
 

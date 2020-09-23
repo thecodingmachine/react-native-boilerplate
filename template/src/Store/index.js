@@ -5,9 +5,11 @@ import createDebugger from 'redux-flipper'
 import { configureStore } from '@reduxjs/toolkit'
 
 import startup from './Startup/Reducers'
+import example from './Example/Reducers'
 
 const reducers = combineReducers({
   startup,
+  example,
 })
 
 const persistConfig = {

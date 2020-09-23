@@ -1,1 +1,1 @@
-export { default as MyComp } from './MyComp'
+export { default as Brand } from './Brand'

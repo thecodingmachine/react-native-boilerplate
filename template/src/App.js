@@ -3,9 +3,10 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/lib/integration/react'
 import { store, persistor } from '@/Store'
-import { StatusBar } from 'react-native'
+import { SafeAreaView, StatusBar } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import AppNavigator from '@/Navigators/AppNavigator'
+import { Layout } from '@/Theme'
 
 console.log(store, persistor)
 
@@ -19,10 +20,12 @@ const App = () => (
      * @see https://github.com/rt2zz/redux-persist/blob/master/docs/PersistGate.md
      */}
     <PersistGate loading={null} persistor={persistor}>
-      <NavigationContainer>
-        <StatusBar barStyle="dark-content" />
-        <AppNavigator />
-      </NavigationContainer>
+      <SafeAreaView style={Layout.fill}>
+        <NavigationContainer>
+          <StatusBar barStyle="dark-content" />
+          <AppNavigator />
+        </NavigationContainer>
+      </SafeAreaView>
     </PersistGate>
   </Provider>
 )
