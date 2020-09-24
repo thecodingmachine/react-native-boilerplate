@@ -1,12 +1,20 @@
 import AsyncStorage from '@react-native-community/async-storage'
-import { persistReducer, persistStore } from 'redux-persist'
 import { combineReducers } from 'redux'
-import createDebugger from 'redux-flipper'
+import {
+  persistReducer,
+  persistStore,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist'
 import { configureStore } from '@reduxjs/toolkit'
+import createDebugger from 'redux-flipper'
 
 import startup from './Startup/Reducers'
-import user from './User/Reducers'
-
+import user from './User'
 const reducers = combineReducers({
   startup,
   user,
@@ -24,7 +32,9 @@ const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
-      serializableCheck: false,
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
     }).concat(createDebugger()),
 })
 
