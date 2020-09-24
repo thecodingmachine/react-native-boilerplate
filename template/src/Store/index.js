@@ -5,19 +5,16 @@ import createDebugger from 'redux-flipper'
 import { configureStore } from '@reduxjs/toolkit'
 
 import startup from './Startup/Reducers'
-import example from './Example/Reducers'
+import user from './User/Reducers'
 
 const reducers = combineReducers({
   startup,
-  example,
+  user,
 })
 
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  /**
-   * whitelist state that we need/want to persist
-   */
   whitelist: [],
 }
 

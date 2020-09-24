@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import { StartupScreen } from '@/Containers'
+import { IndexStartupContainer } from '@/Containers'
 import { useSelector } from 'react-redux'
 
 const Stack = createStackNavigator()
@@ -8,7 +8,7 @@ const Stack = createStackNavigator()
 let MainNavigator
 
 // @refresh reset
-const AppNavigator = () => {
+const ApplicationNavigator = () => {
   const [isApplicationLoaded, setIsApplicationLoaded] = useState(false)
 
   const applicationIsReady = useSelector(
@@ -17,19 +17,19 @@ const AppNavigator = () => {
 
   useEffect(() => {
     if (MainNavigator == null && applicationIsReady) {
-      MainNavigator = require('@/Navigators/MainNavigator').default
+      MainNavigator = require('@/Navigators/Main').default
       setIsApplicationLoaded(true)
     }
   }, [applicationIsReady])
 
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Startup" component={StartupScreen} />
+      <Stack.Screen name="Startup" component={IndexStartupContainer} />
       {isApplicationLoaded && (
-        <Stack.Screen name="Base" component={MainNavigator} />
+        <Stack.Screen name="Main" component={MainNavigator} />
       )}
     </Stack.Navigator>
   )
 }
 
-export default AppNavigator
+export default ApplicationNavigator

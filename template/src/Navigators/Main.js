@@ -1,6 +1,6 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { ExampleScreen } from '@/Containers'
+import { IndexExampleContainer } from '@/Containers'
 
 const Tab = createBottomTabNavigator()
 
@@ -8,7 +8,7 @@ const Tab = createBottomTabNavigator()
 const MainNavigator = () => {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Home" component={ExampleScreen} />
+      <Tab.Screen name="Home" component={IndexExampleContainer} />
     </Tab.Navigator>
   )
 }

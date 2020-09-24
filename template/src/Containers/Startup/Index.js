@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { initApplication } from '@/Store/Startup/Actions'
 import { CommonActions } from '@react-navigation/native'
 
-const StartupScreen = ({ navigation }) => {
+const IndexStartupContainer = ({ navigation }) => {
   const dispatch = useDispatch()
   const isApplicationReady = useSelector(
     (state) => state.startup.applicationIsReady,
@@ -26,7 +26,7 @@ const StartupScreen = ({ navigation }) => {
             navigation.dispatch(
               CommonActions.reset({
                 index: 0,
-                routes: [{ name: 'Base' }],
+                routes: [{ name: 'Main' }],
               }),
             )
           }
@@ -36,4 +36,4 @@ const StartupScreen = ({ navigation }) => {
   )
 }
 
-export default StartupScreen
+export default IndexStartupContainer

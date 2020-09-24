@@ -1,20 +1,21 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { View, ActivityIndicator, Button, Text } from 'react-native'
+
 import { Brand } from '@/Components'
 import { Gutters, Layout } from '@/Theme'
-import { fetchUser } from '@/Store/Example/Actions'
+import { FetchOneUserAction } from '@/Store/User/Actions'
 
-const ExampleScreen = () => {
+const IndexExampleContainer = () => {
   const dispatch = useDispatch()
 
-  const user = useSelector((state) => state.example.user)
-  const userIsLoading = useSelector((state) => state.example.userLoading)
-  const userError = useSelector((state) => state.example.userError)
+  const user = useSelector((state) => state.user.item)
+  const userIsLoading = useSelector((state) => state.user.fetchOneLoading)
+  const userError = useSelector((state) => state.user.fetchOneError)
 
   const fetch = () => {
     const number = Math.floor(Math.random() / 0.1) + 1
-    dispatch(fetchUser(number))
+    dispatch(FetchOneUserAction(number))
   }
 
   return (
@@ -35,4 +36,4 @@ const ExampleScreen = () => {
   )
 }
 
-export default ExampleScreen
+export default IndexExampleContainer

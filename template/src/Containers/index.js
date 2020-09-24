@@ -1,2 +1,2 @@
-export { default as ExampleScreen } from './Example/ExampleScreen'
-export { default as StartupScreen } from './Startup/StartupScreen'
+export { default as IndexExampleContainer } from './Example/Index'
+export { default as IndexStartupContainer } from './Startup/Index'
