@@ -9,7 +9,8 @@ title: React Native Boilerplate
 
 This project is a [React Native](https://facebook.github.io/react-native/) boilerplate that can be used to kickstart a mobile application.
 
-The boilerplate provides **an architecture optimized for building solid cross-platform mobile applications** through separation of concerns between the UI and business logic. It is extremely documented so that each piece of code that lands in your application can be understood and used.
+The boilerplate provides **an architecture optimized for building solid cross-platform mobile applications** through separation of concerns between the UI and business logic. 
+We made this documented so that each piece of code that lands in your application can be understood and used.
 
 
 :::tip Don't forget !!
@@ -20,9 +21,13 @@ If you love this boilerplate, give us a star, you will be a ray of sunshine in o
 
 The driving goal of the architecture of the boilerplate is separation of concerns. Namely:
 
-- **Presentational components are separated from containers** (aka "screens").
+- **Using modern Javascript**
+    We want to use Javascript at his best. So we using react hooks, functional components and have updated dependencies
 
-    Presentational components are small components that are concerned with *how things look*. Containers usually define whole application screens and are concerned with *how things work*: they include presentational components and wire everything together.
+- **Presentational components are separated from containers**.
+
+    Presentational components are small components that are concerned with *how things look*. 
+    Containers usually define whole application screens and are concerned with *how things work*: they include presentational components and wire everything together.
     
     If you are interested you can [read more about it here](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0).
 
@@ -34,12 +39,6 @@ The driving goal of the architecture of the boilerplate is separation of concern
     
     If you are interested you can [read more about it here](https://redux.js.org/introduction/motivation).
     
-- **Application side-effects (API calls, etc.) are separated from UI and state manipulation using [Redux Saga](https://redux-saga.js.org/)**.
-
-    Using Redux Saga has two benefits: keeping application side-effects and related business logic out of UI components, as well as executing that logic in an asynchronous way without ending in callback hell.
-    
-    Sagas are triggered by Redux actions and can also trigger Redux actions to alter state. By using JavaScript generators (`yield`), sagas are written in a synchronous-like manner while still executing asynchronously.
-
 ## Content
 
 The boilerplate contains:

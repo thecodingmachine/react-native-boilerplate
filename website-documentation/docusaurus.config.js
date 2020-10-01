@@ -13,7 +13,7 @@ module.exports = {
   url: 'https://your-docusaurus-test-site.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.png',
   organizationName: 'thecodingmachine',
   projectName: 'react-native-boilerplate',
   themeConfig: {
@@ -21,7 +21,7 @@ module.exports = {
       title: 'RNBoilerplate',
       logo: {
         alt: 'React Native Boilerplate',
-        src: 'img/TOM.png',
+        src: 'img/TOM-small.png',
       },
       items: [
         {
@@ -31,7 +31,6 @@ module.exports = {
           position: 'left',
         },
         // {to: 'blog', label: 'Blog', position: 'left'},
-        // Please keep GitHub link to the right for consistency.
         {
           href: 'https://github.com/thecodingmachine/react-native-boilerplate',
           label: 'GitHub',
@@ -102,11 +101,11 @@ module.exports = {
       ],
       logo: {
         alt: 'Facebook Open Source Logo',
-        src: 'img/oss_logo.png',
+        src: 'img/TOM.png',
         href: 'https://opensource.facebook.com',
       },
       // Please do not remove the credits, help to publicize Docusaurus :)
-      copyright: `Copyright © ${new Date().getFullYear()} Facebook, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} TheCodingMachine, Inc. Built with Docusaurus.`,
     },
   },
   presets: [
@@ -115,16 +114,15 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
           editUrl:
-            'https://github.com/facebook/docusaurus/edit/master/website/',
+            'https://github.com/thecodingmachine/react-native-boilerplate/edit/master/website-documentation/docs',
         },
-        // blog: {
-        //   showReadingTime: true,
-        //   // Please change this to your repo.
-        //   editUrl:
-        //     'https://github.com/facebook/docusaurus/edit/master/website/blog/',
-        // },
+        /* blog: {
+           showReadingTime: true,
+           // Please change this to your repo.
+           editUrl:
+             'https://github.com/facebook/docusaurus/edit/master/website/blog/',
+         }, */
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
