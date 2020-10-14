@@ -18,12 +18,12 @@ export default StyleSheet.create({
     fontSize: FontSize.small * 2,
     fontWeight: 'bold',
   },
-  titleMedium: {
-    fontSize: FontSize.small * 2,
+  titleRegular: {
+    fontSize: FontSize.regular * 2,
     fontWeight: 'bold',
   },
   titleLarge: {
-    fontSize: FontSize.small * 2,
+    fontSize: FontSize.large * 2,
     fontWeight: 'bold',
   },
   textCenter: {
