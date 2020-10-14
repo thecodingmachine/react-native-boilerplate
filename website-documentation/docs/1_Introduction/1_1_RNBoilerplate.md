@@ -14,7 +14,7 @@ We made this documented so that each piece of code that lands in your applicatio
 
 
 :::tip Don't forget !!
-If you love this boilerplate, give us a star, you will be a ray of sunshine in our lives :)
+If you love this boilerplate, give us a star, you will be a ray of sunshine in our lives 🌈 ☀️
 :::
 
 ## Architecture
@@ -47,25 +47,23 @@ The boilerplate contains:
 - a [clear directory layout](#directory-layout) to provide a base architecture for your application
 - [Redux](https://redux.js.org/) (v4.0.1) to help manage state
 - [Redux Persist](https://github.com/rt2zz/redux-persist) (v5.10.0) to persist the Redux state
-- [Redux Sagas](https://redux-saga.js.org) (v1.0.2) to separate side-effects and logic from state and UI logic
 - [React Navigation](https://reactnavigation.org/) (v3.11.2) with a [`NavigationService`](App/Services/NavigationService.js) to handle routing and navigation in the app, with a splash screen setup by default
-- [reduxsauce](https://github.com/infinitered/reduxsauce) (v1.0.1) to facilitate using Redux
+- [redux toolkit](https://github.com/infinitered/reduxsauce)
 - [axios](https://github.com/axios/axios) to make API calls (v0.19.0)
 - [prettier](https://prettier.io/) and [eslint](https://eslint.org/) preconfigured for React Native
 
-The boilerplate includes an example (displaying fake user data) from UI components to the saga. The example is easy to remove so that it doesn't get in the way.
+The boilerplate includes an example (displaying fake user data) from UI components to the business logic. The example is easy to remove so that it doesn't get in the way.
 
 ## Directory layout
 
-- [`App/Components`](App/Components): presentational components
-- [`App/Config`](App/Config): configuration of the application
-- [`App/Containers`](App/Containers): container components, i.e. the application's screens
-- [`App/Assets`](App/Assets): assets (image, audio files, ...) used by the application
-- [`App/Navigators`](App/Navigators): react navigation navigators 
-- [`App/Sagas`](App/Sagas): redux sagas
-- [`App/Services`](App/Services): application services, e.g. API clients
-- [`App/Stores`](App/Stores): redux [actions, reducers and stores](https://redux.js.org/basics)
-- [`App/Theme`](App/Theme): base styles for the application
+- [`src/Components`](App/Components): presentational components
+- [`src/Config`](App/Config): configuration of the application
+- [`src/Containers`](App/Containers): container components, i.e. the application's screens
+- [`src/Assets`](App/Assets): assets (image, audio files, ...) used by the application
+- [`src/Navigators`](App/Navigators): react navigation navigators 
+- [`src/Services`](App/Services): application services, e.g. API clients
+- [`src/Stores`](App/Stores): redux [actions, reducers and stores](https://redux.js.org/basics)
+- [`src/Theme`](App/Theme): base styles for the application
 
 For more information on each directory, click the link and read the directory's README.
 
