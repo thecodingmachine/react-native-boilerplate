@@ -1,5 +1,6 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { FetchOneUserService } from '@/Services/User'
+import { createSlice } from '@reduxjs/toolkit'
+import fetchOneUserService from '@/Services/User/FetchOne'
+import { buildAction, buildReducers } from '@/Store/builder'
 
 const name = 'user/fetchOne'
 
@@ -9,31 +10,11 @@ const initialState = {
   error: null,
 }
 
-// @todo récupérer une partie du code venant du service ici,
-//  notamment la fonction qui contient le rejectWithValue, qui est propre a redux
-// c'est ici qu'on doit avoir la logique de l'action, qui peut potentiellement enchainer les appels, etc.
-// Service ne doit servir qu'a connaitre l'API et savoir comment traiter le retour, mais pas plus
-export const FetchOneUserAction = createAsyncThunk(name, FetchOneUserService)
+export const FetchOneUserAction = buildAction(name, fetchOneUserService)
 
-const pending = (state) => {
-  state.item = initialState.item
-  state.loading = true
-  state.error = null
-}
+const { pending, fulfilled, rejected } = buildReducers(initialState)
 
-const fulfilled = (state, { payload }) => {
-  state.item = payload
-  state.loading = false
-  state.error = null
-}
-
-const rejected = (state, { payload }) => {
-  state.item = initialState.item
-  state.loading = true
-  state.error = payload
-}
-
-export default createSlice({
+const fetchOne = createSlice({
   name,
   initialState,
   extraReducers: (builder) => {
@@ -43,3 +24,4 @@ export default createSlice({
       .addCase(FetchOneUserAction.rejected, rejected)
   },
 })
+export default fetchOne.reducer

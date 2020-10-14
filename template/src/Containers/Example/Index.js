@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { View, ActivityIndicator, Button, Text } from 'react-native'
+import { View, ActivityIndicator, Text, TextInput } from 'react-native'
 
 import { Brand } from '@/Components'
-import { Gutters, Layout } from '@/Theme'
+import { Common, Fonts, Gutters, Layout } from '@/Theme'
 import { FetchOneUserAction } from '@/Store/User/FetchOne'
 
 const IndexExampleContainer = () => {
@@ -13,14 +13,19 @@ const IndexExampleContainer = () => {
   const userIsLoading = useSelector((state) => state.user.fetchOne.loading)
   const userError = useSelector((state) => state.user.fetchOne.error)
 
-  const fetch = () => {
-    const number = Math.floor(Math.random() / 0.1) + 1
-    dispatch(FetchOneUserAction(number))
-  }
+  const [userId, setUserId] = useState('1')
+
+  const fetch = useCallback(() => {
+    dispatch(FetchOneUserAction(userId))
+  }, [dispatch, userId])
+
+  useEffect(() => {
+    fetch()
+  }, [fetch])
 
   return (
-    <View style={[Layout.fill, Layout.rowCenter]}>
-      <View style={[Layout.colCenter, Gutters.smallHPadding]}>
+    <View style={[Layout.fill, Layout.colCenter, Gutters.smallHPadding]}>
+      <View style={[]}>
         <Brand />
         {userIsLoading && <ActivityIndicator />}
         {userError && <Text>{userError}</Text>}
@@ -30,7 +35,18 @@ const IndexExampleContainer = () => {
             {user.name}
           </Text>
         )}
-        <Button onPress={fetch} title="Fetch" />
+      </View>
+      <View style={[Layout.row, Layout.rowHCenter]}>
+        <Text style={[Layout.fill, Fonts.textCenter]}>User ID</Text>
+        <TextInput
+          onChangeText={(text) => setUserId(text)}
+          editable={!userIsLoading}
+          keyboardType={'number-pad'}
+          maxLength={1}
+          value={userId}
+          selectTextOnFocus
+          style={[Layout.fill, Common.textInput, Layout.fill]}
+        />
       </View>
     </View>
   )

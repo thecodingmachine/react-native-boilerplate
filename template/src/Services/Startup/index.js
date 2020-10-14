@@ -1,1 +1,1 @@
-export { default as initApplication } from './initApplication'
+export { default as InitializeStartupService } from './Initialize'

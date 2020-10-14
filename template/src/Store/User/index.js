@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
+import FetchOneReducer from './FetchOne'
 
 export default combineReducers({
-  fetchOne: require('./FetchOne').default.reducer,
+  fetchOne: FetchOneReducer,
 })

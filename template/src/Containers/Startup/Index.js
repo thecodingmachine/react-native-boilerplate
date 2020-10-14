@@ -2,22 +2,22 @@ import React, { useEffect } from 'react'
 import { ActivityIndicator, View, Button } from 'react-native'
 import { Layout } from '@/Theme'
 import { useDispatch, useSelector } from 'react-redux'
-import { initApplication } from '@/Store/Startup/Actions'
+import { InitializeStartupAction } from '@/Store/Startup/Initialize'
 import { CommonActions } from '@react-navigation/native'
 
 const IndexStartupContainer = ({ navigation }) => {
   const dispatch = useDispatch()
-  const isApplicationReady = useSelector(
-    (state) => state.startup.applicationIsReady,
+  const isApplicationLoading = useSelector(
+    (state) => state.startup.initialize.loading,
   )
 
   useEffect(() => {
-    dispatch(initApplication())
+    dispatch(InitializeStartupAction())
   }, [dispatch])
 
   return (
     <View style={[Layout.fill, Layout.rowCenter]}>
-      {!isApplicationReady ? (
+      {isApplicationLoading ? (
         <ActivityIndicator />
       ) : (
         <Button

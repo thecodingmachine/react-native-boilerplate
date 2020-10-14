@@ -13,4 +13,14 @@ export default StyleSheet.create({
   backgroundReset: {
     backgroundColor: Colors.transparent,
   },
+  textInput: {
+    borderWidth: 1,
+    borderColor: Colors.text,
+    backgroundColor: Colors.white,
+    color: Colors.text,
+    minHeight: 50,
+    textAlign: 'center',
+    marginTop: 10,
+    marginBottom: 10,
+  },
 })

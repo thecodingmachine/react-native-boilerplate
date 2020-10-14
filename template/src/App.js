@@ -8,8 +8,6 @@ import { NavigationContainer } from '@react-navigation/native'
 import { ApplicationNavigator } from '@/Navigators'
 import { Layout } from '@/Theme'
 
-console.log(store, persistor)
-
 const App = () => (
   <Provider store={store}>
     {/**

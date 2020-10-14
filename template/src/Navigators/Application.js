@@ -11,16 +11,16 @@ let MainNavigator
 const ApplicationNavigator = () => {
   const [isApplicationLoaded, setIsApplicationLoaded] = useState(false)
 
-  const applicationIsReady = useSelector(
-    (state) => state.startup.applicationIsReady,
+  const applicationIsLoading = useSelector(
+    (state) => state.startup.initialize.loading,
   )
 
   useEffect(() => {
-    if (MainNavigator == null && applicationIsReady) {
+    if (MainNavigator == null && !applicationIsLoading) {
       MainNavigator = require('@/Navigators/Main').default
       setIsApplicationLoaded(true)
     }
-  }, [applicationIsReady])
+  }, [applicationIsLoading])
 
   return (
     <Stack.Navigator>
