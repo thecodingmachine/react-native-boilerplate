@@ -18,7 +18,7 @@ import styles from './styles.module.css';
 const features = [
   {
     title: 'Easy to Use 👌',
-    imageUrl: 'img/undraw_docusaurus_mountain.svg',
+    // imageUrl: 'img/undraw_docusaurus_mountain.svg',
     description: (
       <>
         A simple starter kit with basic and well known dependencies.
@@ -28,7 +28,7 @@ const features = [
   },
   {
     title: 'Small to Big 📱',
-    imageUrl: 'img/undraw_docusaurus_tree.svg',
+    // imageUrl: 'img/undraw_docusaurus_tree.svg',
     description: (
       <>
         A light Starterkit with solid bases to build small and large application.
@@ -38,7 +38,7 @@ const features = [
   },
   {
     title: 'Powered by RN Lovers 💙',
-    imageUrl: 'img/undraw_docusaurus_react.svg',
+    // imageUrl: 'img/undraw_docusaurus_react.svg',
     description: (
       <>
         We love working on React Native ! Join the adventure 😉
