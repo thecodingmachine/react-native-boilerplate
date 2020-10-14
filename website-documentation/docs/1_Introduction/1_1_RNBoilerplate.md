@@ -43,29 +43,28 @@ The driving goal of the architecture of the boilerplate is separation of concern
 
 The boilerplate contains:
 
-- a [React Native](https://facebook.github.io/react-native/) (v**0.61.5**) application (in "[ejected](https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md)" mode to allow using dependencies that rely on native code)
+- a [React Native](https://facebook.github.io/react-native/) (v**0.63.2**) application (in "[ejected](https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md)" mode to allow using dependencies that rely on native code)
 - a [clear directory layout](#directory-layout) to provide a base architecture for your application
-- [Redux](https://redux.js.org/) (v4.0.1) to help manage state
-- [Redux Persist](https://github.com/rt2zz/redux-persist) (v5.10.0) to persist the Redux state
-- [React Navigation](https://reactnavigation.org/) (v3.11.2) with a [`NavigationService`](App/Services/NavigationService.js) to handle routing and navigation in the app, with a splash screen setup by default
-- [redux toolkit](https://github.com/infinitered/reduxsauce)
-- [axios](https://github.com/axios/axios) to make API calls (v0.19.0)
+- [Redux](https://redux.js.org/) (v**4.0.5**) to help manage state
+- [Redux Persist](https://github.com/rt2zz/redux-persist) (v**6.0.0**) to persist the Redux state
+- [React Navigation](https://reactnavigation.org/) (v**5**) to handle routing and navigation in the app, with a splash screen setup by default
+- [redux toolkit](https://github.com/infinitered/reduxsauce) (v**1.4.0**) to make redux easier
+- [axios](https://github.com/axios/axios) (v**0.20.0**) to make API calls
 - [prettier](https://prettier.io/) and [eslint](https://eslint.org/) preconfigured for React Native
+- [react-native-flipper](https://fbflipper.com/) (v**0.57.0**) to debug react-native and [redux-flipper](https://github.com/jk-gan/redux-flipper) (v**1.3.2**) to debug redux
 
 The boilerplate includes an example (displaying fake user data) from UI components to the business logic. The example is easy to remove so that it doesn't get in the way.
 
 ## Directory layout
 
-- [`src/Components`](App/Components): presentational components
-- [`src/Config`](App/Config): configuration of the application
-- [`src/Containers`](App/Containers): container components, i.e. the application's screens
-- [`src/Assets`](App/Assets): assets (image, audio files, ...) used by the application
-- [`src/Navigators`](App/Navigators): react navigation navigators 
-- [`src/Services`](App/Services): application services, e.g. API clients
-- [`src/Stores`](App/Stores): redux [actions, reducers and stores](https://redux.js.org/basics)
-- [`src/Theme`](App/Theme): base styles for the application
-
-For more information on each directory, click the link and read the directory's README.
+- `src/Components`: presentational components
+- `src/Config`: configuration of the application
+- `src/Containers`: container components, i.e. the application's screens
+- `src/Assets`: assets (image, audio files, ...) used by the application
+- `src/Navigators`: react navigation navigators 
+- `src/Services`: application services, e.g. API clients
+- `src/Stores`: redux [actions, reducers and stores](https://redux.js.org/basics)
+- `src/Theme`: base styles for the application
 
 ## Updates
 
