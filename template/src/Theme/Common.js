@@ -10,6 +10,9 @@ export default StyleSheet.create({
   button: {
     backgroundColor: Colors.primary,
   },
+  backgroundPrimary: {
+    backgroundColor: Colors.primary,
+  },
   backgroundReset: {
     backgroundColor: Colors.transparent,
   },

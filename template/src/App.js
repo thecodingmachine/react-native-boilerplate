@@ -7,6 +7,7 @@ import { SafeAreaView, StatusBar } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { ApplicationNavigator } from '@/Navigators'
 import { Layout } from '@/Theme'
+import './Translations'
 
 const App = () => (
   <Provider store={store}>
