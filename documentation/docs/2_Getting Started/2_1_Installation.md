@@ -5,7 +5,7 @@ title: Installation
 
 ## Requirements
 
-Node 8 or greater is required. Development for iOS requires a Mac and Xcode 9 or up, and will target iOS 9 and up.
+Node 10 or greater is required. Development for iOS requires a Mac and Xcode 9.4 or up, and will target iOS 9 and up.
 
 You also need to install the dependencies required by React Native:
 

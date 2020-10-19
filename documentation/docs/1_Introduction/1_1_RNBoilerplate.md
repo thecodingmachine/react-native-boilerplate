@@ -7,7 +7,7 @@ title: React Native Boilerplate
     <img width="300" height="300" src={require('../assets/TOM.png').default} />
 </div>
 
-This project is a [React Native](https://facebook.github.io/react-native/) boilerplate that can be used to kickstart a mobile application.
+This project is a [React Native](https://facebook.github.io/react-native/) boilerplate that can be used to kick-start a mobile application.
 
 The boilerplate provides **an architecture optimized for building solid cross-platform mobile applications** through separation of concerns between the UI and business logic. 
 We made this documented so that each piece of code that lands in your application can be understood and used.
@@ -19,10 +19,10 @@ If you love this boilerplate, give us a star, you will be a ray of sunshine in o
 
 ## Architecture
 
-The driving goal of the architecture of the boilerplate is separation of concerns. Namely:
+The driving goal of the architecture of the boilerplate is separation of concerns and using React Native at its best.
 
 - **Using modern Javascript**
-    We want to use Javascript at his best. So we using react hooks, functional components and have updated dependencies
+    So many javascript features are indispensable now like hooks, functional component and really cool dependencies.
 
 - **Presentational components are separated from containers**.
 
@@ -57,13 +57,14 @@ The boilerplate includes an example (displaying fake user data) from UI componen
 
 ## Directory layout
 
+- `src/Assets`: assets (image, audio files, ...) used by the application
 - `src/Components`: presentational components
 - `src/Config`: configuration of the application
 - `src/Containers`: container components, i.e. the application's screens
-- `src/Assets`: assets (image, audio files, ...) used by the application
 - `src/Navigators`: react navigation navigators 
 - `src/Services`: application services, e.g. API clients
 - `src/Stores`: redux [actions, reducers and stores](https://redux.js.org/basics)
+- `src/Translations`: application strings, you can add languages files and be able to translate your app strings
 - `src/Theme`: base styles for the application
 
 ## Updates

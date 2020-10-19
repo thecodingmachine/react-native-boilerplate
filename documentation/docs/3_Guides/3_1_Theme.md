@@ -3,12 +3,12 @@ slug: /Theme
 title: Theme
 ---
 
-The Theme folder is located at the root of your project. It includes a nice kit for building and maintain the UI of your application.
-It will help you with variables and reusable stylesheets to build a well harmony between your screens.
+The Theme folder, at the root of project, includes a nice kit for building and maintaining the UI of application.
+It helps with variables and reusable classes to create harmony between application screens.
 
 ## Variables
-The first file is the variables one. You will find 3 groups of variables in it:
- - 🎨 **Colors**: which defines global colors of your graphical charter,
+The first file is the variables one. It contains 3 groups of variables :
+ - 🎨 **Colors** : defines global colors of the graphical charter,
  ```javascript
      export const Colors = {
        transparent: 'rgba(0,0,0,0)',
@@ -20,7 +20,7 @@ The first file is the variables one. You will find 3 groups of variables in it:
      }
  ```
 
- - 🔠 **FontSize**: which defines different sizes for your text guidelines. These variables will be used in the file [Font](#font-) to create small texts, paragraphs and titles for example.
+ - 🔠 **FontSize** : defines sizes for your text guidelines. These variables are used in the file [Font](#font-) described down below.
  ```javascript
      export const FontSize = {
        small: 12,
@@ -29,7 +29,7 @@ The first file is the variables one. You will find 3 groups of variables in it:
      }
  ```
 
- - ✂️ **MetricsSizes**: which defines metrics sizes of your guidelines. They will be used by some files like [Gutters](#gutters-%EF%B8%8F) to create generic spaces for all your application,
+ - ✂️ **MetricsSizes** : defines metrics sizes of your guidelines. These variables are used by [Gutters](#gutters-%EF%B8%8F) to create generic spaces for all your application,
  ```javascript
      const tiny = 5 // 10
      const small = tiny * 2 // 10
@@ -43,13 +43,8 @@ The first file is the variables one. You will find 3 groups of variables in it:
      }
  ```
 
-
-:::note
-In all these groups you can add, remove or edit variables with the values you want
-:::
-
 ## Common
-The `Common` file is here to define global style for the components of the application in order to keep the style at one place and avoid stylesheets every where in the code.
+The `Common` defines global style. It helps keeping the style at one place and avoid stylesheets everywhere in the code.
 For example you can defines style for buttons, inputs, background like this :
 ```javascript
     export default StyleSheet.create({
@@ -63,78 +58,72 @@ For example you can defines style for buttons, inputs, background like this :
 ```
 
 ## Font 🔤
-`Font` is a helper file based on [FontSize](#variables) variables to preset some text's stylesheets classes.
-It provides these default stylesheets classes:
+The `Font` presets some text classes using the [FontSize](#variables) variables.
+It provides these classes:
 
 ### textSmall
-Used to create small text like note or information.
-It will apply a `fontSize: FontSize.small` on the element.
+It applies a `fontSize: FontSize.small` on the element.
 <div align="center">
     <img src={require('../assets/Theme/Text/textSmall.png').default} />
 </div>
 
 ### textRegular
-Used to create regular text like paragraph.
-It will apply a `fontSize: FontSize.regular` on the element.
+It applies a `fontSize: FontSize.regular` on the element.
 <div align="center">
     <img src={require('../assets/Theme/Text/textRegular.png').default} />
 </div>
 
 ### textLarge
-Used to create subtitle text or highlighting.
-It will apply a `fontSize: FontSize.large` on the element.
+It applies a `fontSize: FontSize.large` on the element.
 <div align="center">
     <img src={require('../assets/Theme/Text/textLarge.png').default} />
 </div>
 
 ### titleSmall
-Used to create small title text.
-It will apply a `fontSize: FontSize.small * 2` and `fontWeight: 'bold'` on the element.
+It applies a `fontSize: FontSize.small * 2` and `fontWeight: 'bold'` on the element.
 <div align="center">
     <img src={require('../assets/Theme/Text/titleSmall.png').default} />
 </div>
 
 ### titleRegular
-Used to create regular title text.
-It will apply a `fontSize: FontSize.regular * 2` and `fontWeight: 'bold'` on the element.
+It applies a `fontSize: FontSize.regular * 2` and `fontWeight: 'bold'` on the element.
 <div align="center">
     <img src={require('../assets/Theme/Text/titleRegular.png').default} />
 </div>
 
 ### titleLarge
-Used to create big title text.
-It will apply a `fontSize: FontSize.large * 2` and `fontWeight: 'bold'` on the element.
+It applies a `fontSize: FontSize.large * 2` and `fontWeight: 'bold'` on the element.
 <div align="center">
     <img src={require('../assets/Theme/Text/titleLarge.png').default} />
 </div>
 
 ### textCenter
-Used in order to center a text horizontally.
+Centers a text horizontally.
 <div align="center">
     <img src={require('../assets/Theme/Text/textCenter.png').default} />
 </div>
 
 ### textJustify
-Used in order to make a paragraph justified.
+Justifies a paragraph.
 <div align="center">
     <img src={require('../assets/Theme/Text/textJustify.png').default} />
 </div>
 
 ### textLeft
-Used in order to make the text align on the left side of his parent.
+Aligns text on the left side of his parent.
 <div align="center">
     <img src={require('../assets/Theme/Text/textLeft.png').default} />
 </div>
 
 ### textRight
-Used in order to make the text align on the right side of his parent.
+Align text on the right side of his parent.
 <div align="center">
     <img src={require('../assets/Theme/Text/textRight.png').default} />
 </div>
 
 ## Gutters ✂️
-Gutters is a stylsheet's classes generator. It will help to build from [MetricsSizes](#variables) variables all necessary gutters.
-It will generate, for each MetricsSize variables, classes like this :
+Gutters is a classes generator. It builds from [MetricsSizes](#variables) variables all associated gutters.
+It generates, for each MetricsSize variables, classes like this :
 ```
     [size][direction][op]: {
         [op][direction]: [value]
@@ -147,7 +136,7 @@ Where :
  * `[op]`: can be ['Margin', 'Padding']
  * `[value]`: is the value of the [size]
 
-For example, for the metricsSize `small`, the `Gutters` file will provides these classes :
+For example, for the metricsSize `small`, the `Gutters` file provides these classes :
 ```
 smallBottomMargin, smallTopMargin, smallRightMargin, smallLeftMargin, smallVerticalMargin, smallHorizontalMargin
 ```
@@ -157,7 +146,7 @@ smallBottomPadding, smallTopPadding, smallRightPadding, smallLeftPadding, smallV
 ```
 
 ## Images 🖼
-This files is the entry point of all images used in the application
+This files includes all images used in the application.
 To use it, you only have to import the image like below
 
 ```javascript
@@ -175,7 +164,7 @@ import { Images } from '@/Theme'
 ```
 
 ## Layout
-The `Layout` file will give you basic stylesheets classes to create layout and align elements.
+The `Layout` file gives basic stylesheets classes to create layout and align elements.
 
 ### Column layout ⬇️
 All stylesheet classes below help building a Column layout
@@ -272,7 +261,7 @@ make a space around on scroll view
 make a space between on scroll view
 
 #### selfStretch
-same has alignItemsStretch but it afect the children directly
+same has alignItemsStretch but it affect the children directly
 
 ### Size layout 📏
 #### fill
@@ -296,3 +285,7 @@ rotate an element by 90° clockwise
 
 #### rotate90Inverse
 rotate an element by 90° counterclockwise
+
+:::note
+In all these groups you can add, remove or edit variables/classes with the values you want
+:::
