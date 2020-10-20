@@ -3,7 +3,6 @@ slug: /SplashScreenLoadingData
 title: Splash screen & loading data
 ---
 
-
 In many applications, you need to load data from API before displaying any content.
 To do that, we built a solid navigation based on a splash screen to load data before the content shows, and [inline require](https://reactnative.dev/docs/ram-bundles-inline-requires#inline-requires) to improve performance.
 
@@ -62,18 +61,21 @@ const ApplicationNavigator = () => {
 }
 ```
 
-So the root navigator is a stack with two screens : the splash screen (Startup) and a second navigator (Main). 
-The main goal of the ApplicationNavigator is to, by default, just have one screen (the Startup) and when the application finish loading data then fetch and display the `Main` Navigator.
-So when ApplicationNavigator is mounted, he only can display the Startup screen because the Main screen isn't loaded and imported nether.
-in the StartupContainer, the redux action which is used to load data on init application is trigger and when the action is finish, the state `state.startup.initialize.loading` turns `true`.
-when this state is true, the useEffect just above import the Main navigator, the navigation navigate and reset to a screen of the MainNavigator.
+So the root navigator is a stack with two screens : 
+ - the splash screen (`IndexStartupContainer`),
+ - a second navigator (`MainNavigator`). 
+ 
+The main goal of the `ApplicationNavigator` is to only have one screen (the `IndexStartupContainer`) to load. 
+And, when the application finish loading, then fetch and display the `MainNavigator`.
+In other words, when `ApplicationNavigator` is mounted, it only can display the `IndexStartupContainer` because the `MainNavigator` isn't loaded and imported yet.
+In the `StartupContainer`, the redux action which is used to load data on init application is trigger and when the action is finish, the state `state.startup.initialize.loading` turns `true`.
+when this state is true, in the useEffect the `MainNavigator` navigator is imported , the navigation navigate and reset to a screen of the `MainNavigator`.
 
-## How to make heavy loading before app open
+To conclude, all new screens have to be added to `MainNavigator`. The `ApplicationNavigator` increase startup performance thanks to inline require and provides a splash screen to load your data.
 
-That why we decided to create the navigation architecture saw before to expose a SplashScreen which will be in charge of loading extra data.
-So what happen in the `Containers/Startup` file and how to add api call to load data at startup ?
+## How to load data before app open ❓
 
-First in `Containers/Startup` the useEffect Hook launches the redux action to fetch startup data:
+To have a great separation of concerns, all API call are make into Services. In the above section, it said that in `IndexStartupContainer`, a redux action is triggered. This action is `InitializeStartupAction` :
 
 ```javascript
 useEffect(() => {
@@ -81,19 +83,45 @@ useEffect(() => {
 }, [dispatch])
 ```
 
-So as you probably know, a redux action is follow by an associated reducer.
-You can find the process at `Stores/Startup/Initialize.js`.
-We use redux-toolkit to simplify the process of API calls by using the `createAsyncThunk` function hidden by the `buildAction` action
+In redux, triggering an action lead to an associated reducer and in most cases the action pass trough a middleware.
+All the logic can be found at `Stores/Startup/Initialize.js`. 
 
 ```javascript
+import { createSlice } from '@reduxjs/toolkit'
+import { buildAction, buildReducers } from '@/Store/builder'
+import initializeStartupService from '@/Services/User/FetchOne'
+
+const name = 'startup'
+
+const initialState = {
+  loading: true,
+  error: false,
+}
+
 export const InitializeStartupAction = buildAction(
   name,
   initializeStartupService,
 )
+
+const { pending, fulfilled, rejected } = buildReducers(initialState, {
+  itemKey: null,
+})
+
+const initialize = createSlice({
+  name,
+  initialState,
+  extraReducers: (builder) => {
+    builder
+      .addCase(InitializeStartupAction.pending, pending)
+      .addCase(InitializeStartupAction.fulfilled, fulfilled)
+      .addCase(InitializeStartupAction.rejected, rejected)
+  },
+})
+export default initialize.reducer
 ```
 
-initializeStartupService is the Service launched when the action is trigger.
-`src/Services/Startup/Initialize.js`
+All stores are based on redux-toolkit to simplify the process of API calls by using the `createAsyncThunk` function (hidden by the `buildAction` action which is a store builder function)
+So when the action pass through the middleware thunk, the service `initializeStartupService` is launched.
 
 ```javascript
 export default async () => {

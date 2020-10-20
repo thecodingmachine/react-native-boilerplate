@@ -10,8 +10,8 @@
 module.exports = {
   title: 'React Native Boilerplate',
   tagline: 'Ready to use react native architecture based on Separation of Concerns.',
-  url: 'https://your-docusaurus-test-site.com',
-  baseUrl: '/',
+  url: 'https://thecodingmachine.github.io',
+  baseUrl: '/react-native-boilerplate/',
   onBrokenLinks: 'throw',
   favicon: 'img/favicon.png',
   organizationName: 'thecodingmachine',

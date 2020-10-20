@@ -6,6 +6,8 @@ title: Theme
 The Theme folder, at the root of project, includes a nice kit for building and maintaining the UI of application.
 It helps with variables and reusable classes to create harmony between application screens.
 
+---
+
 ## Variables
 The first file is the variables one. It contains 3 groups of variables :
  - 🎨 **Colors** : defines global colors of the graphical charter,
@@ -43,6 +45,8 @@ The first file is the variables one. It contains 3 groups of variables :
      }
  ```
 
+---
+
 ## Common
 The `Common` defines global style. It helps keeping the style at one place and avoid stylesheets everywhere in the code.
 For example you can defines style for buttons, inputs, background like this :
@@ -56,6 +60,8 @@ For example you can defines style for buttons, inputs, background like this :
       },
     })
 ```
+
+---
 
 ## Font 🔤
 The `Font` presets some text classes using the [FontSize](#variables) variables.
@@ -121,6 +127,8 @@ Align text on the right side of his parent.
     <img src={require('../assets/Theme/Text/textRight.png').default} />
 </div>
 
+---
+
 ## Gutters ✂️
 Gutters is a classes generator. It builds from [MetricsSizes](#variables) variables all associated gutters.
 It generates, for each MetricsSize variables, classes like this :
@@ -145,6 +153,8 @@ and
 smallBottomPadding, smallTopPadding, smallRightPadding, smallLeftPadding, smallVerticalPadding, smallHorizontalPadding
 ```
 
+---
+
 ## Images 🖼
 This files includes all images used in the application.
 To use it, you only have to import the image like below
@@ -162,6 +172,8 @@ import { Images } from '@/Theme'
 ...
 <Image source={Images.logo} />
 ```
+
+---
 
 ## Layout
 The `Layout` file gives basic stylesheets classes to create layout and align elements.
