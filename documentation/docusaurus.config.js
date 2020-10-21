@@ -12,7 +12,7 @@ module.exports = {
   tagline: 'Ready to use react native architecture based on Separation of Concerns.',
   url: 'https://thecodingmachine.github.io',
   baseUrl: '/react-native-boilerplate/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   favicon: 'img/favicon.png',
   organizationName: 'thecodingmachine',
   projectName: 'react-native-boilerplate',
