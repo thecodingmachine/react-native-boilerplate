@@ -1,0 +1,50 @@
+{
+  "name": "boilerplate",
+  "version": "2.0.0",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@react-native-community/async-storage": "^1.12.1",
+    "@react-native-community/masked-view": "^0.1.10",
+    "@react-navigation/bottom-tabs": "^5.8.0",
+    "@react-navigation/native": "^5.7.3",
+    "@react-navigation/stack": "^5.9.0",
+    "@reduxjs/toolkit": "^1.4.0",
+    "axios": "^0.20.0",
+    "i18next": "^19.8.2",
+    "react": "16.13.1",
+    "react-i18next": "^11.7.3",
+    "react-native": "0.63.3",
+    "react-native-flipper": "^0.62.0",
+    "react-native-gesture-handler": "^1.8.0",
+    "react-native-reanimated": "^1.13.0",
+    "react-native-safe-area-context": "^3.1.7",
+    "react-native-screens": "^2.11.0",
+    "react-redux": "^7.2.1",
+    "redux": "^4.0.5",
+    "redux-flipper": "^1.4.0",
+    "redux-persist": "^6.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/runtime": "^7.11.2",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "babel-jest": "^26.3.0",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "eslint": "^7.8.1",
+    "eslint-import-resolver-babel-module": "^5.1.2",
+    "eslint-plugin-import": "^2.22.0",
+    "jest": "^26.4.2",
+    "metro-react-native-babel-preset": "^0.63.0",
+    "react-test-renderer": "16.13.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
