@@ -28,7 +28,7 @@ npx react-native init MyApp --template thecodingmachine/react-native-boilerplate
 
 ## Useful documentation
 
-Go to....
+Go to https://thecodingmachine.github.io/react-native-boilerplate
 
 ## License
 
