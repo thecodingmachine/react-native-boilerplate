@@ -41,11 +41,11 @@ export function buildReducers(
 }
 
 export function buildAction(name, action = () => {}) {
-  return createAsyncThunk(name, async (params, { rejectWithValue }) => {
+  return createAsyncThunk(name, async (args, thunkAPI) => {
     try {
-      return await action(params)
+      return await action(args, thunkAPI)
     } catch (err) {
-      rejectWithValue(err)
+      thunkAPI.rejectWithValue(err)
     }
   })
 }

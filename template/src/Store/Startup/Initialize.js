@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { buildAction, buildReducers } from '@/Store/builder'
-import initializeStartupService from '@/Services/User/FetchOne'
+import initializeStartupService from '@/Services/Startup/Initialize'
 
 const name = 'startup'
 

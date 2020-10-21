@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { View, ActivityIndicator, Text, TextInput } from 'react-native'
 
@@ -18,13 +18,10 @@ const IndexExampleContainer = () => {
 
   const [userId, setUserId] = useState('1')
 
-  const fetch = useCallback(() => {
+  const fetch = (userId) => {
+    setUserId(userId)
     dispatch(FetchOneUserAction(userId))
-  }, [dispatch, userId])
-
-  useEffect(() => {
-    fetch()
-  }, [fetch])
+  }
 
   return (
     <View style={[Layout.fill, Layout.colCenter, Gutters.smallHPadding]}>
@@ -47,7 +44,7 @@ const IndexExampleContainer = () => {
           {t('example.labels.userId')}
         </Text>
         <TextInput
-          onChangeText={(text) => setUserId(text)}
+          onChangeText={(text) => fetch(text)}
           editable={!userIsLoading}
           keyboardType={'number-pad'}
           maxLength={1}

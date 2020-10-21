@@ -1,6 +1,5 @@
-export default async () => {
-  //Simulation of an async function delay
-  return new Promise((resolve) => {
-    setTimeout(() => resolve(), 3000)
-  })
+import { FetchOneUserAction } from '@/Store/User/FetchOne'
+
+export default async (args, { dispatch }) => {
+  await dispatch(FetchOneUserAction(1))
 }
