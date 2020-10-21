@@ -1,36 +1,30 @@
-import { createAsyncThunk } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
-export function buildReducers(
-  initialState,
-  {
-    itemKey = 'item',
-    loadingKey = 'loading',
-    errorKey = 'error',
-    resetOnPending = true,
-  } = {},
-) {
-  const pending = (state) => {
-    if (resetOnPending && itemKey) {
-      state[itemKey] = initialState[itemKey]
-    }
-    state[loadingKey] = true
-    state[errorKey] = null
+export function buildReducers({
+  itemKey = 'item',
+  loadingKey = 'loading',
+  errorKey = 'error',
+} = {}) {
+  const pending = (state, { type }) => {
+    stateKeysExists(state, [loadingKey, errorKey], type)
+    setNestedValue(state, loadingKey, true)
+    setNestedValue(state, errorKey, null)
   }
 
-  const fulfilled = (state, { payload }) => {
+  const fulfilled = (state, { payload, type }) => {
+    stateKeysExists(state, [loadingKey, errorKey], type)
     if (itemKey) {
-      state[itemKey] = payload
+      stateKeyExists(state, itemKey, type)
+      setNestedValue(state, itemKey, payload)
     }
-    state[loadingKey] = false
-    state[errorKey] = null
+    setNestedValue(state, loadingKey, false)
+    setNestedValue(state, errorKey, null)
   }
 
-  const rejected = (state, { payload }) => {
-    if (itemKey) {
-      state[itemKey] = initialState[itemKey]
-    }
-    state[loadingKey] = true
-    state[errorKey] = payload
+  const rejected = (state, { payload, type }) => {
+    stateKeysExists(state, [loadingKey, errorKey], type)
+    setNestedValue(state, loadingKey, true)
+    setNestedValue(state, errorKey, payload)
   }
 
   return {
@@ -40,6 +34,25 @@ export function buildReducers(
   }
 }
 
+function stateKeysExists(state, keys, type) {
+  keys.forEach((key) => stateKeyExists(state, key, type))
+}
+
+function stateKeyExists(state, key, type) {
+  if (typeof state[key] === 'undefined') {
+    console.error(`Invalid state key : ${key} in ${type}`)
+  }
+}
+
+function setNestedValue(state, dotKey, value) {
+  dotKey.split('.').reduce((acc, key, index, arr) => {
+    if (index === arr.length - 1) {
+      acc[key] = value
+    }
+    return acc[key]
+  }, state)
+}
+
 export function buildAction(name, action = () => {}) {
   return createAsyncThunk(name, async (args, thunkAPI) => {
     try {
@@ -47,5 +60,28 @@ export function buildAction(name, action = () => {}) {
     } catch (err) {
       thunkAPI.rejectWithValue(err)
     }
+  })
+}
+
+export function buildSlice(name, modules, moduleInitialState) {
+  const initialState = modules.reduce(
+    (acc, module) => ({
+      ...acc,
+      ...module.initialState,
+    }),
+    { ...moduleInitialState },
+  )
+
+  return createSlice({
+    name,
+    initialState,
+    extraReducers: (builder) => {
+      modules.forEach((module) => {
+        builder
+          .addCase(module.actions.pending, module.reducers.pending)
+          .addCase(module.actions.fulfilled, module.reducers.fulfilled)
+          .addCase(module.actions.rejected, module.reducers.rejected)
+      })
+    },
   })
 }

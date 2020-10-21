@@ -4,7 +4,7 @@ import { View, ActivityIndicator, Text, TextInput } from 'react-native'
 
 import { Brand } from '@/Components'
 import { Common, Fonts, Gutters, Layout } from '@/Theme'
-import { FetchOneUserAction } from '@/Store/User/FetchOne'
+import { actions as FetchOneUserAction } from '@/Store/User/FetchOne'
 import { useTranslation } from 'react-i18next'
 
 const IndexExampleContainer = () => {
@@ -12,9 +12,11 @@ const IndexExampleContainer = () => {
 
   const dispatch = useDispatch()
 
-  const user = useSelector((state) => state.user.fetchOne.item)
-  const userIsLoading = useSelector((state) => state.user.fetchOne.loading)
-  const userError = useSelector((state) => state.user.fetchOne.error)
+  const user = useSelector((state) => state.user.item)
+  const fetchOneUserLoading = useSelector(
+    (state) => state.user.fetchOne.loading,
+  )
+  const fetchOneUserError = useSelector((state) => state.user.fetchOne.error)
 
   const [userId, setUserId] = useState('1')
 
@@ -27,8 +29,8 @@ const IndexExampleContainer = () => {
     <View style={[Layout.fill, Layout.colCenter, Gutters.smallHPadding]}>
       <View style={[[Layout.colCenter, Gutters.smallHPadding]]}>
         <Brand />
-        {userIsLoading && <ActivityIndicator />}
-        {userError && <Text>{userError}</Text>}
+        {fetchOneUserLoading && <ActivityIndicator />}
+        {fetchOneUserError && <Text>{fetchOneUserError}</Text>}
         {user && <Text>{t('example.helloUser', { name: user.name })}</Text>}
       </View>
       <View
@@ -45,7 +47,7 @@ const IndexExampleContainer = () => {
         </Text>
         <TextInput
           onChangeText={(text) => fetch(text)}
-          editable={!userIsLoading}
+          editable={!fetchOneUserLoading}
           keyboardType={'number-pad'}
           maxLength={1}
           value={userId}

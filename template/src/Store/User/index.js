@@ -1,6 +1,12 @@
-import { combineReducers } from 'redux'
-import FetchOneReducer from './FetchOne'
+import { buildSlice } from '@/Store/builder'
 
-export default combineReducers({
-  fetchOne: FetchOneReducer,
-})
+import * as fetchOne from './FetchOne'
+
+// This state is common to all the "user" module, and can be modified by any "user" reducers
+const moduleInitialState = {
+  item: {},
+}
+
+const user = buildSlice('user', [fetchOne], moduleInitialState)
+
+export default user.reducer
