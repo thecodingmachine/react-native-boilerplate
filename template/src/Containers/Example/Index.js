@@ -4,7 +4,7 @@ import { View, ActivityIndicator, Text, TextInput } from 'react-native'
 
 import { Brand } from '@/Components'
 import { Common, Fonts, Gutters, Layout } from '@/Theme'
-import { actions as FetchOneUserAction } from '@/Store/User/FetchOne'
+import FetchOne from '@/Store/User/FetchOne'
 import { useTranslation } from 'react-i18next'
 
 const IndexExampleContainer = () => {
@@ -22,7 +22,7 @@ const IndexExampleContainer = () => {
 
   const fetch = (id) => {
     setUserId(id)
-    dispatch(FetchOneUserAction(id))
+    dispatch(FetchOne.action(id))
   }
 
   return (

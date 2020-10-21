@@ -1,11 +1,14 @@
 import fetchOneUserService from '@/Services/User/FetchOne'
 import { buildAction, buildReducers } from '@/Store/builder'
 
-export const initialState = {
-  fetchOne: { loading: false, error: null },
+export default {
+  initialState: {
+    // Optionally, you can scope variables
+    fetchOne: { loading: false, error: null },
+  },
+  action: buildAction('user/fetchOne', fetchOneUserService),
+  reducers: buildReducers({
+    errorKey: 'fetchOne.error', // Optionally, if you scoped variables, you can use a key with dot notation
+    loadingKey: 'fetchOne.loading',
+  }),
 }
-export const actions = buildAction('user/fetchOne', fetchOneUserService)
-export const reducers = buildReducers({
-  errorKey: 'fetchOne.error',
-  loadingKey: 'fetchOne.loading',
-})

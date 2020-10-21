@@ -39,7 +39,7 @@ function stateKeysExists(state, keys, type) {
 }
 
 function stateKeyExists(state, key, type) {
-  if (typeof state[key] === 'undefined') {
+  if (typeof getNestedValue(state, key) === 'undefined') {
     console.error(`Invalid state key : ${key} in ${type}`)
   }
 }
@@ -51,6 +51,10 @@ function setNestedValue(state, dotKey, value) {
     }
     return acc[key]
   }, state)
+}
+
+function getNestedValue(state, dotKey) {
+  return dotKey.split('.').reduce((acc, key) => acc[key], state)
 }
 
 export function buildAction(name, action = () => {}) {
@@ -78,9 +82,9 @@ export function buildSlice(name, modules, moduleInitialState) {
     extraReducers: (builder) => {
       modules.forEach((module) => {
         builder
-          .addCase(module.actions.pending, module.reducers.pending)
-          .addCase(module.actions.fulfilled, module.reducers.fulfilled)
-          .addCase(module.actions.rejected, module.reducers.rejected)
+          .addCase(module.action.pending, module.reducers.pending)
+          .addCase(module.action.fulfilled, module.reducers.fulfilled)
+          .addCase(module.action.rejected, module.reducers.rejected)
       })
     },
   })
