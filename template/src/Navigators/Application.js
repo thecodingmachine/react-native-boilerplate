@@ -11,9 +11,7 @@ let MainNavigator
 const ApplicationNavigator = () => {
   const [isApplicationLoaded, setIsApplicationLoaded] = useState(false)
 
-  const applicationIsLoading = useSelector(
-    (state) => state.startup.initialize.loading,
-  )
+  const applicationIsLoading = useSelector((state) => state.startup.loading)
 
   useEffect(() => {
     if (MainNavigator == null && !applicationIsLoading) {

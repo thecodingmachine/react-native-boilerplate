@@ -10,4 +10,15 @@ const instance = axios.create({
   timeout: 3000,
 })
 
+export const handleError = ({ message, data, status }) => {
+  return Promise.reject({ message, data, status })
+}
+
+instance.interceptors.response.use(
+  (response) => response,
+  ({ message, response: { data, status } }) => {
+    return handleError({ message, data, status })
+  },
+)
+
 export default instance

@@ -1,6 +1,4 @@
-import { combineReducers } from 'redux'
-import InitializeReducers from './Initialize'
+import { buildSlice } from '@/Store/builder'
+import InitStartup from './Init'
 
-export default combineReducers({
-  initialize: InitializeReducers,
-})
+export default buildSlice('startup', [InitStartup]).reducer

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { ActivityIndicator, View, Button, Text } from 'react-native'
 import { Layout, Fonts } from '@/Theme'
 import { useDispatch, useSelector } from 'react-redux'
-import { InitializeStartupAction } from '@/Store/Startup/Initialize'
+import InitStartup from '@/Store/Startup/Init'
 import { CommonActions } from '@react-navigation/native'
 import { useTranslation } from 'react-i18next'
 
@@ -10,12 +10,10 @@ const IndexStartupContainer = ({ navigation }) => {
   const { t } = useTranslation()
 
   const dispatch = useDispatch()
-  const isApplicationLoading = useSelector(
-    (state) => state.startup.initialize.loading,
-  )
+  const isApplicationLoading = useSelector((state) => state.startup.loading)
 
   useEffect(() => {
-    dispatch(InitializeStartupAction())
+    dispatch(InitStartup.action())
   }, [dispatch])
 
   return (

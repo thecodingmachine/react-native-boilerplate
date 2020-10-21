@@ -30,8 +30,11 @@ const IndexExampleContainer = () => {
       <View style={[[Layout.colCenter, Gutters.smallHPadding]]}>
         <Brand />
         {fetchOneUserLoading && <ActivityIndicator />}
-        {fetchOneUserError && <Text>{fetchOneUserError}</Text>}
-        {user && <Text>{t('example.helloUser', { name: user.name })}</Text>}
+        {fetchOneUserError ? (
+          <Text>{fetchOneUserError.message}</Text>
+        ) : (
+          <Text>{t('example.helloUser', { name: user.name })}</Text>
+        )}
       </View>
       <View
         style={[
