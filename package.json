@@ -1,8 +1,27 @@
 {
-  "name": "thecodingmachine-react-native-boilerplate",
+  "name": "@thecodingmachine/react-native-boilerplate",
   "version": "2.0.0",
   "description": "TheCodingMachine React Native Boilerplate",
-  "repository": "git@github.com:thecodingmachine/react-native-boilerplate.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thecodingmachine/react-native-boilerplate.git"
+  },
   "author": "TheCodingMachine Lyon <lyon@thecodingmachine.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thecodingmachine/react-native-boilerplate/issues"
+  },
+  "homepage": "https://github.com/thecodingmachine/react-native-boilerplate#readme",
+  "main": "post-init.script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "native",
+    "boilerplate",
+    "thecodingmachine",
+    "react-native",
+    "starter-kit"
+  ]
 }

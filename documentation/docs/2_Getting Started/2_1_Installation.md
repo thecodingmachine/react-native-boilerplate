@@ -17,7 +17,7 @@ You also need to install the dependencies required by React Native:
 To create a new project using the boilerplate simply run :
 
 ```
-npx react-native init MyApp --template thecodingmachine/react-native-boilerplate
+npx react-native init MyApp --template @thecodingmachine/react-native-boilerplate
 ```
 
 ## Running the project
