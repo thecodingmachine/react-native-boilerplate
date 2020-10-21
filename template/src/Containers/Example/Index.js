@@ -18,9 +18,9 @@ const IndexExampleContainer = () => {
 
   const [userId, setUserId] = useState('1')
 
-  const fetch = (userId) => {
-    setUserId(userId)
-    dispatch(FetchOneUserAction(userId))
+  const fetch = (id) => {
+    setUserId(id)
+    dispatch(FetchOneUserAction(id))
   }
 
   return (
