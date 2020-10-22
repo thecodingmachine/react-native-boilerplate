@@ -18,13 +18,7 @@ jobs:
       - name: Test Build
         run: |
           cd documentation
-          if [ -e yarn.lock ]; then
           yarn install --frozen-lockfile
-          elif [ -e package-lock.json ]; then
-          npm ci
-          else
-          npm i
-          fi
           npm run build
   gh-release:
     if: github.event_name != 'pull_request'
@@ -56,11 +50,5 @@ jobs:
           git config --global user.email "actions@gihub.com"
           git config --global user.name "gh-actions"
           cd documentation
-          if [ -e yarn.lock ]; then
           yarn install --frozen-lockfile
-          elif [ -e package-lock.json ]; then
-          npm ci
-          else
-          npm i
-          fi
-          npx docusaurus deploy
+          yarn deploy
