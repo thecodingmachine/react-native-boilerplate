@@ -49,7 +49,8 @@ jobs:
       - name: Release to GitHub Pages
         env:
           USE_SSH: true
-          GIT_USER: git
+          GIT_USER: JeremyDolle
+          DEPLOYMENT_BRANCH: gh-pages
         run: |
           git config --global user.email "actions@gihub.com"
           git config --global user.name "gh-actions"
