@@ -3,6 +3,8 @@ slug: /SplashScreenLoadingData
 title: Splash screen & loading data
 ---
 
+🚧 It's a Work In Progress section 🚧
+
 In many applications, you need to load data from API before displaying any content.
 To do that, we built a solid navigation based on a splash screen to load data before the content shows, and [inline require](https://reactnative.dev/docs/ram-bundles-inline-requires#inline-requires) to improve performance.
 

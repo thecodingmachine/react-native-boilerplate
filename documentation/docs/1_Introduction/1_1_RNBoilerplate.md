@@ -10,7 +10,7 @@ title: React Native Boilerplate
 This project is a [React Native](https://facebook.github.io/react-native/) boilerplate that can be used to kick-start a mobile application.
 
 The boilerplate provides **an architecture optimized for building solid cross-platform mobile applications** through separation of concerns between the UI and business logic. 
-We made this documented so that each piece of code that lands in your application can be understood and used.
+We made this full documentation so that each piece of code that lands in your application can be understood and used.
 
 
 :::tip Don't forget !!
@@ -43,7 +43,7 @@ The driving goal of the architecture of the boilerplate is separation of concern
 
 The boilerplate contains:
 
-- a [React Native](https://facebook.github.io/react-native/) (v**0.63.2**) application (in "[ejected](https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md)" mode to allow using dependencies that rely on native code)
+- a [React Native](https://facebook.github.io/react-native/) (v**0.63.3**) application (in "[ejected](https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md)" mode to allow using dependencies that rely on native code)
 - a [clear directory layout](#directory-layout) to provide a base architecture for your application
 - [Redux](https://redux.js.org/) (v**4.0.5**) to help manage state
 - [Redux Persist](https://github.com/rt2zz/redux-persist) (v**6.0.0**) to persist the Redux state
@@ -51,7 +51,7 @@ The boilerplate contains:
 - [redux toolkit](https://github.com/infinitered/reduxsauce) (v**1.4.0**) to make redux easier
 - [axios](https://github.com/axios/axios) (v**0.20.0**) to make API calls
 - [prettier](https://prettier.io/) and [eslint](https://eslint.org/) preconfigured for React Native
-- [react-native-flipper](https://fbflipper.com/) (v**0.57.0**) to debug react-native and [redux-flipper](https://github.com/jk-gan/redux-flipper) (v**1.3.2**) to debug redux
+- [react-native-flipper](https://fbflipper.com/) (v**0.62.0**) to debug react-native and [redux-flipper](https://github.com/jk-gan/redux-flipper) (v**1.3.2**) to debug redux
 
 The boilerplate includes an example (displaying fake user data) from UI components to the business logic. The example is easy to remove so that it doesn't get in the way.
 
