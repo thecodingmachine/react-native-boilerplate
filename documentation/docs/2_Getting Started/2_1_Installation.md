@@ -25,7 +25,7 @@ npx react-native init MyApp --template @thecodingmachine/react-native-boilerplat
 Assuming you have all the requirements installed, you can setup and run the project by running:
 
 - `yarn install` to install the dependencies
-- create your [configuration file `App/Config/index.js`](App/Config) from `index.dev.js` (if you are in dev environment) and fill the missing values
+- create your [configuration file `App/Config/index.js`](https://github.com/thecodingmachine/react-native-boilerplate/tree/master/template/src/Config) from `index.dev.js` (if you are in dev environment) and fill the missing values
 - run the following steps for your platform
 
 ### Android
