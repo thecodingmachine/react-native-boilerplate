@@ -17,6 +17,7 @@ jobs:
           node-version: '12.x'
       - name: Test Build
         run: |
+          cd documentation
           if [ -e yarn.lock ]; then
           yarn install --frozen-lockfile
           elif [ -e package-lock.json ]; then
@@ -54,6 +55,7 @@ jobs:
         run: |
           git config --global user.email "actions@gihub.com"
           git config --global user.name "gh-actions"
+          cd documentation
           if [ -e yarn.lock ]; then
           yarn install --frozen-lockfile
           elif [ -e package-lock.json ]; then
