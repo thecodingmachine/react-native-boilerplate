@@ -3,10 +3,10 @@ slug: /SplashScreenLoadingData
 title: Splash screen & loading data
 ---
 
-🚧 It's a Work In Progress section 🚧
-
 In many applications, you need to load data from API before displaying any content.
 To do that, we built a solid navigation based on a splash screen to load data before the content shows, and [inline require](https://reactnative.dev/docs/ram-bundles-inline-requires#inline-requires) to improve performance.
+
+---
 
 ## How the navigation is build ❓
 The answer is :
@@ -41,9 +41,7 @@ let MainNavigator
 const ApplicationNavigator = () => {
   const [isApplicationLoaded, setIsApplicationLoaded] = useState(false)
 
-  const applicationIsLoading = useSelector(
-    (state) => state.startup.initialize.loading,
-  )
+  const applicationIsLoading = useSelector((state) => state.startup.loading)
 
   useEffect(() => {
     if (MainNavigator == null && !applicationIsLoading) {
@@ -81,64 +79,26 @@ To have a great separation of concerns, all API call are make into Services. In 
 
 ```javascript
 useEffect(() => {
-  dispatch(InitializeStartupAction())
+    dispatch(InitStartup.action())
 }, [dispatch])
 ```
 
 In redux, triggering an action lead to an associated reducer and in most cases the action pass trough a middleware.
-All the logic can be found at `Stores/Startup/Initialize.js`. 
+All the logic can be found at `Stores/Startup/Init.js`. 
 
 ```javascript
-import { createSlice } from '@reduxjs/toolkit'
 import { buildAction, buildReducers } from '@/Store/builder'
-import initializeStartupService from '@/Services/User/FetchOne'
+import FetchOne from '@/Store/User/FetchOne'
 
-const name = 'startup'
-
-const initialState = {
-  loading: true,
-  error: false,
-}
-
-export const InitializeStartupAction = buildAction(
-  name,
-  initializeStartupService,
-)
-
-const { pending, fulfilled, rejected } = buildReducers(initialState, {
-  itemKey: null,
-})
-
-const initialize = createSlice({
-  name,
-  initialState,
-  extraReducers: (builder) => {
-    builder
-      .addCase(InitializeStartupAction.pending, pending)
-      .addCase(InitializeStartupAction.fulfilled, fulfilled)
-      .addCase(InitializeStartupAction.rejected, rejected)
-  },
-})
-export default initialize.reducer
-```
-
-All stores are based on redux-toolkit to simplify the process of API calls by using the `createAsyncThunk` function (hidden by the `buildAction` action which is a store builder function)
-So when the action pass through the middleware thunk, the service `initializeStartupService` is launched.
-
-```javascript
-export default async () => {
-  //Simulation of an async function delay
-  return new Promise((resolve) => {
-    setTimeout(() => resolve(), 3000)
-  })
+export default {
+  initialState: { loading: false, error: null },
+  action: buildAction('startup/init', async (args, { dispatch }) => {
+    // Here we load the user 1 for example, but you can for example load the connected user
+    await dispatch(FetchOne.action(1))
+  }),
+  reducers: buildReducers({ itemKey: null }), // We do not want to modify some item by default
 }
 ```
 
-So you can replace the fake call simulated with the Promise by real api calls like this:
-
-```javascript
-export default async () => {
-  const response = await api.get(`users/${userId}`)
-    return response.data
-}
-```
+All stores are based on redux-toolkit to simplify the process of API calls by using the `createAsyncThunk` function (hidden by the `buildAction` action which is a store builder function).
+So, to load data on splash screen you just have to add dispatched action in the buildAction.

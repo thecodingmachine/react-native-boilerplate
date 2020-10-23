@@ -6,6 +6,8 @@ title: Add a lang translation
 The boilerplate includes an i18n feature to store and translate String data. 
 The package used is [i18next](https://www.i18next.com/) you can use their documentation for not included functionnalities.
 
+---
+
 ## Add a new language
 All languages files are located in `src/Translations/resources`. By default, there is the `en.js` file.
 To add a new language just `cp en.js fr.js` and export it in : `src/Translations/resources/index`
