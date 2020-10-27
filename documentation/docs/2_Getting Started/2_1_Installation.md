@@ -20,16 +20,11 @@ To create a new project using the boilerplate simply run :
 npx react-native init MyApp --template @thecodingmachine/react-native-boilerplate
 ```
 
-:::warning
-If you have an error ECACCES this is not bloking, you can use it even if you have this error.
-:::
-
 ## Running the project
 
 Assuming you have all the requirements installed, you can setup and run the project by running:
 
 - `yarn install` to install the dependencies
-- create your [configuration file `src/Config/index.js`](https://github.com/thecodingmachine/react-native-boilerplate/tree/master/template/src/Config) from `index.dev.js` (if you are in dev environment) and fill the missing values
 - run the following steps for your platform
 
 ### Android
