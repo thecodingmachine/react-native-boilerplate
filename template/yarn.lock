@@ -1239,6 +1239,13 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
+"@thecodingmachine/redux-toolkit-wrapper@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@thecodingmachine/redux-toolkit-wrapper/-/redux-toolkit-wrapper-1.0.0.tgz#367e729e3d54dc10e8d5070b3903c51c3ea34875"
+  integrity sha512-C9c9+76KDs4D5GVK1dkVifIQsX5efd9K339yAbifVpQqIgs4ZE4KgMIRiHPoa2PELmzStkJv96dervgoNvSTow==
+  dependencies:
+    "@reduxjs/toolkit" "^1.4.0"
+
 "@types/babel__core@^7.0.0", "@types/babel__core@^7.1.7":
   version "7.1.10"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.10.tgz#ca58fc195dd9734e77e57c6f2df565623636ab40"

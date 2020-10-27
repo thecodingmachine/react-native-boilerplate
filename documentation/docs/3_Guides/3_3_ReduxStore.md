@@ -5,8 +5,8 @@ title: Redux store
 
 🚧 It's a Work In Progress section 🚧
 
-## The Architecture
-The root file include the configuration of redux. The two important constants are `reducers` and `persistConfig`
+## Architecture
+The root file include configuration of redux. The two main constants are `reducers` and `persistConfig`
 
 ```javascript
 const reducers = combineReducers({
@@ -21,13 +21,14 @@ const persistConfig = {
 }
 ```
 
- - `whitelist` includes state to persist
- - `reducers` includes all modules reducers
+ - `whitelist` includes state to persist (with `redux-persist`)
+ - `reducers` includes all `reducer modules`
 
 ## Slices
 
-A slice is a group of actions, states and reducers for a same module. For example, in the boilerplate there are two slices : `Startup` and `User`
-in each slice there is a `index.js` file which combines each store's feature (`fetchOne.js` for the User slice) . We decide to separate each features in one file in order to avoid very big incomprehensible files.
+A slice is a group of actions, states and reducers for a same module. For example, in this boilerplate, there are two slices : `Startup` and `User`.  
+In each slice, an `index.js` file which combines each store's feature (`fetchOne.js` for the `User` slice example).   
+We've decided to separate each feature in one file in order to avoid very large incomprehensible files.
 So each feature includes its scoped state, actions and related reducers. 
 
 ```javascript
@@ -44,7 +45,7 @@ export default {
 }
 ```
 
-In the `index.js` file, all features are merged in a slice where states, actions, and reducers are merged and place in a slice.
+In the `index.js` file, all features are merged in a slice where states, actions, and reducers are merged and placed in a slice.
 
 ```javascript
 const moduleInitialState = {
@@ -54,7 +55,7 @@ const moduleInitialState = {
 export default buildSlice('user', [FetchOne], moduleInitialState).reducer
 ```
 
-For the User example, the below state will be create :
+For the `User` example, the below state will be created :
 ```
 {
   user: {
@@ -66,11 +67,11 @@ For the User example, the below state will be create :
  }
 }
 ```
-The actions will be : `user/fetchOne/pending`, `user/fetchOne/fulfilled`, `user/fetchOne/ejected`
+`Actions` will be : `user/fetchOne/pending`, `user/fetchOne/fulfilled`, `user/fetchOne/rejected`.  
 For each action, a reducer is associated.
 
 ## Redux-toolkit-wrapper
-The boilerplate includes a wrapper of redux-toolkit to make it easier to use. It provides three helpers.
+The boilerplate includes a [wrapper of redux-toolkit](https://github.com/thecodingmachine/redux-toolkit-wrapper) to make it easier to use. It provides three helpers.
 If your are not familiar with redux-toolkit, please have a look at their [documentation](https://redux-toolkit.js.org/api/configureStore).
 
 ### buildAction
@@ -82,10 +83,10 @@ If your are not familiar with redux-toolkit, please have a look at their [docume
 | action                | function to launch and await                | function  | () => {}   |
 
 ### buildReducers
-`buildReducers` create default reducers based on CRUD logic. It creates tree functions : pending, fulfilled and rejected.
-- pending set the loadingKey to true and the errorKey to null.
-- fulfilled replaces itemKey with the payload (if itemKey is not null)
-- pending set the loadingKey to false and the errorKey to payload.
+`buildReducers` create default reducers based on CRUD logic. It creates three functions : pending, fulfilled and rejected.
+- `pending` set the `loadingKey` to `true` and the `errorKey` to `null`.
+- `fulfilled` replaces `itemKey` with the payload (if `itemKey` is not `null`) and the `loadingKey` to `false`
+- `pending` set the `loadingKey` to `false` and the `errorKey` to payload.
 
 
 |   Parameters   |      Description               |   Type    |   Default |
