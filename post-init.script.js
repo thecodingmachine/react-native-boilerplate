@@ -1,3 +1,3 @@
 #!/usr/bin/env node
 
-console.log("This is post init script");
+console.info("TheCodingMachine React-Native Boilerplate initialized with success !");
