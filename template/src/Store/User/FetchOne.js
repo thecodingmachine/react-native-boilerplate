@@ -1,5 +1,5 @@
+import { buildAction, buildReducers } from '@thecodingmachine/redux-toolkit-wrapper'
 import fetchOneUserService from '@/Services/User/FetchOne'
-import { buildAction, buildReducers } from '@/Store/builder'
 
 export default {
   initialState: {

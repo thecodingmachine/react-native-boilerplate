@@ -1,4 +1,4 @@
-import { buildAction, buildReducers } from '@/Store/builder'
+import { buildAction, buildReducers } from '@thecodingmachine/redux-toolkit-wrapper'
 import FetchOne from '@/Store/User/FetchOne'
 
 export default {
