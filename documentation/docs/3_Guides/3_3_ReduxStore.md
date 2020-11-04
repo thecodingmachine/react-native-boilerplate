@@ -102,5 +102,5 @@ If your are not familiar with redux-toolkit, please have a look at their [docume
 |       Parameters      |      Description                              |   Type    |   Default |
 | :-------------------- | :-------------------------------------------- | :-------- | :-------- |
 | name                  | the name of the slice                         | string    | undefined |
-| modules               | array of all modules                          | array     | undefined |
+| modules               | array of all modules                          | array     | []        |
 | moduleInitialState    | initial state for all modules of the slice    | object    | {}        |
