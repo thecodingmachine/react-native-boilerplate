@@ -16,6 +16,7 @@
     "@react-navigation/native": "^5.7.3",
     "@react-navigation/stack": "^5.9.0",
     "@reduxjs/toolkit": "^1.4.0",
+    "@thecodingmachine/redux-toolkit-wrapper": "^1.1.0",
     "axios": "^0.20.0",
     "i18next": "^19.8.2",
     "react": "16.13.1",
