@@ -6,7 +6,7 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
-    "test": "jest",
+    "test": "jest --detectOpenHandles --forceExit",
     "lint": "eslint ."
   },
   "dependencies": {
@@ -49,10 +49,12 @@
     "preset": "react-native",
     "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
     "setupFiles": [
-      "./__tests__/setup.js"
+      "./jest.setup.js"
     ],
     "transformIgnorePatterns": [
       "node_modules/('@thecodingmachine/redux-toolkit-wrapper')"
-    ]
+    ],
+    "timers": "fake",
+    "testEnvironment": "jsdom"
   }
 }
