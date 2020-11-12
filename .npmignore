@@ -1,0 +1,4 @@
+.DS_Store
+templates/node_modules
+templates/ios/Pods
+documentation
