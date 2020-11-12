@@ -1,4 +1,4 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import { combineReducers } from 'redux'
 import {
   persistReducer,
@@ -31,12 +31,17 @@ const persistedReducer = persistReducer(persistConfig, reducers)
 
 const store = configureStore({
   reducer: persistedReducer,
-  middleware: (getDefaultMiddleware) =>
+  middleware: (getDefaultMiddleware) => {
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(createDebugger()),
+    })
+
+    if (__DEV__ && !process.env.JEST_WORKER_ID) {
+      getDefaultMiddleware.concat(createDebugger())
+    }
+  },
 })
 
 const persistor = persistStore(store)
