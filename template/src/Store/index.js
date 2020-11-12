@@ -32,15 +32,17 @@ const persistedReducer = persistReducer(persistConfig, reducers)
 const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) => {
-    getDefaultMiddleware({
+    const middlewares = getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     })
 
     if (__DEV__ && !process.env.JEST_WORKER_ID) {
-      getDefaultMiddleware.concat(createDebugger())
+      middlewares.concat(createDebugger())
     }
+
+    return middlewares
   },
 })
 
