@@ -2,3 +2,5 @@
 templates/node_modules
 templates/ios/Pods
 documentation
+.idea
+.github
