@@ -25,13 +25,13 @@ export default StyleSheet.create({
         marginBottom: value,
       },
       [`${key}TMargin`]: {
-        marginBottom: value,
+        marginTop: value,
       },
       [`${key}RMargin`]: {
-        marginBottom: value,
+        marginRight: value,
       },
       [`${key}LMargin`]: {
-        marginBottom: value,
+        marginLeft: value,
       },
       [`${key}VMargin`]: {
         marginVertical: value,
@@ -44,13 +44,13 @@ export default StyleSheet.create({
         paddingBottom: value,
       },
       [`${key}TPadding`]: {
-        paddingBottom: value,
+        paddingTop: value,
       },
       [`${key}RPadding`]: {
-        paddingBottom: value,
+        paddingRight: value,
       },
       [`${key}LPadding`]: {
-        paddingBottom: value,
+        paddingLeft: value,
       },
       [`${key}VPadding`]: {
         paddingVertical: value,
