@@ -24,7 +24,13 @@ const ApplicationNavigator = () => {
     <Stack.Navigator headerMode={'none'}>
       <Stack.Screen name="Startup" component={IndexStartupContainer} />
       {isApplicationLoaded && (
-        <Stack.Screen name="Main" component={MainNavigator} />
+        <Stack.Screen
+          name="Main"
+          component={MainNavigator}
+          options={{
+            animationEnabled: false,
+          }}
+        />
       )}
     </Stack.Navigator>
   )

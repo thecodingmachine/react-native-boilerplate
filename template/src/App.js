@@ -6,6 +6,7 @@ import { store, persistor } from '@/Store'
 import { SafeAreaView, StatusBar } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { ApplicationNavigator } from '@/Navigators'
+import { navigationRef } from '@/Navigators/Root'
 import { Layout } from '@/Theme'
 import './Translations'
 
@@ -20,7 +21,7 @@ const App = () => (
      */}
     <PersistGate loading={null} persistor={persistor}>
       <SafeAreaView style={Layout.fill}>
-        <NavigationContainer>
+        <NavigationContainer ref={navigationRef}>
           <StatusBar barStyle="dark-content" />
           <ApplicationNavigator />
         </NavigationContainer>
