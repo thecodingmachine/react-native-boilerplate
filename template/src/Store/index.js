@@ -11,7 +11,6 @@ import {
   REGISTER,
 } from 'redux-persist'
 import { configureStore } from '@reduxjs/toolkit'
-import createDebugger from 'redux-flipper'
 
 import startup from './Startup'
 import user from './User'
@@ -39,7 +38,8 @@ const store = configureStore({
     })
 
     if (__DEV__ && !process.env.JEST_WORKER_ID) {
-      middlewares.concat(createDebugger())
+      const createDebugger = require('redux-flipper').default
+      middlewares.push(createDebugger())
     }
 
     return middlewares

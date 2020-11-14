@@ -1,6 +1,6 @@
 {
   "name": "boilerplate",
-  "version": "2.0.0",
+  "version": "2.1.4",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
@@ -29,7 +29,7 @@
     "react-native-screens": "^2.14.0",
     "react-redux": "^7.2.1",
     "redux": "^4.0.5",
-    "redux-flipper": "^1.4.0",
+    "redux-flipper": "^1.4.2",
     "redux-persist": "^6.0.0"
   },
   "devDependencies": {
