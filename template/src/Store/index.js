@@ -14,16 +14,18 @@ import { configureStore } from '@reduxjs/toolkit'
 
 import startup from './Startup'
 import user from './User'
+import theme from './Theme'
 
 const reducers = combineReducers({
   startup,
   user,
+  theme,
 })
 
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: [],
+  whitelist: ['theme'],
 }
 
 const persistedReducer = persistReducer(persistConfig, reducers)

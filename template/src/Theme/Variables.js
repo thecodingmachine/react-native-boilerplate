@@ -9,13 +9,18 @@
  * Colors
  */
 export const Colors = {
-  transparent: 'rgba(0,0,0,0)',
   // Example colors:
+  transparent: 'rgba(0,0,0,0)',
+  inputBackground: '#FFFFFF',
   white: '#ffffff',
   text: '#212529',
   primary: '#E14032',
   success: '#28a745',
   error: '#dc3545',
+}
+
+export const NavigationColors = {
+  primary: Colors.primary,
 }
 
 /**

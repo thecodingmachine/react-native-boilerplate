@@ -1,7 +1,3 @@
-/**
- * This file contains metric styles that are global to the application.
- */
-import { MetricsSizes } from './Variables'
 import { StyleSheet } from 'react-native'
 
 /**
@@ -16,49 +12,57 @@ import { StyleSheet } from 'react-native'
  * <op>: can be ['Margin', 'Padding']
  * <value>: is the value of the <size>
  */
-export default StyleSheet.create({
-  ...Object.entries(MetricsSizes).reduce(
-    (acc, [key, value]) => ({
-      ...acc,
-      /* Margins */
-      [`${key}BMargin`]: {
-        marginBottom: value,
-      },
-      [`${key}TMargin`]: {
-        marginTop: value,
-      },
-      [`${key}RMargin`]: {
-        marginRight: value,
-      },
-      [`${key}LMargin`]: {
-        marginLeft: value,
-      },
-      [`${key}VMargin`]: {
-        marginVertical: value,
-      },
-      [`${key}HMargin`]: {
-        marginHorizontal: value,
-      },
-      /* Paddings */
-      [`${key}BPadding`]: {
-        paddingBottom: value,
-      },
-      [`${key}TPadding`]: {
-        paddingTop: value,
-      },
-      [`${key}RPadding`]: {
-        paddingRight: value,
-      },
-      [`${key}LPadding`]: {
-        paddingLeft: value,
-      },
-      [`${key}VPadding`]: {
-        paddingVertical: value,
-      },
-      [`${key}HPadding`]: {
-        paddingHorizontal: value,
-      },
-    }),
-    {},
-  ),
-})
+
+/**
+ *
+ * @param Theme can be spread like {Colors, NavigationColors, Gutters, Layout, Common, ...args}
+ * @return {*}
+ */
+export default function ({ MetricsSizes }) {
+  return StyleSheet.create({
+    ...Object.entries(MetricsSizes).reduce(
+      (acc, [key, value]) => ({
+        ...acc,
+        /* Margins */
+        [`${key}BMargin`]: {
+          marginBottom: value,
+        },
+        [`${key}TMargin`]: {
+          marginTop: value,
+        },
+        [`${key}RMargin`]: {
+          marginRight: value,
+        },
+        [`${key}LMargin`]: {
+          marginLeft: value,
+        },
+        [`${key}VMargin`]: {
+          marginVertical: value,
+        },
+        [`${key}HMargin`]: {
+          marginHorizontal: value,
+        },
+        /* Paddings */
+        [`${key}BPadding`]: {
+          paddingBottom: value,
+        },
+        [`${key}TPadding`]: {
+          paddingTop: value,
+        },
+        [`${key}RPadding`]: {
+          paddingRight: value,
+        },
+        [`${key}LPadding`]: {
+          paddingLeft: value,
+        },
+        [`${key}VPadding`]: {
+          paddingVertical: value,
+        },
+        [`${key}HPadding`]: {
+          paddingHorizontal: value,
+        },
+      }),
+      {},
+    ),
+  })
+}
