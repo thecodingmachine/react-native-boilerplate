@@ -227,7 +227,7 @@ Then you can use your image like this :
 
 ```jsx
 const myComponent = () => {
-    const { Images } useTheme()
+    const { Images } = useTheme()
     return <Image source={Images.logo} />
 }
 ```
