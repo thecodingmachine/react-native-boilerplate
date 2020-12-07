@@ -122,7 +122,7 @@ When the fetchOneUserService throw an error the action `user/fetchOne/rejected` 
 `buildAsyncReducers` create default reducers based on CRUD logic. It creates three functions : pending, fulfilled and rejected.
 - `pending` set the `loadingKey` to `true` and the `errorKey` to `null`.
 - `fulfilled` replaces `itemKey` with the payload (if `itemKey` is not `null`) and the `loadingKey` to `false`
-- `pending` set the `loadingKey` to `false` and the `errorKey` to payload.
+- `rejected` set the `loadingKey` to `false` and the `errorKey` to payload.
 
 
 |   Parameters   |      Description               |   Type    |   Default |
