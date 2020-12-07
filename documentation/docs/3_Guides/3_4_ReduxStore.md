@@ -3,6 +3,12 @@ slug: /ReduxStore
 title: Redux store 🗃️
 ---
 
+<div align="center">
+    <img width="100%" src={require('../assets/RTW.png').default} />
+</div>
+
+The store section is now really easy to use thanks to [Redux-tookit](https://redux-toolkit.js.org/) and our [Redux-tookit-wrapper](https://github.com/thecodingmachine/redux-toolkit-wrapper).
+
 ## Architecture
 The root file include configuration of redux. The two main constants are `reducers` and `persistConfig`
 
