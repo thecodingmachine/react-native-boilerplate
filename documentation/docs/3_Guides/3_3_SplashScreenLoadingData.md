@@ -1,6 +1,6 @@
 ---
 slug: /SplashScreenLoadingData
-title: Splash screen & loading data
+title: Splash screen & loading data 💾
 ---
 
 In many applications, you need to load data from API before displaying any content.
@@ -13,18 +13,13 @@ The answer is :
 
 > Like it's recommended in the React Navigation V5 documentation 🤓
 
-Like everywhere else, the entry point of the navigation is in the root file `src/App.js` :
+Like everywhere else, the entry point of the navigation is in the root file :
 
-```jsx
+```jsx title="src/App.js"
 const App = () => (
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
-      <SafeAreaView style={Layout.fill}>
-        <NavigationContainer>
-          <StatusBar barStyle="dark-content" />
-          <ApplicationNavigator />
-        </NavigationContainer>
-      </SafeAreaView>
+      <ApplicationNavigator />
     </PersistGate>
   </Provider>
 )
@@ -39,8 +34,9 @@ let MainNavigator
 
 // @refresh reset
 const ApplicationNavigator = () => {
+  const { Layout, darkMode, NavigationTheme } = useTheme()
+  const { colors } = NavigationTheme
   const [isApplicationLoaded, setIsApplicationLoaded] = useState(false)
-
   const applicationIsLoading = useSelector((state) => state.startup.loading)
 
   useEffect(() => {
@@ -51,12 +47,23 @@ const ApplicationNavigator = () => {
   }, [applicationIsLoading])
 
   return (
-    <Stack.Navigator headerMode={'none'}>
-      <Stack.Screen name="Startup" component={IndexStartupContainer} />
-      {isApplicationLoaded && (
-        <Stack.Screen name="Main" component={MainNavigator} />
-      )}
-    </Stack.Navigator>
+    <SafeAreaView style={[Layout.fill, { backgroundColor: colors.card }]}>
+      <NavigationContainer theme={NavigationTheme} ref={navigationRef}>
+        <StatusBar barStyle={darkMode ? 'light-content' : 'dark-content'} />
+        <Stack.Navigator headerMode={'none'}>
+          <Stack.Screen name="Startup" component={IndexStartupContainer} />
+          {isApplicationLoaded && (
+            <Stack.Screen
+              name="Main"
+              component={MainNavigator}
+              options={{
+                animationEnabled: false,
+              }}
+            />
+          )}
+        </Stack.Navigator>
+      </NavigationContainer>
+    </SafeAreaView>
   )
 }
 ```
@@ -93,12 +100,18 @@ import FetchOne from '@/Store/User/FetchOne'
 export default {
   initialState: { loading: false, error: null },
   action: buildAction('startup/init', async (args, { dispatch }) => {
+    // Timeout to fake waiting some process
+    // Remove it, or keep it if you want display a beautiful splash screen ;)
+    await new Promise((resolve) => setTimeout(resolve, 1000))
     // Here we load the user 1 for example, but you can for example load the connected user
     await dispatch(FetchOne.action(1))
+    await dispatch(DefaultTheme.action({ theme: 'default', darkMode: null }))
+    // Navigate and reset to the main navigator
+    navigateAndSimpleReset('Main')
   }),
   reducers: buildReducers({ itemKey: null }), // We do not want to modify some item by default
 }
 ```
 
 All stores are based on redux-toolkit to simplify the process of API calls by using the `createAsyncThunk` function (hidden by the `buildAction` action which is a store builder function).
-So, to load data on splash screen you just have to add dispatched action in the buildAction.
+So, to load data on splash screen you just have to add dispatched action in the buildAction like `FetchOne` and `DefaultTheme` in the above example. 

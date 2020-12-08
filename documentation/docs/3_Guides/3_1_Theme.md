@@ -1,11 +1,38 @@
 ---
 slug: /Theme
-title: Theme
+title: Theme 🎨
 ---
 
 The Theme folder, at the root of project, includes a nice kit for building and maintaining the UI of application.
 It helps with variables and reusable classes to create harmony between application screens.
 
+## How to use ❓
+
+The boilerplate provides a custom hook called `useTheme` and you can use it like the example bellow:
+
+```jsx
+import { useTheme } from '@/Theme'
+
+const Brand = ({ height = 200, width = 200, mode = 'contain' }) => {
+  const {
+    Common,
+    Fonts,
+    Gutters,
+    Images,
+    Layout,
+    Colors,
+    NavigationColors,
+    FontSize,
+    MetricsSizes,
+  } = useTheme() // <- custom hook
+
+  return (
+    <View style={{ height, width }}>
+      <Image style={Layout.fullSize} source={Images.logo} resizeMode={mode} />
+    </View>
+  )
+}
+```
 ---
 
 ## Variables
@@ -14,11 +41,24 @@ The first file is the variables one. It contains 3 groups of variables :
  ```javascript
      export const Colors = {
        transparent: 'rgba(0,0,0,0)',
-       primary: '#007bff',
+       inputBackground: '#FFFFFF',
        white: '#ffffff',
        text: '#212529',
+       primary: '#E14032',
        success: '#28a745',
        error: '#dc3545',
+     }
+ ```
+
+ - 🎨 **NavigationColors** : defines global colors of the react navigation theme,
+ ```javascript
+    export const NavigationColors = {
+       primary: Colors.primary, // The primary color of the app used to tint various elements. Usually you'll want to use your brand color for this.
+       // background: '', The color of various backgrounds, such as background color for the screens
+       // card: '', The background color of card-like elements, such as headers, tab bars etc.
+       // text: '', The text color of various elements
+       // border: '', The color of borders, e.g. header border, tab bar border etc
+       // notification: '', The color of Tab Navigator badge
      }
  ```
 
@@ -51,14 +91,30 @@ The first file is the variables one. It contains 3 groups of variables :
 The `Common` defines global style. It helps keeping the style at one place and avoid stylesheets everywhere in the code.
 For example you can defines style for buttons, inputs, background like this :
 ```javascript
-    export default StyleSheet.create({
-      button: {
-        backgroundColor: Colors.primary,
-      },
-      backgroundReset: {
-        backgroundColor: Colors.transparent,
-      },
-    })
+    export default function ({ Colors }) {
+      return StyleSheet.create({
+        button: {
+          backgroundColor: Colors.primary,
+        },
+        backgroundPrimary: {
+          backgroundColor: Colors.primary,
+        },
+        backgroundReset: {
+          backgroundColor: Colors.transparent,
+        },
+        textInput: {
+          borderWidth: 1,
+          borderColor: Colors.text,
+          backgroundColor: Colors.inputBackground,
+          color: Colors.text,
+          minHeight: 50,
+          textAlign: 'center',
+          marginTop: 10,
+          marginBottom: 10,
+        },
+      })
+    }
+
 ```
 
 ---
@@ -68,37 +124,37 @@ The `Font` presets some text classes using the [FontSize](#variables) variables.
 It provides these classes:
 
 ### textSmall
-It applies a `fontSize: FontSize.small` on the element.
+It applies a `fontSize: FontSize.small` on the element and apply the text color
 <div align="center">
     <img src={require('../assets/Theme/Text/textSmall.png').default} />
 </div>
 
 ### textRegular
-It applies a `fontSize: FontSize.regular` on the element.
+It applies a `fontSize: FontSize.regular` on the element and apply the text color
 <div align="center">
     <img src={require('../assets/Theme/Text/textRegular.png').default} />
 </div>
 
 ### textLarge
-It applies a `fontSize: FontSize.large` on the element.
+It applies a `fontSize: FontSize.large` on the element and apply the text color
 <div align="center">
     <img src={require('../assets/Theme/Text/textLarge.png').default} />
 </div>
 
 ### titleSmall
-It applies a `fontSize: FontSize.small * 2` and `fontWeight: 'bold'` on the element.
+It applies a `fontSize: FontSize.small * 2`, `fontWeight: 'bold'` on the element and apply the text color
 <div align="center">
     <img src={require('../assets/Theme/Text/titleSmall.png').default} />
 </div>
 
 ### titleRegular
-It applies a `fontSize: FontSize.regular * 2` and `fontWeight: 'bold'` on the element.
+It applies a `fontSize: FontSize.regular * 2`, `fontWeight: 'bold'` on the element and apply the text color
 <div align="center">
     <img src={require('../assets/Theme/Text/titleRegular.png').default} />
 </div>
 
 ### titleLarge
-It applies a `fontSize: FontSize.large * 2` and `fontWeight: 'bold'` on the element.
+It applies a `fontSize: FontSize.large * 2`, `fontWeight: 'bold'` on the element and apply the text color
 <div align="center">
     <img src={require('../assets/Theme/Text/titleLarge.png').default} />
 </div>
@@ -160,17 +216,20 @@ This files includes all images used in the application.
 To use it, you only have to import the image like below
 
 ```javascript
-    export default {
-      logo: require('@/Assets/Images/TOM.png'),
-    }
+export default function () {
+  return {
+    logo: require('@/Assets/Images/TOM.png'),
+  }
+}
 ```
 
 Then you can use your image like this :
 
-```javascript
-import { Images } from '@/Theme'
-...
-<Image source={Images.logo} />
+```jsx
+const myComponent = () => {
+    const { Images } useTheme()
+    return <Image source={Images.logo} />
+}
 ```
 
 ---
@@ -298,6 +357,10 @@ rotate an element by 90° clockwise
 #### rotate90Inverse
 rotate an element by 90° counterclockwise
 
-:::note
+:::info
 In all these groups you can add, remove or edit variables/classes with the values you want
+:::
+
+:::note Important
+Each style file is an export default function with all the Theme Variables in parameters
 :::

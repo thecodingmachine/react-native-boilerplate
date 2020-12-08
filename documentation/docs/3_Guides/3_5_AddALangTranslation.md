@@ -1,6 +1,6 @@
 ---
 slug: /AddALangTranslation
-title: Add a lang translation
+title: Add a lang translation 🌐
 ---
 
 The boilerplate includes an i18n feature to store and translate String data. 

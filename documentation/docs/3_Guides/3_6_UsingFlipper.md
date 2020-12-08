@@ -1,6 +1,6 @@
 ---
 slug: /UsingFlipper
-title: Using Flipper
+title: Using Flipper 🐛
 ---
 
 Flipper is a debugger for React native and, with a plugin, for redux too.

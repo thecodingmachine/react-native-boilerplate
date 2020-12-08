@@ -3,11 +3,7 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/lib/integration/react'
 import { store, persistor } from '@/Store'
-import { SafeAreaView, StatusBar } from 'react-native'
-import { NavigationContainer } from '@react-navigation/native'
 import { ApplicationNavigator } from '@/Navigators'
-import { navigationRef } from '@/Navigators/Root'
-import { Layout } from '@/Theme'
 import './Translations'
 
 const App = () => (
@@ -20,12 +16,7 @@ const App = () => (
      * @see https://github.com/rt2zz/redux-persist/blob/master/docs/PersistGate.md
      */}
     <PersistGate loading={null} persistor={persistor}>
-      <SafeAreaView style={Layout.fill}>
-        <NavigationContainer ref={navigationRef}>
-          <StatusBar barStyle="dark-content" />
-          <ApplicationNavigator />
-        </NavigationContainer>
-      </SafeAreaView>
+      <ApplicationNavigator />
     </PersistGate>
   </Provider>
 )

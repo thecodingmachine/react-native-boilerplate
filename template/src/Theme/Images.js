@@ -1,7 +1,10 @@
 /**
- * Images should be stored in the `App/Images` directory and referenced using variables defined here.
+ *
+ * @param Theme can be spread like {Colors, NavigationColors, Gutters, Layout, Common, ...args}
+ * @return {*}
  */
-
-export default {
-  logo: require('@/Assets/Images/TOM.png'),
+export default function () {
+  return {
+    logo: require('@/Assets/Images/TOM.png'),
+  }
 }
