@@ -17,6 +17,11 @@ module.exports = {
   organizationName: 'thecodingmachine',
   projectName: 'react-native-boilerplate',
   themeConfig: {
+    algolia: {
+      apiKey: '870ae81ec981530781f32849c55a593f',
+      indexName: 'rnboilerplate',
+      contextualSearch: true,
+    },
     navbar: {
       title: 'RNBoilerplate',
       logo: {
