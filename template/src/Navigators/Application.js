@@ -26,6 +26,15 @@ const ApplicationNavigator = () => {
     }
   }, [applicationIsLoading])
 
+  // on destroy needed to be able to reset when app close in background (Android)
+  useEffect(
+    () => () => {
+      setIsApplicationLoaded(false)
+      MainNavigator = null
+    },
+    [],
+  )
+
   return (
     <AppearanceProvider>
       <SafeAreaView style={[Layout.fill, { backgroundColor: colors.card }]}>
@@ -33,7 +42,7 @@ const ApplicationNavigator = () => {
           <StatusBar barStyle={darkMode ? 'light-content' : 'dark-content'} />
           <Stack.Navigator headerMode={'none'}>
             <Stack.Screen name="Startup" component={IndexStartupContainer} />
-            {isApplicationLoaded && (
+            {isApplicationLoaded && MainNavigator != null && (
               <Stack.Screen
                 name="Main"
                 component={MainNavigator}
