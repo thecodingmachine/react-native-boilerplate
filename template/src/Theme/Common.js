@@ -11,23 +11,25 @@ import buttonStyles from './components/Buttons'
  * @return {*}
  */
 export default function ({ Colors, ...args }) {
-  return StyleSheet.create({
-    ...buttonStyles({ Colors, ...args }),
-    backgroundPrimary: {
-      backgroundColor: Colors.primary,
-    },
-    backgroundReset: {
-      backgroundColor: Colors.transparent,
-    },
-    textInput: {
-      borderWidth: 1,
-      borderColor: Colors.text,
-      backgroundColor: Colors.inputBackground,
-      color: Colors.text,
-      minHeight: 50,
-      textAlign: 'center',
-      marginTop: 10,
-      marginBottom: 10,
-    },
-  })
+  return {
+    button: buttonStyles({ Colors, ...args }),
+    ...StyleSheet.create({
+      backgroundPrimary: {
+        backgroundColor: Colors.primary,
+      },
+      backgroundReset: {
+        backgroundColor: Colors.transparent,
+      },
+      textInput: {
+        borderWidth: 1,
+        borderColor: Colors.text,
+        backgroundColor: Colors.inputBackground,
+        color: Colors.text,
+        minHeight: 50,
+        textAlign: 'center',
+        marginTop: 10,
+        marginBottom: 10,
+      },
+    }),
+  }
 }

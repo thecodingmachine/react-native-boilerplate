@@ -1,28 +1,28 @@
 import { StyleSheet } from 'react-native'
 
 export default function ({ Colors, Gutters, Layout }) {
-  const button = {
+  const base = {
     ...Layout.center,
     ...Gutters.largeHPadding,
     height: 40,
     backgroundColor: Colors.primary,
   }
-  const buttonRounded = {
-    ...button,
+  const rounded = {
+    ...base,
     borderRadius: 20,
   }
 
   return StyleSheet.create({
-    button,
-    buttonRounded,
-    buttonOutline: {
-      ...button,
+    base,
+    rounded,
+    outline: {
+      ...base,
       backgroundColor: Colors.transparent,
       borderWidth: 2,
       borderColor: Colors.primary,
     },
-    buttonOutlineRounded: {
-      ...buttonRounded,
+    outlineRounded: {
+      ...rounded,
       backgroundColor: Colors.transparent,
       borderWidth: 2,
       borderColor: Colors.primary,

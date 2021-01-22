@@ -73,19 +73,19 @@ const IndexExampleContainer = () => {
       <Text style={[Fonts.textRegular, Gutters.smallBMargin]}>DarkMode :</Text>
 
       <TouchableOpacity
-        style={[Common.buttonRounded, Gutters.regularBMargin]}
+        style={[Common.button.rounded, Gutters.regularBMargin]}
         onPress={() => changeTheme({ darkMode: null })}
       >
         <Text style={Fonts.textRegular}>Auto</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        style={[Common.buttonOutlineRounded, Gutters.regularBMargin]}
+        style={[Common.button.outlineRounded, Gutters.regularBMargin]}
         onPress={() => changeTheme({ darkMode: true })}
       >
         <Text style={Fonts.textRegular}>Dark</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        style={[Common.buttonOutline, Gutters.regularBMargin]}
+        style={[Common.button.outline, Gutters.regularBMargin]}
         onPress={() => changeTheme({ darkMode: false })}
       >
         <Text style={Fonts.textRegular}>Light</Text>
