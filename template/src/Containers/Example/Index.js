@@ -1,6 +1,12 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { View, ActivityIndicator, Text, TextInput, Button } from 'react-native'
+import {
+  View,
+  ActivityIndicator,
+  Text,
+  TextInput,
+  TouchableOpacity,
+} from 'react-native'
 import { Brand } from '@/Components'
 import { useTheme } from '@/Theme'
 import FetchOne from '@/Store/User/FetchOne'
@@ -37,7 +43,9 @@ const IndexExampleContainer = () => {
         {fetchOneUserError ? (
           <Text style={Fonts.textRegular}>{fetchOneUserError.message}</Text>
         ) : (
-          <Text style={Fonts.textRegular}>{t('example.helloUser', { name: user.name })}</Text>
+          <Text style={Fonts.textRegular}>
+            {t('example.helloUser', { name: user.name })}
+          </Text>
         )}
       </View>
       <View
@@ -49,7 +57,7 @@ const IndexExampleContainer = () => {
           Common.backgroundPrimary,
         ]}
       >
-        <Text style={[Layout.fill, Fonts.textCenter]}>
+        <Text style={[Layout.fill, Fonts.textCenter, Fonts.textSmall]}>
           {t('example.labels.userId')}
         </Text>
         <TextInput
@@ -62,10 +70,26 @@ const IndexExampleContainer = () => {
           style={[Layout.fill, Common.textInput]}
         />
       </View>
-      <Text style={Fonts.textRegular}>DarkMode :</Text>
-      <Button onPress={() => changeTheme({ darkMode: null })} title="Auto" />
-      <Button onPress={() => changeTheme({ darkMode: true })} title="Dark" />
-      <Button onPress={() => changeTheme({ darkMode: false })} title="Light" />
+      <Text style={[Fonts.textRegular, Gutters.smallBMargin]}>DarkMode :</Text>
+
+      <TouchableOpacity
+        style={[Common.button.rounded, Gutters.regularBMargin]}
+        onPress={() => changeTheme({ darkMode: null })}
+      >
+        <Text style={Fonts.textRegular}>Auto</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={[Common.button.outlineRounded, Gutters.regularBMargin]}
+        onPress={() => changeTheme({ darkMode: true })}
+      >
+        <Text style={Fonts.textRegular}>Dark</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={[Common.button.outline, Gutters.regularBMargin]}
+        onPress={() => changeTheme({ darkMode: false })}
+      >
+        <Text style={Fonts.textRegular}>Light</Text>
+      </TouchableOpacity>
     </View>
   )
 }
