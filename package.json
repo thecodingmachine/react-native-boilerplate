@@ -23,5 +23,8 @@
     "thecodingmachine",
     "react-native",
     "starter-kit"
-  ]
+  ],
+  "devDependencies": {
+    "prompts": "^2.4.0"
+  }
 }
