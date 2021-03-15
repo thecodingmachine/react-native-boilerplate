@@ -20,12 +20,13 @@ To create a new project using the boilerplate simply run :
 npx react-native init MyApp --template @thecodingmachine/react-native-boilerplate
 ```
 
+## Running with typescript 
+
+During the installation the cli will ask you if you want to use typescript, tap on the `y` key and all the requirement will be set.
+
 ## Running the project
 
-Assuming you have all the requirements installed, you can setup and run the project by running:
-
-- `yarn install` to install the dependencies
-- run the following steps for your platform
+Assuming you have all the requirements installed, you can run the following steps for your platform
 
 ### Android
 
@@ -38,8 +39,5 @@ Assuming you have all the requirements installed, you can setup and run the proj
 
 ### iOS
 
-- `cd ios`
-- `pod install` to install pod dependencies
-- `cd ..` to come back to the root folder
 - `yarn start` to start the metro bundler, in a dedicated terminal
 - `yarn ios` to run the iOS application (remember to start a simulator or connect an iPhone phone)
