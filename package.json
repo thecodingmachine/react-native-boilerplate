@@ -1,6 +1,6 @@
 {
   "name": "@thecodingmachine/react-native-boilerplate",
-  "version": "2.2.4",
+  "version": "2.2.5",
   "description": "TheCodingMachine React Native Boilerplate",
   "repository": {
     "type": "git",
@@ -11,7 +11,7 @@
   "bugs": {
     "url": "https://github.com/thecodingmachine/react-native-boilerplate/issues"
   },
-  "homepage": "https://github.com/thecodingmachine/react-native-boilerplate#readme",
+  "homepage": "https://thecodingmachine.github.io/react-native-boilerplate/",
   "main": "post-init.script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
