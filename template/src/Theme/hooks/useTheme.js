@@ -1,4 +1,4 @@
-import { useColorScheme } from 'react-native-appearance'
+import { useColorScheme } from 'react-native'
 import { useSelector } from 'react-redux'
 import { DarkTheme, DefaultTheme } from '@react-navigation/native'
 import Fonts from '@/Theme/Fonts'
@@ -14,8 +14,8 @@ export default function () {
   const colorScheme = useColorScheme()
 
   // Get current theme from the store
-  const currentTheme = useSelector((state) => state.theme.theme || 'default')
-  const isDark = useSelector((state) => state.theme.darkMode)
+  const currentTheme = useSelector(state => state.theme.theme || 'default')
+  const isDark = useSelector(state => state.theme.darkMode)
   const darkMode = isDark === null ? colorScheme === 'dark' : isDark
   //Select the right theme light theme ({} if not exist)
   const { Variables: themeConfigVars = {}, ...themeConfig } =
