@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://thecodingmachine.github.io/blog</id>
+    <title>React Native Boilerplate Blog</title>
+    <updated>2015-10-25T23:29:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://thecodingmachine.github.io/blog"/>
+    <subtitle>React Native Boilerplate Blog</subtitle>
+    <icon>https://thecodingmachine.github.io/img/favicon.png</icon>
+</feed>
