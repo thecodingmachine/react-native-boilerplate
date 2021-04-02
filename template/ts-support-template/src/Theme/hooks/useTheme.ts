@@ -1,4 +1,4 @@
-import { useColorScheme } from 'react-native-appearance'
+import { useColorScheme } from 'react-native'
 import { useSelector } from 'react-redux'
 import { DarkTheme, DefaultTheme } from '@react-navigation/native'
 import Fonts from '@/Theme/Fonts'
