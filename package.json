@@ -1,6 +1,6 @@
 {
   "name": "@thecodingmachine/react-native-boilerplate",
-  "version": "3.0.0-alpha.0",
+  "version": "3.0.0-alpha.1",
   "description": "TheCodingMachine React Native Boilerplate",
   "repository": {
     "type": "git",
@@ -24,7 +24,8 @@
     "react-native",
     "starter-kit"
   ],
-  "devDependencies": {
-    "prompts": "^2.4.0"
+  "dependencies": {
+    "prompts": "^2.4.1",
+    "kleur": "^4.1.4"
   }
 }
