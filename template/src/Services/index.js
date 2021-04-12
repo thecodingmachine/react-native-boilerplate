@@ -15,7 +15,7 @@ export const handleError = ({ message, data, status }) => {
 }
 
 instance.interceptors.response.use(
-  (response) => response,
+  response => response,
   ({ message, response: { data, status } }) => {
     return handleError({ message, data, status })
   },

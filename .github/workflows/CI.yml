@@ -16,11 +16,10 @@ jobs:
           yarn install
       - name: Run linters
         run: |
-          cd template
           cp _prettierrc.js .prettierrc.js
           cp _eslintrc.js .eslintrc.js
           yarn lint
       - name: Run tests
         run: |
-          cd template
+          cp src/Config/index.example.js src/Config/index.js
           yarn test

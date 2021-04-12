@@ -18,15 +18,13 @@ const IndexExampleContainer = () => {
   const { Common, Fonts, Gutters, Layout } = useTheme()
   const dispatch = useDispatch()
 
-  const user = useSelector((state) => state.user.item)
-  const fetchOneUserLoading = useSelector(
-    (state) => state.user.fetchOne.loading,
-  )
-  const fetchOneUserError = useSelector((state) => state.user.fetchOne.error)
+  const user = useSelector(state => state.user.item)
+  const fetchOneUserLoading = useSelector(state => state.user.fetchOne.loading)
+  const fetchOneUserError = useSelector(state => state.user.fetchOne.error)
 
   const [userId, setUserId] = useState('1')
 
-  const fetch = (id) => {
+  const fetch = id => {
     setUserId(id)
     dispatch(FetchOne.action(id))
   }
@@ -61,7 +59,7 @@ const IndexExampleContainer = () => {
           {t('example.labels.userId')}
         </Text>
         <TextInput
-          onChangeText={(text) => fetch(text)}
+          onChangeText={text => fetch(text)}
           editable={!fetchOneUserLoading}
           keyboardType={'number-pad'}
           maxLength={1}

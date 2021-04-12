@@ -1,6 +1,6 @@
 import api, { handleError } from '@/Services'
 
-export default async (userId) => {
+export default async userId => {
   if (!userId) {
     return handleError({ message: 'User ID is required' })
   }
