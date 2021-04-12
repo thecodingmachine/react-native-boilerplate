@@ -17,6 +17,7 @@ jobs:
       - name: Run linters
         run: |
           cd template
+          cp _eslintrc.js .eslintrc.js
           yarn lint
       - name: Run tests
         run: |
