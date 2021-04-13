@@ -20,7 +20,6 @@ The boilerplate provides **an optimized architecture for building solid cross-pl
 If you love this boilerplate, give us a star, you will be a ray of sunshine in our lives :)
 ```
 
-
 ## Requirements
 
 Node 10 or greater is required. Development for iOS requires a Mac and Xcode 9.4 or up, and will target iOS 9 and up.
@@ -37,27 +36,10 @@ To create a new project using the boilerplate simply run :
 npx react-native init MyApp --template @thecodingmachine/react-native-boilerplate
 ```
 
-Assuming you have all the requirements installed, you can setup and run the project by running:
+Assuming you have all the requirements installed, you can run the project by running:
 
-- `yarn install` to install the dependencies
-- run the following steps for your platform
-
-### Android
-
-- only the first time you run the project, you need to generate a `debug key` with:
-  - `cd android/app`
-  - `keytool -genkey -v -keystore debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000`
-  - `cd ../..` to come back to the root folder
 - `yarn start` to start the metro bundler, in a dedicated terminal
-- `yarn android` to run the Android application (remember to start a simulator or connect an Android phone)
-
-### iOS
-
-- `cd ios`
-- `pod install` to install pod dependencies
-- `cd ..` to come back to the root folder
-- `yarn start` to start the metro bundler, in a dedicated terminal
-- `yarn ios` to run the iOS application (remember to start a simulator or connect an iPhone phone)
+- `yarn <plateform>` to run the *plateform* application (remember to start a simulator or connect a device)
 
 ## Digging Deeper
 
