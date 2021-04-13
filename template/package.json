@@ -19,6 +19,7 @@
     "@thecodingmachine/redux-toolkit-wrapper": "2.0.0-beta.2",
     "axios": "^0.21.1",
     "i18next": "^19.9.2",
+    "prop-types": "^15.7.2",
     "react": "17.0.1",
     "react-i18next": "^11.8.10",
     "react-native": "0.64.0",
