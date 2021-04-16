@@ -9,6 +9,7 @@
 ![React Native Boilerplate Stars](https://img.shields.io/github/stars/thecodingmachine/react-native-boilerplate)
 ![React Native Boilerplate Top Language](https://img.shields.io/github/languages/top/thecodingmachine/react-native-boilerplate)
 ![React Native Boilerplate TypeScript](https://badgen.net/npm/types/tslib)
+[![CI](https://github.com/thecodingmachine/react-native-boilerplate/actions/workflows/CI.yml/badge.svg)](https://github.com/thecodingmachine/react-native-boilerplate/actions/workflows/CI.yml)
 
 # TheCodingMachine React Native boilerplate
 
