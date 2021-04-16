@@ -1,4 +1,5 @@
-import api, { handleError } from '@/Services'
+import api from '@/Services'
+import handleError from '@/Services/utils/handleError'
 
 export default async (userId: string) => {
   if (!userId) {

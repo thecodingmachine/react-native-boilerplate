@@ -65,7 +65,7 @@ const IndexExampleContainer = () => {
           {t('example.labels.userId')}
         </Text>
         <TextInput
-          onChangeText={(text) => fetch(text)}
+          onChangeText={text => fetch(text)}
           editable={!fetchOneUserLoading}
           keyboardType={'number-pad'}
           maxLength={1}

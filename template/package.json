@@ -1,13 +1,14 @@
 {
   "name": "boilerplate",
-  "version": "3.0.0-beta.1",
+  "version": "3.0.0-beta.3",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "type-check": "tsc --build plugins/typescript/template/tsconfig.json"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.14.1",
@@ -16,7 +17,7 @@
     "@react-navigation/native": "^5.9.3",
     "@react-navigation/stack": "^5.14.3",
     "@reduxjs/toolkit": "^1.5.0",
-    "@thecodingmachine/redux-toolkit-wrapper": "2.0.0-beta.2",
+    "@thecodingmachine/redux-toolkit-wrapper": "2.0.1",
     "axios": "^0.21.1",
     "i18next": "^19.9.2",
     "prop-types": "^15.7.2",

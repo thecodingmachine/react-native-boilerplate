@@ -1,0 +1,24 @@
+name: CI-TS
+
+on:
+  pull_request:
+    branches: [ master ]
+  push:
+    branches:
+    - '*'
+
+jobs:
+  install-type-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install yarn dependencies
+        run: |
+          cd template
+          yarn install
+          yarn add -D typescript @types/jest @types/react @types/react-native @types/react-test-renderer @types/fbemitter @types/react-redux
+      - name: Run type check
+        run: |
+          cd template
+          cp tsconfig.dev.json tsconfig.json
+          yarn type-check
