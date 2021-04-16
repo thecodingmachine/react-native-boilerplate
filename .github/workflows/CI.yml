@@ -16,6 +16,7 @@ jobs:
         run: |
           cd template
           yarn install
+          yarn add -D typescript @types/jest @types/react @types/react-native @types/react-test-renderer @types/fbemitter @types/react-redux
       - name: Run linters
         run: |
           cd template

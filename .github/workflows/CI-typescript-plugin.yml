@@ -1,4 +1,4 @@
-name: CI-TS
+name: CI-typescript-plugin
 
 on:
   pull_request:
@@ -20,5 +20,5 @@ jobs:
       - name: Run type check
         run: |
           cd template
-          cp tsconfig.dev.json tsconfig.json
+          cp plugins/typescript/template/tsconfig.dev.json plugins/typescript/template/tsconfig.json
           yarn type-check
