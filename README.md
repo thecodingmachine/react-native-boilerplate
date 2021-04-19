@@ -40,7 +40,7 @@ npx react-native init MyApp --template @thecodingmachine/react-native-boilerplat
 Assuming you have all the requirements installed, you can run the project by running:
 
 - `yarn start` to start the metro bundler, in a dedicated terminal
-- `yarn <plateform>` to run the *plateform* application (remember to start a simulator or connect a device)
+- `yarn <platform>` to run the *platform* application (remember to start a simulator or connect a device)
 
 ## Digging Deeper
 

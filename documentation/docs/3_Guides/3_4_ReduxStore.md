@@ -75,7 +75,7 @@ For each wrapped action, a reducer is associated.
 
 ## Redux-toolkit-wrapper
 The boilerplate includes a [wrapper of redux-toolkit](https://github.com/thecodingmachine/redux-toolkit-wrapper) to make it easier to use. It provides three helpers.
-If your are not familiar with redux-toolkit, please have a look at their [documentation](https://redux-toolkit.js.org/api/configureStore).
+If you are not familiar with redux-toolkit, please have a look at their [documentation](https://redux-toolkit.js.org/api/configureStore).
 
 ### buildAsyncState
 `buildAsyncState` create a loading and error state. You can scope it in a key.
@@ -121,7 +121,7 @@ Will generate:
 
 Where fetchOneUserService is an async function. 
 So, when the fetchOneUserService is launched the action `user/fetchOne/pending` is dispatched.
-When the fetchOneUserService is endded the action `user/fetchOne/fulfilled` is dispatched.
+When the fetchOneUserService is ended the action `user/fetchOne/fulfilled` is dispatched.
 When the fetchOneUserService throw an error the action `user/fetchOne/rejected` is dispatched.
 
 ### buildAsyncReducers

@@ -1,6 +1,6 @@
 {
   "name": "boilerplate",
-  "version": "3.0.0-beta.3",
+  "version": "3.0.0",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
