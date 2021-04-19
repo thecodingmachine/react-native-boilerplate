@@ -51,4 +51,5 @@ jobs:
           git config --global user.name "gh-actions"
           cd documentation
           yarn install --frozen-lockfile
+          yarn build
           yarn deploy
