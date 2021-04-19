@@ -8,7 +8,7 @@ on:
     - '*'
 
 jobs:
-  install-lint-test:
+  install-lint-test-type:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -28,3 +28,8 @@ jobs:
           cd template
           cp src/Config/index.example.js src/Config/index.js
           yarn test
+      - name: Run type check
+        run: |
+          cd template
+          cp plugins/typescript/template/tsconfig.dev.json plugins/typescript/template/tsconfig.json
+          yarn type-check
