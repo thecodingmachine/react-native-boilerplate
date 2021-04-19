@@ -13,7 +13,7 @@ const DependencyList = [
   },
   {
     title: 'Flipper',
-    path: '../../static/img/dependencies/flipper.png',
+    path: require('../../static/img/dependencies/flipper.png').default,
   },
   {
     title: 'Prettier',

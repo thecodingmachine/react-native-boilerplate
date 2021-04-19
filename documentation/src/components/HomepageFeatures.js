@@ -9,7 +9,7 @@ export default function HomepageFeatures() {
         <div className="container">
           <div className={styles.featuresRow}>
             <div className="col--6">
-              <img src="../../static/img/Red.png" alt="mockups" className={styles.mockups}/>
+              <img src={require('../../static/img/Red.png').default} alt="mockups" className={styles.mockups}/>
             </div>
             <div className="col--6">
               <ul className="features">
