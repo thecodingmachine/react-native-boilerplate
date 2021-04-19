@@ -1,12 +1,4 @@
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @format
- */
-
+/* stylelint-disable docusaurus/copyright-header */
 /**
  * Any CSS included here will be global. The classic template
  * bundles Infima by default. Infima is a CSS framework designed to
@@ -15,13 +7,14 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: rgb(33, 175, 144);
-  --ifm-color-primary-darker: rgb(31, 165, 136);
-  --ifm-color-primary-darkest: rgb(26, 136, 112);
-  --ifm-color-primary-light: rgb(70, 203, 174);
-  --ifm-color-primary-lighter: rgb(102, 212, 189);
-  --ifm-color-primary-lightest: rgb(146, 224, 208);
+  --ifm-color-secondary: #C2C3C6;
+  --ifm-color-primary: #F44949;
+  --ifm-color-primary-dark: #AD2020;
+  --ifm-color-primary-darker: #A31F1F;
+  --ifm-color-primary-darkest: #871B1B;
+  --ifm-color-primary-light: #C94646;
+  --ifm-color-primary-lighter: #D36767;
+  --ifm-color-primary-lightest: #DD9292;
   --ifm-code-font-size: 95%;
 }
 

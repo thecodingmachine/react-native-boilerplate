@@ -1,0 +1,10 @@
+.mockups {
+    width: auto;
+    height: 600px;
+}
+.featuresRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

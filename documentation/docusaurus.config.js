@@ -1,18 +1,11 @@
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @format
- */
-
+/** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
   title: 'React Native Boilerplate',
   tagline: 'Ready to use react native architecture based on Separation of Concerns.',
   url: 'https://thecodingmachine.github.io',
   baseUrl: '/react-native-boilerplate/',
   onBrokenLinks: 'warn',
+  onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.png',
   organizationName: 'thecodingmachine',
   projectName: 'react-native-boilerplate',
