@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './HomepageFeatures.module.css';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 export default function HomepageFeatures() {
   return (
@@ -9,7 +10,7 @@ export default function HomepageFeatures() {
         <div className="container">
           <div className={styles.featuresRow}>
             <div className="col--6">
-              <img src={require('../../static/img/Red.png').default} alt="mockups" className={styles.mockups}/>
+              <img src={useBaseUrl('/img/Red.png')} alt="mockups" className={styles.mockups}/>
             </div>
             <div className="col--6">
               <ul className="features">

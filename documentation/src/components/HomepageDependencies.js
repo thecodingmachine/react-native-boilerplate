@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import styles from './HomepageDependencies.module.css';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 const DependencyList = [
   {
@@ -13,7 +14,7 @@ const DependencyList = [
   },
   {
     title: 'Flipper',
-    path: require('../../static/img/dependencies/flipper.png').default,
+    path: '/img/dependencies/flipper.png',
   },
   {
     title: 'Prettier',
@@ -33,7 +34,7 @@ function Dependency({Svg, path, title}) {
   return (
     <div className={clsx('col col--2')}>
       <div className="text--center">
-        { path && <img className={styles.dependencySvg} src={path} alt={title}/> }
+        { path && <img className={styles.dependencySvg} src={useBaseUrl(path)} alt={title}/> }
         { Svg && <Svg className={styles.dependencySvg} alt={title} />}
       </div>
       <div className="text--center padding-horiz--md">
