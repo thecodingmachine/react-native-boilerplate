@@ -46,7 +46,7 @@ function Dependency({Svg, path, title}) {
 export default function HomepageFeatures() {
   return (
     <>
-      <h1 className="text--center text--primary">Based on solid libraries</h1>
+      <h1 className="text--center text--primary">Based on solid libraries 🏗️</h1>
       <section className={styles.dependencies}>
         <div className="container">
           <div className="row">
