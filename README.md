@@ -2,11 +2,14 @@
     <img src="documentation/static/img/TOM-Legend.png" alt="Logo" width="100%">
 </div>
 
-![GitHub Release Date](https://img.shields.io/github/release-date/thecodingmachine/react-native-boilerplate)
-![GitHub last commit](https://img.shields.io/github/last-commit/thecodingmachine/react-native-boilerplate)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/thecodingmachine/react-native-boilerplate)
-![GitHub commits since latest release](https://img.shields.io/github/commits-since/thecodingmachine/react-native-boilerplate/latest)
-![GitHub top language](https://img.shields.io/github/languages/top/thecodingmachine/react-native-boilerplate)
+![React Native Boilerplate License](https://img.shields.io/github/license/thecodingmachine/react-native-boilerplate)
+![React Native Boilerplate Version](https://flat.badgen.net/npm/v/@thecodingmachine/react-native-boilerplate)
+![React Native Boilerplate Release Date](https://img.shields.io/github/release-date/thecodingmachine/react-native-boilerplate)
+![React Native Boilerplate Download](https://flat.badgen.net/npm/dt/@thecodingmachine/react-native-boilerplate)
+![React Native Boilerplate Stars](https://img.shields.io/github/stars/thecodingmachine/react-native-boilerplate)
+![React Native Boilerplate Top Language](https://img.shields.io/github/languages/top/thecodingmachine/react-native-boilerplate)
+![React Native Boilerplate TypeScript](https://badgen.net/npm/types/tslib)
+[![CI](https://github.com/thecodingmachine/react-native-boilerplate/actions/workflows/CI.yml/badge.svg)](https://github.com/thecodingmachine/react-native-boilerplate/actions/workflows/CI.yml)
 
 # TheCodingMachine React Native boilerplate
 
@@ -17,7 +20,6 @@ The boilerplate provides **an optimized architecture for building solid cross-pl
 ```
 If you love this boilerplate, give us a star, you will be a ray of sunshine in our lives :)
 ```
-
 
 ## Requirements
 
@@ -35,27 +37,10 @@ To create a new project using the boilerplate simply run :
 npx react-native init MyApp --template @thecodingmachine/react-native-boilerplate
 ```
 
-Assuming you have all the requirements installed, you can setup and run the project by running:
+Assuming you have all the requirements installed, you can run the project by running:
 
-- `yarn install` to install the dependencies
-- run the following steps for your platform
-
-### Android
-
-- only the first time you run the project, you need to generate a `debug key` with:
-  - `cd android/app`
-  - `keytool -genkey -v -keystore debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000`
-  - `cd ../..` to come back to the root folder
 - `yarn start` to start the metro bundler, in a dedicated terminal
-- `yarn android` to run the Android application (remember to start a simulator or connect an Android phone)
-
-### iOS
-
-- `cd ios`
-- `pod install` to install pod dependencies
-- `cd ..` to come back to the root folder
-- `yarn start` to start the metro bundler, in a dedicated terminal
-- `yarn ios` to run the iOS application (remember to start a simulator or connect an iPhone phone)
+- `yarn <platform>` to run the *platform* application (remember to start a simulator or connect a device)
 
 ## Digging Deeper
 

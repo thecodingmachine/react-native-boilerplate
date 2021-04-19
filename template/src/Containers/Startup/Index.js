@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import { ActivityIndicator, View, Text } from 'react-native'
-import { useTheme } from '@/Theme'
 import { useDispatch } from 'react-redux'
-import InitStartup from '@/Store/Startup/Init'
 import { useTranslation } from 'react-i18next'
+import { useTheme } from '@/Theme'
+import InitStartup from '@/Store/Startup/Init'
 import { Brand } from '@/Components'
 
 const IndexStartupContainer = () => {

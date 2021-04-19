@@ -43,15 +43,15 @@ The driving goal of the architecture of the boilerplate is separation of concern
 
 The boilerplate contains:
 
-- a [React Native](https://facebook.github.io/react-native/) (v**0.63.3**) application (in "[ejected](https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md)" mode to allow using dependencies that rely on native code)
+- a [React Native](https://facebook.github.io/react-native/) (v**0.64.0**) application (in "[ejected](https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md)" mode to allow using dependencies that rely on native code)
 - a [clear directory layout](#directory-layout) to provide a base architecture for your application
 - [Redux](https://redux.js.org/) (v**4.0.5**) to help manage state
 - [Redux Persist](https://github.com/rt2zz/redux-persist) (v**6.0.0**) to persist the Redux state
 - [React Navigation](https://reactnavigation.org/) (v**5**) to handle routing and navigation in the app, with a splash screen setup by default
-- [redux toolkit](https://github.com/infinitered/reduxsauce) (v**1.4.0**) to make redux easier
-- [axios](https://github.com/axios/axios) (v**0.20.0**) to make API calls
+- [redux toolkit](https://github.com/infinitered/reduxsauce) (v**1.5.0**) to make redux easier
+- [axios](https://github.com/axios/axios) (v**0.21.1**) to make API calls
 - [prettier](https://prettier.io/) and [eslint](https://eslint.org/) preconfigured for React Native
-- [react-native-flipper](https://fbflipper.com/) (v**0.62.0**) to debug react-native and [redux-flipper](https://github.com/jk-gan/redux-flipper) (v**1.3.2**) to debug redux
+- [react-native-flipper](https://fbflipper.com/) (v**0.75.1**) to debug react-native and [redux-flipper](https://github.com/jk-gan/redux-flipper) (v**1.4.2**) to debug redux
 
 The boilerplate includes an example (displaying fake user data) from UI components to the business logic. The example is easy to remove so that it doesn't get in the way.
 

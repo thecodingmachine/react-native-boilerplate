@@ -1,4 +1,5 @@
 import axios from 'axios'
+import handleError from '@/Services/utils/handleError'
 import { Config } from '@/Config'
 
 const instance = axios.create({
@@ -9,10 +10,6 @@ const instance = axios.create({
   },
   timeout: 3000,
 })
-
-export const handleError = ({ message, data, status }) => {
-  return Promise.reject({ message, data, status })
-}
 
 instance.interceptors.response.use(
   response => response,
