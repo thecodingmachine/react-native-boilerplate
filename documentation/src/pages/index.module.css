@@ -23,3 +23,7 @@
   align-items: center;
   justify-content: center;
 }
+
+.getStartedButton {
+  --ifm-button-color: var(--ifm-heading-color);
+}
