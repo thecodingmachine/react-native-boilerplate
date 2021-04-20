@@ -23,13 +23,11 @@ function HomepageHeader() {
       <div className="container">
         <h1 className="hero__title">{siteConfig.title}</h1>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--lg"
-            to="/docs/Introduction">
-            Getting started 🚀
-          </Link>
-        </div>
+        <Link
+          className="button button--outline button--lg"
+          to="/docs/Introduction">
+          Getting started 🚀
+        </Link>
       </div>
     </header>
   );
