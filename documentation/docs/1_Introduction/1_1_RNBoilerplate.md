@@ -1,6 +1,6 @@
 ---
 slug: /Introduction
-title: React Native Boilerplate
+title: React Native Boilerplate 🐙
 ---
 
 <div align="center">
@@ -17,7 +17,7 @@ We made this full documentation so that each piece of code that lands in your ap
 If you love this boilerplate, give us a star, you will be a ray of sunshine in our lives 🌈 ☀️
 :::
 
-## Architecture
+## Architecture 🧱
 
 The driving goal of the architecture of the boilerplate is separation of concerns and using React Native at its best.
 
@@ -39,7 +39,7 @@ The driving goal of the architecture of the boilerplate is separation of concern
     
     If you are interested you can [read more about it here](https://redux.js.org/introduction/motivation).
     
-## Content
+## Content 🧳
 
 The boilerplate contains:
 
@@ -55,7 +55,7 @@ The boilerplate contains:
 
 The boilerplate includes an example (displaying fake user data) from UI components to the business logic. The example is easy to remove so that it doesn't get in the way.
 
-## Directory layout
+## Directory layout 🗂️
 
 - `src/Assets`: assets (image, audio files, ...) used by the application
 - `src/Components`: presentational components
@@ -67,6 +67,6 @@ The boilerplate includes an example (displaying fake user data) from UI componen
 - `src/Translations`: application strings, you can add languages files and be able to translate your app strings
 - `src/Theme`: base styles for the application
 
-## Updates
+## Updates 🕐
 
 The boilerplate will follow new React-Native releases as soon as libraries and tools used here are compatible.

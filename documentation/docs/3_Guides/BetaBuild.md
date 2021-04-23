@@ -1,6 +1,6 @@
 ---
 slug: /BetaBuild
-title: Beta build
+title: Beta build 🧪
 ---
 
 🚧 It's a Work In Progress section 🚧
@@ -11,7 +11,6 @@ Developers love writing React Native code but no one likes deploying React Nativ
 
 All your headaches will disappear with this documentation and the amazing [Fastlane](https://fastlane.tools/) tool :)
 
-
 ## Before you start
 
 You need a Mac. I'm sorry, but if you are a Windows user, you can stop reading right now.  
@@ -21,13 +20,6 @@ Let's explain which tools we are using to distribute beta builds:
 * [Fastlane](https://fastlane.tools/), the easiest way to automate beta deployments and releases for your iOS and Android apps. It handles all tedious tasks like generating screenshots, dealing with code signing and releasing your application.
 * [TestFlight](https://developer.apple.com/testflight/), part of App Store Connect, let you build your iOS app and invite internal or external users to test it
 * [Google Play](https://support.google.com/googleplay/android-developer/answer/3131213?hl=fr), which does the same job as TestFlight for Android apps
-
-```
-If you love this documentation, give us a star, you will be a ray of sunshine in our lives :)
-```
-
-_This documentation is a part of a React Native project template for building solid applications through separation of concerns between the UI, state management and business logic._
-_Just navigate to the [project home page](https://github.com/thecodingmachine/react-native-boilerplate) if you want to see more._
 
 ## Installing Fastlane
 

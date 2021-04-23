@@ -29,6 +29,11 @@ module.exports = {
           position: 'left',
         },
         {
+          to: '/blog',
+          label: 'Blog',
+          position: 'left'
+        },
+        {
           href: 'https://github.com/thecodingmachine/react-native-boilerplate',
           label: 'GitHub',
           position: 'right',
@@ -52,6 +57,12 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl:
             'https://github.com/thecodingmachine/react-native-boilerplate/edit/master/website-documentation/docs',
+        },
+        blog: {
+          showReadingTime: true,
+          // Please change this to your repo.
+          editUrl:
+            'https://github.com/thecodingmachine/react-native-boilerplate/edit/master/website-documentation/blog',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),

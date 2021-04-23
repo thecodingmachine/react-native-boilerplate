@@ -37,8 +37,8 @@ export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title={`Light Simple and Scalable ${siteConfig.title} by TheCodingMachine`}
+      description="A React Native template for building solid applications, using JavaScript or Typescript (YOU choose).">
       <HomepageHeader />
       <main>
         <HomepageQualities />
