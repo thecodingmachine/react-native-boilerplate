@@ -153,52 +153,64 @@ That's this simple! 🚀
 For more details about redux-toolkit-wrapper jump [**here**](/docs/ReduxStore)
 :::
 
-## What is included? 📦
+## What's in the box? 📦
 
-Still hesitating? Let's make a recap and see what this beautiful boilerplate can provide to you :
-- No headache! 🤒 It's really easy to install and use 
-  (if you have all the [requirements](https://facebook.github.io/react-native/docs/getting-started.html#installing-dependencies) 
-  installed of course)
-- Typescript 💙 / Javascript 💛? You choose!!
-- React Navigation : THE powerful library to handle navigation 📱
-- Redux (with redux-toolkit and redux-toolkit-wrapper 😉) : handling redux store has never been as easy as this!! ⚡
-- Multi-theming and darkMode friendly 🌗 (see [here](/docs/ThemesAndDarkMode))
-- i18n friendly 🌐 (see [here](/docs/AddALangTranslation))
-- Flipper debugger ready 🐛 (see [here](/docs/UsingFlipper))
-- Maintained by passionate developers ⚛️
-- Full online documentation : https://thecodingmachine.github.io/react-native-boilerplate/
+Still hesitating ? Let's make a recap and see what this beautiful boilerplate can provide you:
+- No headaches! 🤒 Thanks to the **quick and easy install**, the
+  **documentation** and of course the **included example**! (if you have all the installed
+  [requirements](https://facebook.github.io/react-native/docs/getting-started.html#installing-dependencies)
+  of course)
+- **Typescript** 💙 / **Javascript** 💛 ? Your project, your choice!
+- Never again sailing on troubled waters with **React Navigation**: THE powerful library to handle navigation 📱
+- **Redux** (with redux-toolkit and redux-toolkit-wrapper 😉) : handling
+  redux store has never been as easy as this!! ⚡
+- DarkMode or colorful app? Give your users the power to choose!
+  **Multi-theming** and **darkMode** support 🌗 (see [here](/docs/ThemesAndDarkMode))
+- French kisses aren't translatable, but you can translate your app! **i18n friendly** 🌐 (see [here](/docs/AddALangTranslation))
+- You don't like bug hunt? Use **Flipper debugging** 🐛 (see [here](/docs/UsingFlipper))
+- Maintained by **passionate developers** ⚛️
 
-just test it 🧪!!
+Just Test It 🧪 !!
 
 ## Installation plugins ⚙️
 
-In the v3.0.0 we add an installation plugins system on our boilerplate. The first plugin is the typescript one of course. 
-So now, we are able to add local or npm plugins on our boilerplate to apply them during the installation, without any 
-unwelcome piece of code in the final app architecture. So it's invisible for the final user but hide a lot of future creation!! 🤩
+Freshly in the v3.0.0 we created an installation plugin system. Of course, the first plugin added is the typescript one. 😉
+We are now able to add local or npm plugins to our boilerplate in order to apply them during the installation. 
+This way, we get the app template with the features we asked for.
+In other words, no unwelcome pieces of code will lay in your app architecture anymore.
+
+You got it, it's only the beginning thinking about the many plugins we could create for this project. 🤩
 So wait and see what could be the next plugins...🕓🤐
 
-## What is different from other? 🪟
+## Why this boilerplate? 🐙
 
-We looked into existing boilerplates before starting this project, and while many of them are awesome, we did not find 
-what we were looking for.
+Before starting this project, we looked for already existing boilerplates.
+We've found some, but while many were (and are always) awesome, we did not find what we were
+looking for: a **light, scalable, and flexible boilerplate with a great separation of concerns**.
 
-One of the most popular was [Matt Mcnamee's React Native Starter Kit](https://github.com/mcnamee/react-native-starter-kit),
-which unfortunately missed Redux Saga (used in the V1.0.0 of this project).
+One of the most popular was
+[Matt Mcnamee's React Native Starter Kit](https://github.com/mcnamee/react-native-starter-kit),
+which unfortunately missed Redux middleware and React Navigation.
 
-When we looked at the rest (and ignore unmaintained projects), many popular boilerplates were too opinionated: they 
-included 3rd party services or very strong architecture choices that we are not comfortable with. 
-To name a few: 
-- [Snowflake](https://github.com/bartonhammond/snowflake) runs with a Hapi Server running on Redhat OpenShift, 
-- [Apollo's StarterKit](https://github.com/sysgears/apollo-universal-starter-kit) is targeted at GraphQL using Apollo,
-- [Meteor Boilerplate](https://github.com/spencercarli/react-native-meteor-boilerplate) targets Meteor…
+Digging deeper in the react-native boilerplates (ignoring unmaintained projects),
+many popular boilerplates were too opinionated: they
+included 3rd party services or very strong architecture choices
+that we were not comfortable with.
+To name a few:
+- [Snowflake](https://github.com/bartonhammond/snowflake) ran with a Hapi Server running on Redhat OpenShift,
+- [Apollo's StarterKit](https://github.com/sysgears/apollo-universal-starter-kit) is based on GraphQL using Apollo,
+- [Meteor Boilerplate](https://github.com/spencercarli/react-native-meteor-boilerplate) is based on Meteor.
 
-Finally, some did not contain the architecture we are looking for (the separation of concerns with Redux, Sagas, etc.), 
+Finally, some did not contain the architecture we were looking for (the separation of concerns),
 for example [re-start](https://github.com/react-everywhere/re-start).
 
-One interesting exception was [Ignite IR Boilerplate "Andross"](https://github.com/infinitered/ignite-andross), but after
-consideration we decided not to use it because of the large amount of unnecessary code/components it provided.
+One interesting exception was
+[Ignite IR Boilerplate "Andross"](https://github.com/infinitered/ignite-andross), but after
+consideration we decided not to use it because of the large amount of
+unnecessary code/components it provided out of the box.
 
-In 2021, some react-native boilerplates have change. Let's see what are the difference
+In 2021, some react-native boilerplates have changed. Let's see what are
+the differences:
 
 <table>
     <thead>
@@ -212,32 +224,32 @@ In 2021, some react-native boilerplates have change. Let's see what are the diff
         <td align="left">mcnamee/react-native-starter-kit</td>
         <td align="left">
             <ul>
-                <li>No react Navigation (react-native-router-flux instead),</li>
-                <li>No typescript support,</li>
+                <li>No React Navigation (react-native-router-flux instead),</li>
+                <li>No Typescript support,</li>
                 <li>Don't use the react-native-cli to init</li>
             </ul>
         </td>
     </tr>
     <tr>
         <td align="left">bartonhammond/snowflake</td>
-        <td align="left">seems not maintain (last release in 2017) 💤</td>
+        <td align="left">Seems not maintained anymore (last release was in 2017) 💤</td>
     </tr>
     <tr>
         <td align="left">sysgears/apollo-universal-starter-kit</td>
         <td align="left">
             <ul>
-                <li>Is targeted at GraphQL using Apollo,</li>
+                <li>Is based on GraphQL using Apollo,</li>
                 <li>Don't use the react-native-cli to init</li>
             </ul>
         </td>
     </tr>
     <tr>
         <td align="left">spencercarli/react-native-meteor-boilerplate</td>
-        <td align="left">seems not maintain (no release, last commit in 2018) 💤</td>
+        <td align="left">Seems not maintained (no release, last commit was in 2018) 💤</td>
     </tr>
     <tr>
         <td align="left">react-everywhere/re-start</td>
-        <td align="left">seems not maintain (last release in 2017) 💤</td>
+        <td align="left">Seems not maintained (last release was in 2017) 💤</td>
     </tr>
     <tr>
         <td align="left">infinitered/ignite</td>
@@ -253,3 +265,7 @@ In 2021, some react-native boilerplates have change. Let's see what are the diff
     </tr>
     </tbody>
 </table>
+
+So there is no reason to hesitate : come 🧲, test 🧪 and leave a star ⭐
+
+Thanks for reading, See you in the next version. 🏷️
