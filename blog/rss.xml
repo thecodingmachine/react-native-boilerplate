@@ -4,8 +4,15 @@
         <title>React Native Boilerplate Blog</title>
         <link>https://thecodingmachine.github.io/blog</link>
         <description>React Native Boilerplate Blog</description>
-        <lastBuildDate>Sun, 25 Oct 2015 23:29:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 19 Apr 2020 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[React Native Boilerplate 3.0.0]]></title>
+            <link>https://thecodingmachine.github.io/react-native-boilerplate/blog/2020/04/19/React-Native-Boilerplate-3.0.0</link>
+            <guid>React Native Boilerplate 3.0.0</guid>
+            <pubDate>Sun, 19 Apr 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[What's in the box? 📦]]></description>
+        </item>
     </channel>
 </rss>
