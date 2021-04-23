@@ -268,4 +268,4 @@ the differences:
 
 So there is no reason to hesitate : come 🧲, test 🧪 and leave a star ⭐
 
-Thanks for reading, See you in the next version. 🏷️
+Thanks for reading, See you for the next release. 🏷️
