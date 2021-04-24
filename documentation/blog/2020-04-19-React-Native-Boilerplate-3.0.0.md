@@ -111,7 +111,7 @@ const sliceInitialState = {
 export default buildSlice('user', [FetchOne], sliceInitialState).reducer
 ```
 
-Next, you can use your state in your container like this :
+Next, you can use your state in your container like this:
 
 ```javascript
 import React, { useEffect } from 'react'
