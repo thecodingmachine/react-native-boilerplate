@@ -84,7 +84,7 @@ providing nice hooks.
 This project is a Redux-toolkit wrapper (yes... it's obvious 😅) used to write less code regarding classic CRUD operations.
 Redux-toolkit provide a lot of abstraction for async operations, but we always have to create a `loading` and `error` 
 state and associated reducers.
-Redux-toolkit-wrapper abstract this async operations. For a classic *"fetch one user"* operation all you need to add these files :
+Redux-toolkit-wrapper abstract these async operations. For a classic *"fetch one user"* operation all you need is adding these files :
 
 ```javascript title="src/Store/User/FetchOne.js"
 import {
@@ -111,7 +111,7 @@ const sliceInitialState = {
 export default buildSlice('user', [FetchOne], sliceInitialState).reducer
 ```
 
-After that, you can use you state in you container like this :
+Next, you can use your state in your container like this :
 
 ```javascript
 import React, { useEffect } from 'react'
