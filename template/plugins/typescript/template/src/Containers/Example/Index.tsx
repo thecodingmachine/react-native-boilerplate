@@ -32,7 +32,9 @@ const IndexExampleContainer = () => {
 
   const fetch = (id: string) => {
     setUserId(id)
-    dispatch(FetchOne.action(id))
+    if (id) {
+      dispatch(FetchOne.action(id))
+    }
   }
 
   const changeTheme = ({ theme, darkMode }: Partial<ThemeState>) => {
