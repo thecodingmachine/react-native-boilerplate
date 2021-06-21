@@ -26,7 +26,9 @@ const IndexExampleContainer = () => {
 
   const fetch = id => {
     setUserId(id)
-    dispatch(FetchOne.action(id))
+    if (id) {
+      dispatch(FetchOne.action(id))
+    }
   }
 
   const changeTheme = ({ theme, darkMode }) => {
