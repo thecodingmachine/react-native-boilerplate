@@ -7,7 +7,7 @@
 import * as React from 'react'
 import { CommonActions, NavigationContainerRef } from '@react-navigation/native'
 
-export const navigationRef = React.createRef<NavigationContainerRef>()
+export const navigationRef = React.createRef<NavigationContainerRef<any>>()
 
 export function navigate(name: string, params: any) {
   navigationRef.current?.navigate(name, params)
