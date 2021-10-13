@@ -354,7 +354,7 @@ Make sure you are connected to internet.
 ### Execution failed for task ':app:packageRelease'. (Android)
 Make sure the tree structure is equivalent to the android app id.
 In this example, the app id will be com.boilerplate:
-![](/Users/tcm/Documents/trainings/react-native-boilerplate/documentation/docs/assets/Tree_path_example.png), 
+![](../assets/Tree_path_example.png), 
 
 Of course, after choosing your app id, you can update the tree structure and make sure `MainActivity.java` and `MainApplication.java` contain the right package name (first line of the file).
 
