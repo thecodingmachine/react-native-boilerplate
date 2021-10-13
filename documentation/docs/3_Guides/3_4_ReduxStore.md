@@ -3,163 +3,147 @@ slug: /ReduxStore
 title: Redux store 🗃️
 ---
 
-<div align="center">
-    <img width="100%" src={require('../assets/RTW.png').default} />
-</div>
+This boilerplate use [`Redux-Toolkit`](https://redux-toolkit.js.org/introduction/getting-started) 
+and [`RTKQuery`](https://redux-toolkit.js.org/rtk-query/overview) 
+to deal with business side. 
+We use them because they are often used by the community, very trendy and easy to debug.
 
-The store section is now really easy to use thanks to [Redux-tookit](https://redux-toolkit.js.org/) and our [Redux-tookit-wrapper](https://github.com/thecodingmachine/redux-toolkit-wrapper).
+[`RTKQuery`](https://redux-toolkit.js.org/rtk-query/overview) is a powerful data fetching and caching tool.
+**So we using it for asynchronous api calls.** 
 
-## Architecture
-The root file include configuration of redux. The two main constants are `reducers` and `persistConfig`
+[`Redux-Toolkit`](https://redux-toolkit.js.org/introduction/getting-started) is intended to be the standard way to write Redux logic.
+**So we using it for synchronous operations.**
 
-```javascript
-const reducers = combineReducers({
-  startup,
-  user,
-  theme
-})
+## How is it used in this boilerplate ❓
 
-const persistConfig = {
-  key: 'root',
-  storage: AsyncStorage,
-  whitelist: ['theme'],
-}
-```
+**For the RTKQuery side**, all is located in `Services`. 
+You will find `api.js` file that contain the declaration of the 
+[fetchBaseQuery](https://redux-toolkit.js.org/rtk-query/api/fetchBaseQuery)
+customized with an interceptor
+and the [createApi](https://redux-toolkit.js.org/rtk-query/api/createApi)
+with the `fetchBaseQuery` and empty endpoints.
 
- - `whitelist` includes state to persist (with `redux-persist`)
- - `reducers` includes all `reducer modules`
-
-## Slices
-
-A slice is a group of actions, states and reducers for a same domain. For example, in this boilerplate, there are tree slices : `Startup` `Theme` and `User`.  
-In each slice, an `index.js` file which combines each store's feature/module (`fetchOne.js` for the `User` slice example).   
-We've decided to separate each module in one file in order to avoid very large incomprehensible files.
-So each of them includes its scoped state, his only action and related reducers. 
-
-```javascript
-export default {
-  initialState: buildAsyncState('fetchOne'),
-  action: buildAsyncActions('user/fetchOne', fetchOneUserService),
-  reducers: buildAsyncReducers({
-    errorKey: 'fetchOne.error',
-    loadingKey: 'fetchOne.loading',
-  }),
-}
-```
-
-In the `index.js` file, all modules are merged in a slice where states, actions, and reducers are merged and placed into it.
-
-```javascript
-const sliceInitialState = {
-  item: {},
-}
-
-export default buildSlice('user', [FetchOne], sliceInitialState).reducer
-```
-
-For the `User` example, the below state will be created :
-```
-{
-  user: {
-    item: {},
-    fetchOne: {
-      loading: false,
-      error: null,
-    }   
- }
-}
-```
-
-Actions will be : `user/fetchOne/pending`, `user/fetchOne/fulfilled`, `user/fetchOne/rejected` prefixed and wrapped by the `user/fetchOne` action  
-For each wrapped action, a reducer is associated.
-
-## Redux-toolkit-wrapper
-The boilerplate includes a [wrapper of redux-toolkit](https://github.com/thecodingmachine/redux-toolkit-wrapper) to make it easier to use. It provides three helpers.
-If you are not familiar with redux-toolkit, please have a look at their [documentation](https://redux-toolkit.js.org/api/configureStore).
-
-### buildAsyncState
-`buildAsyncState` create a loading and error state. You can scope it in a key.
-
-|       Parameters      |      Description                            |   Type    |   Default  |
-| :-------------------- | :------------------------------------------ | :-------- | :--------- |
-| scope                 | name of the scope                           | string    | undefined  |
-
-#### Example
-```javascript
- buildAsyncState('fetchOne')
-...
- buildAsyncState()
-```
-
-Will generate:
-```
-  {
-    fetchOne: {
-      loading: false, 
-      error: null,
+```javascript title="src/Service/api.js"
+    import { Config } from '@/Config'
+    import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+    
+    const baseQuery = fetchBaseQuery({ baseUrl: Config.API_URL })
+    
+    const baseQueryWithInterceptor = async (args, api, extraOptions) => {
+      let result = await baseQuery(args, api, extraOptions)
+      if (result.error && result.error.status === 401) {
+        // here you can deal with 401 error
+      }
+      return result
     }
-  } 
-...
-  {
-    loading: false, 
-    error: null,
-  } 
+    
+    export const api = createApi({
+      baseQuery: baseQueryWithInterceptor,
+      endpoints: () => ({}),
+    })
 ```
 
-### buildAsyncActions
-`buildAsyncActions` is a wrapper of [`createAsyncThunk`](https://redux-toolkit.js.org/api/createAsyncThunk).
+Next to the `Services/api.js` file you have a `modules` folder. Each module 
+corresponds to an entity type and will inject endpoints 
+into the exported `api` const of `Services/api.js`
 
-|       Parameters      |      Description                            |   Type    |   Default  |
-| :-------------------- | :------------------------------------------ | :-------- | :--------- |
-| actionName            | the name of the action                      | string    | undefined  |
-| action                | function to launch and await                | function  | () => {}   |
-
-#### Example
-```javascript
-   buildAsyncActions('user/fetchOne', fetchOneUserService)
+For exemple , next the user services : 
+```javascript title="src/Service/modules/users/index.js"
+    import { api } from '../../api'
+    import fetchOne from './fetchOne'
+    
+    export const userApi = api.injectEndpoints({
+      endpoints: build => ({
+        fetchOne: fetchOne(build), // Code split of the service api call
+        // You can add endpoints here
+      }),
+      overrideExisting: false,
+    })
+    
+    export const { useLazyFetchOneQuery } = userApi
+    //                    |-- generated query which will be used in Containers
+```
+```javascript title="src/Service/modules/users/fetchOne.js"
+    export default build => build.query({
+        query: id => `/users/${id}`,
+    })
 ```
 
-Where fetchOneUserService is an async function. 
-So, when the fetchOneUserService is launched the action `user/fetchOne/pending` is dispatched.
-When the fetchOneUserService is ended the action `user/fetchOne/fulfilled` is dispatched.
-When the fetchOneUserService throw an error the action `user/fetchOne/rejected` is dispatched.
+Next, in your containers it could be use like this :
 
-### buildAsyncReducers
-`buildAsyncReducers` create default reducers based on CRUD logic. It creates three functions : pending, fulfilled and rejected.
-- `pending` set the `loadingKey` to `true` and the `errorKey` to `null`.
-- `fulfilled` replaces `itemKey` with the payload (if `itemKey` is not `null`) and the `loadingKey` to `false`
-- `rejected` set the `loadingKey` to `false` and the `errorKey` to payload.
-
-
-|   Parameters   |      Description               |   Type    |   Default |
-| :------------- | :----------------------------- | :-------- | :-------- |
-| itemKey        | the key of the item state      | string    | 'item'    |
-| loadingKey     | the key of the loading state   | string    | 'loading' |
-| errorKey       | the key of the error state     | string    | 'error'   |
-
-#### Example
 ```javascript
-buildAsyncReducers({
-    errorKey: 'fetchOne.error', // Optionally, if you scoped variables, you can use a key with dot notation
-    loadingKey: 'fetchOne.loading',
+import React, { useState, useEffect } from 'react'
+import { View, TextInput } from 'react-native'
+import { useLazyFetchOneQuery } from '@/Services/modules/users' // Import the query
+
+const ExampleContainer = () => {
+  const [userId, setUserId] = useState('9')
+  
+  const [
+    fetchOne,
+    { data, isSuccess, isLoading, isFetching, error },
+  ] = useLazyFetchOneQuery() // use the query
+
+  useEffect(() => {
+    fetchOne(userId)
+  }, [fetchOne, userId])
+
+  return (
+    <View>
+      <TextInput
+        onChangeText={setUserId}
+        editable={!isLoading}
+        keyboardType={'number-pad'}
+        maxLength={1}
+        value={userId}
+      />
+    </View>
+  )
+}
+
+export default ExampleContainer
+```
+
+Next, the RTKQuery is linked to the redux store in order to make it work and be debuggable with Flipper.
+
+:::info
+See the [API usage](https://redux-toolkit.js.org/rtk-query/overview) for more information
+:::
+
+
+**For the redux-toolkit side**, we use it to configure all the store and saved the default theme of the application.
+
+For example, the storing of the favorite theme of the user
+```javascript
+import { createSlice } from '@reduxjs/toolkit'
+
+const slice = createSlice({
+  name: 'theme',
+  initialState: { theme: null, darkMode: null },
+  reducers: {
+    changeTheme: (state, { payload: { theme, darkMode } }) => {
+      if (typeof theme !== 'undefined') {
+        state.theme = theme
+      }
+      if (typeof darkMode !== 'undefined') {
+        state.darkMode = darkMode
+      }
+    },
+    setDefaultTheme: (state, { payload: { theme, darkMode } }) => {
+      if (!state.theme) {
+        state.theme = theme
+        state.darkMode = darkMode
+      }
+    },
+  },
 })
+
+export const { changeTheme, setDefaultTheme } = slice.actions
+//                  |-------------|-- Generated actions which will be used in Containers
+
+export default slice.reducer
 ```
 
-### buildSlice
-`buildSlice` is a wrapper of [`createSlice`](https://redux-toolkit.js.org/api/createSlice).
-
-|       Parameters      |      Description                              |   Type    |   Default        |
-| :-------------------- | :-------------------------------------------- | :-------- | :--------------- |
-| name                  | the name of the slice                         | string    | undefined        |
-| modules               | array of all modules                          | array     | []               |
-| sliceInitialState     | initial state for all modules of the slice    | object    | {}               |
-
-#### Example
-```javascript
-buildSlice('user', [FetchOne], { item: {} } ).reducer
-```
-
-:::note
-For async function you have to use `buildAsyncState`, `buildAsyncActions` and `buildAsyncReducers` from @thecodingmachine/redux-toolkit-wrapper.
-For no async function you have to use `createAction` from redux-toolkit. And follow the example of the slice `Theme`
+:::info
+See the [API usage](https://redux-toolkit.js.org/usage/usage-guide) for more information
 :::

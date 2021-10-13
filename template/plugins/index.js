@@ -1,5 +1,5 @@
 const prompts = require('prompts')
-const typescriptPlugin = require('./typescript')
+const typescriptPlugin = require('@thecodingmachine/rnb-plugin-typescript')
 const printSuccessPlugin = require('./printSuccess')
 
 // List of plugin to apply (ordered)

@@ -8,7 +8,7 @@ on:
     - '*'
 
 jobs:
-  install-lint-test-type:
+  install-lint-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -16,7 +16,6 @@ jobs:
         run: |
           cd template
           yarn install
-          yarn add -D typescript @types/jest @types/react @types/react-native @types/react-test-renderer @types/fbemitter @types/react-redux
       - name: Run linters
         run: |
           cd template
@@ -28,8 +27,3 @@ jobs:
           cd template
           cp src/Config/index.example.js src/Config/index.js
           yarn test
-      - name: Run type check
-        run: |
-          cd template
-          cp plugins/typescript/template/tsconfig.dev.json plugins/typescript/template/tsconfig.json
-          yarn type-check
