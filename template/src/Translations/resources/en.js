@@ -7,6 +7,10 @@ export default {
     helloUser: 'I am a fake user, my name is {{name}}',
     labels: {
       userId: 'Enter a user id',
+      darkMode: 'DarkMode:',
+      auto: 'Auto',
+      dark: 'Dark',
+      light: 'Light',
     },
   },
 }
