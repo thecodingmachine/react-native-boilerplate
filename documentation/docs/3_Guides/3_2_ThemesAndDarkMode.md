@@ -89,15 +89,15 @@ That's it ! now you can use the `ChangeTheme` action to set the theme in a conta
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { View, Button } from 'react-native'
-import { useTheme } from '@/Theme'
-import ChangeTheme from '@/Store/Theme/ChangeTheme'
+import { useTheme } from '@/Hooks'
+import { changeTheme } from '@/Store/Theme'
 
 const IndexExampleContainer = () => {
   const { Common, Fonts, Gutters, Layout } = useTheme()
   const dispatch = useDispatch()
 
   const changeTheme = ({ theme, darkMode }) => {
-    dispatch(ChangeTheme.action({ theme, darkMode }))
+    dispatch(changeTheme({ theme, darkMode }))
   }
 
   return (

@@ -11,7 +11,7 @@ It helps with variables and reusable classes to create harmony between applicati
 The boilerplate provides a custom hook called `useTheme` and you can use it like the example bellow:
 
 ```jsx
-import { useTheme } from '@/Theme'
+import { useTheme } from '@/Hooks'
 
 const Brand = ({ height = 200, width = 200, mode = 'contain' }) => {
   const {

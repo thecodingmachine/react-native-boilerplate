@@ -46,3 +46,10 @@ export const MetricsSizes = {
   regular,
   large,
 }
+
+export default {
+  Colors,
+  NavigationColors,
+  FontSize,
+  MetricsSizes,
+}

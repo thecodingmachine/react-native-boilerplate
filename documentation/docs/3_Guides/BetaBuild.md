@@ -221,7 +221,7 @@ Fastlane will automatically detect your project and ask for any missing informat
 
 The following questions will be asked:
 * `Package Name (com.krausefx.app)`
-  * Our answer is `com.tcm.boilerplate`
+  * Our answer is `com.tcm.boilerplate`. Be careful, do not use dashes (-) in your package name.
 * `Path to the json secret file`
   * Type `key.json` (path to the file previously created in the Prerequisites step)
 * Download existing metadata and setup metadata management?
@@ -351,6 +351,12 @@ Would you like to fallback to a manual Fastfile? (y/n)
 Answer `n`, and retry previous steps with a correct Apple ID and password.  
 Make sure you are connected to internet.
 
+### Execution failed for task ':app:packageRelease'. (Android)
+Make sure the tree structure is equivalent to the android app id.
+In this example, the app id will be com.boilerplate:
+![](../assets/Tree_path_example.png), 
+
+Of course, after choosing your app id, you can update the tree structure and make sure `MainActivity.java` and `MainApplication.java` contain the right package name (first line of the file).
 
 ---
 If you need more informations, don't hesitate to read the [fastlane documentation](https://docs.fastlane.tools/)
