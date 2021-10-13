@@ -17,6 +17,7 @@ export const Colors = {
   primary: '#E14032',
   success: '#28a745',
   error: '#dc3545',
+  trackTrueColor: 'lightblue',
 }
 
 export const NavigationColors = {
