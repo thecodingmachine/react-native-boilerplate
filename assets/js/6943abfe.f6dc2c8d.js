@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocumentation=self.webpackChunkdocumentation||[]).push([[700],{7283:function(e){e.exports=JSON.parse('{"allTagsPath":"/react-native-boilerplate/blog/tags","slug":"/react-native-boilerplate/blog/tags/react-native","name":"react-native","count":1,"permalink":"/react-native-boilerplate/blog/tags/react-native"}')}}]);

@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[18],{89:function(e){e.exports=JSON.parse('{"allTagsPath":"/react-native-boilerplate/blog/tags","slug":"boilerplate","name":"boilerplate","count":1,"permalink":"/react-native-boilerplate/blog/tags/boilerplate"}')}}]);

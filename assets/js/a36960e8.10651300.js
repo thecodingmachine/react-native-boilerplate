@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[27],{98:function(a){a.exports=JSON.parse('{"allTagsPath":"/react-native-boilerplate/blog/tags","slug":"kit","name":"kit","count":1,"permalink":"/react-native-boilerplate/blog/tags/kit"}')}}]);

@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[24],{95:function(t){t.exports=JSON.parse('{"allTagsPath":"/react-native-boilerplate/blog/tags","slug":"typescript","name":"typescript","count":1,"permalink":"/react-native-boilerplate/blog/tags/typescript"}')}}]);

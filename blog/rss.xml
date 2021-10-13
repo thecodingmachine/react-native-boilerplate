@@ -2,7 +2,7 @@
 <rss version="2.0">
     <channel>
         <title>React Native Boilerplate Blog</title>
-        <link>https://thecodingmachine.github.io/blog</link>
+        <link>https://thecodingmachine.github.io/react-native-boilerplate/blog</link>
         <description>React Native Boilerplate Blog</description>
         <lastBuildDate>Sun, 19 Apr 2020 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>

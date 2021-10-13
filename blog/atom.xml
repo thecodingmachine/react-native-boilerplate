@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://thecodingmachine.github.io/blog</id>
+    <id>https://thecodingmachine.github.io/react-native-boilerplate/blog</id>
     <title>React Native Boilerplate Blog</title>
     <updated>2020-04-19T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://thecodingmachine.github.io/blog"/>
+    <link rel="alternate" href="https://thecodingmachine.github.io/react-native-boilerplate/blog"/>
     <subtitle>React Native Boilerplate Blog</subtitle>
-    <icon>https://thecodingmachine.github.io/img/favicon.png</icon>
+    <icon>https://thecodingmachine.github.io/react-native-boilerplate/img/favicon.png</icon>
     <entry>
         <title type="html"><![CDATA[React Native Boilerplate 3.0.0]]></title>
         <id>React Native Boilerplate 3.0.0</id>
         <link href="https://thecodingmachine.github.io/react-native-boilerplate/blog/2020/04/19/React-Native-Boilerplate-3.0.0"/>
         <updated>2020-04-19T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[What's in the box? 📦]]></summary>
+        <author>
+            <name>Jérémy Dollé</name>
+            <uri>https://github.com/JeremyDolle</uri>
+        </author>
     </entry>
 </feed>
