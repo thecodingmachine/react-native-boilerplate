@@ -20,14 +20,16 @@ const IndexExampleContainer = () => {
   const { Common, Fonts, Gutters, Layout, Colors } = useTheme()
   const dispatch = useDispatch()
 
-  const user = useSelector(state => state.user.item)
-  const fetchOneUserLoading = useSelector(state => state.user.fetchOne.loading)
-  const fetchOneUserError = useSelector(state => state.user.fetchOne.error)
+  const user = useSelector((state) => state.user.item)
+  const fetchOneUserLoading = useSelector(
+    (state) => state.user.fetchOne.loading,
+  )
+  const fetchOneUserError = useSelector((state) => state.user.fetchOne.error)
 
   const [userId, setUserId] = useState('1')
   const [internationalLanguage, setInternationalLanguage] = useState(true)
 
-  const fetch = id => {
+  const fetch = (id) => {
     setUserId(id)
     if (id) {
       dispatch(FetchOne.action(id))
@@ -51,7 +53,14 @@ const IndexExampleContainer = () => {
 
   return (
     <View style={[Layout.fill, Gutters.smallHPadding]}>
-      <View style={[Layout.rowReverse, Gutters.smallTMargin, Gutters.smallRMargin, Gutters.largeBMargin]}>
+      <View
+        style={[
+          Layout.rowReverse,
+          Gutters.smallTMargin,
+          Gutters.smallRMargin,
+          Gutters.largeBMargin,
+        ]}
+      >
         <View style={[Layout.row, Layout.center]}>
           <Text style={[Fonts.textRegular, Gutters.tinyHPadding]}>FR</Text>
           <Switch
@@ -90,7 +99,7 @@ const IndexExampleContainer = () => {
           {t('example.labels.userId')}
         </Text>
         <TextInput
-          onChangeText={text => fetch(text)}
+          onChangeText={(text) => fetch(text)}
           editable={!fetchOneUserLoading}
           keyboardType={'number-pad'}
           maxLength={1}
@@ -101,7 +110,8 @@ const IndexExampleContainer = () => {
       </View>
 
       <View style={[Layout.colCenter]}>
-        <Text style={[Fonts.textRegular, Gutters.smallBMargin]}>{t('example.labels.darkMode')}
+        <Text style={[Fonts.textRegular, Gutters.smallBMargin]}>
+          {t('example.labels.darkMode')}
         </Text>
         <TouchableOpacity
           style={[Common.button.rounded, Gutters.regularBMargin]}
