@@ -32,9 +32,6 @@ const ExampleContainer = () => {
   const onChangeTheme = ({ theme, darkMode }) => {
     dispatch(changeTheme({ theme, darkMode }))
   }
-  const toto = id => {
-    console.log(id)
-  }
 
   return (
     <ScrollView
