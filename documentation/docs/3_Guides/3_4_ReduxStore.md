@@ -17,7 +17,7 @@ We use them because they are often used by the community, very trendy and easy t
 ## How is it used in this boilerplate ❓
 
 **For the RTKQuery side**, all is located in `Services`. 
-You will find `api.js` file that contain the declaration of the 
+You will find `api.js` file that contains the declaration of the 
 [fetchBaseQuery](https://redux-toolkit.js.org/rtk-query/api/fetchBaseQuery)
 customized with an interceptor
 and the [createApi](https://redux-toolkit.js.org/rtk-query/api/createApi)
@@ -47,7 +47,7 @@ Next to the `Services/api.js` file you have a `modules` folder. Each module
 corresponds to an entity type and will inject endpoints 
 into the exported `api` const of `Services/api.js`
 
-For exemple , next the user services : 
+For example , here are the user services : 
 ```javascript title="src/Service/modules/users/index.js"
     import { api } from '../../api'
     import fetchOne from './fetchOne'
