@@ -69,7 +69,7 @@ For example , here are the user services :
     })
 ```
 
-Next, in your containers it could be use like this :
+Then in your containers it could be use like this :
 
 ```javascript
 import React, { useState, useEffect } from 'react'
@@ -104,14 +104,14 @@ const ExampleContainer = () => {
 export default ExampleContainer
 ```
 
-Next, the RTKQuery is linked to the redux store in order to make it work and be debuggable with Flipper.
+The RTKQuery is linked to the redux store in order to make it work and be debuggable with Flipper.
 
 :::info
 See the [API usage](https://redux-toolkit.js.org/rtk-query/overview) for more information
 :::
 
 
-**For the redux-toolkit side**, we use it to configure all the store and saved the default theme of the application.
+**On the redux-toolkit side**, we use it to configure all the store and save the default theme of the application.
 
 For example, the storing of the favorite theme of the user
 ```javascript
