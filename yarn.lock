@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@thecodingmachine/rnb-plugin-typescript@^1.0.5":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@thecodingmachine/rnb-plugin-typescript/-/rnb-plugin-typescript-1.0.5.tgz#67bd740073325cc36583a69536b3614e912a2920"
-  integrity sha512-VdkYO3vPEkwf71nZkpm7fHhKgUUAkpoE5sAEY8FXRdu3w+zjuPbaML55gu2rx61PvzPfEnJgItSmdFX6+ujgAQ==
+"@thecodingmachine/rnb-plugin-typescript@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@thecodingmachine/rnb-plugin-typescript/-/rnb-plugin-typescript-1.1.0.tgz#2e45dc693a805b8c19e64c6422dec30c88a223d7"
+  integrity sha512-m/ow3eOQTSJgwfGxpywkZ9tjKEOiuaLUG7JsYz7I0RhisSs8CIAUqOA8DT8EPYa5+gjeDoVPMlFZa6zlhdPeTA==
 
 kleur@^3.0.3:
   version "3.0.3"
