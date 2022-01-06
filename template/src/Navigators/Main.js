@@ -8,7 +8,14 @@ const Tab = createBottomTabNavigator()
 const MainNavigator = () => {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Home" component={ExampleContainer} />
+      <Tab.Screen
+        name="Home"
+        component={ExampleContainer}
+        options={{
+          tabBarIconStyle: { display: 'none' },
+          tabBarLabelPosition: 'beside-icon',
+        }}
+      />
     </Tab.Navigator>
   )
 }

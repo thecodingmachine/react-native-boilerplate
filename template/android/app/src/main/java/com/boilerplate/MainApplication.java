@@ -1,5 +1,7 @@
 package com.boilerplate;
 
+import com.facebook.react.bridge.JSIModulePackage;
+import com.swmansion.reanimated.ReanimatedJSIModulePackage;
 import android.app.Application;
 import android.content.Context;
 import com.facebook.react.bridge.JSIModulePackage;
@@ -38,7 +40,7 @@ public class MainApplication extends Application implements ReactApplication {
 
         @Override
         protected JSIModulePackage getJSIModulePackage() {
-          return new ReanimatedJSIModulePackage(); // for React Native Reanimated
+          return new ReanimatedJSIModulePackage();
         }
       };
 
