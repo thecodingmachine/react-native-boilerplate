@@ -14,14 +14,14 @@ body:
       description: Please provide a clear and concise description of what the problem is. Include screenshots and code snippet if needed.
       placeholder: I'm always frustrated when [...]
   - type: textarea
-    id: issue
+    id: solution
     attributes:
-      label: Describe alternatives you've considered
+      label: Describe the solution you'd like
       description: Please provide a clear and concise solution. Include screenshots and code snippet if needed.
     validation:
       required: true
   - type: textarea
-    id: issue
+    id: alternatives
     attributes:
-      label: Is your feature request related to a problem?
+      label: Describe alternatives you've considered.
       description: Please provide a clear and concise alternatives. Include screenshots and code snippet if needed.
