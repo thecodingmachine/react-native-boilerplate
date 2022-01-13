@@ -22,12 +22,12 @@ body:
     validations:
       required: true
   - type: input
-      id: version
-      attributes:
-        label: Version
-        description: What boilerplate version does this appear on?
-      validations:
-        required: true
+    id: version
+    attributes:
+      label: Version
+      description: What boilerplate version does this appear on?
+    validations:
+      required: true
   - type: checkboxes
     id: device
     attributes:
