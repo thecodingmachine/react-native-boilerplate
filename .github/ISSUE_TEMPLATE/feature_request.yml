@@ -18,7 +18,7 @@ body:
     attributes:
       label: Describe the solution you'd like
       description: Please provide a clear and concise solution. Include screenshots and code snippet if needed.
-    validation:
+    validations:
       required: true
   - type: textarea
     id: alternatives
