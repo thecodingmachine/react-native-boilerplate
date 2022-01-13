@@ -1,4 +1,4 @@
-name: :bug: Bug report
+name: 🐛 Bug Report
 description: Report a reproducible bug on this React Native Boilerplate.
 labels: [":bug: bug"]
 title: "[BUG]: "
