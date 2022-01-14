@@ -3,6 +3,7 @@ daysUntilClose: 7
 exemptLabels:
   - ":sparkles: feature request"
   - ":bug: bug"
+  - ":white_check_mark: PR accepted"
 staleLabel: 💤 stale
 markComment: >
   This issue has been automatically marked as stale because it has not had
