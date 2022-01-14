@@ -1,0 +1,27 @@
+name: ✨ Feature request
+description: Suggest an idea for this project.
+labels: [ ":sparkles: feature request" ]
+title: "[NEW FEATURE REQUEST]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ℹ️️ We want a simple and easy to use boilerplate with the best community ! So if you have an idea of a new feature you're in the right space !
+  - type: textarea
+    id: issue
+    attributes:
+      label: Is your feature request related to a problem?
+      description: Please provide a clear and concise description of what the problem is. Include screenshots and code snippet if needed.
+      placeholder: I'm always frustrated when [...]
+  - type: textarea
+    id: solution
+    attributes:
+      label: Describe the solution you'd like
+      description: Please provide a clear and concise solution. Include screenshots and code snippet if needed.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Describe alternatives you've considered.
+      description: Please provide a clear and concise alternatives. Include screenshots and code snippet if needed.

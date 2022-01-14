@@ -1,0 +1,44 @@
+name: 🐛 Bug Report
+description: Report a reproducible bug on this React Native Boilerplate.
+labels: [ ":bug: bug" ]
+title: "[BUG]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ⚠️ Please provide all the information requested. ⚠️
+  - type: checkboxes
+    id: environment
+    attributes:
+      label: react-native environment setup
+      options:
+        - label: I verified that I have not react-native-cli installed globally and be up to date about the React Native environment setup.
+          required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Please provide a clear and concise description of what the bug is. Include screenshots and code snippet if needed.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: What boilerplate version does this appear on?
+    validations:
+      required: true
+  - type: checkboxes
+    id: device
+    attributes:
+      label: On which OS this issue appear on?
+      options:
+        - label: IOS
+        - label: Android
+  - type: input
+    id: os
+    attributes:
+      label: Desktop OS
+      description: What is the OS of your machine?
+    validations:
+      required: true
