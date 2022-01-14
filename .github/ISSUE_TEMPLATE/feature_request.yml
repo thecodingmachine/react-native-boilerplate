@@ -1,7 +1,7 @@
-name: ✨ Feature request
+name: 💡 Feature request
 description: Suggest an idea for this project.
-labels: [ ":sparkles: feature request" ]
-title: "[NEW FEATURE REQUEST]: "
+labels: [ "💡 feature request/idea" ]
+title: "[NEW FEATURE REQUEST/IDEA]: "
 body:
   - type: markdown
     attributes:
