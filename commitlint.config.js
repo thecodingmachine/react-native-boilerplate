@@ -31,7 +31,7 @@ module.exports = {
   prompt: {
     questions: {
       type: {
-        description: "Select the type of change that you're committing",
+        description: "Select the TYPE of change that you're committing",
         enum: {
           '✨': {
             description: 'A new feature',
@@ -69,11 +69,11 @@ module.exports = {
       },
       scope: {
         description:
-          'What is the scope of this change (e.g. component or file name)',
+          'What is the SCOPE of this change (e.g. component or file name)',
       },
       subject: {
         description:
-          'Write a short, imperative tense description of the change',
+          'Write a short, imperative tense DESCRIPTION of the change',
       },
       body: {
         description: 'Provide a longer description of the change',
