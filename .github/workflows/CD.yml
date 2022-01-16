@@ -9,7 +9,7 @@ jobs:
     if: "!github.event.release.prerelease"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: Update package.json and push
         uses: actions/setup-node@v1
         with:
