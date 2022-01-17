@@ -17,12 +17,22 @@ jobs:
           git config --global user.name "JeremyDolle"
           git config --global user.email "jeremy.dolle34@gmail.com"
           npm version ${{ github.event.release.tag_name }}
-      - run: yarn ci --omit=dev --ignore-scripts
+      - name: Install dependencies
+        run: |
+          if [ -e yarn.lock ]; then
+          yarn install --frozen-lockfile
+          elif [ -e package-lock.json ]; then
+          npm ci
+          else
+          npm i
+          fi
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
-      - run: git commit -am "🏷️(version) Update boilerplate to version ${{ github.event.release.tag_name }}"
-      - run: git push
+      - name: Commit and push
+        run: |
+          git commit -am "🏷️(version) Update boilerplate to version ${{ github.event.release.tag_name }}"
+          git push
         env:
           github-token: ${{ secrets.GITHUB_TOKEN }}
   publish-candidate:
@@ -37,12 +47,22 @@ jobs:
           git config --global user.name "JeremyDolle"
           git config --global user.email "jeremy.dolle34@gmail.com"
           npm version ${{ github.event.release.tag_name }}
-      - run: yarn ci --omit=dev --ignore-scripts
+      - name: Install dependencies
+        run: |
+          if [ -e yarn.lock ]; then
+          yarn install --frozen-lockfile
+          elif [ -e package-lock.json ]; then
+          npm ci
+          else
+          npm i
+          fi
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
           tag: ${{ github.event.release.tag_name }}
-      - run: git commit -am "🏷️(version) Update boilerplate to rc version ${{ github.event.release.tag_name }}"
-      - run: git push
+      - name: Commit and push
+        run: |
+          git commit -am "🏷️(version) Update boilerplate to rc version ${{ github.event.release.tag_name }}"
+          git push
         env:
           github-token: ${{ secrets.GITHUB_TOKEN }}
