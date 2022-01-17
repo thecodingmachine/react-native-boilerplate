@@ -31,6 +31,7 @@ jobs:
           token: ${{ secrets.NPM_TOKEN }}
       - name: Commit and push
         run: |
+          git add .
           git commit -am "🏷️(version) Update boilerplate to version ${{ github.event.release.tag_name }}"
           git push
         env:
@@ -62,6 +63,7 @@ jobs:
           tag: ${{ github.event.release.tag_name }}
       - name: Commit and push
         run: |
+          git add .
           git commit -am "🏷️(version) Update boilerplate to rc version ${{ github.event.release.tag_name }}"
           git push
         env:
