@@ -5,45 +5,42 @@ on:
     types: [published]
 
 jobs:
-  publish-release:
+  publish:
     if: "!github.event.release.prerelease"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Update package.json and push
-        uses: actions/setup-node@v1
+      - uses: actions/setup-node@v1
         with:
           node-version: 14
-      - run: npm ci
       - run: |
           git config --global user.name "JeremyDolle"
           git config --global user.email "jeremy.dolle34@gmail.com"
           npm version ${{ github.event.release.tag_name }}
-          git commit -am "🏷️(version) Update boilerplate to version ${{ github.event.release.tag_name }}"
-      - run: git push
-        env:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
-  publish-pre-release:
+      - run: git commit -am "🏷️(version) Update boilerplate to version ${{ github.event.release.tag_name }}"
+      - run: git push
+       env:
+         github-token: ${{ secrets.GITHUB_TOKEN }}
+  publish-candidate:
     if: "github.event.release.prerelease"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
           node-version: 14
-      - name: Update package.json and push
-        run: |
+      - run: |
           git config --global user.name "JeremyDolle"
           git config --global user.email "jeremy.dolle34@gmail.com"
           npm version ${{ github.event.release.tag_name }}
-          git commit -am "🏷️(version) Update boilerplate to version ${{ github.event.release.tag_name }}"
-          git push
-        env:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
           tag: ${{ github.event.release.tag_name }}
+      - run: git commit -am "🏷️(version) Update boilerplate to rc version ${{ github.event.release.tag_name }}"
+      - run: git push
+      env:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
