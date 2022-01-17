@@ -17,6 +17,7 @@ jobs:
           git config --global user.name "JeremyDolle"
           git config --global user.email "jeremy.dolle34@gmail.com"
           npm version ${{ github.event.release.tag_name }}
+      - run: npm ci --omit=dev --ignore-scripts
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
@@ -36,6 +37,7 @@ jobs:
           git config --global user.name "JeremyDolle"
           git config --global user.email "jeremy.dolle34@gmail.com"
           npm version ${{ github.event.release.tag_name }}
+      - run: npm ci --omit=dev --ignore-scripts
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
