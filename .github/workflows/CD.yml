@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.release.target_commitish }}
       - uses: actions/setup-node@v1
         with:
           node-version: 14
@@ -41,6 +43,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.release.target_commitish }}
       - uses: actions/setup-node@v1
         with:
           node-version: 14
