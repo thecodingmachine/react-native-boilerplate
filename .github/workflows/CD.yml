@@ -22,8 +22,8 @@ jobs:
           token: ${{ secrets.NPM_TOKEN }}
       - run: git commit -am "🏷️(version) Update boilerplate to version ${{ github.event.release.tag_name }}"
       - run: git push
-       env:
-         github-token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
   publish-candidate:
     if: "github.event.release.prerelease"
     runs-on: ubuntu-latest
@@ -42,5 +42,5 @@ jobs:
           tag: ${{ github.event.release.tag_name }}
       - run: git commit -am "🏷️(version) Update boilerplate to rc version ${{ github.event.release.tag_name }}"
       - run: git push
-      env:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
