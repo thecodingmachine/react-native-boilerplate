@@ -16,7 +16,7 @@ jobs:
       - run: |
           git config --global user.name "JeremyDolle"
           git config --global user.email "jeremy.dolle34@gmail.com"
-          npm version ${{ github.event.release.tag_name }}
+          npm --no-git-tag-version version ${{ github.event.release.tag_name }}
       - name: Install dependencies
         run: |
           if [ -e yarn.lock ]; then
@@ -47,7 +47,7 @@ jobs:
       - run: |
           git config --global user.name "JeremyDolle"
           git config --global user.email "jeremy.dolle34@gmail.com"
-          npm version ${{ github.event.release.tag_name }}
+          npm --no-git-tag-version version ${{ github.event.release.tag_name }}
       - name: Install dependencies
         run: |
           if [ -e yarn.lock ]; then
