@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-const { rmdir } = require('fs').promises;
+const { rm } = require('fs').promises;
 const { applyPlugins } = require('./template/plugins');
 
 applyPlugins().then(async () => {
-  await rmdir('./plugins', { recursive: true });
+  await rm('./plugins', { recursive: true });
 });

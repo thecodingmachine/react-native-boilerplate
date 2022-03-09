@@ -1,0 +1,5 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "Husky: prepare-commit-msg"
+exec < /dev/tty && yarn commit --hook || true
