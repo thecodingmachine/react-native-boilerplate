@@ -17,7 +17,7 @@ We use them because they are often used by the community, very trendy and easy t
 ## How is it used in this boilerplate ❓
 
 **For the RTKQuery side**, all is located in `Services`. 
-You will find `api.js` file that contain the declaration of the 
+You will find `api.js` file that contains the declaration of the 
 [fetchBaseQuery](https://redux-toolkit.js.org/rtk-query/api/fetchBaseQuery)
 customized with an interceptor
 and the [createApi](https://redux-toolkit.js.org/rtk-query/api/createApi)
@@ -47,7 +47,7 @@ Next to the `Services/api.js` file you have a `modules` folder. Each module
 corresponds to an entity type and will inject endpoints 
 into the exported `api` const of `Services/api.js`
 
-For exemple , next the user services : 
+For example , here are the user services : 
 ```javascript title="src/Service/modules/users/index.js"
     import { api } from '../../api'
     import fetchOne from './fetchOne'
@@ -69,7 +69,7 @@ For exemple , next the user services :
     })
 ```
 
-Next, in your containers it could be use like this :
+Then in your containers it could be use like this :
 
 ```javascript
 import React, { useState, useEffect } from 'react'
@@ -104,14 +104,14 @@ const ExampleContainer = () => {
 export default ExampleContainer
 ```
 
-Next, the RTKQuery is linked to the redux store in order to make it work and be debuggable with Flipper.
+The RTKQuery is linked to the redux store in order to make it work and be debuggable with Flipper.
 
 :::info
 See the [API usage](https://redux-toolkit.js.org/rtk-query/overview) for more information
 :::
 
 
-**For the redux-toolkit side**, we use it to configure all the store and saved the default theme of the application.
+**On the redux-toolkit side**, we use it to configure all the store and save the default theme of the application.
 
 For example, the storing of the favorite theme of the user
 ```javascript
