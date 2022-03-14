@@ -255,7 +255,7 @@ You can remove the `deploy lane` to avoid some mistakes, and replace the `beta` 
     releaseFilePath = File.join(Dir.pwd, "..", "my-release-key.keystore")
     gradle(task: 'clean')
     gradle(
-      task: 'assemble',
+      task: 'bundle',
       build_type: 'Release',
       print_command: false,
       properties: {
