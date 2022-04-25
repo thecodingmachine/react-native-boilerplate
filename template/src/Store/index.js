@@ -1,5 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { combineReducers } from 'redux'
+import { configureStore, combineReducers } from '@reduxjs/toolkit'
+import { setupListeners } from '@reduxjs/toolkit/query'
 import {
   persistReducer,
   persistStore,
@@ -10,22 +11,13 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist'
-import { configureStore } from '@reduxjs/toolkit'
-import { setupListeners } from '@reduxjs/toolkit/query'
 
 import { api } from '@/Services/api'
-import * as modules from '@/Services/modules'
 import theme from './Theme'
 
 const reducers = combineReducers({
   theme,
-  ...Object.values(modules).reduce(
-    (acc, module) => ({
-      ...acc,
-      [module.reducerPath]: module.reducer,
-    }),
-    {},
-  ),
+  api: api.reducer,
 })
 
 const persistConfig = {
