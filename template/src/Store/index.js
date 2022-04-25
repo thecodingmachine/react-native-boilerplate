@@ -15,7 +15,6 @@ import {
 import { api } from '@/Services/api'
 import theme from './Theme'
 
-console.log(api.reducer)
 const reducers = combineReducers({
   theme,
   api: api.reducer,
