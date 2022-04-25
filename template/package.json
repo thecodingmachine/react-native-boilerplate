@@ -25,8 +25,8 @@
     "react-native-flipper": "^0.143.0",
     "react-native-gesture-handler": "^2.4.1",
     "react-native-reanimated": "^2.8.0",
-    "react-native-safe-area-context": "^3.3.2",
-    "react-native-screens": "^3.10.1",
+    "react-native-safe-area-context": "^4.2.4",
+    "react-native-screens": "^3.13.1",
     "react-redux": "^8.0.1",
     "redux-flipper": "^2.0.1",
     "redux-persist": "^6.0.0"
