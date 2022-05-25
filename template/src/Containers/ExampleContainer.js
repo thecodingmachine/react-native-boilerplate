@@ -20,10 +20,8 @@ const ExampleContainer = () => {
   const dispatch = useDispatch()
 
   const [userId, setUserId] = useState('9')
-  const [
-    fetchOne,
-    { data, isSuccess, isLoading, isFetching, error },
-  ] = useLazyFetchOneQuery()
+  const [fetchOne, { data, isSuccess, isLoading, isFetching, error }] =
+    useLazyFetchOneQuery()
 
   useEffect(() => {
     fetchOne(userId)
