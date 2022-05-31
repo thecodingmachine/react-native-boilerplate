@@ -59,7 +59,7 @@ the `NavigationContainer` bound with a ref to use utils contained in `Navigators
 
 ## How to load data before app open ❓
 
-In `StartupContainer`, the `init` function is where you can crete asynchronous tasks like fetching data 
+In `StartupContainer`, the `init` function is where you can create asynchronous tasks like fetching data 
 
 ```javascript
 const init = async () => {
