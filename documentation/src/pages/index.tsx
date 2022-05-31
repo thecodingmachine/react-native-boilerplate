@@ -38,7 +38,7 @@ function HomepageHeader() {
             className="
         transition-all
         ease-in hover:bg-red-700 hover:text-white hover:text text-md text-white font-bold py-3 px-4 rounded bg-red-500 shadow-lg shadow-red-500/50"
-            to="/docs/intro"
+            to="/docs/Introduction"
           >
             Get started
             <span className="ml-3">🚀</span>
