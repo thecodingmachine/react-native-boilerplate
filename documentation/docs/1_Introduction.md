@@ -1,10 +1,10 @@
 ---
 slug: /Introduction
-title: React Native Boilerplate 🐙
+title: What's in the box❓
 ---
 
 <div align="center">
-    <img width="300" height="300" src={require('../assets/TOM.png').default} />
+    <img width="300" height="300" src={require('./assets/TOM.png').default} />
 </div>
 
 This project is a [React Native](https://facebook.github.io/react-native/) boilerplate that can be used to kick-start a mobile application.
