@@ -1,11 +1,7 @@
 ---
 title: React Native Boilerplate 3.0.0
-author: Jérémy Dollé
-author_title: React Native Boilerplate contributor
-author_url: https://github.com/JeremyDolle
-author_image_url: https://avatars.githubusercontent.com/u/15814069?v=4
+authors: jed
 description: What's in the box? 📦
-image: https://i.imgur.com/mErPwqL.png
 hide_table_of_contents: false
 tags: [boilerplate, starter-kit, starter, kit, react, native, react-native, javascript, typescript]
 ---

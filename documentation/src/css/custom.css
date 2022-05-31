@@ -1,11 +1,155 @@
-/* stylelint-disable docusaurus/copyright-header */
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* You can override the default Infima variables here. */
+.navbar {
+  @apply bg-transparent;
+  @apply backdrop-blur-sm;
+  @apply shadow-none;
+  @apply -mt-16;
+}
+
+.navbar__item.navbar__link {
+  @apply flex;
+  @apply items-center;
+  @apply justify-center;
+  @apply hover:bg-red-500;
+  @apply hover:text-white;
+  @apply hover:rounded-full;
+  @apply hover:shadow-lg;
+  @apply hover:shadow-red-500/50;
+  @apply mx-1;
+  @apply transition-all;
+  @apply ease-in;
+}
+
+main {
+  @apply pt-16;
+}
+
+.menu .menu__link.menu__link--active {
+  @apply text-red-500;
+}
+
+
+.breadcrumbs, .breadcrumbs li {
+  @apply p-0;
+  @apply flex;
+  @apply items-center;
+}
+
+.markdown h1 {
+  font-size: var(--ifm-h1-font-size);
+  @apply font-bold;
+}
+
+.markdown h2 {
+  font-size: var(--ifm-h2-font-size);
+  @apply font-bold;
+}
+
+.markdown h3 {
+  font-size: var(--ifm-h3-font-size);
+  @apply font-bold;
+}
+
+.markdown h4 {
+  font-size: var(--ifm-h4-font-size);
+  @apply font-bold;
+  @apply underline;
+}
+
+.markdown a {
+  @apply text-red-500;
+  @apply hover:text-red-700;
+  @apply dark:hover:text-red-400;
+}
+
+.markdown strong {
+  @apply font-black;
+}
+
+.table-of-contents__link.toc-highlight.table-of-contents__link--active {
+  @apply text-red-500;
+  @apply hover:text-red-700;
+  @apply dark:hover:text-red-400;
+}
+
+.table-of-contents__link.toc-highlight {
+  @apply hover:text-red-700;
+  @apply dark:hover:text-red-400;
+}
+
+.theme-edit-this-page {
+  @apply flex;
+  @apply items-center;
+  @apply text-red-500;
+  @apply hover:text-red-700;
+  @apply dark:hover:text-red-400;
+}
+
+.markdown ul {
+  padding-left: var(--ifm-list-left-padding) !important;
+  @apply list-disc;
+}
+
+.navbar__link--active {
+  @apply bg-red-500;
+  @apply text-white;
+  @apply rounded-full;
+  @apply shadow-lg;
+  @apply shadow-red-500/50;
+}
+
+.navbar__title {
+  @apply hover:text-red-500;
+}
+
+.navbar-sidebar__backdrop, .navbar-sidebar {
+  @apply h-screen;
+}
+
+.DocSearch-Modal {
+  @apply bg-white/50 !important;
+  @apply dark:bg-black/50 !important;
+  @apply backdrop-blur-sm !important;
+  @apply shadow-lg !important;
+  @apply shadow-red-500/50 !important;
+}
+
+.DocSearch-Footer {
+  @apply bg-red-500 !important;
+  border-radius: 0 0 5px 5px !important;
+}
+
+.DocSearch-Help {
+  @apply text-neutral-800 !important;
+}
+
+.DocSearch-NoResults {
+  @apply flex;
+  @apply items-center;
+  @apply justify-center;
+}
+
+.DocSearch-Screen-Icon {
+  @apply p-0 !important;
+  @apply mr-3;
+}
+
+.DocSearch-Label {
+  @apply text-white !important;
+}
+
+.blog-wrapper main {
+  @apply mt-20;
+}
+
+.blog-wrapper main article header h2 {
+  @apply font-bold;
+  @apply hover:text-red-500;
+}
+
 :root {
   --ifm-color-secondary: #C2C3C6;
   --ifm-color-primary: #F44949;
@@ -16,11 +160,44 @@
   --ifm-color-primary-lighter: #D36767;
   --ifm-color-primary-lightest: #DD9292;
   --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-navbar-shadow: none;
+  --ifm-link-hover-decoration: none;
 }
 
-.docusaurus-highlight-code-line {
-  background-color: rgb(72, 77, 91);
-  display: block;
-  margin: 0 calc(-1 * var(--ifm-pre-padding));
-  padding: 0 var(--ifm-pre-padding);
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-secondary: #C2C3C6;
+  --ifm-color-primary: #F44949;
+  --ifm-color-primary-dark: #AD2020;
+  --ifm-color-primary-darker: #A31F1F;
+  --ifm-color-primary-darkest: #871B1B;
+  --ifm-color-primary-light: #C94646;
+  --ifm-color-primary-lighter: #D36767;
+  --ifm-color-primary-lightest: #DD9292;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-navbar-shadow: none;
+  --ifm-link-hover-decoration: none;
+}
+
+@media (max-width: 996px){
+  .navbar__item {
+    display: none !important;
+  }
+}
+
+.footer {
+  @apply bg-neutral-100;
+  @apply dark:bg-neutral-900;
+}
+
+.footer__title {
+  @apply text-neutral-800;
+  @apply dark:text-neutral-600;
+  @apply font-bold;
+}
+
+.avatar__name {
+  @apply text-red-500;
 }
