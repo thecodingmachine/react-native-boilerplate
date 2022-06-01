@@ -61,7 +61,7 @@ const config = {
       algolia: {
         appId: '9PEYN0H12D',
         indexName: 'rnboilerplate',
-        apiKey: '870ae81ec981530781f32849c55a593f',
+        apiKey: '983439b6ebef49ed3394ecfa290f1c6a',
         contextualSearch: true,
       },
       colorMode: {
