@@ -112,10 +112,6 @@ export default function HomepageFeatures(): JSX.Element {
           <Feature key={`feature-${idx}`} {...props} />
         ))}
       </div>
-
-      <svg className="bottom-0 w-full sm:-mt-20 fill-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path fill="current" fillOpacity="1" d="M0,320L60,272C120,224,240,128,360,128C480,128,600,224,720,234.7C840,245,960,171,1080,122.7C1200,75,1320,53,1380,42.7L1440,32L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z" />
-      </svg>
     </section>
   );
 }
