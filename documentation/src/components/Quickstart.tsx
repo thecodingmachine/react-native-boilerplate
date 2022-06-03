@@ -46,7 +46,7 @@ export default function Quickstart() {
           </div>
 
           <img
-            className="pointer-events-none hidden sm:block w-full md:w-[80%] 2xl:w-[85%] lg:w-2/3 mr-0 translate-x-[32%] md:translate-x-[20%] lg:translate-x-[15%] 2xl:translate-x-[28%] -translate-y-1/3 md:-translate-y-1/3 lg:-translate-y-1/2"
+            className="dark:block pointer-events-none hidden dark:sm:block w-full md:w-[80%] 2xl:w-[85%] lg:w-2/3 mr-0 translate-x-[32%] md:translate-x-[20%] lg:translate-x-[15%] 2xl:translate-x-[28%] -translate-y-1/3 md:-translate-y-1/3 lg:-translate-y-1/2"
             src="./img/phone-dark.png"
             alt="phone"
           />
