@@ -65,7 +65,9 @@ const config = {
         contextualSearch: true,
       },
       colorMode: {
-        respectPrefersColorScheme: true,
+        defaultMode: 'dark',
+        disableSwitch: false,
+        respectPrefersColorScheme: false,
       },
       navbar: {
         title: 'React Native Boilerplate',

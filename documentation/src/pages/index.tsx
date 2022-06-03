@@ -77,7 +77,7 @@ export default function Home(): JSX.Element {
           <svg className="bottom-0 w-full sm:-mt-20 fill-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
             <path fill="current" fillOpacity="1" d="M0,320L60,272C120,224,240,128,360,128C480,128,600,224,720,234.7C840,245,960,171,1080,122.7C1200,75,1320,53,1380,42.7L1440,32L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z" />
           </svg>
-            <Quickstart />
+          <Quickstart />
           <svg className="pointer-events-none absolute bottom-0 sm:bottom-[169px] sm:bottom-[99px] lg:bottom-[269px] w-full sm:-mt-20 fill-neutral-100 dark:fill-neutral-900" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
             <path fill="current" fillOpacity="1" d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" />
           </svg>
