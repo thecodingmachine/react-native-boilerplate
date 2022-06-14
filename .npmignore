@@ -8,10 +8,6 @@ npm-debug.log
 yarn-error.log
 node_modules
 template/node_modules
-template/src/Config/index.js
-template/src/Config/index.ts
-template/ts-src-override/tsconfig.dev.ts
-template/ts-src-override/tsconfig.ts
 template/ios/Pods
 template/android/app/build
 template/android/.gradle
@@ -23,7 +19,6 @@ template/.gitattributes
 template/.gitignore
 template/.prettierrc.js
 template/.watchmanconfig
-template/plugins/README.md
 documentation
 .idea
 .github
