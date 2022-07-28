@@ -11,11 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/workflows/w-run-linters.yml
+      - uses: ./.github/actions/run-linters
   run_test:
     if: ${{ success() }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/workflows/w-run-tests.yml
+      - uses: ./.github/actions/run-tests
     needs: [ run_lint ]
