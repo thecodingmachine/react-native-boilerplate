@@ -5,6 +5,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import HomepageFeatures from '@site/src/components/Features';
 import Circles from '@site/src/components/circles';
 import Quickstart from '@site/src/components/Quickstart';
+import Translate from '@docusaurus/Translate';
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
@@ -20,25 +21,32 @@ function HomepageHeader() {
       </div>
 
       <div className="px-5 sm:px-12 md:px-16 relative mx-auto md:pt-24">
-        <h1 className="text-[32px] sm:text-[40px] mt-10 lg:mt-16 md:mt-0 md:text-[45px] lg:text-[63px] leading-10 md:leading-8 font-black text-indigo-700">
-          The React Native
-          <span className="font-extralight mt-4 md:mt-8 lg:mt-0 text-[66px] sm:text-[83px] md:text-[92px] lg:text-9xl block text-red-500 dark:text-red-600">Boilerplate</span>
+        <h1 className="text-[43px] sm:text-[55px] md:text-[60px] lg:text-[85px] mt-10 lg:mt-16 md:mt-0 leading-10 md:leading-8 font-black text-indigo-700">
+          React Native
+          <span className="font-extralight mt-4 md:mt-8 lg:mt-2 text-[66px] sm:text-[83px] md:text-[92px] lg:text-9xl block text-red-500 dark:text-red-600">Boilerplate</span>
         </h1>
         <p className="mt-6 sm:mt-12 lg:mt-5 w-full sm:w-2/3 md:w-1/2 text-sm font-bold ml-1 text-slate-700 dark:text-white">
-          {siteConfig.tagline}
+          <Translate id="theme.HomePage.hero.tagline">
+            {siteConfig.tagline}
+          </Translate>
           <span className="ml-1 text-slate-400">
-            Discover the best React Native boilerplate for your project
-            with a really simple architecture based on Separation of Concerns,
-            and let the community build around it.
+            <Translate id="theme.HomePage.hero.description">
+              Discover the best React Native boilerplate for your project
+              with a really simple architecture based on Separation of Concerns,
+              and let the community build around it.
+            </Translate>
           </span>
         </p>
 
         <div className="py-10">
           <Link
             className="transition-all ease-in hover:bg-red-700 hover:text-white hover:text text-md text-white font-bold py-3 px-4 rounded bg-red-500 shadow-lg shadow-red-500/50"
-            to="/docs/Introduction"
+            to="/docs/introduction"
           >
-            Get started
+            <Translate id="theme.HomePage.hero.button">
+              Get started
+            </Translate>
+
             <span className="ml-3">🚀</span>
           </Link>
         </div>

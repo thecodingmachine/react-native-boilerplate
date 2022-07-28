@@ -1,0 +1,9 @@
+position: 2
+label: 'Getting Started'
+collapsible: true
+collapsed: false
+link:
+  type: generated-index
+  title: 'Getting Started'
+  description: 'Learn about how to install and configure the boilerplate.'
+

@@ -1,7 +1,8 @@
 import React from 'react';
+import Translate from '@docusaurus/Translate';
 
 type FeatureItem = {
-  title: string;
+  title: JSX.Element;
   icon: string
   color: string
   description: JSX.Element;
@@ -9,43 +10,60 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
+    title: (
+      <Translate id="theme.HomePage.features.easy.title">
+        Easy to Use
+      </Translate>
+    ),
     icon: '👌',
     color: 'yellow',
     description: (
-      <>
+      <Translate id="theme.HomePage.features.easy.description">
         A simple starter kit with basic and well known dependencies.
-      </>
+      </Translate>
     ),
   },
   {
-    title: 'Lightweight',
+    title: (
+      <Translate id="theme.HomePage.features.light.title">
+        Lightweight
+      </Translate>
+    ),
     icon: '🍃',
     color: 'green',
     description: (
-      <>
+      <Translate id="theme.HomePage.features.light.description">
         It contains only the minimum amount of code for awesome apps.
-      </>
+      </Translate>
     ),
   },
   {
-    title: 'TypeScript or JavaScript?',
+    title: (
+      <Translate id="theme.HomePage.features.code.title">
+        TypeScript or JavaScript?
+      </Translate>
+    ),
     icon: '🎛️',
     color: 'cyan',
+
     description: (
-      <>
+      <Translate id="theme.HomePage.features.code.description">
         For us it&apos;s important to let you choose your code base language.
-      </>
+      </Translate>
     ),
   },
   {
-    title: 'Scalable',
+    title: (
+      <Translate id="theme.HomePage.features.scalable.title">
+        Scalable
+      </Translate>
+    ),
     icon: '🧱',
     color: 'orange',
     description: (
-      <>
+      <Translate id="theme.HomePage.features.scalable.description">
         You can easily add more features to your app and scale it up.
-      </>
+      </Translate>
     ),
   },
 ];

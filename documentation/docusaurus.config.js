@@ -17,7 +17,7 @@ const config = {
   projectName: 'react-native-boilerplate',
   i18n: {
     defaultLocale: 'en',
-    locales: ['en'],
+    locales: ['en', 'fr'],
   },
   plugins: [
     async function myPlugin() {
@@ -41,12 +41,12 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl:
-            'https://github.com/thecodingmachine/react-native-boilerplate/edit/master/website-documentation/docs',
+            'https://github.com/thecodingmachine/react-native-boilerplate/edit/main/website-documentation/docs',
         },
         blog: {
           showReadingTime: true,
           editUrl:
-            'https://github.com/thecodingmachine/react-native-boilerplate/edit/master/website-documentation/blog',
+            'https://github.com/thecodingmachine/react-native-boilerplate/edit/main/website-documentation/blog',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -77,8 +77,12 @@ const config = {
         },
         items: [
           {
+            type: 'localeDropdown',
+            position: 'right',
+          },
+          {
             type: 'doc',
-            docId: 'Introduction',
+            docId: 'introduction',
             position: 'left',
             label: 'Docs',
           },

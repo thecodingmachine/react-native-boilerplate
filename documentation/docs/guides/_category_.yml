@@ -1,0 +1,9 @@
+position: 3
+label: 'Guides'
+collapsible: true
+collapsed: false
+link:
+  type: generated-index
+  title: 'Guides'
+  description: 'Learn about the most important Boilerplate concepts!'
+

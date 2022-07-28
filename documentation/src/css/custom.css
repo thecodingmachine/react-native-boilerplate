@@ -9,7 +9,7 @@
   @apply -mt-16;
 }
 
-.navbar__item.navbar__link {
+.navbar__link {
   @apply flex;
   @apply items-center;
   @apply justify-center;
@@ -21,6 +21,10 @@
   @apply mx-1;
   @apply transition-all;
   @apply ease-in;
+}
+
+.navbar__item.dropdown .navbar__link {
+  @apply px-3;
 }
 
 main {
@@ -38,7 +42,7 @@ main {
   @apply items-center;
 }
 
-.markdown h1 {
+.markdown h1, .container h1 {
   font-size: var(--ifm-h1-font-size);
   @apply font-bold;
 }
@@ -200,4 +204,8 @@ main {
 
 .avatar__name {
   @apply text-red-500;
+}
+
+.container.padding-top--md.padding-bottom--lg {
+  @apply min-h-screen;
 }

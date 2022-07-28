@@ -38,7 +38,7 @@ pros and cons).
 ## Easy to install 😎
 
 Installation has been facilitated since the v2.0.0, thanks to the use of the react-native-cli and 
-[custom template](https://github.com/react-native-community/cli/blob/master/docs/init.md#creating-custom-template).
+[custom template](https://github.com/react-native-community/cli/blob/main/docs/init.md#creating-custom-template).
 To run this boilerplate, the only commands you need are
 
 ```
