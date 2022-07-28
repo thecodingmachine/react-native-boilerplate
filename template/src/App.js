@@ -6,7 +6,7 @@ import { store, persistor } from '@/Store'
 import ApplicationNavigator from '@/Navigators/Application'
 import './Translations'
 
-console.log('TO REMOVE: CI TEST')
+console.log('TO REMOVE: CI TEST 2')
 
 const App = () => (
   <Provider store={store}>
