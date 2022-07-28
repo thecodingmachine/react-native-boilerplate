@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/actions/install-dependencies.yml
+      - uses: ./.github/actions/install-dependencies
       - name: Run linters
         run: |
           cd template
