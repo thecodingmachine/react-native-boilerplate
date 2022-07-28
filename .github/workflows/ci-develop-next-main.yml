@@ -8,8 +8,14 @@ on:
 
 jobs:
   run_lint:
-    uses: ./.github/workflows/w-run-linters.yml
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/workflows/w-run-linters.yml
   run_test:
     if: ${{ success() }}
-    uses: ./.github/workflows/w-run-tests.yml
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/workflows/w-run-tests.yml
     needs: [ run_lint ]
