@@ -7,7 +7,7 @@ on:
       - template/**/*
 
 jobs:
-  run_lint:
+  run_lint_1:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
