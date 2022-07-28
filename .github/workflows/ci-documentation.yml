@@ -1,0 +1,22 @@
+name: CI - Documentation
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - documentation/**/*
+
+jobs:
+  check_build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '16.x'
+      - name: Test Build
+        run: |
+          cd documentation
+          yarn install --frozen-lockfile
+          rm -rf .docusaurus/
+          npm run build

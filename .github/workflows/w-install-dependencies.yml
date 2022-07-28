@@ -1,0 +1,13 @@
+on:
+  workflow_call:
+
+jobs:
+  install_dependencies:
+    name: Installing yarn dependencies of the project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install yarn dependencies
+        run: |
+          cd template
+          yarn install

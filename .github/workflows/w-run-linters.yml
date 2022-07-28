@@ -1,0 +1,14 @@
+on:
+  workflow_call:
+
+jobs:
+  lint:
+    name: Run Prettier and ESLint rules checking
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run linters
+        run: |
+          cd template
+          cp _prettierrc.js .prettierrc.js
+          cp _eslintrc.js .eslintrc.js
+          yarn lint
