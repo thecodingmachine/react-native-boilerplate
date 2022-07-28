@@ -1,0 +1,13 @@
+#name: CD - Main
+#
+#on:
+#  push:
+#    branches: [ main ]
+#
+#jobs:
+#  release:
+#    uses: ./.github/workflows/w-deploy.yml
+#  bump_version:
+#    uses: ./.github/workflows/w-bump-version.yml
+#    with:
+#      tag: "?????" #TODO: how to increment

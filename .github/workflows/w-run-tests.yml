@@ -1,0 +1,12 @@
+on:
+  workflow_call:
+
+jobs:
+  lint:
+    name: Run and verify jest tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run tests
+        run: |
+          cd template
+          yarn test

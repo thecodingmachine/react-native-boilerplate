@@ -1,0 +1,15 @@
+name: CI - Feature branche
+
+on:
+  pull_request:
+    branches-ignore: [ develop, next, main ]
+    paths:
+      - template/**/*
+
+jobs:
+  install_dependencies:
+    uses: ./.github/workflow/w-install-dependencies.yml
+  run_linter:
+    uses: ./.github/workflow/w-run-linters.yml
+  run_tests:
+    uses: ./.github/workflow/w-run-tests.yml
