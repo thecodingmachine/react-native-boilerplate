@@ -1,28 +1,13 @@
-name: documentation
+name: CD - Documentation
 
 on:
-  pull_request:
-    branches: [master]
   push:
-    branches: [master]
+    branches: [ main ]
+    paths:
+      - documentation/**/*
 
 jobs:
-  checks:
-    if: github.event_name != 'push'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '16.x'
-      - name: Test Build
-        run: |
-          cd documentation
-          yarn install --frozen-lockfile
-          rm -rf .docusaurus/
-          npm run build
-  gh-release:
-    if: github.event_name != 'pull_request'
+  deploy_doc:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1

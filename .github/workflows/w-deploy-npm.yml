@@ -1,0 +1,28 @@
+on:
+  workflow_call:
+    inputs:
+      tag:
+        default: "latest"
+        type: string
+        required: false
+    secrets:
+      NPM_TOKEN:
+        required: true
+
+jobs:
+  publish_npm:
+    name: Deploy the version to npm
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - run: |
+          git config --global user.name "RNB-BotRelease"
+          git config --global user.email "jeremy.dolle34@gmail.com"
+          npm --no-git-tag-version version ${{ github.event.release.tag_name }}
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          tag: ${{ inputs.tag }}
