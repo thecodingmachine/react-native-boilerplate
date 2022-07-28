@@ -1,0 +1,14 @@
+name: CD workflow to NPM publish
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    if: "!github.event.release.prerelease"
+    uses: ./.github/workflows/w-deploy-npm.yml
+  rc_publish:
+    if: "!github.event.release.prerelease"
+    uses: ./.github/workflows/w-deploy-npm.yml
+    with: ${{ github.event.release.tag_name }}

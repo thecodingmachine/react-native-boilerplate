@@ -1,0 +1,16 @@
+name: CI - Develop/Next/Main
+
+on:
+  pull_request:
+    branches: [ develop, next, main ]
+    paths:
+      - template/**/*
+
+jobs:
+  install_dependencies:
+    uses: ./.github/workflows/w-install-dependencies.yml
+  run_linter:
+    uses: ./.github/workflows/w-run-linters.yml
+  run_tests:
+    uses: ./.github/workflows/w-run-tests.yml
+  # TODO: Add builds and e2e testing phase
