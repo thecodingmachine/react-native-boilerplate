@@ -6,6 +6,8 @@ jobs:
     name: Run Prettier and ESLint rules checking
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/workflows/w-install-dependencies.yml
       - name: Run linters
         run: |
           cd template

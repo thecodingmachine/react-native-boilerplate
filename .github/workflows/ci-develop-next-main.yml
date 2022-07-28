@@ -7,11 +7,9 @@ on:
       - template/**/*
 
 jobs:
-  run_ci:
-    name: Install dependencies, lint and test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: ./.github/workflows/w-install-dependencies.yml
-      - uses: ./.github/workflows/w-run-linters.yml
-      - uses: ./.github/workflows/w-run-tests.yml
+  run_lint:
+    uses: ./.github/workflows/w-run-linters.yml
+  run_test:
+    if: ${{ success() }}
+    uses: ./.github/workflows/w-run-tests.yml
+    needs: [ run_lint ]
