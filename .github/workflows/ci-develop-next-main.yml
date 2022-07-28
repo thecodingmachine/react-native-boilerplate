@@ -8,9 +8,9 @@ on:
 
 jobs:
   install_dependencies:
-    uses: ./.github/workflow/w-install-dependencies.yml
+    uses: ./.github/workflows/w-install-dependencies.yml
   run_linter:
-    uses: ./.github/workflow/w-run-linters.yml
+    uses: ./.github/workflows/w-run-linters.yml
   run_tests:
-    uses: ./.github/workflow/w-run-tests.yml
+    uses: ./.github/workflows/w-run-tests.yml
   # TODO: Add builds and e2e testing phase
