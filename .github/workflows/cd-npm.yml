@@ -11,3 +11,6 @@ jobs:
     with:
       checkout_ref: ${{ github.event.release.target_commitish }}
       tag_name: ${{ github.event.release.tag_name }}
+    secrets:
+      NPM: ${{ secrets.NPM_TOKEN }}
+      GITHUB: ${{ secrets.GITHUB_TOKEN }}

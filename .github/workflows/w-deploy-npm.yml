@@ -14,7 +14,10 @@ on:
         default: latest
         required: false
     secrets:
-      NPM_TOKEN:
+      NPM:
+        required: true
+      GITHUB:
+        required: true
 
 jobs:
   publish:
@@ -37,7 +40,7 @@ jobs:
           fi
       - uses: JS-DevTools/npm-publish@v1
         with:
-          token: ${{ secrets.NPM_TOKEN }}
+          token: ${{ secrets.NPM }}
           tag: ${{ github.event.release.tag_name }}
       - name: Commit and push
         run: |
@@ -45,4 +48,4 @@ jobs:
           git commit -am "🏷️(version) Update boilerplate to version ${{ github.event.release.tag_name }}"
           git push
         env:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.GITHUB }}
