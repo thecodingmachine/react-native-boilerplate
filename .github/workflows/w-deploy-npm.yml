@@ -8,11 +8,11 @@ on:
         required: true
       tag_name:
         type: string
-        required: true
-      tag:
-        type: string
         default: latest
         required: false
+      tag:
+        type: string
+        required: true
     secrets:
       NPM:
         required: true
@@ -32,7 +32,7 @@ jobs:
       - run: |
           git config --global user.name "RNB Bot"
           git config --global user.email "jeremy.dolle34@gmail.com"
-          npm --no-git-tag-version version ${{ inputs.tag_name }}
+          npm --no-git-tag-version version ${{ inputs.tag }}
       - name: Install dependencies
         run: |
           if [ -e yarn.lock ]; then
@@ -45,7 +45,7 @@ jobs:
       - name: Commit and push
         run: |
           git add .
-          git commit -am "🏷️(version) Update boilerplate to version ${{ github.event.release.tag_name }}"
+          git commit -am "🏷️(version) Update boilerplate to version ${{ github.event.release.tag }}"
           git push
         env:
           github-token: ${{ secrets.GITHUB }}
