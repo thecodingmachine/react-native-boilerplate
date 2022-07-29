@@ -8,3 +8,6 @@ jobs:
   publish:
     if: "!github.event.release.prerelease"
     uses: ./.github/workflows/w-deploy-npm.yml
+    with:
+      checkout_ref: ${{ github.event.release.target_commitish }}
+      tag_name: ${{ github.event.release.tag_name }}
