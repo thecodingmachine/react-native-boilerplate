@@ -1,0 +1,48 @@
+name: CD workflow to NPM publish
+
+on:
+  workflow_call:
+    inputs:
+      checkout_ref:
+        type: string
+        required: true
+      tag_name:
+        type: string
+        required: true
+      tag:
+        type: string
+        default: latest
+        required: false
+    secrets:
+      NPM_TOKEN:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ inputs.checkout_ref }}
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - run: |
+          git config --global user.name "RNB Bot"
+          git config --global user.email "jeremy.dolle34@gmail.com"
+          npm --no-git-tag-version version ${{ inputs.tag_name }}
+      - name: Install dependencies
+        run: |
+          if [ -e yarn.lock ]; then
+          yarn install --frozen-lockfile
+          fi
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          tag: ${{ github.event.release.tag_name }}
+      - name: Commit and push
+        run: |
+          git add .
+          git commit -am "🏷️(version) Update boilerplate to version ${{ github.event.release.tag_name }}"
+          git push
+        env:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
