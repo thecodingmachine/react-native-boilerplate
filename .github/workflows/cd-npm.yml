@@ -7,4 +7,4 @@ on:
 jobs:
   publish:
     if: "!github.event.release.prerelease"
-    uses: ./.github/workflows/deploy-npm.yml
+    uses: ./.github/workflows/w-deploy-npm.yml
