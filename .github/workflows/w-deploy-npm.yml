@@ -6,10 +6,6 @@ on:
       checkout_ref:
         type: string
         required: true
-      tag_name:
-        type: string
-        default: latest
-        required: false
       tag:
         type: string
         required: true
@@ -41,11 +37,10 @@ jobs:
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM }}
-          tag: ${{ github.event.release.tag_name }}
       - name: Commit and push
         run: |
           git add .
-          git commit -am "🏷️(version) Update boilerplate to version ${{ github.event.release.tag }}"
+          git commit -am "🏷️(version) Update boilerplate to version ${{ inputs.tag }}"
           git push
         env:
           github-token: ${{ secrets.GITHUB }}
