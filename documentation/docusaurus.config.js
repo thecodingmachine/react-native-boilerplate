@@ -41,12 +41,12 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl:
-            'https://github.com/thecodingmachine/react-native-boilerplate/edit/master/website-documentation/docs',
+            'https://github.com/thecodingmachine/react-native-boilerplate/edit/main/website-documentation/docs',
         },
         blog: {
           showReadingTime: true,
           editUrl:
-            'https://github.com/thecodingmachine/react-native-boilerplate/edit/master/website-documentation/blog',
+            'https://github.com/thecodingmachine/react-native-boilerplate/edit/main/website-documentation/blog',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
