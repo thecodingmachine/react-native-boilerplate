@@ -6,8 +6,6 @@ import { store, persistor } from '@/Store'
 import ApplicationNavigator from '@/Navigators/Application'
 import './Translations'
 
-console.log('TO REMOVE: CI TEST 6')
-
 const App = () => (
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
