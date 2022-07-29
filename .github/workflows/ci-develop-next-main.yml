@@ -7,15 +7,9 @@ on:
       - template/**/*
 
 jobs:
-  run_lint_1:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: ./.github/actions/run-linters
+  run_lint:
+    uses: ./.github/workflows/w-run-linters.yml
   run_test:
     if: ${{ success() }}
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: ./.github/actions/run-tests
+    uses: ./.github/workflows/w-run-tests.yml
     needs: [ run_lint ]

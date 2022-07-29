@@ -1,12 +1,7 @@
-on:
-  workflow_call:
-
-jobs:
-  install_dependencies:
-    name: Installing yarn dependencies of the project
-    runs-on: ubuntu-latest
-    steps:
-      - name: Install yarn dependencies
-        run: |
-          cd template
-          yarn install
+name: Install dependencies
+description: Install dependencies on the project under template/
+runs:
+  using: composite
+  steps:
+    - run: cd template && yarn install
+      shell: bash
