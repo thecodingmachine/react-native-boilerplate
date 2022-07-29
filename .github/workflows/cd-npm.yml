@@ -7,8 +7,4 @@ on:
 jobs:
   publish:
     if: "!github.event.release.prerelease"
-    uses: ./.github/actions/deploy-npm
-  rc_publish:
-    if: "!github.event.release.prerelease"
-    uses: ./.github/actions/deploy-npm
-    with: ${{ github.event.release.tag_name }}
+    uses: ./.github/workflows/deploy-npm.yml
