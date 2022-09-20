@@ -282,10 +282,10 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@thecodingmachine/rnb-plugin-typescript@^2.0.4":
-  version "2.0.6"
-  resolved "https://registry.yarnpkg.com/@thecodingmachine/rnb-plugin-typescript/-/rnb-plugin-typescript-2.0.6.tgz#05765c90ddc94c7c62e1f563b541babd12eec3ca"
-  integrity sha512-n0nzlSdVD70ctU4z11Py7+tqJ4s2WcMmH1BGbGXykI3SekUOAOlI5e/mk7HkB4kO5urE26/pPBXTucKg0IOlaQ==
+"@thecodingmachine/rnb-plugin-typescript@^2.0.8":
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/@thecodingmachine/rnb-plugin-typescript/-/rnb-plugin-typescript-2.0.8.tgz#99c1f1626fd49e52f1803369a929b5db115737dd"
+  integrity sha512-VX4uvKzoULpkNlN0YhvhVv7gY0BYAtCoPMen4mzflcQY17OL8NoAXMLNaPENsp7JG7C9aH6y1awjGuZeF3q0gg==
   dependencies:
     "@thecodingmachine/rnb-toolbox" "^1.0.0"
     ttys "0.0.3"

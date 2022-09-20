@@ -22,7 +22,7 @@ module.exports = {
             '        ``             ```                    ``            `.                  ',
         )}`,
       )
-      if (previousValues.typescript) {
+      if (previousValues['@thecodingmachine/rnb-plugin-typescript']) {
         console.log(blue('THE TYPESCRIPT VERSION 📘'))
       }
       console.log('\n')

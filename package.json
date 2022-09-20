@@ -27,7 +27,7 @@
     "starter-kit"
   ],
   "dependencies": {
-    "@thecodingmachine/rnb-plugin-typescript": "^2.0.4",
+    "@thecodingmachine/rnb-plugin-typescript": "^2.0.8",
     "kleur": "^4.1.4",
     "prompts": "^2.4.1"
   },
