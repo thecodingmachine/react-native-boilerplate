@@ -269,7 +269,7 @@ PODS:
     - React-jsi (= 0.65.1)
     - React-perflogger (= 0.65.1)
   - React-jsinspector (0.65.1)
-  - react-native-flipper (0.103.0):
+  - react-native-flipper (0.113.0):
     - React-Core
   - react-native-safe-area-context (3.3.2):
     - React-Core
@@ -559,7 +559,7 @@ SPEC CHECKSUMS:
   React-jsi: 12913c841713a15f64eabf5c9ad98592c0ec5940
   React-jsiexecutor: 43f2542aed3c26e42175b339f8d37fe3dd683765
   React-jsinspector: 41e58e5b8e3e0bf061fdf725b03f2144014a8fb0
-  react-native-flipper: 169e8ba429b73ad637ce007337ce4b415e783799
+  react-native-flipper: 2a212eb0fead9ae9b42d1eb75604757cdf36f2bb
   react-native-safe-area-context: 584dc04881deb49474363f3be89e4ca0e854c057
   React-perflogger: fd28ee1f2b5b150b00043f0301d96bd417fdc339
   React-RCTActionSheet: 7f3fa0855c346aa5d7c60f9ced16e067db6d29fa
@@ -583,4 +583,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 3b8fddbe99ac713eded2a5e5e963608f652d0548
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.10.1
