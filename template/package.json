@@ -24,7 +24,7 @@
     "react-native": "0.69.3",
     "react-native-flipper": "^0.156.0",
     "react-native-gesture-handler": "^2.5.0",
-    "react-native-reanimated": "^2.9.1",
+    "react-native-reanimated": "^2.10.0",
     "react-native-safe-area-context": "^4.3.1",
     "react-native-screens": "^3.15.0",
     "react-redux": "^8.0.2",
