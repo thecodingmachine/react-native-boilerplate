@@ -4,7 +4,7 @@ title: Configuration
 ---
 
 ## Change the appicon
-To help generate appicons, you can use an online tool like [appicon](https://appicon.co/) to generate for both iOS and Android all icons and image sets.
+To help generate appicons, you can use an online tool like [appicon](https://appicon.co/) or [easyappicon](https://easyappicon.com/) to generate for both iOS and Android all icons and image sets.
 
 ### iOS 🍎
 To change the appicon of the iOS application, you need to replace all the content of 

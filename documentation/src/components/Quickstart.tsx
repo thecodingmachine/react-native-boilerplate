@@ -1,10 +1,7 @@
 import React from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { useColorMode } from '@docusaurus/theme-common';
 import Circles from '@site/src/components/circles';
 
 export default function Quickstart() {
-  const { colorMode } = useColorMode();
   return (
     <section className="relative flex justify-end bg-red-400 mb-0 pb-10 sm:-mb-[170px] sm:-mb-[100px] lg:-mb-[270px]">
       <div className="relative max-w-7xl m-auto">
@@ -23,12 +20,10 @@ export default function Quickstart() {
 
             <code className="flex items-center border-0 min-h-[65px] w-[110%] p-2 bg-neutral-100 dark:bg-neutral-900 rounded-md">
               <span className="text-black dark:text-white">
-                <span className="text-red-400 mr-2">npx</span>
-                <span className="text-blue-400 mr-2">react-native init</span>
+                <span className="text-red-400">npx </span>
+                <span className="text-blue-400">react-native init </span>
                 MyApp
-                <span className="text-neutral-500 ml-2">
-                  --template @thecodingmachine/react-native-boilerplate
-                </span>
+                <span className="text-neutral-500 text-sm"> --template @thecodingmachine/react-native-boilerplate</span>
               </span>
             </code>
             <div>

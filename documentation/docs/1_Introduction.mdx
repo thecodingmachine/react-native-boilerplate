@@ -1,0 +1,80 @@
+---
+slug: /Introduction
+title: What's in the box❓
+---
+
+import deps from '../../template/package.json'
+export const Version = ({name, dev}) => (
+  <span>
+    {deps[!!dev ? 'devDependencies' : 'dependencies'][name]}
+  </span>
+);
+
+<div align="center">
+    <img width="300" height="300" src={require('./assets/TOM.png').default} />
+</div>
+
+This project is a [React Native](https://facebook.github.io/react-native/) boilerplate that can be used to kick-start a mobile application.
+
+The boilerplate provides **an architecture optimized for building solid cross-platform mobile applications** through separation of concerns between the UI and business logic.
+We made this full documentation so that each piece of code that lands in your application can be understood and used.
+
+
+:::tip Don't forget !!
+If you love this boilerplate, give us a star, you will be a ray of sunshine in our lives 🌈 ☀️
+:::
+
+## Architecture 🧱
+
+The driving goal of the architecture of the boilerplate is separation of concerns and using React Native at its best.
+
+- **Using modern Javascript**
+    So many javascript features are indispensable now like hooks, functional component and really cool dependencies.
+
+- **Presentational components are separated from containers**.
+
+    Presentational components are small components that are concerned with *how things look*.
+    Containers usually define whole application screens and are concerned with *how things work*: they include presentational components and wire everything together.
+
+    If you are interested you can [read more about it here](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0).
+
+- **State is managed using global [Redux](https://redux.js.org/) stores**.
+
+    When applications grow, sharing state and its changes can become very hard. Questions like "How can I access this data?" or "When did this change?" are common, just like passing data around components just to be able to use it in nested components.
+
+    With Redux, state is shared using global *stores*, and changes are predictable: *actions* are applied by *reducers* to the state. While the pattern can be a bit much for small projects, the clear separation of responsibilities and predictability helps with bigger applications.
+
+    If you are interested you can [read more about it here](https://redux.js.org/introduction/motivation).
+
+## Content 🧳
+
+The boilerplate contains a [clear directory layout](#directory-layout) to provide a base architecture for your application with some essential dependencies:
+- [React Native](https://facebook.github.io/react-native/) (v**<Version name="react-native"/>**) application (in "[ejected](https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md)" mode to allow using dependencies that rely on native code)
+- [Redux](https://redux.js.org/) (v**<Version name="react-redux"/>**) to help manage state
+- [Redux Toolkit (Query)](https://redux-toolkit.js.org/) (v**<Version name="@reduxjs/toolkit"/>**) to improve redux api calls
+- [Redux Persist](https://github.com/rt2zz/redux-persist) (v**<Version name="redux-persist"/>**) to persist the Redux state
+- [React Native mmkv](https://github.com/mrousavy/react-native-mmkv) (v**<Version name="react-native-mmkv"/>**) which is an efficient, small mobile key-value storage
+- [React Navigation](https://reactnavigation.org/) (v**<Version name="@react-navigation/native"/>**) to handle routing and navigation in the app, with a splash screen setup by default
+- [React I18Next](https://github.com/i18next/react-i18next) (v**<Version name="react-i18next"/>**) to handle internationalization in your app
+- [prettier](https://prettier.io/) and [eslint](https://eslint.org/) preconfigured for React Native
+- [react-native-flipper](https://fbflipper.com/) (v**<Version name="react-native-flipper" dev/>**) to debug react-native,
+ [redux-flipper](https://github.com/jk-gan/redux-flipper) (v**<Version name="redux-flipper" dev/>**) to debug redux,
+ [navigation devtool](https://www.npmjs.com/package/@react-navigation/devtools) (v**<Version name="@react-navigation/devtools" dev/>**) to debug navigation,
+
+
+The boilerplate includes an example (displaying fake user data) from UI components to the business logic. The example is easy to remove so that it doesn't get in the way.
+
+## Directory layout 🗂️
+
+- `src/components`: presentational components
+- `src/hooks`: hooks of the app, you will have the `useTheme` hook to access the theme
+- `src/navigators`: react navigation navigators
+- `src/screens`: container components, i.e. the application's screens
+- `src/services`: application services, e.g. API clients
+- `src/stores`: redux [actions, reducers and stores](https://redux.js.org/basics)
+- `src/theme`: base styles for the application
+- `src/translations`: application strings, you can add languages files and be able to translate your app strings
+
+## Updates 🕐
+
+The boilerplate will follow new React-Native releases as soon as libraries and tools used here are compatible.

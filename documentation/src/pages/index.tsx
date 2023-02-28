@@ -56,7 +56,7 @@ export default function Home(): JSX.Element {
       description="A React Native template for building solid applications, using JavaScript or Typescript (YOU choose)."
       wrapperClassName="relative overflow-hidden"
     >
-      <div className="relative max-w-7xl m-auto">
+      <div className="relative max-w-7xl m-auto w-full">
         <div className="animate-blob opacity-80 absolute -top-20 -right-20 md:top-0 md:right-0 bg-gradient-to-r from-red-600 via-pink-700 to-pink-400 h-[310px] w-[310px] md:h-[350px] md:w-[350px] lg:h-[382px] lg:w-[382px]" style={{ borderRadius: '30% 70% 67% 33% / 64% 30% 70% 36%' }} />
         <div className="animate-blob-delay-1 opacity-80 absolute top-12 right-1/4 md:top-[250px] md:right-1/4 bg-gradient-to-r from-indigo-600 via-blue-700 to-blue-400 h-[180px] w-[180px] md:h-[230px] md:w-[230px]" style={{ borderRadius: '30% 70% 67% 33% / 64% 30% 70% 36%' }} />
       </div>
@@ -64,8 +64,12 @@ export default function Home(): JSX.Element {
       <div className="backdrop-blur-xl">
 
         <div className="relative max-w-7xl m-auto">
-          <div className="absolute top-[800px]"><Circles animate="animate-circle-delay-1" /></div>
-          <div className="absolute top-[400px] right-0"><Circles color="white" /></div>
+          <div className="absolute top-[800px]">
+            <Circles animate="animate-circle-delay-1" />
+          </div>
+          <div className="absolute top-[400px] right-0">
+            <Circles color="white" />
+          </div>
           <HomepageHeader />
         </div>
 

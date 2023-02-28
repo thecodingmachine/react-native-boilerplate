@@ -1,0 +1,15 @@
+{
+  "extends": "@tsconfig/react-native/tsconfig.json",
+  "compilerOptions": {
+    "types": ["react-native", "jest", "node"],
+    "typeRoots": [
+      "@types",
+      "./node_modules/@types"
+    ],
+    "baseUrl": "..",
+    "paths": {
+      "@/*": ["./src/*"],
+      "types/*": ["./@types/*"]
+    }
+  }
+}

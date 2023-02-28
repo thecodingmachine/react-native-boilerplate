@@ -282,23 +282,6 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@thecodingmachine/rnb-plugin-typescript@^2.0.8":
-  version "2.0.8"
-  resolved "https://registry.yarnpkg.com/@thecodingmachine/rnb-plugin-typescript/-/rnb-plugin-typescript-2.0.8.tgz#99c1f1626fd49e52f1803369a929b5db115737dd"
-  integrity sha512-VX4uvKzoULpkNlN0YhvhVv7gY0BYAtCoPMen4mzflcQY17OL8NoAXMLNaPENsp7JG7C9aH6y1awjGuZeF3q0gg==
-  dependencies:
-    "@thecodingmachine/rnb-toolbox" "^1.0.0"
-    ttys "0.0.3"
-
-"@thecodingmachine/rnb-toolbox@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@thecodingmachine/rnb-toolbox/-/rnb-toolbox-1.0.0.tgz#1b50a90983cfe14b4bd71af68f914949d06b21ea"
-  integrity sha512-azX+GX0RaFbeYSpO74z7Kgt9y3E+dp3FMfXHCwn8P/1Nj5VjcO2xdYC3q3gSy5Gn/cI3eyxCvxDZb4gz/ZMHuA==
-  dependencies:
-    kleur "^4.1.4"
-    prompts "^2.4.2"
-    typescript "4.5.5"
-
 "@tsconfig/node10@^1.0.7":
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/@tsconfig/node10/-/node10-1.0.9.tgz#df4907fc07a886922637b15e02d4cebc4c0021b2"
@@ -1543,7 +1526,7 @@ picomatch@^2.3.1:
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.3.1.tgz#3ba3833733646d9d3e4995946c1365a67fb07a42"
   integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
 
-prompts@^2.4.1, prompts@^2.4.2:
+prompts@^2.4.1:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/prompts/-/prompts-2.4.2.tgz#7b57e73b3a48029ad10ebd44f74b01722a4cb069"
   integrity sha512-NxNv/kLguCA7p3jE8oL2aEBsrJWgAakBpgmgK6lpPWV+WuOmY6r2/zbAVnP+T8bQlA0nzHXSJSJW0Hq7ylaD2Q==
@@ -1909,11 +1892,6 @@ tslib@^2.1.0:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.4.0.tgz#7cecaa7f073ce680a05847aa77be941098f36dc3"
   integrity sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==
 
-ttys@0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/ttys/-/ttys-0.0.3.tgz#15bacde7831020de5f2f28f01b1732ef03651f4d"
-  integrity sha512-UCqXRZS2S7U4aVB7Salj3ChPRSsb57ogJpJ1eMCvyowxFOBGsaHKcRU8bovcDwajX1mRbv0IpUnYkoG7Ieo5Zg==
-
 type-fest@^0.18.0:
   version "0.18.1"
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.18.1.tgz#db4bc151a4a2cf4eebf9add5db75508db6cc841f"
@@ -1933,11 +1911,6 @@ type-fest@^0.8.1:
   version "0.8.1"
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.8.1.tgz#09e249ebde851d3b1e48d27c105444667f17b83d"
   integrity sha512-4dbzIzqvjtgiM5rw1k5rEHtBANKmdudhGyBEajN01fEyhaAIhsoKNy6y7+IN93IfpFtwY9iqi7kD+xwKhQsNJA==
-
-typescript@4.5.5:
-  version "4.5.5"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.5.5.tgz#d8c953832d28924a9e3d37c73d729c846c5896f3"
-  integrity sha512-TCTIul70LyWe6IJWT8QSYeA54WQe8EjQFU4wY52Fasj5UKx88LNYKCgBEHcOMOrFF1rKGbD8v/xcNWVUq9SymA==
 
 typescript@^4.4.3, typescript@^4.6.4:
   version "4.7.4"
