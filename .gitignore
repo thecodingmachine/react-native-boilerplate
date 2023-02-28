@@ -18,9 +18,3 @@ yarn-lock.json
 package-lock.json
 
 node_modules
-
-# Ignore specific files copying by RN CLI
-template/.gitignore
-template/.eslintrc.js
-template/.prettierrc.js
-template/.watchmanconfig
