@@ -1,6 +1,4 @@
 import React from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { useColorMode } from '@docusaurus/theme-common';
 import Circles from '@site/src/components/circles';
 
 export default function Quickstart() {
