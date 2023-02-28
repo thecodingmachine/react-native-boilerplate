@@ -43,7 +43,7 @@ module.exports = {
         console.log('\n');
         console.log(
           red(
-            '🚨 You choose the javascript version, don\'t forget to run "yarn lint" after the installation 🚨',
+            '🚨 You choose the javascript version, don\'t forget to run "yarn lint --fix" after the installation 🚨',
           ),
         );
         console.log('\n');
