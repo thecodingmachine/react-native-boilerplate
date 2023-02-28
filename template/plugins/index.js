@@ -1,9 +1,9 @@
-const prompts = require('prompts')
-const typescriptPlugin = require('@thecodingmachine/rnb-plugin-typescript')
-const printSuccessPlugin = require('./printSuccess')
+const prompts = require('prompts');
+const typescriptPlugin = require('./compile-js');
+const printSuccessPlugin = require('./printSuccess');
 
 // List of plugin to apply (ordered)
-const plugins = [typescriptPlugin, printSuccessPlugin]
+const plugins = [typescriptPlugin, printSuccessPlugin];
 
 /**
  * Apply a plugin
@@ -15,12 +15,12 @@ const plugins = [typescriptPlugin, printSuccessPlugin]
  */
 async function applyPlugin(name, { promptsOptions, apply }, response) {
   if (!promptsOptions) {
-    await apply(null, response)
-    return { [name]: null, ...response }
+    await apply(null, response);
+    return { [name]: null, ...response };
   }
-  const { value } = await prompts(promptsOptions)
-  await apply(value, response)
-  return { [name]: value, ...response }
+  const { value } = await prompts(promptsOptions);
+  await apply(value, response);
+  return { [name]: value, ...response };
 }
 
 module.exports = {
@@ -33,6 +33,6 @@ module.exports = {
       (acc, { name, ...plugin }) =>
         acc.then(response => applyPlugin(name, plugin, response)),
       Promise.resolve({}),
-    )
+    );
   },
-}
+};

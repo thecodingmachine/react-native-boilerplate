@@ -1,21 +1,19 @@
-const presets = ['module:metro-react-native-babel-preset']
-const plugins = []
-
-plugins.push(
-  [
-    'module-resolver',
-    {
-      root: ['./src'],
-      extensions: ['.js', '.json'],
-      alias: {
-        '@': './src',
-      },
-    },
-  ],
-  'react-native-reanimated/plugin',
-)
-
+/** @type {import('ts-jest').JestConfigWithTsJest} */
 module.exports = {
-  presets,
-  plugins,
-}
+  presets: ['module:metro-react-native-babel-preset'],
+  plugins: [
+    [
+      'module-resolver',
+      {
+        root: ['./src'],
+        extensions: ['.js', '.json'],
+        alias: {
+          '@': './src',
+          types: './@types',
+        },
+      },
+    ],
+    'inline-dotenv',
+    'react-native-reanimated/plugin', // needs to be last
+  ],
+};
