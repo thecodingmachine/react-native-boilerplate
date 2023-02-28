@@ -4,7 +4,7 @@ module.exports = {
   async apply(value, previousValues) {
     return new Promise(async resolve => {
       if (!value) {
-        console.log('\n')
+        console.log('\n');
 
         console.log('📦 Loading the build tool...');
         await execSync('yarn add -D typescript', { stdio: 'pipe' });
@@ -16,7 +16,9 @@ module.exports = {
         );
 
         console.log('🖼️  Copying assets...');
-        await execSync('cp -R src/theme/assets js/src/theme/assets', { stdio: 'pipe' });
+        await execSync('cp -R src/theme/assets js/src/theme/assets', {
+          stdio: 'pipe',
+        });
 
         console.log('♻️  Replacing source...');
         await execSync('rm -rf src', { stdio: 'pipe' });
