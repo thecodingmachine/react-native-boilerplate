@@ -39,7 +39,7 @@ module.exports = {
 
         console.log('🌀 Removing types ...');
         await execSync('rm -rf @types', { stdio: 'pipe' });
-        await execSync('rm src/tsconfig.json', { stdio: 'pipe' });
+        await execSync('rm tsconfig.json', { stdio: 'pipe' });
       }
       resolve();
     });
