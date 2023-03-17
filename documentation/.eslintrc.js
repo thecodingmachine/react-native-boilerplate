@@ -37,5 +37,7 @@ module.exports = {
     'import/no-unresolved': [2, { ignore: ['^@theme', '^@docusaurus', '^@site'] }],
     'react/jsx-props-no-spreading': 'off',
     'react/no-array-index-key': 'off',
+    'import/no-relative-packages': 'off',
+    'global-require': 'off',
   },
 };

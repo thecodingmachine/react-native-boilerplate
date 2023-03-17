@@ -1,14 +1,11 @@
 <div align="center">
-    <img src="documentation/static/img/TOM-Legend.png" alt="Logo" width="100%">
+    <img src="documentation/static/img/tom-github-banner.png" alt="Logo" width="100%">
 </div>
 
 ![React Native Boilerplate License](https://img.shields.io/github/license/thecodingmachine/react-native-boilerplate)
-![React Native Boilerplate Version](https://flat.badgen.net/npm/v/@thecodingmachine/react-native-boilerplate)
 ![React Native Boilerplate Release Date](https://img.shields.io/github/release-date/thecodingmachine/react-native-boilerplate)
 ![React Native Boilerplate Download](https://flat.badgen.net/npm/dt/@thecodingmachine/react-native-boilerplate)
-![React Native Boilerplate Stars](https://img.shields.io/github/stars/thecodingmachine/react-native-boilerplate)
 ![React Native Boilerplate Top Language](https://img.shields.io/github/languages/top/thecodingmachine/react-native-boilerplate)
-![React Native Boilerplate TypeScript](https://badgen.net/npm/types/tslib)
 [![CI](https://github.com/thecodingmachine/react-native-boilerplate/actions/workflows/CI.yml/badge.svg)](https://github.com/thecodingmachine/react-native-boilerplate/actions/workflows/CI.yml)
 
 # TheCodingMachine React Native boilerplate
@@ -23,7 +20,7 @@ If you love this boilerplate, give us a star, you will be a ray of sunshine in o
 
 ## Requirements
 
-Node 12 or greater is required. Development for iOS requires a Mac and Xcode 10 or up, and will target iOS 11 and up.
+Node 14 or greater is required. Development for iOS requires a Mac and Xcode 10 or up, and will target iOS 11 and up.
 
 You also need to install the dependencies required by React Native.  
 Go to the [React Native environment setup](https://reactnative.dev/docs/environment-setup), then select `React Native CLI Quickstart` tab.  
@@ -52,4 +49,4 @@ This project is released under the [MIT License](LICENSE).
 
 ## About us
 
-[TheCodingMachine](https://www.thecodingmachine.com/) is a web and mobile agency based in Paris and Lyon, France. We are [constantly looking for new developers and team leaders](https://www.thecodingmachine.com/nous-rejoindre/) and we love [working with freelancers](https://coders.thecodingmachine.com/). You'll find [an overview of all our open source projects on our website](https://thecodingmachine.io/open-source) and on [Github](https://github.com/thecodingmachine).
+[TheCodingMachine](https://www.thecodingmachine.com/) is a web and mobile agency based in Paris and Lyon, France. We are [constantly looking for new developers and team leaders](https://www.thecodingmachine.com/nous-rejoindre/) and we love [working with freelancers](https://coders.thecodingmachine.com/). You'll find [an overview of all our open source projects on our website](https://thecodingmachine.com/en/open-source-en/) and on [Github](https://github.com/thecodingmachine).

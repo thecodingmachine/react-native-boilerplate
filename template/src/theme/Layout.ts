@@ -4,10 +4,10 @@ import { ThemeVariables } from '../../@types/theme';
 export default function ({}: ThemeVariables) {
   return StyleSheet.create({
     /* Column Layouts */
-    column: {
+    col: {
       flexDirection: 'column',
     },
-    columnReverse: {
+    colReverse: {
       flexDirection: 'column-reverse',
     },
     colCenter: {
@@ -111,6 +111,9 @@ export default function ({}: ThemeVariables) {
       transform: [{ rotate: '-90deg' }],
     },
     // Position
+    relative: {
+      position: 'relative',
+    },
     absolute: {
       position: 'absolute',
     },

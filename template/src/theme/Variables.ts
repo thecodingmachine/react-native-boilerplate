@@ -5,22 +5,31 @@
  * That allows to change them more easily later on.
  */
 
+import { ThemeNavigationColors } from '../../@types/theme';
+
 /**
  * Colors
  */
 export const Colors = {
-  // Example.tsx colors:
   transparent: 'rgba(0,0,0,0)',
   inputBackground: '#FFFFFF',
   white: '#ffffff',
-  text: '#212529',
+  //Typography
+  textGray800: '#000000',
+  textGray400: '#4D4D4D',
+  textGray200: '#A1A1A1',
   primary: '#E14032',
   success: '#28a745',
   error: '#dc3545',
+  //ComponentColors
+  circleButtonBackground: '#E1E1EF',
+  circleButtonColor: '#44427D',
 };
 
-export const NavigationColors = {
+export const NavigationColors: Partial<ThemeNavigationColors> = {
   primary: Colors.primary,
+  background: '#EFEFEF',
+  card: '#EFEFEF',
 };
 
 /**
