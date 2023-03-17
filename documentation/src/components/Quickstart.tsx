@@ -29,9 +29,8 @@ export default function Quickstart() {
             <div>
               <button
                 type="button"
-                className="
-        transition-all
-        ease-in mt-5 hover:bg-green-700 hover:text-white hover:text text-md text-white font-bold py-3 px-4 rounded bg-green-500 shadow-lg shadow-green-500/50"
+                className="transition-all ease-in mt-5 hover:bg-green-700 hover:text-white hover:text text-md text-white
+                font-bold py-3 px-4 rounded bg-green-500 shadow-lg shadow-green-500/50"
                 onClick={() => { navigator.clipboard.writeText('npx react-native init MyApp --template @thecodingmachine/react-native-boilerplate'); }}
               >
                 Copy and test it
@@ -41,14 +40,14 @@ export default function Quickstart() {
           </div>
 
           <img
-            className="dark:block pointer-events-none hidden dark:sm:block w-full md:w-[80%] 2xl:w-[85%] lg:w-2/3 mr-0 translate-x-[32%] md:translate-x-[20%] lg:translate-x-[15%] 2xl:translate-x-[28%] -translate-y-1/3 md:-translate-y-1/3 lg:-translate-y-1/2"
-            src="./img/phone-dark.png"
+            className="pointer-events-none hidden dark:sm:block w-3/4 md:w-[70%] 2xl:w-[85%] lg:w-2/3 mr-0 translate-x-[27%] md:translate-x-[20%] lg:translate-x-[15%] 2xl:translate-x-[28%] -translate-y-[43%]"
+            src="./img/phone_dark.png"
             alt="phone"
           />
 
           <img
-            className="dark:hidden pointer-events-none hidden sm:block w-full md:w-[80%] 2xl:w-[85%] lg:w-2/3 mr-0 translate-x-[32%] md:translate-x-[20%] lg:translate-x-[15%] 2xl:translate-x-[28%] -translate-y-1/3 md:-translate-y-1/3 lg:-translate-y-1/2"
-            src="./img/phone.png"
+            className="dark:hidden pointer-events-none hidden sm:block w-3/4 md:w-[70%] 2xl:w-[85%] lg:w-2/3 mr-0 translate-x-[27%] md:translate-x-[20%] lg:translate-x-[15%] 2xl:translate-x-[28%] -translate-y-[43%]"
+            src="./img/phone_light.png"
             alt="phone"
           />
         </div>

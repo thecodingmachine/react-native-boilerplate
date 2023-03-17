@@ -19,7 +19,7 @@ export default function <C>({ Colors, ...args }: CommonParams<C>) {
       },
       textInput: {
         backgroundColor: Colors.inputBackground,
-        color: Colors.text,
+        color: Colors.textGray400,
         height: 45,
         borderRadius: 10,
         paddingStart: 20,

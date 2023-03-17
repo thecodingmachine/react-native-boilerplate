@@ -1,10 +1,4 @@
 {
-  "helloUser": "I am a fake user, my name is {{name}}",
-  "titles": {
-    "apiCalls": "UserID to User name",
-    "themeChoice": "Choose your theme"
-  },
-  "labels": {
-    "userId": "Enter a random user id, TOM the octopus will give you the corresponding user name:"
-  }
+  "helloUser": "Hi, my name is {{name}}"
 }
+

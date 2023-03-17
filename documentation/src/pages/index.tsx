@@ -11,15 +11,21 @@ function HomepageHeader() {
 
   return (
     <header>
-      <div className="pt-28 md:pt-0 -ml-5 md:ml-auto flex justify-center md:absolute w-full md:w-1/3 top-20 m-auto md:right-20">
+      <div className="mt-10 pt-0 md:pt-28 md:pt-0 -ml-5 md:ml-auto flex justify-end top-10 right-12 md:top-auto md:left-auto md:justify-center absolute w-full md:w-1/3 top-20 m-auto md:right-20">
         <img
-          src="./img/TOM.png"
-          alt="Facebook Open Source Logo"
-          className="z-10 w-1/2 md:w-full"
+          className="dark:block pointer-events-none hidden dark:block z-10 w-1/4 md:w-3/4"
+          src="./img/tom_dark.png"
+          alt="tom"
+        />
+
+        <img
+          className="dark:hidden pointer-events-none sm:block z-10 w-1/4 md:w-3/4"
+          src="./img/tom_light.png"
+          alt="tom"
         />
       </div>
 
-      <div className="px-5 sm:px-12 md:px-16 relative mx-auto md:pt-24">
+      <div className="px-5 sm:px-12 md:px-16 relative mx-auto pt-10 md:pt-24">
         <h1 className="text-[32px] sm:text-[40px] mt-10 lg:mt-16 md:mt-0 md:text-[45px] lg:text-[63px] leading-10 md:leading-8 font-black text-indigo-700">
           The React Native
           <span className="font-extralight mt-4 md:mt-8 lg:mt-0 text-[66px] sm:text-[83px] md:text-[92px] lg:text-9xl block text-red-500 dark:text-red-600">Boilerplate</span>
@@ -57,8 +63,8 @@ export default function Home(): JSX.Element {
       wrapperClassName="relative overflow-hidden"
     >
       <div className="relative max-w-7xl m-auto w-full">
-        <div className="animate-blob opacity-80 absolute -top-20 -right-20 md:top-0 md:right-0 bg-gradient-to-r from-red-600 via-pink-700 to-pink-400 h-[310px] w-[310px] md:h-[350px] md:w-[350px] lg:h-[382px] lg:w-[382px]" style={{ borderRadius: '30% 70% 67% 33% / 64% 30% 70% 36%' }} />
-        <div className="animate-blob-delay-1 opacity-80 absolute top-12 right-1/4 md:top-[250px] md:right-1/4 bg-gradient-to-r from-indigo-600 via-blue-700 to-blue-400 h-[180px] w-[180px] md:h-[230px] md:w-[230px]" style={{ borderRadius: '30% 70% 67% 33% / 64% 30% 70% 36%' }} />
+        <div className="animate-blob opacity-80 absolute top-0 -right-10 md:top-0 md:right-0 bg-gradient-to-r from-indigo-600 via-blue-700 to-blue-400 h-[210px] w-[210px] md:h-[350px] md:w-[350px] lg:h-[382px] lg:w-[382px]" style={{ borderRadius: '30% 70% 67% 33% / 64% 30% 70% 36%' }} />
+        <div className="animate-blob-delay-1 opacity-80 absolute top-0 right-32 md:top-[250px] md:right-1/4 lg:right-60 bg-gradient-to-r from-red-600 via-pink-700 to-pink-400 h-[180px] w-[180px] md:h-[230px] md:w-[230px] lg:h-[282px] lg:w-[282px]" style={{ borderRadius: '30% 70% 67% 33% / 64% 30% 70% 36%' }} />
       </div>
 
       <div className="backdrop-blur-xl">

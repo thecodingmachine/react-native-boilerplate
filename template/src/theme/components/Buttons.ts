@@ -12,10 +12,20 @@ export default function <C>({ Colors, Gutters, Layout }: CommonParams<C>) {
     ...base,
     borderRadius: 10,
   };
+  const circle = {
+    ...Layout.center,
+    height: 70,
+    width: 70,
+    borderRadius: 35,
+    backgroundColor: Colors.circleButtonBackground,
+    color: Colors.circleButtonColor,
+    fill: Colors.circleButtonColor,
+  };
 
   return StyleSheet.create({
     base,
     rounded,
+    circle,
     outline: {
       ...base,
       backgroundColor: Colors.transparent,
