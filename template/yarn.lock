@@ -1773,10 +1773,10 @@
     pretty-format "^29.0.3"
     redent "^3.0.0"
 
-"@testing-library/react-native@^12.0.0-rc.0":
-  version "12.0.0-rc.0"
-  resolved "https://registry.yarnpkg.com/@testing-library/react-native/-/react-native-12.0.0-rc.0.tgz#fe0ceff4acb34d16977690521cbb1e72b9714de6"
-  integrity sha512-6znVJ9o32ZSvf4W+1jYHea5XES+Mxw3A58r6Z8cT+qinzUSZZtRDZ7AK7Nk7x7VPHogardGdnCzY6kNiML+TJg==
+"@testing-library/react-native@^12.0.0":
+  version "12.0.0"
+  resolved "https://registry.yarnpkg.com/@testing-library/react-native/-/react-native-12.0.0.tgz#6604b9daa9a32b1a4287c3b501658768adaf11c3"
+  integrity sha512-Wa7TsEbsduLaLNK9sycgIpSqC4v3tt0zzH5BIDqqNEVN+LQqeX9UdWxD6JFcKgbXJVqWvPq5Y3fzQbYqOaf9zw==
   dependencies:
     pretty-format "^29.0.0"
 
@@ -6112,10 +6112,10 @@ react-native-mmkv@^2.6.2:
   resolved "https://registry.yarnpkg.com/react-native-mmkv/-/react-native-mmkv-2.6.2.tgz#bada94035fbec37494409ab83a24fcbc68ecd2d3"
   integrity sha512-jYvOYohzwMoNBT6QI8oy4+D4JMYK+j2bnuLzr2koYjigoHsSl3TXfaCt0eErbrFIbBazP1V9j2jqACVwvPgLgA==
 
-react-native-reanimated@^3.0.0-rc.10:
-  version "3.0.0-rc.10"
-  resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-3.0.0-rc.10.tgz#40e5b628759aa81f94317fd0301231292b4eacf5"
-  integrity sha512-0P2jSO+dXHRxSzqSxNp08VaUy89nqeUIvqBS0wlI8lsli8CJcqulL3pjNqTGzBkxXjt13mGdIzJv4u9lSjHPzg==
+react-native-reanimated@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-3.0.2.tgz#8f7284fab2b0cd949779429e48f32d19a966bbd6"
+  integrity sha512-8Et90yTI9yxchGbDP79k391XZqc/64zNbASbGy8X3Vgv4EbZ1M3IkKwcIbZmbVwpA804VJ6V9nJAGUh9fP0LrA==
   dependencies:
     "@babel/plugin-transform-object-assign" "^7.16.7"
     "@babel/preset-typescript" "^7.16.7"
