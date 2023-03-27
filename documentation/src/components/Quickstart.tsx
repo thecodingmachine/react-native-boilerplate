@@ -21,7 +21,7 @@ export default function Quickstart() {
             <code className="flex items-center border-0 min-h-[65px] w-[110%] p-2 bg-neutral-100 dark:bg-neutral-900 rounded-md">
               <span className="text-black dark:text-white">
                 <span className="text-red-400">npx </span>
-                <span className="text-blue-400">react-native init </span>
+                <span className="text-blue-400">react-native@latest init </span>
                 MyApp
                 <span className="text-neutral-500 text-sm"> --template @thecodingmachine/react-native-boilerplate</span>
               </span>
@@ -31,7 +31,7 @@ export default function Quickstart() {
                 type="button"
                 className="transition-all ease-in mt-5 hover:bg-green-700 hover:text-white hover:text text-md text-white
                 font-bold py-3 px-4 rounded bg-green-500 shadow-lg shadow-green-500/50"
-                onClick={() => { navigator.clipboard.writeText('npx react-native init MyApp --template @thecodingmachine/react-native-boilerplate'); }}
+                onClick={() => { navigator.clipboard.writeText('npx react-native@latest init MyApp --template @thecodingmachine/react-native-boilerplate'); }}
               >
                 Copy and test it
                 <span className="ml-3">🧪</span>
