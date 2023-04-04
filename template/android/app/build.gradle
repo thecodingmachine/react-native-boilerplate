@@ -3,6 +3,19 @@ apply plugin: "com.facebook.react"
 
 import com.android.build.OutputFile
 
+// On top of your file import a JSON parser
+import groovy.json.JsonSlurper
+
+// Create an easy to use function
+def getVersionFromPackageJson() {
+    //  Read and parse package.json file from project root
+    def inputFile = new File("$rootDir/../package.json")
+    def packageJson = new JsonSlurper().parseText(inputFile.text)
+
+    // Return the version, you can get any value this way
+    return packageJson["version"]
+}
+
 /**
  * This is the configuration block to customize your React Native Android app.
  * By default you don't need to apply any configuration, just uncomment the lines you need.
@@ -99,7 +112,7 @@ android {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
-        versionName "1.0"
+        versionName getVersionFromPackageJson()
     }
 
     splits {
