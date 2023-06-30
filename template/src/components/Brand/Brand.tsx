@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, Image } from 'react-native';
+import { View, Image, DimensionValue } from 'react-native';
 import { useTheme } from '../../hooks';
 
 type Props = {
-  height?: number | string;
-  width?: number | string;
+  height?: DimensionValue;
+  width?: DimensionValue;
   mode?: 'contain' | 'cover' | 'stretch' | 'repeat' | 'center';
 };
 
