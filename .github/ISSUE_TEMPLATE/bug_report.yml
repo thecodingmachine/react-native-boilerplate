@@ -29,6 +29,13 @@ body:
     validations:
       required: true
   - type: checkboxes
+    id: typed
+    attributes:
+      label: Do you use TypeScript?
+      options:
+        - label: Yes
+        - label: No
+  - type: checkboxes
     id: device
     attributes:
       label: On which OS this issue appear on?
