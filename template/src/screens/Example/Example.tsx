@@ -10,22 +10,24 @@ import {
 } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { Brand } from '../../components';
-import { useTheme } from '../../hooks';
-import { useLazyFetchOneQuery } from '../../services/modules/users';
-import { changeTheme, ThemeState } from '../../store/theme';
 import i18next from 'i18next';
+
+import { useTheme } from '@/hooks';
+import { Brand } from '@/components';
+import { useLazyFetchOneQuery } from '@/services/modules/users';
+import { changeTheme, ThemeState } from '@/store/theme';
 
 const Example = () => {
   const { t } = useTranslation(['example', 'welcome']);
+
   const {
-    Common,
-    Fonts,
-    Gutters,
-    Layout,
-    Images,
-    darkMode: isDark,
+    settings: { isDark },
+    layout,
+    gutters,
+    fonts,
+    components,
   } = useTheme();
+
   const dispatch = useDispatch();
 
   const [fetchOne, { data, isSuccess, isLoading, isFetching }] =
@@ -47,26 +49,29 @@ const Example = () => {
 
   return (
     <ScrollView
-      style={Layout.fill}
+      style={layout.flex_1}
       contentContainerStyle={[
-        Layout.fullSize,
-        Layout.fill,
-        Layout.colCenter,
-        Layout.scrollSpaceBetween,
+        layout.fullHeight,
+        layout.fullWidth,
+        layout.flex_1,
+        layout.col,
+        layout.justifyCenter,
+        layout.itemsCenter,
+        // layout.scrollSpaceBetween,
       ]}
     >
       <View
         style={[
-          Layout.fill,
-          Layout.relative,
-          Layout.fullWidth,
-          Layout.justifyContentCenter,
-          Layout.alignItemsCenter,
+          layout.flex_1,
+          layout.relative,
+          layout.fullWidth,
+          layout.justifyCenter,
+          layout.itemsCenter,
         ]}
       >
         <View
           style={[
-            Layout.absolute,
+            layout.absolute,
             {
               height: 250,
               width: 250,
@@ -77,18 +82,18 @@ const Example = () => {
         />
         <Image
           style={[
-            Layout.absolute,
+            layout.absolute,
             {
               bottom: '-30%',
               left: 0,
             },
           ]}
-          source={Images.sparkles.bottomLeft}
+          source={require('@/theme/assets/images/sparkles-bottomLeft.png')}
           resizeMode={'contain'}
         />
         <View
           style={[
-            Layout.absolute,
+            layout.absolute,
             {
               height: 300,
               width: 300,
@@ -100,134 +105,130 @@ const Example = () => {
         </View>
         <Image
           style={[
-            Layout.absolute,
-            Layout.fill,
+            layout.absolute,
+            layout.flex_1,
             {
               top: 0,
               left: 0,
             },
           ]}
-          source={Images.sparkles.topLeft}
+          source={require('@/theme/assets/images/sparkles-topLeft.png')}
           resizeMode={'contain'}
         />
         <Image
           style={[
-            Layout.absolute,
+            layout.absolute,
             {
               top: '-5%',
               right: 0,
             },
           ]}
-          source={Images.sparkles.top}
+          source={require('@/theme/assets/images/sparkles-top.png')}
           resizeMode={'contain'}
         />
         <Image
           style={[
-            Layout.absolute,
+            layout.absolute,
             {
               top: '15%',
               right: 20,
             },
           ]}
-          source={Images.sparkles.topRight}
+          source={require('@/theme/assets/images/sparkles-topRight.png')}
           resizeMode={'contain'}
         />
         <Image
           style={[
-            Layout.absolute,
+            layout.absolute,
             {
               bottom: '-10%',
               right: 0,
             },
           ]}
-          source={Images.sparkles.right}
+          source={require('@/theme/assets/images/sparkles-right.png')}
           resizeMode={'contain'}
         />
 
         <Image
           style={[
-            Layout.absolute,
+            layout.absolute,
             {
               top: '75%',
               right: 0,
             },
           ]}
-          source={Images.sparkles.bottom}
+          source={require('@/theme/assets/images/sparkles-bottom.png')}
           resizeMode={'contain'}
         />
         <Image
           style={[
-            Layout.absolute,
+            layout.absolute,
             {
               top: '60%',
               right: 0,
             },
           ]}
-          source={Images.sparkles.bottomRight}
+          source={require('@/theme/assets/images/sparkles-bottomRight.png')}
           resizeMode={'contain'}
         />
       </View>
       <View
         style={[
-          Layout.fill,
-          Layout.justifyContentBetween,
-          Layout.alignItemsStart,
-          Layout.fullWidth,
-          Gutters.regularHPadding,
+          layout.flex_1,
+          layout.justifyBetween,
+          layout.itemsStart,
+          layout.fullWidth,
+          gutters.paddingHorizontal_20,
         ]}
       >
         <View>
-          <Text style={[Fonts.titleRegular]}>{t('welcome:title')}</Text>
-          <Text
-            style={[Fonts.textBold, Fonts.textRegular, Gutters.regularBMargin]}
-          >
+          <Text style={[fonts.font_40]}>{t('welcome:title')}</Text>
+          <Text style={[fonts.bold, fonts.font_16, gutters.marginBottom_10]}>
             {t('welcome:subtitle')}
           </Text>
-          <Text style={[Fonts.textSmall, Fonts.textLight]}>
-            {t('welcome:description')}
-          </Text>
+          <Text style={[fonts.font_14]}>{t('welcome:description')}</Text>
         </View>
 
         <View
           style={[
-            Layout.row,
-            Layout.justifyContentBetween,
-            Layout.fullWidth,
-            Gutters.smallTMargin,
+            layout.row,
+            layout.justifyBetween,
+            layout.fullWidth,
+            gutters.marginTop_10,
           ]}
         >
           <TouchableOpacity
-            style={[Common.button.circle, Gutters.regularBMargin]}
+            style={[components.buttons.circle, gutters.marginBottom_10]}
             onPress={() => fetchOne(`${Math.ceil(Math.random() * 10 + 1)}`)}
           >
             {isFetching || isLoading ? (
               <ActivityIndicator />
             ) : (
               <Image
-                source={Images.icons.send}
+                source={require('@/theme/assets/images/send.png')}
                 style={{ tintColor: isDark ? '#A6A4F0' : '#44427D' }}
               />
             )}
           </TouchableOpacity>
 
           <TouchableOpacity
-            style={[Common.button.circle, Gutters.regularBMargin]}
+            style={[components.buttons.circle, gutters.marginBottom_10]}
             onPress={() => onChangeTheme({ darkMode: !isDark })}
           >
             <Image
-              source={Images.icons.colors}
+              source={require('@/theme/assets/images/colorswatch.png')}
               style={{ tintColor: isDark ? '#A6A4F0' : '#44427D' }}
             />
           </TouchableOpacity>
 
           <TouchableOpacity
-            style={[Common.button.circle, Gutters.regularBMargin]}
+            style={[components.buttons.circle, gutters.marginBottom_10]}
             onPress={() =>
               onChangeLanguage(i18next.language === 'fr' ? 'en' : 'fr')
             }
           >
             <Image
-              source={Images.icons.translate}
+              source={require('@/theme/assets/images/translate.png')}
               style={{ tintColor: isDark ? '#A6A4F0' : '#44427D' }}
             />
           </TouchableOpacity>
