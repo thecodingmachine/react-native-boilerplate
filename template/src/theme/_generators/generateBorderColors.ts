@@ -1,9 +1,7 @@
 import { BorderColors } from 'types/theme/borders';
-import { FulfilledThemeConfiguration } from 'types/theme/config';
+import { UnionConfiguration } from 'types/theme/config';
 
-export default <Config extends FulfilledThemeConfiguration>(
-  configuration: Config,
-) => {
+export default (configuration: UnionConfiguration) => {
   return Object.entries(configuration.borders ?? {}).reduce(
     (acc, [key, value]) => {
       return Object.assign(acc, {
@@ -12,6 +10,6 @@ export default <Config extends FulfilledThemeConfiguration>(
         },
       });
     },
-    {} as BorderColors<Config>,
+    {} as BorderColors,
   );
 };

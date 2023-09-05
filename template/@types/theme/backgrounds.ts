@@ -1,20 +1,14 @@
-import { config } from '@/theme/theme.config';
-
 import { RemoveBeforeSeparator } from './common';
-import { FulfilledThemeConfiguration } from './config';
+import { UnionConfiguration } from './config';
 
-type BackgroundKeys<
-  Config extends FulfilledThemeConfiguration = typeof config,
-> = keyof Config['backgrounds'] extends string
-  ? `bg_${keyof Config['backgrounds']}`
+type BackgroundKeys = keyof UnionConfiguration['backgrounds'] extends string
+  ? `bg_${keyof UnionConfiguration['backgrounds']}`
   : never;
 
-export type Backgrounds<
-  Config extends FulfilledThemeConfiguration = typeof config,
-> = {
-  [key in BackgroundKeys<Config>]: RemoveBeforeSeparator<key> extends keyof Config['backgrounds']
+export type Backgrounds = {
+  [key in BackgroundKeys]: RemoveBeforeSeparator<key> extends keyof UnionConfiguration['backgrounds']
     ? {
-        backgroundColor: Config['backgrounds'][RemoveBeforeSeparator<key>];
+        backgroundColor: UnionConfiguration['backgrounds'][RemoveBeforeSeparator<key>];
       }
     : never;
 };

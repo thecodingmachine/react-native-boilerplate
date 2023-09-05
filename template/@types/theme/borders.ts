@@ -1,19 +1,17 @@
 import { config } from '@/theme/theme.config';
 
 import { ArrayValue, RemoveBeforeSeparator, ToNumber } from './common';
-import { FulfilledThemeConfiguration } from './config';
+import { UnionConfiguration } from './config';
 
-type BorderColorKeys<Config extends FulfilledThemeConfiguration> =
-  keyof Config['borders']['colors'] extends string
-    ? `border_${keyof Config['borders']['colors']}`
+type BorderColorKeys =
+  keyof UnionConfiguration['borders']['colors'] extends string
+    ? `border_${keyof UnionConfiguration['borders']['colors']}`
     : never;
 
-export type BorderColors<
-  Config extends FulfilledThemeConfiguration = typeof config,
-> = {
-  [key in BorderColorKeys<Config>]: RemoveBeforeSeparator<key> extends keyof Config['borders']['colors']
+export type BorderColors = {
+  [key in BorderColorKeys]: RemoveBeforeSeparator<key> extends keyof UnionConfiguration['borders']['colors']
     ? {
-        borderColor: Config['borders']['colors'][RemoveBeforeSeparator<key>];
+        borderColor: UnionConfiguration['borders']['colors'][RemoveBeforeSeparator<key>];
       }
     : never;
 };
@@ -34,6 +32,4 @@ export type BorderWidths = {
   };
 };
 
-export type Borders<
-  Config extends FulfilledThemeConfiguration = typeof config,
-> = BorderColors<Config> & BorderRadius & BorderWidths;
+export type Borders = BorderColors & BorderRadius & BorderWidths;

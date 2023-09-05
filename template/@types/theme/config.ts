@@ -1,6 +1,8 @@
 import { config } from '@/theme/theme.config';
+import { generateConfig } from '@/theme/_generators';
 
 import { AllPartial } from './common';
+
 import type { Theme as NavigationTheme } from '@react-navigation/native';
 
 export type Variant = keyof typeof config.variants | 'default';
@@ -40,3 +42,5 @@ export type ThemeConfiguration = FulfilledThemeConfiguration & {
     [key: PropertyKey]: AllPartial<VariantThemeConfiguration>;
   };
 };
+
+export type UnionConfiguration = ReturnType<typeof generateConfig>;

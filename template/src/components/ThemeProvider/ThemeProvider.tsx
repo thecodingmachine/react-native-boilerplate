@@ -23,9 +23,7 @@ import { FulfilledThemeConfiguration, ThemeState } from 'types/theme/config';
 
 type Props = PropsWithChildren;
 
-export type Context = Theme<ReturnType<typeof generateConfig>>;
-
-export const ThemeContext = createContext<Context | undefined>(undefined);
+export const ThemeContext = createContext<Theme | undefined>(undefined);
 
 const ThemeProvider = ({ children }: Props) => {
   const variant = useSelector(
@@ -44,19 +42,19 @@ const ThemeProvider = ({ children }: Props) => {
     return Object.assign(
       {},
       generateFontSizes(),
-      generateFontColors<typeof fullConfig>(fullConfig),
+      generateFontColors(fullConfig),
       fontsOverrides,
     );
   }, [fullConfig]);
 
   const backgrounds = useMemo(() => {
-    return generateBackgrounds<typeof fullConfig>(fullConfig);
+    return generateBackgrounds(fullConfig);
   }, [fullConfig]);
 
   const borders = useMemo(() => {
     return Object.assign(
       {},
-      generateBorderColors<typeof fullConfig>(fullConfig),
+      generateBorderColors(fullConfig),
       generateBorderRadius(),
       generateBorderWidths(),
     );
@@ -97,7 +95,7 @@ const ThemeProvider = ({ children }: Props) => {
     return Object.assign(theme, {
       navigationTheme,
       components,
-    }) satisfies Theme<typeof fullConfig>;
+    }) satisfies Theme;
   }, [theme, navigationTheme, components]);
 
   return (

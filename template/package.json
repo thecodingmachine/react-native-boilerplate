@@ -58,7 +58,7 @@
     "react-native-flipper": "^0.202.0",
     "react-test-renderer": "18.2.0",
     "redux-flipper": "^2.0.2",
-    "typescript": "5.2.2"
+    "typescript": "4.9.5"
   },
   "engines": {
     "node": ">=16"
