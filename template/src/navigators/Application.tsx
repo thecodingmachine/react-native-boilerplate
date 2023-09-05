@@ -16,11 +16,7 @@ const Stack = createStackNavigator<ApplicationStackParamList>();
 
 // @refresh reset
 const ApplicationNavigator = () => {
-  const {
-    Layout,
-    settings: { isDark },
-    NavigationTheme,
-  } = useTheme();
+  const { variant, layout, navigationTheme } = useTheme();
 
   const navigationRef = useNavigationContainerRef();
 
@@ -28,10 +24,15 @@ const ApplicationNavigator = () => {
 
   return (
     <SafeAreaView
-      style={[Layout.flex_1, { backgroundColor: NavigationTheme.colors.card }]}
+      style={[
+        layout.flex_1,
+        { backgroundColor: navigationTheme.colors.background },
+      ]}
     >
-      <NavigationContainer theme={NavigationTheme} ref={navigationRef}>
-        <StatusBar barStyle={isDark ? 'light-content' : 'dark-content'} />
+      <NavigationContainer theme={navigationTheme} ref={navigationRef}>
+        <StatusBar
+          barStyle={variant === 'dark' ? 'light-content' : 'dark-content'}
+        />
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Startup" component={Startup} />
           <Stack.Screen name="Main" component={MainNavigator} />

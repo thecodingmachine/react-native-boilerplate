@@ -33,3 +33,7 @@ export type BorderWidths = {
     borderWidth: ToNumber<RemoveBeforeSeparator<key>>;
   };
 };
+
+export type Borders<
+  Config extends FulfilledThemeConfiguration = typeof config,
+> = BorderColors<Config> & BorderRadius & BorderWidths;

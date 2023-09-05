@@ -3,8 +3,8 @@ slug: /Theme
 title: Theme 🎨
 ---
 
-The Theme folder, at the root of project, includes a nice kit for building and maintaining the UI of application.
-It helps with variables and reusable classes to create harmony between application screens.
+The Theme is drived by a simple config file inspired by tailwind.
+It provides a set of default variables and variants to build your application themes.
 
 ## How to use ❓
 
@@ -13,7 +13,7 @@ The boilerplate provides a custom hook called `useTheme` and you can use it like
 ```jsx
 import { useTheme } from '@/Hooks'
 
-const Brand = ({ height = 200, width = 200, mode = 'contain' }) => {
+const ExampleComponent = () => {
   const {
     Common,
     Fonts,
@@ -26,11 +26,7 @@ const Brand = ({ height = 200, width = 200, mode = 'contain' }) => {
     MetricsSizes,
   } = useTheme() // <- custom hook
 
-  return (
-    <View style={{ height, width }}>
-      <Image style={Layout.fullSize} source={Images.logo} resizeMode={mode} />
-    </View>
-  )
+  //...
 }
 ```
 ---

@@ -3,9 +3,11 @@ import { config } from '@/theme/theme.config';
 export type ArrayValue<T extends readonly any[]> = T[number];
 
 export type RemoveAfterSeparator<S extends string> =
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   S extends `${infer Before}_${infer _}` ? Before : S;
 
 export type RemoveBeforeSeparator<S extends string> =
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   S extends `${infer _}_${infer After}` ? After : S;
 
 export type ToNumber<

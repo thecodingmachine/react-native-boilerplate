@@ -8,21 +8,12 @@ import { ApplicationScreenProps } from 'types/navigation';
 const Startup = ({ navigation }: ApplicationScreenProps) => {
   const { layout, gutters } = useTheme();
 
-  const init = async () => {
-    await new Promise(resolve =>
-      setTimeout(() => {
-        resolve(true);
-      }, 2000),
-    );
-    await setDefaultTheme({ theme: 'default', darkMode: null });
+  useEffect(() => {
+    setDefaultTheme({ variant: 'default' });
     navigation.reset({
       index: 0,
       routes: [{ name: 'Main' }],
     });
-  };
-
-  useEffect(() => {
-    init();
   }, []);
 
   return (

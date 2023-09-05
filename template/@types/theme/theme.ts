@@ -6,27 +6,23 @@ import { FulfilledThemeConfiguration, Variant } from './config';
 import { Gutters } from './gutters';
 import { Fonts } from './fonts';
 import { Backgrounds } from './backgrounds';
-import { BorderColors } from './borders';
+import { Borders } from './borders';
 import { Components } from './components';
+import { generateConfig } from '@/theme/_generators';
 
 export type Theme<Config extends FulfilledThemeConfiguration = typeof config> =
   {
+    variant: Variant;
     layout: typeof layout;
     gutters: Gutters;
     fonts: Fonts<Config>;
     backgrounds: Backgrounds<Config>;
-    borders: BorderColors<Config>;
+    borders: Borders<Config>;
     navigationTheme: NavigationTheme;
     components: Components;
   };
 
-export type ThemeSettings = {
-  settings: {
-    isDark: boolean;
-    variant: Variant;
-  };
-};
-
-export type ComponentTheme<
-  Config extends FulfilledThemeConfiguration = typeof config,
-> = ThemeSettings & Omit<Theme<Config>, 'components' | 'navigationTheme'>;
+export type ComponentTheme = Omit<
+  Theme<ReturnType<typeof generateConfig>>,
+  'components' | 'navigationTheme'
+>;

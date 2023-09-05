@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, Image, DimensionValue } from 'react-native';
+import { View, DimensionValue } from 'react-native';
 import { useTheme } from '../../hooks';
+import ImageVariant from '@/components/ImageVariant/ImageVariant';
 
 type Props = {
   height?: DimensionValue;
@@ -9,14 +10,15 @@ type Props = {
 };
 
 const Brand = ({ height, width, mode }: Props) => {
-  const { Layout, Images } = useTheme();
+  const { layout } = useTheme();
 
   return (
     <View testID={'brand-img-wrapper'} style={{ height, width }}>
-      <Image
+      <ImageVariant
         testID={'brand-img'}
-        style={Layout.fullSize}
-        source={Images.logo}
+        style={[layout.fullHeight, layout.fullWidth]}
+        source={require('@/theme/assets/images/tom_light.png')}
+        sourceDark={require('@/theme/assets/images/tom_dark.png')}
         resizeMode={mode}
       />
     </View>

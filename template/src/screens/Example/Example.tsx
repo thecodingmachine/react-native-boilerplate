@@ -5,7 +5,6 @@ import {
   Text,
   TouchableOpacity,
   ScrollView,
-  Image,
   Alert,
 } from 'react-native';
 import { useDispatch } from 'react-redux';
@@ -15,18 +14,14 @@ import i18next from 'i18next';
 import { useTheme } from '@/hooks';
 import { Brand } from '@/components';
 import { useLazyFetchOneQuery } from '@/services/modules/users';
-import { changeTheme, ThemeState } from '@/store/theme';
+import { changeTheme } from '@/store/theme';
+import ImageVariant from '@/components/ImageVariant/ImageVariant';
 
 const Example = () => {
   const { t } = useTranslation(['example', 'welcome']);
 
-  const {
-    settings: { isDark },
-    layout,
-    gutters,
-    fonts,
-    components,
-  } = useTheme();
+  const { variant, layout, gutters, fonts, components, backgrounds, borders } =
+    useTheme();
 
   const dispatch = useDispatch();
 
@@ -39,8 +34,10 @@ const Example = () => {
     }
   }, [isSuccess, data]);
 
-  const onChangeTheme = ({ theme, darkMode }: Partial<ThemeState>) => {
-    dispatch(changeTheme({ theme, darkMode }));
+  const onChangeTheme = () => {
+    dispatch(
+      changeTheme({ variant: variant === 'default' ? 'dark' : 'default' }),
+    );
   };
 
   const onChangeLanguage = (lang: 'fr' | 'en') => {
@@ -49,15 +46,12 @@ const Example = () => {
 
   return (
     <ScrollView
-      style={layout.flex_1}
+      style={[layout.flex_1]}
       contentContainerStyle={[
-        layout.fullHeight,
-        layout.fullWidth,
         layout.flex_1,
         layout.col,
         layout.justifyCenter,
         layout.itemsCenter,
-        // layout.scrollSpaceBetween,
       ]}
     >
       <View
@@ -72,15 +66,15 @@ const Example = () => {
         <View
           style={[
             layout.absolute,
+            backgrounds.bg_gray_200,
+            borders.rounded_140,
             {
               height: 250,
               width: 250,
-              backgroundColor: isDark ? '#000000' : '#DFDFDF',
-              borderRadius: 140,
             },
           ]}
         />
-        <Image
+        <ImageVariant
           style={[
             layout.absolute,
             {
@@ -88,7 +82,7 @@ const Example = () => {
               left: 0,
             },
           ]}
-          source={require('@/theme/assets/images/sparkles-bottomLeft.png')}
+          source={require('@/theme/assets/images/sparkles-bottom-left.png')}
           resizeMode={'contain'}
         />
         <View
@@ -103,7 +97,7 @@ const Example = () => {
         >
           <Brand height={300} width={300} />
         </View>
-        <Image
+        <ImageVariant
           style={[
             layout.absolute,
             layout.flex_1,
@@ -112,10 +106,10 @@ const Example = () => {
               left: 0,
             },
           ]}
-          source={require('@/theme/assets/images/sparkles-topLeft.png')}
+          source={require('@/theme/assets/images/sparkles-top-left.png')}
           resizeMode={'contain'}
         />
-        <Image
+        <ImageVariant
           style={[
             layout.absolute,
             {
@@ -124,9 +118,10 @@ const Example = () => {
             },
           ]}
           source={require('@/theme/assets/images/sparkles-top.png')}
+          sourceDark={require('@/theme/assets/images/sparkles-bottom.png')}
           resizeMode={'contain'}
         />
-        <Image
+        <ImageVariant
           style={[
             layout.absolute,
             {
@@ -134,10 +129,10 @@ const Example = () => {
               right: 20,
             },
           ]}
-          source={require('@/theme/assets/images/sparkles-topRight.png')}
+          source={require('@/theme/assets/images/sparkles-top-right.png')}
           resizeMode={'contain'}
         />
-        <Image
+        <ImageVariant
           style={[
             layout.absolute,
             {
@@ -149,7 +144,7 @@ const Example = () => {
           resizeMode={'contain'}
         />
 
-        <Image
+        <ImageVariant
           style={[
             layout.absolute,
             {
@@ -158,9 +153,10 @@ const Example = () => {
             },
           ]}
           source={require('@/theme/assets/images/sparkles-bottom.png')}
+          sourceDark={require('@/theme/assets/images/sparkles-top.png')}
           resizeMode={'contain'}
         />
-        <Image
+        <ImageVariant
           style={[
             layout.absolute,
             {
@@ -168,7 +164,7 @@ const Example = () => {
               right: 0,
             },
           ]}
-          source={require('@/theme/assets/images/sparkles-bottomRight.png')}
+          source={require('@/theme/assets/images/sparkles-bottom-right.png')}
           resizeMode={'contain'}
         />
       </View>
@@ -178,15 +174,27 @@ const Example = () => {
           layout.justifyBetween,
           layout.itemsStart,
           layout.fullWidth,
-          gutters.paddingHorizontal_20,
+          gutters.paddingHorizontal_30,
+          gutters.marginTop_30,
         ]}
       >
         <View>
-          <Text style={[fonts.font_40]}>{t('welcome:title')}</Text>
-          <Text style={[fonts.bold, fonts.font_16, gutters.marginBottom_10]}>
+          <Text style={[fonts.font_40, fonts.text_gray_800, fonts.bold]}>
+            {t('welcome:title')}
+          </Text>
+          <Text
+            style={[
+              fonts.text_gray_400,
+              fonts.bold,
+              fonts.font_20,
+              gutters.marginBottom_30,
+            ]}
+          >
             {t('welcome:subtitle')}
           </Text>
-          <Text style={[fonts.font_14]}>{t('welcome:description')}</Text>
+          <Text style={[fonts.font_16, fonts.text_gray_200]}>
+            {t('welcome:description')}
+          </Text>
         </View>
 
         <View
@@ -204,20 +212,20 @@ const Example = () => {
             {isFetching || isLoading ? (
               <ActivityIndicator />
             ) : (
-              <Image
+              <ImageVariant
                 source={require('@/theme/assets/images/send.png')}
-                style={{ tintColor: isDark ? '#A6A4F0' : '#44427D' }}
+                style={{ tintColor: backgrounds.bg_purple_500.backgroundColor }}
               />
             )}
           </TouchableOpacity>
 
           <TouchableOpacity
             style={[components.buttons.circle, gutters.marginBottom_10]}
-            onPress={() => onChangeTheme({ darkMode: !isDark })}
+            onPress={() => onChangeTheme()}
           >
-            <Image
+            <ImageVariant
               source={require('@/theme/assets/images/colorswatch.png')}
-              style={{ tintColor: isDark ? '#A6A4F0' : '#44427D' }}
+              style={{ tintColor: backgrounds.bg_purple_500.backgroundColor }}
             />
           </TouchableOpacity>
 
@@ -227,9 +235,9 @@ const Example = () => {
               onChangeLanguage(i18next.language === 'fr' ? 'en' : 'fr')
             }
           >
-            <Image
+            <ImageVariant
               source={require('@/theme/assets/images/translate.png')}
-              style={{ tintColor: isDark ? '#A6A4F0' : '#44427D' }}
+              style={{ tintColor: backgrounds.bg_purple_500.backgroundColor }}
             />
           </TouchableOpacity>
         </View>

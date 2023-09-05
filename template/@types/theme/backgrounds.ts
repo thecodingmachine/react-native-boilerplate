@@ -3,10 +3,11 @@ import { config } from '@/theme/theme.config';
 import { RemoveBeforeSeparator } from './common';
 import { FulfilledThemeConfiguration } from './config';
 
-type BackgroundKeys<Config extends FulfilledThemeConfiguration> =
-  keyof Config['backgrounds'] extends string
-    ? `bg_${keyof Config['backgrounds']}`
-    : never;
+type BackgroundKeys<
+  Config extends FulfilledThemeConfiguration = typeof config,
+> = keyof Config['backgrounds'] extends string
+  ? `bg_${keyof Config['backgrounds']}`
+  : never;
 
 export type Backgrounds<
   Config extends FulfilledThemeConfiguration = typeof config,

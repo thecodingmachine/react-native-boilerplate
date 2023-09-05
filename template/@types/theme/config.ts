@@ -7,7 +7,6 @@ export type Variant = keyof typeof config.variants | 'default';
 
 export type ThemeState = {
   variant: Variant;
-  darkMode: boolean | null;
 };
 
 export type FulfilledThemeConfiguration = {
@@ -22,7 +21,7 @@ export type FulfilledThemeConfiguration = {
     radius: readonly number[];
     readonly colors: Record<string, string>;
   };
-  readonly navigationColors?: Partial<NavigationTheme['colors']>;
+  readonly navigationColors: NavigationTheme['colors'];
 };
 
 export type VariantThemeConfiguration = {

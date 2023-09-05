@@ -5,8 +5,8 @@ import { FontSizes } from 'types/theme/fonts';
 export default () => {
   return config.fonts.sizes.reduce((acc, size) => {
     return Object.assign(acc, {
-      [`text_${size}`]: {
-        color: size,
+      [`font_${size}`]: {
+        fontSize: size,
       },
     });
   }, {} as FontSizes);
