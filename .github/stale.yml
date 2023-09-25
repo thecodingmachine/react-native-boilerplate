@@ -1,5 +1,5 @@
-daysUntilStale: 20
-daysUntilClose: 7
+daysUntilStale: 10
+daysUntilClose: 3
 exemptLabels:
   - ":bulb: feature request/idea"
   - ":bug: bug"

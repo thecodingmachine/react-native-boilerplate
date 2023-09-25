@@ -1,5 +1,1 @@
-import buttons from './buttons';
-
-export default {
-  buttons,
-} as const;
+export { default as buttons } from './buttons';

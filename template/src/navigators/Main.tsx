@@ -1,10 +1,12 @@
 import React from 'react';
-import { Example } from '../screens';
 import { createStackNavigator } from '@react-navigation/stack';
 
-const Stack = createStackNavigator();
+import { Example } from '@/screens';
 
-// @refresh reset
+import { MainParamsList } from 'types/navigation';
+
+const Stack = createStackNavigator<MainParamsList>();
+
 const MainNavigator = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>

@@ -5,16 +5,16 @@ import {
   NavigationContainer,
   useNavigationContainerRef,
 } from '@react-navigation/native';
-import { Startup } from '../screens';
-import { useTheme } from '../hooks';
-import MainNavigator from './Main';
 import { useFlipper } from '@react-navigation/devtools';
+
+import { Startup } from '@/screens';
+import { useTheme } from '@/hooks';
+import MainNavigator from './Main';
 
 import { ApplicationStackParamList } from 'types/navigation';
 
 const Stack = createStackNavigator<ApplicationStackParamList>();
 
-// @refresh reset
 const ApplicationNavigator = () => {
   const { variant, layout, navigationTheme } = useTheme();
 

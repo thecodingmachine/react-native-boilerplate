@@ -1,4 +1,4 @@
-import { config } from '../theme.config';
+import { config } from '@/theme/theme.config';
 
 import { FontSizes } from 'types/theme/fonts';
 

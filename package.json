@@ -30,18 +30,5 @@
     "kleur": "^4.1.4",
     "prompts": "^2.4.1"
   },
-  "devDependencies": {
-    "@commitlint/cli": "^16.0.2",
-    "@commitlint/config-conventional": "^16.0.0",
-    "@commitlint/cz-commitlint": "^16.0.0",
-    "@commitlint/prompt-cli": "^16.0.0",
-    "commitizen": "^4.2.4",
-    "cz-conventional-changelog": "^3.3.0",
-    "husky": "^7.0.4"
-  },
-  "config": {
-    "commitizen": {
-      "path": "@commitlint/cz-commitlint"
-    }
-  }
+  "devDependencies": {}
 }

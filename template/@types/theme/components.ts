@@ -1,4 +1,4 @@
-import componentGenerators from '@/theme/components';
+import * as componentGenerators from '@/theme/components';
 import { ComponentTheme } from 'types/theme/theme';
 
 type FunctionToReturn<O extends object> = {

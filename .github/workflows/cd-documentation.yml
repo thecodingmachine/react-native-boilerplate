@@ -5,6 +5,8 @@ on:
     branches: [ main ]
     paths:
       - documentation/**/*
+      - template/theme/**/*
+      - template/package.json
 
 jobs:
   deploy_doc:
@@ -13,7 +15,7 @@ jobs:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
-          node-version: '16.x'
+          node-version: '19.x'
       - name: Add key to allow access to repository
         env:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock

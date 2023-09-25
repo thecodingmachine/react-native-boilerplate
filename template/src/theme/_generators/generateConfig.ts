@@ -1,4 +1,4 @@
-import { config } from '../theme.config';
+import { config } from '@/theme/theme.config';
 
 import { Variant } from 'types/theme/config';
 import { hasProperty } from 'types/theme/common';

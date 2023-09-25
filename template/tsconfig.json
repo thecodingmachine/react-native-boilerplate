@@ -3,10 +3,10 @@
   "compilerOptions": {
     "types": ["react-native", "jest", "node"],
     "typeRoots": [
-      "@types",
+      "./@types",
       "./node_modules/@types"
     ],
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
       "types/*": ["./@types/*"]

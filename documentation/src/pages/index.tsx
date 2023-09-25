@@ -33,16 +33,17 @@ function HomepageHeader() {
         <p className="mt-6 sm:mt-12 lg:mt-5 w-full sm:w-2/3 md:w-1/2 text-sm font-bold ml-1 text-slate-700 dark:text-white">
           {siteConfig.tagline}
           <span className="ml-1 text-slate-400">
-            Discover the best React Native boilerplate for your project
-            with a really simple architecture based on Separation of Concerns,
-            and let the community build around it.
+            Explore the optimal React Native boilerplate for your project,
+            featuring a straightforward architecture
+            founded on the principle of Separation of Concerns.
+            Join our vibrant community and watch it flourish.
           </span>
         </p>
 
         <div className="py-10">
           <Link
             className="transition-all ease-in hover:bg-red-700 hover:text-white hover:text text-md text-white font-bold py-3 px-4 rounded bg-red-500 shadow-lg shadow-red-500/50"
-            to="/docs/Introduction"
+            to="/docs/getting-started"
           >
             Get started
             <span className="ml-3">🚀</span>

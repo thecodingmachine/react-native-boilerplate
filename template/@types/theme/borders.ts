@@ -4,9 +4,7 @@ import { ArrayValue, RemoveBeforeSeparator, ToNumber } from './common';
 import { UnionConfiguration } from './config';
 
 type BorderColorKeys =
-  keyof UnionConfiguration['borders']['colors'] extends string
-    ? `border_${keyof UnionConfiguration['borders']['colors']}`
-    : never;
+  `border_${keyof UnionConfiguration['borders']['colors']}`;
 
 export type BorderColors = {
   [key in BorderColorKeys]: RemoveBeforeSeparator<key> extends keyof UnionConfiguration['borders']['colors']

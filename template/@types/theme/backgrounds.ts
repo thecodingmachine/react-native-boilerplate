@@ -1,9 +1,7 @@
 import { RemoveBeforeSeparator } from './common';
 import { UnionConfiguration } from './config';
 
-type BackgroundKeys = keyof UnionConfiguration['backgrounds'] extends string
-  ? `bg_${keyof UnionConfiguration['backgrounds']}`
-  : never;
+type BackgroundKeys = `bg_${keyof UnionConfiguration['backgrounds']}`;
 
 export type Backgrounds = {
   [key in BackgroundKeys]: RemoveBeforeSeparator<key> extends keyof UnionConfiguration['backgrounds']

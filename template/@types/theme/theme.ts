@@ -1,4 +1,4 @@
-import { layout } from '@/theme/overrides/layout';
+import { layout } from '@/theme/static';
 
 import type { Theme as NavigationTheme } from '@react-navigation/native';
 import { Variant } from './config';

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   ActivityIndicator,
@@ -7,37 +7,48 @@ import {
   ScrollView,
   Alert,
 } from 'react-native';
-import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
+import { useQuery } from '@tanstack/react-query';
 
 import { useTheme } from '@/hooks';
-import { Brand } from '@/components';
-import { useLazyFetchOneQuery } from '@/services/modules/users';
-import { changeTheme } from '@/store/theme';
-import ImageVariant from '@/components/ImageVariant/ImageVariant';
+import { ImageVariant } from '@/components/atoms';
+import { Brand } from '@/components/molecules';
+import { fetchOne } from '@/services/users';
 
 const Example = () => {
   const { t } = useTranslation(['example', 'welcome']);
 
-  const { variant, layout, gutters, fonts, components, backgrounds, borders } =
-    useTheme();
+  const {
+    variant,
+    changeTheme,
+    layout,
+    gutters,
+    fonts,
+    components,
+    backgrounds,
+    borders,
+  } = useTheme();
 
-  const dispatch = useDispatch();
+  const [currentId, setCurrentId] = useState(-1);
 
-  const [fetchOne, { data, isSuccess, isLoading, isFetching }] =
-    useLazyFetchOneQuery();
+  const { isSuccess, data, isFetching } = useQuery({
+    queryKey: ['example', currentId],
+    queryFn: () => {
+      return fetchOne(currentId);
+    },
+    select: response => response.data,
+    enabled: currentId >= 0,
+  });
 
   useEffect(() => {
     if (isSuccess && data?.name) {
-      Alert.alert(t('example:helloUser', { name: data.name }));
+      Alert.alert(t('example:welcome', data.name));
     }
   }, [isSuccess, data]);
 
   const onChangeTheme = () => {
-    dispatch(
-      changeTheme({ variant: variant === 'default' ? 'dark' : 'default' }),
-    );
+    changeTheme(variant === 'default' ? 'dark' : 'default');
   };
 
   const onChangeLanguage = (lang: 'fr' | 'en') => {
@@ -74,17 +85,7 @@ const Example = () => {
             },
           ]}
         />
-        <ImageVariant
-          style={[
-            layout.absolute,
-            {
-              bottom: '-30%',
-              left: 0,
-            },
-          ]}
-          source={require('@/theme/assets/images/sparkles-bottom-left.png')}
-          resizeMode={'contain'}
-        />
+
         <View
           style={[
             layout.absolute,
@@ -97,77 +98,8 @@ const Example = () => {
         >
           <Brand height={300} width={300} />
         </View>
-        <ImageVariant
-          style={[
-            layout.absolute,
-            layout.flex_1,
-            {
-              top: 0,
-              left: 0,
-            },
-          ]}
-          source={require('@/theme/assets/images/sparkles-top-left.png')}
-          resizeMode={'contain'}
-        />
-        <ImageVariant
-          style={[
-            layout.absolute,
-            {
-              top: '-5%',
-              right: 0,
-            },
-          ]}
-          source={require('@/theme/assets/images/sparkles-top.png')}
-          sourceDark={require('@/theme/assets/images/sparkles-bottom.png')}
-          resizeMode={'contain'}
-        />
-        <ImageVariant
-          style={[
-            layout.absolute,
-            {
-              top: '15%',
-              right: 20,
-            },
-          ]}
-          source={require('@/theme/assets/images/sparkles-top-right.png')}
-          resizeMode={'contain'}
-        />
-        <ImageVariant
-          style={[
-            layout.absolute,
-            {
-              bottom: '-10%',
-              right: 0,
-            },
-          ]}
-          source={require('@/theme/assets/images/sparkles-right.png')}
-          resizeMode={'contain'}
-        />
-
-        <ImageVariant
-          style={[
-            layout.absolute,
-            {
-              top: '75%',
-              right: 0,
-            },
-          ]}
-          source={require('@/theme/assets/images/sparkles-bottom.png')}
-          sourceDark={require('@/theme/assets/images/sparkles-top.png')}
-          resizeMode={'contain'}
-        />
-        <ImageVariant
-          style={[
-            layout.absolute,
-            {
-              top: '60%',
-              right: 0,
-            },
-          ]}
-          source={require('@/theme/assets/images/sparkles-bottom-right.png')}
-          resizeMode={'contain'}
-        />
       </View>
+
       <View
         style={[
           layout.flex_1,
@@ -206,10 +138,11 @@ const Example = () => {
           ]}
         >
           <TouchableOpacity
+            testID={'fetch-user-button'}
             style={[components.buttons.circle, gutters.marginBottom_10]}
-            onPress={() => fetchOne(`${Math.ceil(Math.random() * 10 + 1)}`)}
+            onPress={() => setCurrentId(Math.ceil(Math.random() * 10 + 1))}
           >
-            {isFetching || isLoading ? (
+            {isFetching ? (
               <ActivityIndicator />
             ) : (
               <ImageVariant
@@ -220,6 +153,7 @@ const Example = () => {
           </TouchableOpacity>
 
           <TouchableOpacity
+            testID={'change-theme-button'}
             style={[components.buttons.circle, gutters.marginBottom_10]}
             onPress={() => onChangeTheme()}
           >
@@ -230,6 +164,7 @@ const Example = () => {
           </TouchableOpacity>
 
           <TouchableOpacity
+            testID={'change-language-button'}
             style={[components.buttons.circle, gutters.marginBottom_10]}
             onPress={() =>
               onChangeLanguage(i18next.language === 'fr' ? 'en' : 'fr')

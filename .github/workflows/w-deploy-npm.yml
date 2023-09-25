@@ -24,7 +24,7 @@ jobs:
           ref: ${{ inputs.checkout_ref }}
       - uses: actions/setup-node@v1
         with:
-          node-version: 14
+          node-version: '19.x'
       - run: |
           git config --global user.name "RNB Bot"
           git config --global user.email "jeremy.dolle34@gmail.com"

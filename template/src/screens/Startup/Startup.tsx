@@ -1,20 +1,30 @@
 import React, { useEffect } from 'react';
-import { ActivityIndicator, View } from 'react-native';
+import { ActivityIndicator, Text, View } from 'react-native';
+import { useQuery } from '@tanstack/react-query';
+import { useTranslation } from 'react-i18next';
+
 import { useTheme } from '@/hooks';
-import { Brand } from '@/components';
-import { setDefaultTheme } from '@/store/theme';
+import { Brand } from '@/components/molecules';
+
 import { ApplicationScreenProps } from 'types/navigation';
 
 const Startup = ({ navigation }: ApplicationScreenProps) => {
-  const { layout, gutters } = useTheme();
+  const { layout, gutters, fonts } = useTheme();
+  const { t } = useTranslation(['startup']);
+
+  const { isSuccess, isFetching, isError } = useQuery({
+    queryKey: ['startup'],
+    queryFn: () => {
+      return Promise.resolve(true);
+    },
+  });
 
   useEffect(() => {
-    setDefaultTheme({ variant: 'default' });
     navigation.reset({
       index: 0,
       routes: [{ name: 'Main' }],
     });
-  }, []);
+  }, [isSuccess]);
 
   return (
     <View
@@ -26,7 +36,14 @@ const Startup = ({ navigation }: ApplicationScreenProps) => {
       ]}
     >
       <Brand />
-      <ActivityIndicator size={'large'} style={[gutters.marginVertical_20]} />
+      {isFetching && (
+        <ActivityIndicator size={'large'} style={[gutters.marginVertical_20]} />
+      )}
+      {isError && (
+        <Text style={[fonts.font_16, fonts.text_red_500]}>
+          {t('startup:error')}
+        </Text>
+      )}
     </View>
   );
 };
