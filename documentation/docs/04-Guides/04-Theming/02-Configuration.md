@@ -1,6 +1,6 @@
 ---
 slug: /theming/configuration
-sidebar_label: configuration
+sidebar_label: Configuration
 title: Configuration
 id: theme-configuration
 keywords: [theme, theming, configuration, config, colors, fonts, gutters, spacings, borders, navigation, variants]
