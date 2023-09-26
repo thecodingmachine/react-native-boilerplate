@@ -13,7 +13,7 @@ any new features and improvements.
 
 ## Navigation structure
 
-All navigation-related configurations and navigators are neatly organized within the `src/navigation` folder. Here's a brief overview:
+All navigation-related configurations and navigators are neatly organized within the `src/navigators` folder. Here's a brief overview:
 
 ### Root file (`Application.{js, tsx}`)
 
