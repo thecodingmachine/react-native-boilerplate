@@ -1,6 +1,6 @@
 import React from 'react';
 import { MMKV } from 'react-native-mmkv';
-import ThemeProvider from '../../components/organisms/ThemeProvider/ThemeProvider';
+import { ThemeProvider } from '@/theme';
 import Startup from './Startup';
 import { fireEvent, render, screen } from '@testing-library/react-native';
 import { I18nextProvider } from 'react-i18next';

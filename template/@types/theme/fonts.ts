@@ -1,10 +1,10 @@
-import { config } from '@/theme/theme.config';
-import { fonts as fontsOverrides } from '@/theme/static';
+import { config } from '@/theme/_config';
+import { staticFontStyles } from '@/theme/fonts';
 
 import { ArrayValue, RemoveBeforeSeparator, ToNumber } from './common';
 import { UnionConfiguration } from './config';
 
-type FontSizesKeys = `font_${ArrayValue<typeof config.fonts.sizes>}`;
+type FontSizesKeys = `size_${ArrayValue<typeof config.fonts.sizes>}`;
 
 export type FontSizes = {
   [key in FontSizesKeys]: {
@@ -12,7 +12,7 @@ export type FontSizes = {
   };
 };
 
-type FontColorsKeys = `text_${keyof UnionConfiguration['fonts']['colors']}`;
+type FontColorsKeys = `${keyof UnionConfiguration['fonts']['colors']}`;
 
 export type FontColors = {
   [key in FontColorsKeys]: RemoveBeforeSeparator<key> extends keyof UnionConfiguration['fonts']['colors']
@@ -22,4 +22,4 @@ export type FontColors = {
     : never;
 };
 
-export type Fonts = FontSizes & FontColors & typeof fontsOverrides;
+export type Fonts = FontSizes & FontColors & typeof staticFontStyles;

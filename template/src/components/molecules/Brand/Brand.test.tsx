@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react-native';
 import Brand from './Brand';
-import ThemeProvider from '@/components/organisms/ThemeProvider/ThemeProvider';
+import { ThemeProvider } from '@/theme';
 import { MMKV } from 'react-native-mmkv';
 
 describe('Brand component should render correctly', () => {

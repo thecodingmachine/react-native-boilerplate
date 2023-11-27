@@ -1,4 +1,5 @@
-import { config } from '@/theme/theme.config';
+import { config } from '@/theme/_config';
+import { staticGutterStyles } from '@/theme/gutters';
 
 import {
   ArrayValue,
@@ -45,4 +46,6 @@ type PaddingGutters = {
   };
 };
 
-export type Gutters = MarginGutters & PaddingGutters;
+export type Gutters = MarginGutters &
+  PaddingGutters &
+  typeof staticGutterStyles;

@@ -11,7 +11,7 @@ import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
 import { useQuery } from '@tanstack/react-query';
 
-import { useTheme } from '@/hooks';
+import { useTheme } from '@/theme';
 import { ImageVariant } from '@/components/atoms';
 import { Brand } from '@/components/molecules';
 import { fetchOne } from '@/services/users';
@@ -20,6 +20,7 @@ const Example = () => {
   const { t } = useTranslation(['example', 'welcome']);
 
   const {
+    colors,
     variant,
     changeTheme,
     layout,
@@ -27,7 +28,6 @@ const Example = () => {
     fonts,
     components,
     backgrounds,
-    borders,
   } = useTheme();
 
   const [currentId, setCurrentId] = useState(-1);
@@ -37,7 +37,7 @@ const Example = () => {
     queryFn: () => {
       return fetchOne(currentId);
     },
-    select: response => response.data,
+    select: response => response,
     enabled: currentId >= 0,
   });
 
@@ -77,9 +77,9 @@ const Example = () => {
         <View
           style={[
             layout.absolute,
-            backgrounds.bg_gray_200,
-            borders.rounded_140,
+            backgrounds.gray200,
             {
+              borderRadius: 140,
               height: 250,
               width: 250,
             },
@@ -106,25 +106,25 @@ const Example = () => {
           layout.justifyBetween,
           layout.itemsStart,
           layout.fullWidth,
-          gutters.paddingHorizontal_30,
-          gutters.marginTop_30,
+          gutters.paddingHorizontal_32,
+          gutters.marginTop_40,
         ]}
       >
         <View>
-          <Text style={[fonts.font_40, fonts.text_gray_800, fonts.bold]}>
+          <Text style={[fonts.size_40, fonts.gray800, fonts.bold]}>
             {t('welcome:title')}
           </Text>
           <Text
             style={[
-              fonts.text_gray_400,
+              fonts.gray400,
               fonts.bold,
-              fonts.font_20,
-              gutters.marginBottom_30,
+              fonts.size_24,
+              gutters.marginBottom_32,
             ]}
           >
             {t('welcome:subtitle')}
           </Text>
-          <Text style={[fonts.font_16, fonts.text_gray_200]}>
+          <Text style={[fonts.size_16, fonts.gray200]}>
             {t('welcome:description')}
           </Text>
         </View>
@@ -134,12 +134,12 @@ const Example = () => {
             layout.row,
             layout.justifyBetween,
             layout.fullWidth,
-            gutters.marginTop_10,
+            gutters.marginTop_16,
           ]}
         >
           <TouchableOpacity
             testID={'fetch-user-button'}
-            style={[components.buttons.circle, gutters.marginBottom_10]}
+            style={[components.buttonCircle, gutters.marginBottom_16]}
             onPress={() => setCurrentId(Math.ceil(Math.random() * 10 + 1))}
           >
             {isFetching ? (
@@ -147,32 +147,32 @@ const Example = () => {
             ) : (
               <ImageVariant
                 source={require('@/theme/assets/images/send.png')}
-                style={{ tintColor: backgrounds.bg_purple_500.backgroundColor }}
+                style={{ tintColor: colors.purple500 }}
               />
             )}
           </TouchableOpacity>
 
           <TouchableOpacity
             testID={'change-theme-button'}
-            style={[components.buttons.circle, gutters.marginBottom_10]}
+            style={[components.buttonCircle, gutters.marginBottom_16]}
             onPress={() => onChangeTheme()}
           >
             <ImageVariant
               source={require('@/theme/assets/images/colorswatch.png')}
-              style={{ tintColor: backgrounds.bg_purple_500.backgroundColor }}
+              style={{ tintColor: colors.purple500 }}
             />
           </TouchableOpacity>
 
           <TouchableOpacity
             testID={'change-language-button'}
-            style={[components.buttons.circle, gutters.marginBottom_10]}
+            style={[components.buttonCircle, gutters.marginBottom_16]}
             onPress={() =>
               onChangeLanguage(i18next.language === 'fr' ? 'en' : 'fr')
             }
           >
             <ImageVariant
               source={require('@/theme/assets/images/translate.png')}
-              style={{ tintColor: backgrounds.bg_purple_500.backgroundColor }}
+              style={{ tintColor: colors.purple500 }}
             />
           </TouchableOpacity>
         </View>

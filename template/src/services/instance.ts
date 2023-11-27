@@ -1,9 +1,8 @@
-import axios from 'axios';
+import ky from 'ky';
 
-export const instance = axios.create({
-  baseURL: `${process.env.API_URL}/api`,
+export const instance = ky.extend({
+  prefixUrl: `${process.env.API_URL}/api`,
   headers: {
-    'Content-Type': 'application/json',
     Accept: 'application/json',
   },
 });

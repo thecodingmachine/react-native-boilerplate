@@ -1,8 +1,9 @@
-import { config } from '@/theme/theme.config';
+import { config } from '@/theme/_config';
 
 import { Gutters } from 'types/theme/gutters';
+import { ViewStyle } from 'react-native';
 
-export default (): Gutters => {
+export const generateGutters = (): Gutters => {
   return config.gutters.reduce((acc, curr) => {
     return Object.assign(acc, {
       [`margin_${curr}`]: {
@@ -50,3 +51,8 @@ export default (): Gutters => {
     });
   }, {} as Gutters);
 };
+
+export const staticGutterStyles = {} as const satisfies Record<
+  string,
+  ViewStyle
+>;

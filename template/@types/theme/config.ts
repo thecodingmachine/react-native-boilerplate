@@ -1,5 +1,5 @@
-import { config } from '@/theme/theme.config';
-import { generateConfig } from '@/theme/_generators';
+import { config } from '@/theme/_config';
+import generateConfig from '@/theme/generateConfig';
 
 import { AllPartial } from './common';
 

@@ -7,6 +7,9 @@ export default {
   colReverse: {
     flexDirection: 'column-reverse',
   },
+  wrap: {
+    flexWrap: 'wrap',
+  },
   row: {
     flexDirection: 'row',
   },
@@ -37,6 +40,9 @@ export default {
   justifyEnd: {
     justifyContent: 'flex-end',
   },
+  justifyStart: {
+    justifyContent: 'flex-start',
+  },
   /* Sizes Layouts */
   flex_1: {
     flex: 1,
@@ -65,5 +71,11 @@ export default {
   },
   right0: {
     right: 0,
+  },
+  z1: {
+    zIndex: 1,
+  },
+  z10: {
+    zIndex: 10,
   },
 } as const satisfies Record<string, ViewStyle>;

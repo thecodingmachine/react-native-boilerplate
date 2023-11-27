@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, DimensionValue } from 'react-native';
 
-import { useTheme } from '@/hooks';
+import { useTheme } from '@/theme';
 import { ImageVariant } from '@/components/atoms';
 
 type Props = {

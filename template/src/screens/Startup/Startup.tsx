@@ -3,7 +3,7 @@ import { ActivityIndicator, Text, View } from 'react-native';
 import { useQuery } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
 
-import { useTheme } from '@/hooks';
+import { useTheme } from '@/theme';
 import { Brand } from '@/components/molecules';
 
 import { ApplicationScreenProps } from 'types/navigation';
@@ -37,12 +37,10 @@ const Startup = ({ navigation }: ApplicationScreenProps) => {
     >
       <Brand />
       {isFetching && (
-        <ActivityIndicator size={'large'} style={[gutters.marginVertical_20]} />
+        <ActivityIndicator size={'large'} style={[gutters.marginVertical_24]} />
       )}
       {isError && (
-        <Text style={[fonts.font_16, fonts.text_red_500]}>
-          {t('startup:error')}
-        </Text>
+        <Text style={[fonts.size_16, fonts.red500]}>{t('startup:error')}</Text>
       )}
     </View>
   );

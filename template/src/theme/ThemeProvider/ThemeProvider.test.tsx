@@ -3,7 +3,7 @@ import { render, fireEvent } from '@testing-library/react-native';
 import ThemeProvider from './ThemeProvider';
 import { MMKV } from 'react-native-mmkv';
 import { Button, Text, View } from 'react-native';
-import { useTheme } from '@/hooks';
+import useTheme from '@/theme/useTheme';
 
 const TestChildComponent = () => {
   const { variant, changeTheme } = useTheme();

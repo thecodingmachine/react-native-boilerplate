@@ -7,15 +7,26 @@ import React, {
 } from 'react';
 
 // Config
-import { config } from '@/theme/theme.config';
+import { config } from '@/theme/_config';
 
 // Generators
-import * as generators from '@/theme/_generators';
-import * as componentGenerators from '@/theme/components';
-import { fonts as fontsOverrides, layout } from '@/theme/static';
+import {
+  generateFontSizes,
+  generateFontColors,
+  staticFontStyles,
+} from '../fonts';
+import {
+  generateBorderColors,
+  generateBorderRadius,
+  generateBorderWidths,
+} from '../borders';
+import layout from '../layout';
+import componentsGenerator from '../components';
+import { generateBackgrounds } from '../backgrounds';
+import { generateGutters } from '../gutters';
+import generateConfig from '../generateConfig';
 
 // Types
-import type { Components } from 'types/theme/components';
 import type { ComponentTheme, Theme } from 'types/theme/theme';
 import type { FulfilledThemeConfiguration, Variant } from 'types/theme/config';
 import type { MMKV } from 'react-native-mmkv';
@@ -52,30 +63,28 @@ const ThemeProvider = ({ children, storage }: PropsWithChildren & Props) => {
 
   // Flatten config with current variant
   const fullConfig = useMemo(() => {
-    return generators.generateConfig(
-      variant,
-    ) satisfies FulfilledThemeConfiguration;
+    return generateConfig(variant) satisfies FulfilledThemeConfiguration;
   }, [variant, config]);
 
   const fonts = useMemo(() => {
     return Object.assign(
       {},
-      generators.generateFontSizes(),
-      generators.generateFontColors(fullConfig),
-      fontsOverrides,
+      generateFontSizes(),
+      generateFontColors(fullConfig),
+      staticFontStyles,
     );
   }, [fullConfig]);
 
   const backgrounds = useMemo(() => {
-    return generators.generateBackgrounds(fullConfig);
+    return generateBackgrounds(fullConfig);
   }, [fullConfig]);
 
   const borders = useMemo(() => {
     return Object.assign(
       {},
-      generators.generateBorderColors(fullConfig),
-      generators.generateBorderRadius(),
-      generators.generateBorderWidths(),
+      generateBorderColors(fullConfig),
+      generateBorderRadius(),
+      generateBorderWidths(),
     );
   }, [fullConfig]);
 
@@ -89,30 +98,24 @@ const ThemeProvider = ({ children, storage }: PropsWithChildren & Props) => {
   const theme = useMemo(
     () =>
       ({
+        colors: fullConfig.colors,
         variant,
-        gutters: generators.generateGutters(),
+        gutters: generateGutters(),
         layout,
         fonts,
         backgrounds,
         borders,
       } satisfies ComponentTheme),
-    [variant, layout, fonts, backgrounds, borders],
+    [variant, layout, fonts, backgrounds, borders, fullConfig.colors],
   );
 
   const components = useMemo(() => {
-    return Object.entries(componentGenerators).reduce(
-      (acc, [key, generator]) => {
-        return Object.assign(acc, {
-          [key]: generator(theme),
-        });
-      },
-      {} as Components,
-    );
+    return componentsGenerator(theme);
   }, [theme]);
 
   return (
     <ThemeContext.Provider
-      value={{ ...theme, navigationTheme, components, changeTheme }}
+      value={{ ...theme, components, navigationTheme, changeTheme }}
     >
       {children}
     </ThemeContext.Provider>

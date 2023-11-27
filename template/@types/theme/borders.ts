@@ -1,10 +1,10 @@
-import { config } from '@/theme/theme.config';
+import { config } from '@/theme/_config';
+import { staticBorderStyles } from '@/theme/borders';
 
 import { ArrayValue, RemoveBeforeSeparator, ToNumber } from './common';
 import { UnionConfiguration } from './config';
 
-type BorderColorKeys =
-  `border_${keyof UnionConfiguration['borders']['colors']}`;
+type BorderColorKeys = keyof UnionConfiguration['borders']['colors'];
 
 export type BorderColors = {
   [key in BorderColorKeys]: RemoveBeforeSeparator<key> extends keyof UnionConfiguration['borders']['colors']
@@ -22,7 +22,7 @@ export type BorderRadius = {
   };
 };
 
-type BorderWidthKeys = `border_${ArrayValue<typeof config.borders.widths>}`;
+type BorderWidthKeys = `w_${ArrayValue<typeof config.borders.widths>}`;
 
 export type BorderWidths = {
   [key in BorderWidthKeys]: {
@@ -30,4 +30,7 @@ export type BorderWidths = {
   };
 };
 
-export type Borders = BorderColors & BorderRadius & BorderWidths;
+export type Borders = BorderColors &
+  BorderRadius &
+  BorderWidths &
+  typeof staticBorderStyles;

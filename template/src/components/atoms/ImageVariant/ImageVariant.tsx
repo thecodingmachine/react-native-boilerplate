@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { Image, ImageProps, ImageSourcePropType } from 'react-native';
 
-import { useTheme } from '@/hooks';
+import { useTheme } from '@/theme';
 
 import { Variant } from 'types/theme/config';
 
