@@ -1,49 +1,54 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { ActivityIndicator, Text, View } from 'react-native';
 import { useQuery } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
 
 import { useTheme } from '@/theme';
 import { Brand } from '@/components/molecules';
+import { ScreenTemplate } from '@/components/template';
 
-import { ApplicationScreenProps } from 'types/navigation';
+import type { ApplicationScreenProps } from '@/types/navigation';
 
-const Startup = ({ navigation }: ApplicationScreenProps) => {
-  const { layout, gutters, fonts } = useTheme();
-  const { t } = useTranslation(['startup']);
+function Startup({ navigation }: ApplicationScreenProps) {
+	const { layout, gutters, fonts } = useTheme();
+	const { t } = useTranslation(['startup']);
 
-  const { isSuccess, isFetching, isError } = useQuery({
-    queryKey: ['startup'],
-    queryFn: () => {
-      return Promise.resolve(true);
-    },
-  });
+	const { isSuccess, isFetching, isError } = useQuery({
+		queryKey: ['startup'],
+		queryFn: () => {
+			return Promise.resolve(true);
+		},
+	});
 
-  useEffect(() => {
-    navigation.reset({
-      index: 0,
-      routes: [{ name: 'Main' }],
-    });
-  }, [isSuccess]);
+	useEffect(() => {
+		navigation.reset({
+			index: 0,
+			routes: [{ name: 'Home' }],
+		});
+	}, [isSuccess]);
 
-  return (
-    <View
-      style={[
-        layout.flex_1,
-        layout.col,
-        layout.itemsCenter,
-        layout.justifyCenter,
-      ]}
-    >
-      <Brand />
-      {isFetching && (
-        <ActivityIndicator size={'large'} style={[gutters.marginVertical_24]} />
-      )}
-      {isError && (
-        <Text style={[fonts.size_16, fonts.red500]}>{t('startup:error')}</Text>
-      )}
-    </View>
-  );
-};
+	return (
+		<ScreenTemplate>
+			<View
+				style={[
+					layout.flex_1,
+					layout.col,
+					layout.itemsCenter,
+					layout.justifyCenter,
+				]}
+			>
+				<Brand />
+				{isFetching && (
+					<ActivityIndicator size="large" style={[gutters.marginVertical_24]} />
+				)}
+				{isError && (
+					<Text style={[fonts.size_16, fonts.red500]}>
+						{t('startup:error')}
+					</Text>
+				)}
+			</View>
+		</ScreenTemplate>
+	);
+}
 
 export default Startup;

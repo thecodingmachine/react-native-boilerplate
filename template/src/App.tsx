@@ -1,19 +1,22 @@
 import 'react-native-gesture-handler';
-import React from 'react';
-import ApplicationNavigator from './navigators/Application';
-import { ThemeProvider } from '@/theme';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import './translations';
+
 import { storage } from '@/storage';
+import { ThemeProvider } from '@/theme';
+
+import ApplicationNavigator from './navigators/Application';
+import './translations';
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <ThemeProvider storage={storage}>
-      <ApplicationNavigator />
-    </ThemeProvider>
-  </QueryClientProvider>
-);
+function App() {
+	return (
+		<QueryClientProvider client={queryClient}>
+			<ThemeProvider storage={storage}>
+				<ApplicationNavigator />
+			</ThemeProvider>
+		</QueryClientProvider>
+	);
+}
 
 export default App;

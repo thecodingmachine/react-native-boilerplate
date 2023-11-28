@@ -1,50 +1,55 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react-native';
-import ImageVariant from './ImageVariant';
-import { ThemeProvider } from '@/theme';
 import { MMKV } from 'react-native-mmkv';
 
+import { ThemeProvider } from '@/theme';
+import sourceLight from '@/theme/assets/images/tom_light.png';
+import sourceDark from '@/theme/assets/images/tom_dark.png';
+
+import { isImageSourcePropType } from '@/types/guards/image';
+
+import ImageVariant from './ImageVariant';
+
 describe('ImageVariant component should render correctly', () => {
-  let storage: MMKV;
+	let storage: MMKV;
 
-  beforeAll(() => {
-    storage = new MMKV();
-  });
+	beforeAll(() => {
+		storage = new MMKV();
+	});
 
-  test('with only default image and dark variant. Should return default source', () => {
-    const component = (
-      <ThemeProvider storage={storage}>
-        <ImageVariant source={require('@/theme/assets/images/tom_light.png')} />
-      </ThemeProvider>
-    );
+	test('with only default image and dark variant. Should return default source', () => {
+		if (!isImageSourcePropType(sourceLight)) {
+			throw new Error('Image source is not valid');
+		}
 
-    render(component);
+		const component = (
+			<ThemeProvider storage={storage}>
+				<ImageVariant source={sourceLight} />
+			</ThemeProvider>
+		);
 
-    const wrapper = screen.getByTestId('variant-image');
+		render(component);
 
-    expect(wrapper.props.source).toBe(
-      require('@/theme/assets/images/tom_light.png'),
-    );
-  });
+		const wrapper = screen.getByTestId('variant-image');
 
-  test('with default image dark image and dark variant. Should return dark source', () => {
-    storage.set('theme', 'dark');
+		expect(wrapper.props.source).toBe(sourceLight);
+	});
 
-    const component = (
-      <ThemeProvider storage={storage}>
-        <ImageVariant
-          source={require('@/theme/assets/images/tom_light.png')}
-          sourceDark={require('@/theme/assets/images/tom_dark.png')}
-        />
-      </ThemeProvider>
-    );
+	test('with default image dark image and dark variant. Should return dark source', () => {
+		storage.set('theme', 'dark');
+		if (!isImageSourcePropType(sourceDark)) {
+			throw new Error('Image source is not valid');
+		}
 
-    render(component);
+		const component = (
+			<ThemeProvider storage={storage}>
+				<ImageVariant source={sourceDark} sourceDark={sourceDark} />
+			</ThemeProvider>
+		);
 
-    const wrapper = screen.getByTestId('variant-image');
+		render(component);
 
-    expect(wrapper.props.source).toBe(
-      require('@/theme/assets/images/tom_dark.png'),
-    );
-  });
+		const wrapper = screen.getByTestId('variant-image');
+
+		expect(wrapper.props.source).toBe(sourceDark);
+	});
 });
