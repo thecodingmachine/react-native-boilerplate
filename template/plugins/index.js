@@ -6,20 +6,26 @@ const printSuccessPlugin = require('./printSuccess');
 const plugins = [typescriptPlugin, printSuccessPlugin];
 
 /**
+ * @typedef {Object} Plugin
+ * @property promptsOptions {Object|null} the plugin prompt property
+ * @property apply {Function} the refactoring to apply to the boilerplate
+ */
+
+/**
  * Apply a plugin
- * @param name: the plugin name
- * @param promptsOptions: the options for the prompts function (if null -> no prompt)
- * @param apply: the refactoring to apply
- * @param response: previous prompt response
+ * @param name {string}
+ * @param plugin {Plugin}
+ * @param response {Object} previous response
+ *
  * @return {Promise<*>}
  */
-async function applyPlugin(name, { promptsOptions, apply }, response) {
-	if (!promptsOptions) {
-		await apply(null, response);
+async function applyPlugin(name, plugin, response) {
+	if (!plugin.promptsOptions) {
+		await plugin.apply(null, response);
 		return { [name]: null, ...response };
 	}
-	const { value } = await prompts(promptsOptions);
-	await apply(value, response);
+	const { value } = await prompts({ ...plugin.promptsOptions, name: 'value' });
+	await plugin.apply(value, response);
 	return { [name]: value, ...response };
 }
 
