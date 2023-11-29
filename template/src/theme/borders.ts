@@ -8,6 +8,10 @@ import type {
 import type { UnionConfiguration } from '@/types/theme/config';
 import type { ViewStyle } from 'react-native';
 
+/**
+ * Generates border color styles from configuration
+ * @param configuration
+ */
 export const generateBorderColors = (configuration: UnionConfiguration) => {
 	return Object.entries(configuration.borders.colors ?? {}).reduce(
 		(acc, [key, value]) => {
@@ -21,6 +25,9 @@ export const generateBorderColors = (configuration: UnionConfiguration) => {
 	);
 };
 
+/**
+ * Generates border radius styles from configuration
+ */
 export const generateBorderRadius = () => {
 	return config.borders.radius.reduce((acc, radius) => {
 		return Object.assign(acc, {
@@ -31,6 +38,9 @@ export const generateBorderRadius = () => {
 	}, {} as BorderRadius);
 };
 
+/**
+ * Generates border width styles from configuration
+ */
 export const generateBorderWidths = () => {
 	return config.borders.widths.reduce((acc, width) => {
 		return Object.assign(acc, {
@@ -53,6 +63,10 @@ export const generateBorderWidths = () => {
 	}, {} as BorderWidths);
 };
 
+/**
+ * Static border styles
+ * @desc These styles are not generated from configuration, you can add your own
+ */
 export const staticBorderStyles = {} as const satisfies Record<
 	string,
 	ViewStyle

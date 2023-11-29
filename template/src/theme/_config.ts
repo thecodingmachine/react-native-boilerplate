@@ -8,6 +8,7 @@ const colorsLight = {
 	gray400: '#4D4D4D',
 	gray200: '#A1A1A1',
 	gray100: '#DFDFDF',
+	gray50: '#EFEFEF',
 	purple500: '#44427D',
 	purple100: '#E1E1EF',
 } as const;
@@ -19,14 +20,17 @@ const colorsDark = {
 	gray100: '#000000',
 	purple500: '#A6A4F0',
 	purple100: '#252732',
+	purple50: '#1B1A23',
 } as const;
+
+const sizes = [12, 16, 24, 32, 40, 80] as const;
 
 export const config = {
 	fonts: {
-		sizes: [12, 16, 24, 32, 40],
+		sizes,
 		colors: colorsLight,
 	},
-	gutters: [8, 16, 24, 32, 40, 80],
+	gutters: sizes,
 	backgrounds: colorsLight,
 	borders: {
 		widths: [1, 2],
@@ -35,8 +39,8 @@ export const config = {
 	},
 	navigationColors: {
 		...DarkTheme.colors,
-		background: '#EFEFEF',
-		card: '#EFEFEF',
+		background: colorsLight.gray50,
+		card: colorsLight.gray50,
 	},
 	variants: {
 		dark: {
@@ -46,8 +50,8 @@ export const config = {
 			backgrounds: colorsDark,
 			navigationColors: {
 				...DarkTheme.colors,
-				background: '#1B1A23',
-				card: '#1B1A23',
+				background: colorsDark.purple50,
+				card: colorsDark.purple50,
 			},
 		},
 	},

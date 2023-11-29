@@ -7,8 +7,8 @@ import {
 	ScrollView,
 	Alert,
 } from 'react-native';
-import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
+import { useTranslation } from 'react-i18next';
 import { useQuery } from '@tanstack/react-query';
 
 import { ImageVariant } from '@/components/atoms';
@@ -39,17 +39,16 @@ function Example() {
 
 	const [currentId, setCurrentId] = useState(-1);
 
-	const { isSuccess, data, isFetching } = useQuery({
+	const { isSuccess, data, isFetching, error } = useQuery({
 		queryKey: ['example', currentId],
 		queryFn: () => {
 			return fetchOne(currentId);
 		},
-		select: response => response,
 		enabled: currentId >= 0,
 	});
 
 	useEffect(() => {
-		if (isSuccess && data?.name) {
+		if (isSuccess) {
 			Alert.alert(t('example:welcome', data.name));
 		}
 	}, [isSuccess, data]);
