@@ -1,7 +1,7 @@
 ---
 slug: /theming/how-to-use
-sidebar_label: How to use it ?
-title: How to use it ?
+sidebar_label: How to use it?
+title: How to use it?
 id: theming-how-to-use
 keywords: [theme, theming, useTheme, hooks, themeProvider]
 ---
