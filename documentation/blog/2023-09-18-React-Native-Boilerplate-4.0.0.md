@@ -1,7 +1,7 @@
 ---
 title: React Native Boilerplate 4.0.0
 authors: jed
-description: What's news ? 
+description: What's new? 
 hide_table_of_contents: false
 tags: [v4, boilerplate react, react-native, kickstart]
 ---
