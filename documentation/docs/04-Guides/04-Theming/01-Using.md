@@ -16,18 +16,27 @@ the [configuration](/docs/theming/configuration) section for more details.
 If you need to access the style classes, you can use the `useTheme` hook in the following manner:
 
 ```tsx
-import { useTheme } from '@/hooks';
+import { useTheme } from '@/theme';
 
 const Example = () => {
-    //highlight-next-line
-    const { layout, gutters, fonts } = useTheme();
+    const {
+      //highlight-start
+      colors,
+      variant,
+      layout,
+      gutters,
+      fonts,
+      backgrounds,
+      borders,
+      navigationTheme,
+      components,
+      //highlight-end
+    } = useTheme();
     
     return (
         <View
             style={[
                 //highlight-start
-                layout.flex_1,
-                layout.col,
                 layout.itemsCenter,
                 layout.justifyCenter,
                 //highlight-end
@@ -59,7 +68,7 @@ As mentioned in the [configuration](/docs/theming/configuration) section, you ha
 To achieve this, you can employ the `useTheme` hook as follows:
 
 ```tsx
-import { useTheme } from '@/hooks';
+import { useTheme } from '@/theme';
 
 const Example = () => {
     const { changeTheme } = useTheme();

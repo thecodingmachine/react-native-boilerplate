@@ -17,18 +17,14 @@ All navigation-related configurations and navigators are neatly organized within
 
 ### Root file (`Application.{js, tsx}`)
 
-This serves as the root navigator, encompassing the safe area, default status bar settings, and the initial stack. 
-The first stack includes the [`Startup`](/docs/data-fetching#fetching-data-at-startup) screen and the Main navigator.
-
-### Main file `Main.{js, tsx}`
-
-The Main navigator is where the home screen resides.
+This serves as the root navigator, which is responsible for handling the initial navigation of the application.
+It's a simple stack navigator that includes the [`Startup`](/docs/data-fetching#fetching-data-at-startup) screen and an Example screen.
 
 The workflow is designed so that when the application launches, the user is initially presented with the `Startup` screen. 
 This screen takes on the responsibility of loading essential application data, such as user profiles and settings. 
-Once this data is loaded, the `Startup` screen facilitates navigation to the `Main` navigator.
+Once this data is loaded, the `Startup` screen facilitates navigation to the `Example` screen.
 
-As your application evolves, you have the flexibility to extend the `Main` navigator by adding more screens and navigators.
+As your application evolves, you have the flexibility to extend this file by adding more screens and navigators.
 
 :::note Not a fan of the structure ?
 Please note that this navigation structure is intentionally kept simple, providing you with a foundational structure that you can build upon. 

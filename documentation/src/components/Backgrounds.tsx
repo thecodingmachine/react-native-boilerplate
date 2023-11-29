@@ -59,11 +59,11 @@ function Backgrounds() {
           </thead>
           <tbody>
             <tr>
-              <td>{`bg_${primaryColorName}`}</td>
+              <td>{`backgrounds.${primaryColorName}`}</td>
               <td><code>{`{ backgroundColor: ${primaryColor} }`}</code></td>
             </tr>
             <tr>
-              <td>{`bg_${secondaryColorName}`}</td>
+              <td>{`backgrounds.${secondaryColorName}`}</td>
               <td><code>{`{ backgroundColor: ${secondaryColor} }`}</code></td>
             </tr>
           </tbody>

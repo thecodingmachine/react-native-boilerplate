@@ -66,13 +66,13 @@ function Fonts() {
             {
                 sizeValues.map((value) => (
                   <tr>
-                    <td>{`font_${value}`}</td>
+                    <td>{`fonts.size_${value}`}</td>
                     <td><code>{`{ fontSize: ${value} }`}</code></td>
                   </tr>
                 ))
             }
             <tr>
-              <td>{`text_${colorName}`}</td>
+              <td>{`fonts.${colorName}`}</td>
               <td><code>{`{ color: ${color} }`}</code></td>
             </tr>
           </tbody>

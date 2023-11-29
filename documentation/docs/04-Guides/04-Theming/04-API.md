@@ -56,6 +56,7 @@ keywords: [theme, theming, configuration, config, api, reference, api reference]
 
 | Key             | Type                                                             |
 |-----------------|------------------------------------------------------------------|
+| colors          | all possible colors used through the configuration               |
 | variant         | `default` or `string`                                            |
 | layout          | [`Layout`](/docs/theming/api-reference#layout)                   |
 | gutters         | [`Gutters`](/docs/theming/api-reference#gutters)                 |
@@ -92,5 +93,5 @@ The type of the generated styles is `Record<string, ViewStyle>` but will be infe
 Generated styles provided by the `navigationColors` section of the theme configuration assist in overriding ReactNavigation theme colors.
 
 ### Components
-Generated styles provided by the files located into the `components` folder of the theme configuration assist in applying styles to specific components.
+Generated styles provided by the `components` file of the theme configuration assist in applying styles to specific components.
 

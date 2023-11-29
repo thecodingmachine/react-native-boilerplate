@@ -14,7 +14,6 @@ To achieve this, the project structure is thoughtfully organized into distinct s
 
 | Folders            | Description                                                                                                       |
 |--------------------|-------------------------------------------------------------------------------------------------------------------|
-| `@types`           | Custom type definitions for the project.                                                                          |
 | `src/components`   | Home to application components, following the atomic design methodology for organizing presentational components. |
 | `src/hooks`        | Custom hooks used throughout the application.                                                                     |
 | `src/navigators`   | Navigator components responsible for handling navigation.                                                         |
@@ -22,6 +21,7 @@ To achieve this, the project structure is thoughtfully organized into distinct s
 | `src/services` ️   | Houses data fetching and related services.                                                                        |
 | `src/theme`        | Holds theme configuration for the application.                                                                    |
 | `src/translations` | Configuration related to language support.                                                                        |
+| `src/types`        | Custom type definitions for the project.                                                                          |
 
 ## Specific Top-Level Boilerplate Files
 

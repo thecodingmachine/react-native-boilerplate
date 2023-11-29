@@ -38,14 +38,14 @@ export const config = {
 Where `sizesValues` is an array of numbers, `sizeValue` is an item of `sizeValues`, and `colorsValues` is an object with
 `colorsKey` keys and `colorsValue` values, the generated styles are as follows:
 
-| font name             | Generated style              |
-|-----------------------|------------------------------|
-| **`font_`**sizesValue | { fontSize: **sizeValue** }  |
-| **`text_`**colorsKey  | { color: **colorsValue** }   |
+| font name                  | Generated style              |
+|----------------------------|------------------------------|
+| fonts.size__sizesValue_ | { fontSize: _sizeValue_ }  |
+| fonts._colorsKey_       | { color: _colorsValue_ }   |
 
 ## Static fonts
 Some fonts styles, such as the `fontWeight` property of a text style, don't require dynamic generation.
-To accommodate this, we offer a `static/fonts.ts` file that houses static styles for fonts.
+To accommodate this, we offer the `staticFontStyles` object that houses static styles for fonts.
 You can use this file as-is or customize it to your preferences.
 These styles will be seamlessly merged with the generated ones,
 making them accessible through the `fonts` object of the `useTheme` hook.

@@ -88,7 +88,7 @@ function Borders() {
             {
                 sizeValues.map((value) => (
                   <tr>
-                    <td>{`border_${value}`}</td>
+                    <td>{`borders.w_${value}`}</td>
                     <td><code>{`{ borderWidth: ${value} }`}</code></td>
                   </tr>
                 ))
@@ -96,13 +96,13 @@ function Borders() {
             {
                 radiusValues.map((value) => (
                   <tr>
-                    <td>{`rounded_${value}`}</td>
+                    <td>{`borders.rounded_${value}`}</td>
                     <td><code>{`{ borderRadius: ${value} }`}</code></td>
                   </tr>
                 ))
             }
             <tr>
-              <td>{`border_${colorName}`}</td>
+              <td>{`borders.${colorName}`}</td>
               <td><code>{`{ borderColor: ${color} }`}</code></td>
             </tr>
           </tbody>

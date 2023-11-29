@@ -38,12 +38,19 @@ export const config = {
 Where `widthsValues` and `radiusValues` are arrays of numbers, `widthValue` is an item of `widthsValues`, `radiusValue` is an item of `radiusValues`, and `colorsValues` is an object with
 `colorsKey` keys and `colorsValue` values, the generated styles are as follows:
 
-| font name                 | Generated style                   |
-|---------------------------|-----------------------------------|
-| **`border_`**widthValue   | { borderWidth: **widthValue** }   |
-| **`rounded_`**radiusValue | { borderRadius: **radiusValue** } |
-| **`border_`**colorsKey    | { borderColor: **colorsValue** }  |
+| font name                     | Generated style                   |
+|-------------------------------|-----------------------------------|
+| borders.w__widthValue_        | { borderWidth: _widthValue_ }   |
+| borders.rounded__radiusValue_ | { borderRadius: _radiusValue_ } |
+| borders._colorsKey_           | { borderColor: _colorsValue_ }  |
 
+
+## Static borders styles
+Some border styles, don't require dynamic generation.
+To accommodate this, we offer the `staticBorderStyles` object that houses static styles for border.
+You can use this file as-is or customize it to your preferences.
+These styles will be seamlessly merged with the generated ones,
+making them accessible through the `borders` object of the `useTheme` hook.
 
 ## Playground
 Here's a simple playground that provides a visual representation of the objects generated from a given `borders` configuration:

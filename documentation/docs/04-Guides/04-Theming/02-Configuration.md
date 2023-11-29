@@ -51,15 +51,15 @@ export const config = {
 So here the theme `dark` will have the same values as the `default` theme except for the `backgrounds.gray_200` value.
 
 ## Statically generated styles
-Some styles, like font Colors, background Colors for example need to be dynamically generated depending on the actual theme.
-But, some other styles, like layout (alignItems, justifyContent, ...) or font modifier like fontStyle can be statically generated.
+Some styles, including Backgrounds, Borders, Fonts and Gutters need to be dynamically generated depending on the actual theme.
+But, in some cases, the configuration is not sufficient to generate all the styles you need. So, in this case, you will need to add some static styles.
+In each style files you will find a `static` function to include non-config-based styles:
+- `staticBackgroundStyles` to generate static background styles
+- `staticBorderStyles` to generate static border styles
+- `staticFontStyles` to generate static font styles
+- `staticGutterStyles` to generate static gutter styles
 
-This is why we introduce the `static` folder in the theme configuration.
-You will have two files in this folder:
-- `fonts.ts` to generate static font styles
-- `layout.ts` to generate static layout styles
-
-into these two files, you will be able to add any style you want.
+into these files, you will be able to add any style you want.
 All of these will be available
 
 ## Components styling
@@ -67,19 +67,24 @@ Sometimes, you will want to create some style object for a specific component.
 As we want to keep the theme configuration as the single source of truth, we don't want to have some style object in the component itself.
 Plus, we want to be able to use the theme configuration variables to generate these styles for example if we want to style a button based on the theme colors.
 
-This is why we introduce the `components` folder in the theme configuration.
-You will have one file per component you want to style.
-For example, if you want to style a `Button` component, you will create a `button.ts` file in the `components` folder.
-All you have to know is that you need to export a function which take ComponentTheme as parameter and return a style object.
+This is why we introduce the `components` file in the theme directory.
+The benefit of this is that you will be able to create a style object for a specific component and use the theme styles to generate these styles.
 
-```ts title=/src/theme/components/button.ts
-export default ({ layout, gutters, backgrounds, fonts }: ComponentTheme) => {
-    //...
-    return {
-        base,
-        rounded,
-        circle,
-    };
+For example, if you want to style a circle `Button` component, you will create a `circleButton` entry in the `components` file.
+
+```ts title=/src/theme/components.ts
+export default ({ layout, backgrounds, fonts }: ComponentTheme) => {
+  return {
+    buttonCircle: {
+      ...layout.justifyCenter,
+      ...layout.itemsCenter,
+      ...backgrounds.purple100,
+      ...fonts.gray400,
+      height: 70,
+      width: 70,
+      borderRadius: 35,
+    },
+  } as const satisfies Record<string, ImageStyle | TextStyle | ViewStyle>;
 };
 ```
 
