@@ -39,7 +39,7 @@ function Example() {
 
 	const [currentId, setCurrentId] = useState(-1);
 
-	const { isSuccess, data, isFetching, error } = useQuery({
+	const { isSuccess, data, isFetching } = useQuery({
 		queryKey: ['example', currentId],
 		queryFn: () => {
 			return fetchOne(currentId);

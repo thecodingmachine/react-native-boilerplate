@@ -14,16 +14,11 @@ describe('Example screen should render correctly', () => {
 		defaultOptions: {
 			queries: {
 				retry: false,
-				cacheTime: Infinity,
+				gcTime: Infinity,
 			},
 			mutations: {
-				cacheTime: Infinity,
+				gcTime: Infinity,
 			},
-		},
-		logger: {
-			log: console.log,
-			warn: console.warn,
-			error: process.env.NODE_ENV === 'test' ? () => {} : console.error,
 		},
 	});
 
