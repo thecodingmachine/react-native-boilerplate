@@ -4,7 +4,7 @@ import { useTheme } from '@/theme';
 
 import type { PropsWithChildren } from 'react';
 
-function Screen({ children }: PropsWithChildren) {
+function SafeScreen({ children }: PropsWithChildren) {
 	const { layout, variant, navigationTheme } = useTheme();
 
 	return (
@@ -22,4 +22,4 @@ function Screen({ children }: PropsWithChildren) {
 	);
 }
 
-export default Screen;
+export default SafeScreen;

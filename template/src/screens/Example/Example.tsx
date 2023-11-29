@@ -13,7 +13,7 @@ import { useQuery } from '@tanstack/react-query';
 
 import { ImageVariant } from '@/components/atoms';
 import { Brand } from '@/components/molecules';
-import { ScreenTemplate } from '@/components/template';
+import { SafeScreen } from '@/components/template';
 import { useTheme } from '@/theme';
 import { fetchOne } from '@/services/users';
 
@@ -70,15 +70,10 @@ function Example() {
 	}
 
 	return (
-		<ScreenTemplate>
+		<SafeScreen>
 			<ScrollView
 				style={[layout.flex_1]}
-				contentContainerStyle={[
-					layout.flex_1,
-					layout.col,
-					layout.justifyCenter,
-					layout.itemsCenter,
-				]}
+				contentContainerStyle={[layout.justifyCenter, layout.itemsCenter]}
 			>
 				<View
 					style={[
@@ -176,7 +171,7 @@ function Example() {
 					</View>
 				</View>
 			</ScrollView>
-		</ScreenTemplate>
+		</SafeScreen>
 	);
 }
 

@@ -1,1 +1,1 @@
-export { default as ScreenTemplate } from './Screen/Screen';
+export { default as SafeScreen } from './SafeScreen/SafeScreen';

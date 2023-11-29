@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import { useTheme } from '@/theme';
 import { Brand } from '@/components/molecules';
-import { ScreenTemplate } from '@/components/template';
+import { SafeScreen } from '@/components/template';
 
 import type { ApplicationScreenProps } from '@/types/navigation';
 
@@ -28,7 +28,7 @@ function Startup({ navigation }: ApplicationScreenProps) {
 	}, [isSuccess]);
 
 	return (
-		<ScreenTemplate>
+		<SafeScreen>
 			<View
 				style={[
 					layout.flex_1,
@@ -47,7 +47,7 @@ function Startup({ navigation }: ApplicationScreenProps) {
 					</Text>
 				)}
 			</View>
-		</ScreenTemplate>
+		</SafeScreen>
 	);
 }
 

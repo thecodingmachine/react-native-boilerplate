@@ -31,7 +31,7 @@ describe('Brand component should render correctly', () => {
 		expect(img.props.resizeMode).toBe('contain');
 	});
 
-	test('with precises props', () => {
+	test('with passed props', () => {
 		const component = (
 			<ThemeProvider storage={storage}>
 				<Brand height={100} width={100} mode="cover" />

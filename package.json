@@ -14,9 +14,7 @@
   "homepage": "https://thecodingmachine.github.io/react-native-boilerplate/",
   "main": "post-init.script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "commit": "cz",
-    "prepare": "husky install"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "react",
