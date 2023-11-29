@@ -69,7 +69,7 @@ export const config = {
 }
 ```
 
-The generated will be inferred at the perfect level:
+The generated type will be inferred at the perfect level:
 ![powerful typescript](./assets/theme-infer.png)
 
 
