@@ -28,7 +28,7 @@ It was even harder to find an intermediate value between 'medium' and 'regular,'
 As a result, we decided to simplify and improve the theming process, making it more efficient and comprehensive.
 
 ### Configuration
-Everything now revolves around a configuration file named `config.theme.ts`. 
+Everything now revolves around a configuration file named `_config.ts`. 
 This file serves as a central configuration point where you can define the base theme values and declare theme variants. 
 We've moved away from the complex layering system in favor of a more reflective system with main themes and variants.
 
@@ -40,7 +40,7 @@ preventing the need to regenerate the theme with every `useTheme` call.
 We've also improved the type inference of the theme. Now each generated style is typed according to the theme configuration even if there are variants.
 For example, let's imagine a configuration like this:
 
-```ts title=/src/theme/theme.config.ts
+```ts title=/src/theme/_config.ts
 export const config = {
     //...
     fonts: {

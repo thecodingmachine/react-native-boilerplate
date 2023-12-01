@@ -24,9 +24,9 @@ const config = {
       return {
         name: 'docusaurus-tailwindcss',
         configurePostCss(postcssOptions) {
-          // eslint-disable-next-line global-require
+          // eslint-disable-next-line global-require,import/no-extraneous-dependencies
           postcssOptions.plugins.push(require('tailwindcss'));
-          // eslint-disable-next-line global-require
+          // eslint-disable-next-line global-require,import/no-extraneous-dependencies
           postcssOptions.plugins.push(require('autoprefixer'));
           return postcssOptions;
         },
