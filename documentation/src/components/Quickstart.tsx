@@ -4,7 +4,7 @@ import CodeBlock from '@theme/CodeBlock';
 
 export default function Quickstart() {
   return (
-    <section className="relative flex justify-end bg-red-400 mb-0 pb-10 sm:-mb-[170px] sm:-mb-[100px] lg:-mb-[270px]">
+    <section className="relative flex justify-end bg-red-400 mb-0 pb-10 sm:-mb-[100px] lg:-mb-[270px]">
       <div className="relative max-w-7xl m-auto">
         <div className="relative flex justify-end">
 
@@ -12,11 +12,11 @@ export default function Quickstart() {
             <Circles color="red" animate="animate-circle-delay-1" />
           </div>
 
-          <div className="relative sm:absolute sm:left-16 sm:-top-5 w-full sm:w-[60%] p-5 sm:p-2">
+          <div className="relative w-[320px] sm:absolute sm:left-16 sm:-top-5 sm:w-[62%] p-5 sm:p-2">
 
             <h2 className="font-bold text-3xl font-black text-white w-full mb-5 sm:mb-10">
               Quickstart -
-              <span className="w-full sm:w-auto text-sm font-normal text-red-800 ml-3"> Open your terminal and run the following </span>
+              <span className="hidden sm:block w-full sm:w-auto text-sm font-normal text-red-800 ml-3"> Open your terminal and run the following </span>
             </h2>
 
             <CodeBlock
@@ -26,6 +26,7 @@ export default function Quickstart() {
               npx react-native@latest init MyApp --template
               @thecodingmachine/react-native-boilerplate
             </CodeBlock>
+
             <div>
               <button
                 type="button"
@@ -40,13 +41,13 @@ export default function Quickstart() {
           </div>
 
           <img
-            className="pointer-events-none hidden dark:sm:block w-3/4 md:w-[70%] 2xl:w-[85%] lg:w-2/3 mr-0 translate-x-[27%] md:translate-x-[20%] lg:translate-x-[15%] 2xl:translate-x-[28%] -translate-y-[43%]"
+            className="pointer-events-none hidden dark:block object-contain absolute -top-6 w-[400px] sm:relative dark:sm:block sm:w-3/4 sm:left-3 md:w-[70%] 2xl:w-[85%] lg:w-2/3 mr-0 translate-x-[27%] md:translate-x-[20%] lg:translate-x-[15%] 2xl:translate-x-[28%] -translate-y-[43%]"
             src="./img/phone_dark.png"
             alt="phone"
           />
 
           <img
-            className="dark:hidden pointer-events-none hidden sm:block w-3/4 md:w-[70%] 2xl:w-[85%] lg:w-2/3 mr-0 translate-x-[27%] md:translate-x-[20%] lg:translate-x-[15%] 2xl:translate-x-[28%] -translate-y-[43%]"
+            className="dark:hidden pointer-events-none object-contain absolute -top-6 w-[400px] sm:relative sm:block sm:w-3/4 md:w-[70%] 2xl:w-[85%] lg:w-2/3 mr-0 translate-x-[27%] md:translate-x-[20%] lg:translate-x-[15%] 2xl:translate-x-[28%] -translate-y-[43%]"
             src="./img/phone_light.png"
             alt="phone"
           />
