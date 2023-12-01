@@ -13,9 +13,8 @@ template/ios/Pods
 template/ios/build
 template/android/app/.cxx
 template/android/app/build
+template/android/build
 template/android/.gradle
 template/android/.idea
 documentation
-.idea
 .github
-.husky

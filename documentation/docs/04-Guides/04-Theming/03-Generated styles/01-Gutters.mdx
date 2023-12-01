@@ -1,0 +1,70 @@
+---
+slug: /theming/generated-styles/gutters
+sidebar_label: Gutters
+title: Gutters
+id: theming-generated-styles_gutters
+keywords: [padding, margin, paddings, margins, gutters, spacings]
+---
+import Gutters from "../../../../src/components/Gutters";
+
+## How to use ?
+
+Generated styles provided by the `gutters` section of the theme configuration assist in applying margin and padding to your components.
+You can access these styles using the following code:
+
+```javascript
+const { gutters } = useTheme()
+```
+
+For more details, refer to the `gutters` [section](/docs/theming/api-reference#guttersconfig) of the theme configuration.
+
+## Generated gutters
+Here's the representation of the generated styles for a given `GuttersConfig` like the one below:
+
+```typescript
+export const config = {
+    // ...
+    gutters: [...value],
+    // ...
+}
+```
+
+Where `value` is an array of numbers, the generated keys available through the `gutters` key will be the concatenation of the gutter name and the value, including:
+
+- `margin_${value}`,
+- `marginBottom_${value}`,
+- `marginTop_${value}`,
+- `marginRight_${value}`,
+- `marginLeft_${value}`,
+- `marginVertical_${value}`,
+- `marginHorizontal_${value}`,
+- `padding_${value}`,
+- `paddingBottom_${value}`,
+- `paddingTop_${value}`,
+- `paddingRight_${value}`,
+- `paddingLeft_${value}`,
+- `paddingVertical_${value}`,
+- `paddingHorizontal_${value}`,
+
+The corresponding values behind these keys will be:
+
+```javascript
+{
+    [gutter_name]: value
+}
+```
+
+This structure simplifies the process of accessing and applying margin and padding styles with various gutter values.
+
+## Static gutter styles
+Some gutter styles, don't require dynamic generation.
+To accommodate this, we offer the `staticGuttersStyles` object that houses static styles for gutters.
+You can use this file as-is or customize it to your preferences.
+These styles will be seamlessly merged with the generated ones,
+making them accessible through the `gutters` object of the `useTheme` hook.
+
+## Playground
+Here's a simple playground that provides a visual representation of the objects generated from a given `gutters` configuration:
+
+<Gutters/>
+

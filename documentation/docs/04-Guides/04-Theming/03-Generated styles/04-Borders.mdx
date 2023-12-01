@@ -1,0 +1,58 @@
+---
+slug: /theming/generated-styles/borders
+sidebar_label: Borders
+title: Borders
+id: theming-generated-styles_borders
+keywords: [border, borders, radius, width, color, colors]
+---
+import Borders from "../../../../src/components/Borders";
+
+## How to use ?
+
+Generated styles provided by the `borders` section of the theme configuration assist in applying border radius, width and color to your components.
+You can access these styles using the following code:
+
+```javascript
+const { borders } = useTheme()
+```
+
+For more details, refer to the [`borders` section](/docs/theming/api-reference#bordersconfig) of the theme configuration.
+
+## Generated borders
+
+Here is the representation of the generated styles for a given
+[`BordersConfig`](/docs/theming/api-reference#bordersconfig) like the one below:
+
+```ts title=/src/theme/theme.config.ts
+export const config = {
+    //...
+    borders: {
+        widths: widthsValues,
+        radius: radiusValues,
+        colors: colorsValues,
+    },
+    //...
+}
+```
+
+Where `widthsValues` and `radiusValues` are arrays of numbers, `widthValue` is an item of `widthsValues`, `radiusValue` is an item of `radiusValues`, and `colorsValues` is an object with
+`colorsKey` keys and `colorsValue` values, the generated styles are as follows:
+
+| font name                     | Generated style                   |
+|-------------------------------|-----------------------------------|
+| borders.w__widthValue_        | { borderWidth: _widthValue_ }   |
+| borders.rounded__radiusValue_ | { borderRadius: _radiusValue_ } |
+| borders._colorsKey_           | { borderColor: _colorsValue_ }  |
+
+
+## Static borders styles
+Some border styles, don't require dynamic generation.
+To accommodate this, we offer the `staticBorderStyles` object that houses static styles for border.
+You can use this file as-is or customize it to your preferences.
+These styles will be seamlessly merged with the generated ones,
+making them accessible through the `borders` object of the `useTheme` hook.
+
+## Playground
+Here's a simple playground that provides a visual representation of the objects generated from a given `borders` configuration:
+
+<Borders />

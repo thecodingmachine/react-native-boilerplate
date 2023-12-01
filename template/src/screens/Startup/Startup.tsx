@@ -1,36 +1,54 @@
-import React, { useEffect } from 'react';
-import { ActivityIndicator, View } from 'react-native';
-import { useTheme } from '../../hooks';
-import { Brand } from '../../components';
-import { setDefaultTheme } from '../../store/theme';
-import { ApplicationScreenProps } from '../../../@types/navigation';
+import { useEffect } from 'react';
+import { ActivityIndicator, Text, View } from 'react-native';
+import { useQuery } from '@tanstack/react-query';
+import { useTranslation } from 'react-i18next';
 
-const Startup = ({ navigation }: ApplicationScreenProps) => {
-  const { Layout, Gutters } = useTheme();
+import { useTheme } from '@/theme';
+import { Brand } from '@/components/molecules';
+import { SafeScreen } from '@/components/template';
 
-  const init = async () => {
-    await new Promise(resolve =>
-      setTimeout(() => {
-        resolve(true);
-      }, 2000),
-    );
-    await setDefaultTheme({ theme: 'default', darkMode: null });
-    navigation.reset({
-      index: 0,
-      routes: [{ name: 'Main' }],
-    });
-  };
+import type { ApplicationScreenProps } from '@/types/navigation';
 
-  useEffect(() => {
-    init();
-  }, []);
+function Startup({ navigation }: ApplicationScreenProps) {
+	const { layout, gutters, fonts } = useTheme();
+	const { t } = useTranslation(['startup']);
 
-  return (
-    <View style={[Layout.fill, Layout.colCenter]}>
-      <Brand />
-      <ActivityIndicator size={'large'} style={[Gutters.largeVMargin]} />
-    </View>
-  );
-};
+	const { isSuccess, isFetching, isError } = useQuery({
+		queryKey: ['startup'],
+		queryFn: () => {
+			return Promise.resolve(true);
+		},
+	});
+
+	useEffect(() => {
+		navigation.reset({
+			index: 0,
+			routes: [{ name: 'Example' }],
+		});
+	}, [isSuccess]);
+
+	return (
+		<SafeScreen>
+			<View
+				style={[
+					layout.flex_1,
+					layout.col,
+					layout.itemsCenter,
+					layout.justifyCenter,
+				]}
+			>
+				<Brand />
+				{isFetching && (
+					<ActivityIndicator size="large" style={[gutters.marginVertical_24]} />
+				)}
+				{isError && (
+					<Text style={[fonts.size_16, fonts.red500]}>
+						{t('startup:error')}
+					</Text>
+				)}
+			</View>
+		</SafeScreen>
+	);
+}
 
 export default Startup;

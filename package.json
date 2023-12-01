@@ -14,9 +14,7 @@
   "homepage": "https://thecodingmachine.github.io/react-native-boilerplate/",
   "main": "post-init.script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "commit": "cz",
-    "prepare": "husky install"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "react",
@@ -30,18 +28,5 @@
     "kleur": "^4.1.4",
     "prompts": "^2.4.1"
   },
-  "devDependencies": {
-    "@commitlint/cli": "^16.0.2",
-    "@commitlint/config-conventional": "^16.0.0",
-    "@commitlint/cz-commitlint": "^16.0.0",
-    "@commitlint/prompt-cli": "^16.0.0",
-    "commitizen": "^4.2.4",
-    "cz-conventional-changelog": "^3.3.0",
-    "husky": "^7.0.4"
-  },
-  "config": {
-    "commitizen": {
-      "path": "@commitlint/cz-commitlint"
-    }
-  }
+  "devDependencies": {}
 }

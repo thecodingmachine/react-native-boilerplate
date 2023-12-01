@@ -14,7 +14,7 @@ const FeatureList: FeatureItem[] = [
     color: 'yellow',
     description: (
       <>
-        A simple starter kit with basic and well known dependencies.
+        A straightforward starter kit equipped with essential and widely recognized dependencies.
       </>
     ),
   },
@@ -24,7 +24,7 @@ const FeatureList: FeatureItem[] = [
     color: 'green',
     description: (
       <>
-        It contains only the minimum amount of code for awesome apps.
+        It includes just the bare minimum code required to create amazing apps.
       </>
     ),
   },
@@ -34,7 +34,7 @@ const FeatureList: FeatureItem[] = [
     color: 'cyan',
     description: (
       <>
-        For us it&apos;s important to let you choose your code base language.
+        We believe in giving you the freedom to select your preferred codebase language.
       </>
     ),
   },
@@ -44,7 +44,8 @@ const FeatureList: FeatureItem[] = [
     color: 'orange',
     description: (
       <>
-        You can easily add more features to your app and scale it up.
+        {/* eslint-disable-next-line react/no-unescaped-entities */}
+        Effortlessly expand your app's capabilities and scale it up as needed.
       </>
     ),
   },

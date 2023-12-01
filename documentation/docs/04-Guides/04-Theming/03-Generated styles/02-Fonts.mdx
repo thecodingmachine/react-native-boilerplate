@@ -1,0 +1,56 @@
+---
+slug: /theming/generated-styles/fonts
+sidebar_label: Fonts
+title: Fonts
+id: theming-generated-styles_fonts
+keywords: [fonts, fontsize, fontcolor, textcolor, textsize, text]
+
+---
+import Fonts from "../../../../src/components/Fonts";
+
+## How to use ?
+
+Generated styles provided by the `fonts` section of the theme configuration assist in applying font sizes and text colors to your components.
+You can access these styles using the following code:
+
+```javascript
+const { fonts } = useTheme()
+```
+
+For more details, refer to the `fonts` [section](/docs/theming/api-reference#fontconfig) of the theme configuration.
+
+## Generated fonts
+
+Here is the representation of the generated styles for a given
+[`FontsConfig`](/docs/theming/api-reference#fontconfig) like the one below:
+
+```ts title=/src/theme/theme.config.ts
+export const config = {
+    //...
+    fonts: {
+        sizes: sizesValues,
+        colors: colorsValues,
+    },
+    //...
+}
+```
+
+Where `sizesValues` is an array of numbers, `sizeValue` is an item of `sizeValues`, and `colorsValues` is an object with
+`colorsKey` keys and `colorsValue` values, the generated styles are as follows:
+
+| font name                  | Generated style              |
+|----------------------------|------------------------------|
+| fonts.size__sizesValue_ | { fontSize: _sizeValue_ }  |
+| fonts._colorsKey_       | { color: _colorsValue_ }   |
+
+## Static fonts
+Some fonts styles, such as the `fontWeight` property of a text style, don't require dynamic generation.
+To accommodate this, we offer the `staticFontStyles` object that houses static styles for fonts.
+You can use this file as-is or customize it to your preferences.
+These styles will be seamlessly merged with the generated ones,
+making them accessible through the `fonts` object of the `useTheme` hook.
+
+## Playground
+Here's a simple playground that provides a visual representation of the objects generated from a given `fonts` configuration:
+
+<Fonts />

@@ -1,15 +1,19 @@
 {
   "extends": "@tsconfig/react-native/tsconfig.json",
   "compilerOptions": {
-    "types": ["react-native", "jest", "node"],
-    "typeRoots": [
-      "@types",
-      "./node_modules/@types"
-    ],
-    "baseUrl": "./",
+    "types": ["jest", "node"],
     "paths": {
       "@/*": ["./src/*"],
-      "types/*": ["./@types/*"]
     }
-  }
+  },
+  "include": [
+    "./src/**/*",
+    "./src/@types/**/*",
+    "index.d.ts",
+    ".eslintrc.js",
+    "jest.setup.js",
+    "jest.config.js",
+    "babel.config.js",
+    "index.js"
+  ]
 }

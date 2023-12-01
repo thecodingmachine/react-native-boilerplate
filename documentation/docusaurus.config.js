@@ -24,9 +24,9 @@ const config = {
       return {
         name: 'docusaurus-tailwindcss',
         configurePostCss(postcssOptions) {
-          // eslint-disable-next-line global-require
+          // eslint-disable-next-line global-require,import/no-extraneous-dependencies
           postcssOptions.plugins.push(require('tailwindcss'));
-          // eslint-disable-next-line global-require
+          // eslint-disable-next-line global-require,import/no-extraneous-dependencies
           postcssOptions.plugins.push(require('autoprefixer'));
           return postcssOptions;
         },
@@ -78,14 +78,15 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'Introduction',
+            docId: 'getting-started',
             position: 'left',
             label: 'Docs',
           },
           { to: '/blog', label: 'Blog', position: 'left' },
           {
-            href: 'https://github.com/thecodingmachine/react-native-boilerplate',
-            label: 'GitHub',
+            to: 'https://github.com/thecodingmachine/react-native-boilerplate',
+            label: ' ',
+            className: 'header-github-link group',
             position: 'right',
           },
         ],
@@ -94,27 +95,27 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'Features',
             items: [
               {
-                label: 'Installation',
-                to: '/docs/Installation',
+                label: 'Javascript or TypeScript ? You choose !',
+                to: '/docs/installation#using-the-boilerplate',
               },
               {
-                label: 'Theme',
-                to: '/docs/Theme',
+                label: 'Navigation',
+                to: '/docs/navigate',
               },
               {
-                label: 'Loading data at startup',
-                to: '/docs/SplashScreenLoadingData',
-              },
-              {
-                label: 'Redux toolkit',
-                to: '/docs/ReduxStore',
+                label: 'Data fetching',
+                to: '/docs/data-fetching',
               },
               {
                 label: 'Internationalization',
-                to: '/docs/AddALangTranslation',
+                to: '/docs/internationalization',
+              },
+              {
+                label: 'Multi theming',
+                to: '/docs/theming/how-to-use',
               },
             ],
           },
@@ -127,7 +128,7 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/thecodingmachine/react-native-boilerplate',
+                to: 'https://github.com/thecodingmachine/react-native-boilerplate',
               },
             ],
           },

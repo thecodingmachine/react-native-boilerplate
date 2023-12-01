@@ -1,240 +1,181 @@
-import React, { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import {
-  View,
-  ActivityIndicator,
-  Text,
-  TouchableOpacity,
-  ScrollView,
-  Image,
-  Alert,
+	View,
+	ActivityIndicator,
+	Text,
+	TouchableOpacity,
+	ScrollView,
+	Alert,
 } from 'react-native';
-import { useDispatch } from 'react-redux';
-import { useTranslation } from 'react-i18next';
-import { Brand } from '../../components';
-import { useTheme } from '../../hooks';
-import { useLazyFetchOneQuery } from '../../services/modules/users';
-import { changeTheme, ThemeState } from '../../store/theme';
 import i18next from 'i18next';
+import { useTranslation } from 'react-i18next';
+import { useQuery } from '@tanstack/react-query';
 
-const Example = () => {
-  const { t } = useTranslation(['example', 'welcome']);
-  const {
-    Common,
-    Fonts,
-    Gutters,
-    Layout,
-    Images,
-    darkMode: isDark,
-  } = useTheme();
-  const dispatch = useDispatch();
+import { ImageVariant } from '@/components/atoms';
+import { Brand } from '@/components/molecules';
+import { SafeScreen } from '@/components/template';
+import { useTheme } from '@/theme';
+import { fetchOne } from '@/services/users';
 
-  const [fetchOne, { data, isSuccess, isLoading, isFetching }] =
-    useLazyFetchOneQuery();
+import { isImageSourcePropType } from '@/types/guards/image';
 
-  useEffect(() => {
-    if (isSuccess && data?.name) {
-      Alert.alert(t('example:helloUser', { name: data.name }));
-    }
-  }, [isSuccess, data]);
+import SendImage from '@/theme/assets/images/send.png';
+import ColorsWatchImage from '@/theme/assets/images/colorswatch.png';
+import TranslateImage from '@/theme/assets/images/translate.png';
 
-  const onChangeTheme = ({ theme, darkMode }: Partial<ThemeState>) => {
-    dispatch(changeTheme({ theme, darkMode }));
-  };
+function Example() {
+	const { t } = useTranslation(['example', 'welcome']);
 
-  const onChangeLanguage = (lang: 'fr' | 'en') => {
-    i18next.changeLanguage(lang);
-  };
+	const {
+		colors,
+		variant,
+		changeTheme,
+		layout,
+		gutters,
+		fonts,
+		components,
+		backgrounds,
+	} = useTheme();
 
-  return (
-    <ScrollView
-      style={Layout.fill}
-      contentContainerStyle={[
-        Layout.fullSize,
-        Layout.fill,
-        Layout.colCenter,
-        Layout.scrollSpaceBetween,
-      ]}
-    >
-      <View
-        style={[
-          Layout.fill,
-          Layout.relative,
-          Layout.fullWidth,
-          Layout.justifyContentCenter,
-          Layout.alignItemsCenter,
-        ]}
-      >
-        <View
-          style={[
-            Layout.absolute,
-            {
-              height: 250,
-              width: 250,
-              backgroundColor: isDark ? '#000000' : '#DFDFDF',
-              borderRadius: 140,
-            },
-          ]}
-        />
-        <Image
-          style={[
-            Layout.absolute,
-            {
-              bottom: '-30%',
-              left: 0,
-            },
-          ]}
-          source={Images.sparkles.bottomLeft}
-          resizeMode={'contain'}
-        />
-        <View
-          style={[
-            Layout.absolute,
-            {
-              height: 300,
-              width: 300,
-              transform: [{ translateY: 40 }],
-            },
-          ]}
-        >
-          <Brand height={300} width={300} />
-        </View>
-        <Image
-          style={[
-            Layout.absolute,
-            Layout.fill,
-            {
-              top: 0,
-              left: 0,
-            },
-          ]}
-          source={Images.sparkles.topLeft}
-          resizeMode={'contain'}
-        />
-        <Image
-          style={[
-            Layout.absolute,
-            {
-              top: '-5%',
-              right: 0,
-            },
-          ]}
-          source={Images.sparkles.top}
-          resizeMode={'contain'}
-        />
-        <Image
-          style={[
-            Layout.absolute,
-            {
-              top: '15%',
-              right: 20,
-            },
-          ]}
-          source={Images.sparkles.topRight}
-          resizeMode={'contain'}
-        />
-        <Image
-          style={[
-            Layout.absolute,
-            {
-              bottom: '-10%',
-              right: 0,
-            },
-          ]}
-          source={Images.sparkles.right}
-          resizeMode={'contain'}
-        />
+	const [currentId, setCurrentId] = useState(-1);
 
-        <Image
-          style={[
-            Layout.absolute,
-            {
-              top: '75%',
-              right: 0,
-            },
-          ]}
-          source={Images.sparkles.bottom}
-          resizeMode={'contain'}
-        />
-        <Image
-          style={[
-            Layout.absolute,
-            {
-              top: '60%',
-              right: 0,
-            },
-          ]}
-          source={Images.sparkles.bottomRight}
-          resizeMode={'contain'}
-        />
-      </View>
-      <View
-        style={[
-          Layout.fill,
-          Layout.justifyContentBetween,
-          Layout.alignItemsStart,
-          Layout.fullWidth,
-          Gutters.regularHPadding,
-        ]}
-      >
-        <View>
-          <Text style={[Fonts.titleRegular]}>{t('welcome:title')}</Text>
-          <Text
-            style={[Fonts.textBold, Fonts.textRegular, Gutters.regularBMargin]}
-          >
-            {t('welcome:subtitle')}
-          </Text>
-          <Text style={[Fonts.textSmall, Fonts.textLight]}>
-            {t('welcome:description')}
-          </Text>
-        </View>
+	const { isSuccess, data, isFetching } = useQuery({
+		queryKey: ['example', currentId],
+		queryFn: () => {
+			return fetchOne(currentId);
+		},
+		enabled: currentId >= 0,
+	});
 
-        <View
-          style={[
-            Layout.row,
-            Layout.justifyContentBetween,
-            Layout.fullWidth,
-            Gutters.smallTMargin,
-          ]}
-        >
-          <TouchableOpacity
-            style={[Common.button.circle, Gutters.regularBMargin]}
-            onPress={() => fetchOne(`${Math.ceil(Math.random() * 10 + 1)}`)}
-          >
-            {isFetching || isLoading ? (
-              <ActivityIndicator />
-            ) : (
-              <Image
-                source={Images.icons.send}
-                style={{ tintColor: isDark ? '#A6A4F0' : '#44427D' }}
-              />
-            )}
-          </TouchableOpacity>
+	useEffect(() => {
+		if (isSuccess) {
+			Alert.alert(t('example:welcome', data.name));
+		}
+	}, [isSuccess, data]);
 
-          <TouchableOpacity
-            style={[Common.button.circle, Gutters.regularBMargin]}
-            onPress={() => onChangeTheme({ darkMode: !isDark })}
-          >
-            <Image
-              source={Images.icons.colors}
-              style={{ tintColor: isDark ? '#A6A4F0' : '#44427D' }}
-            />
-          </TouchableOpacity>
+	const onChangeTheme = () => {
+		changeTheme(variant === 'default' ? 'dark' : 'default');
+	};
 
-          <TouchableOpacity
-            style={[Common.button.circle, Gutters.regularBMargin]}
-            onPress={() =>
-              onChangeLanguage(i18next.language === 'fr' ? 'en' : 'fr')
-            }
-          >
-            <Image
-              source={Images.icons.translate}
-              style={{ tintColor: isDark ? '#A6A4F0' : '#44427D' }}
-            />
-          </TouchableOpacity>
-        </View>
-      </View>
-    </ScrollView>
-  );
-};
+	const onChangeLanguage = (lang: 'fr' | 'en') => {
+		void i18next.changeLanguage(lang);
+	};
+
+	if (
+		!isImageSourcePropType(SendImage) ||
+		!isImageSourcePropType(ColorsWatchImage) ||
+		!isImageSourcePropType(TranslateImage)
+	) {
+		throw new Error('Image source is not valid');
+	}
+
+	return (
+		<SafeScreen>
+			<ScrollView
+				contentContainerStyle={[
+					layout.flex_1,
+					layout.justifyCenter,
+					layout.itemsCenter,
+				]}
+			>
+				<View
+					style={[
+						layout.flex_1,
+						layout.relative,
+						layout.fullWidth,
+						layout.justifyCenter,
+						layout.itemsCenter,
+					]}
+				>
+					<View
+						style={[layout.absolute, backgrounds.gray100, components.circle250]}
+					/>
+
+					<View style={[layout.absolute, gutters.paddingTop_80]}>
+						<Brand height={300} width={300} />
+					</View>
+				</View>
+
+				<View
+					style={[
+						layout.flex_1,
+						layout.justifyBetween,
+						layout.itemsStart,
+						layout.fullWidth,
+						gutters.paddingHorizontal_32,
+						gutters.marginTop_40,
+					]}
+				>
+					<View>
+						<Text style={[fonts.size_40, fonts.gray800, fonts.bold]}>
+							{t('welcome:title')}
+						</Text>
+						<Text
+							style={[
+								fonts.gray400,
+								fonts.bold,
+								fonts.size_24,
+								gutters.marginBottom_32,
+							]}
+						>
+							{t('welcome:subtitle')}
+						</Text>
+						<Text style={[fonts.size_16, fonts.gray200]}>
+							{t('welcome:description')}
+						</Text>
+					</View>
+
+					<View
+						style={[
+							layout.row,
+							layout.justifyBetween,
+							layout.fullWidth,
+							gutters.marginTop_16,
+						]}
+					>
+						<TouchableOpacity
+							testID="fetch-user-button"
+							style={[components.buttonCircle, gutters.marginBottom_16]}
+							onPress={() => setCurrentId(Math.ceil(Math.random() * 10 + 1))}
+						>
+							{isFetching ? (
+								<ActivityIndicator />
+							) : (
+								<ImageVariant
+									source={SendImage}
+									style={{ tintColor: colors.purple500 }}
+								/>
+							)}
+						</TouchableOpacity>
+
+						<TouchableOpacity
+							testID="change-theme-button"
+							style={[components.buttonCircle, gutters.marginBottom_16]}
+							onPress={() => onChangeTheme()}
+						>
+							<ImageVariant
+								source={ColorsWatchImage}
+								style={{ tintColor: colors.purple500 }}
+							/>
+						</TouchableOpacity>
+
+						<TouchableOpacity
+							testID="change-language-button"
+							style={[components.buttonCircle, gutters.marginBottom_16]}
+							onPress={() =>
+								onChangeLanguage(i18next.language === 'fr' ? 'en' : 'fr')
+							}
+						>
+							<ImageVariant
+								source={TranslateImage}
+								style={{ tintColor: colors.purple500 }}
+							/>
+						</TouchableOpacity>
+					</View>
+				</View>
+			</ScrollView>
+		</SafeScreen>
+	);
+}
 
 export default Example;

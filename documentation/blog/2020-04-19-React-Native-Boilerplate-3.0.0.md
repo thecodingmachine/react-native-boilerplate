@@ -69,7 +69,7 @@ Each of the used libraries are well-known, tried and tested.
 For the state management we use [**Redux**](https://redux.js.org/) (redux + redux toolkit + redux persist). 
 Some people like it, some people don't.
 We are really comfortable with this library, it's not so difficult to learn, and the implementation is well-known, 
-recognized as a good choice and easy [to debug](/docs/UsingFlipper)! 
+recognized as a good choice and easy to debug! 
 Thanks to this boilerplate and [redux-toolkit](https://redux-toolkit.js.org/), the state management is ready out of the box. 
 A complete example is even included. This way, you can easier understand how it works.
 To deal with the navigation, [**React Navigation**](https://reactnavigation.org/) is THE reference for screen navigation.
@@ -145,10 +145,6 @@ export default ExampleContainer
 
 That's this simple! 🚀
 
-:::info
-For more details about redux-toolkit-wrapper jump [**here**](/docs/ReduxStore)
-:::
-
 ## What's in the box? 📦
 
 Still hesitating ? Let's make a recap and see what this beautiful boilerplate can provide you:
@@ -161,9 +157,9 @@ Still hesitating ? Let's make a recap and see what this beautiful boilerplate ca
 - **Redux** (with redux-toolkit and redux-toolkit-wrapper 😉) : handling
   redux store has never been as easy as this!! ⚡
 - DarkMode or colorful app? Give your users the power to choose!
-  **Multi-theming** and **darkMode** support 🌗 (see [here](/docs/ThemesAndDarkMode))
-- French kisses aren't translatable, but you can translate your app! **i18n friendly** 🌐 (see [here](/docs/AddALangTranslation))
-- You don't like bug hunt? Use **Flipper debugging** 🐛 (see [here](/docs/UsingFlipper))
+  **Multi-theming** and **darkMode** support 🌗
+- French kisses aren't translatable, but you can translate your app! **i18n friendly** 🌐
+- You don't like bug hunt? Use **Flipper debugging** 🐛
 - Maintained by **passionate developers** ⚛️
 
 Just Test It 🧪 !!

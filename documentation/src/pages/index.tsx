@@ -33,16 +33,17 @@ function HomepageHeader() {
         <p className="mt-6 sm:mt-12 lg:mt-5 w-full sm:w-2/3 md:w-1/2 text-sm font-bold ml-1 text-slate-700 dark:text-white">
           {siteConfig.tagline}
           <span className="ml-1 text-slate-400">
-            Discover the best React Native boilerplate for your project
-            with a really simple architecture based on Separation of Concerns,
-            and let the community build around it.
+            Explore the optimal React Native boilerplate for your project,
+            featuring a straightforward architecture
+            founded on the principle of Separation of Concerns.
+            Join our vibrant community and watch it flourish.
           </span>
         </p>
 
         <div className="py-10">
           <Link
             className="transition-all ease-in hover:bg-red-700 hover:text-white hover:text text-md text-white font-bold py-3 px-4 rounded bg-red-500 shadow-lg shadow-red-500/50"
-            to="/docs/Introduction"
+            to="/docs/getting-started"
           >
             Get started
             <span className="ml-3">🚀</span>
@@ -84,7 +85,7 @@ export default function Home(): JSX.Element {
             <HomepageFeatures />
           </div>
 
-          <svg className="bottom-0 w-full sm:-mt-20 fill-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+          <svg className="-mb-[1px] bottom-0 w-full sm:-mt-20 fill-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
             <path fill="current" fillOpacity="1" d="M0,320L60,272C120,224,240,128,360,128C480,128,600,224,720,234.7C840,245,960,171,1080,122.7C1200,75,1320,53,1380,42.7L1440,32L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z" />
           </svg>
           <Quickstart />

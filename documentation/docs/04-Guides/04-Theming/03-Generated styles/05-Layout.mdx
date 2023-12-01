@@ -1,0 +1,43 @@
+---
+slug: /theming/generated-styles/layout
+sidebar_label: Layout
+title: Layout
+id: theming-generated-styles_layout
+keywords: [layout, flex, row, col, column, center, align, justify]
+---
+import Layout from '../../../../../template/src/theme/layout'
+
+## How to use ?
+Static styles provided by the `static/layout.ts` file assist in applying layout styles to your components.
+You can access these styles using the following code:
+
+```javascript
+const { layout } = useTheme()
+```
+
+## Default generated layout
+
+<table>
+    <thead>
+        <tr>
+        <th>Key</th>
+        <th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        {
+        Object.entries(Layout).map(([key, value]) => {
+            return (
+            <tr key={key}>
+                <td>{key}</td>
+                <td>{JSON.stringify(value)}</td>
+            </tr>
+            )
+        })
+        }
+    </tbody>
+</table>
+
+:::info
+These styles are generated using the `static/layout.ts` file. You can modify the file to change the default styles.
+:::
