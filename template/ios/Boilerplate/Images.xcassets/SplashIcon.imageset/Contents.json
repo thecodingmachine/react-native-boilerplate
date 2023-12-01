@@ -1,18 +1,18 @@
 {
   "images" : [
     {
-      "filename" : "Webp.net-resizeimage (2).png",
-      "idiom" : "universal",
+      "filename" : "tom_dark@1x.png",
+      "idiom" : "iphone",
       "scale" : "1x"
     },
     {
-      "filename" : "Webp.net-resizeimage (1).png",
-      "idiom" : "universal",
+      "filename" : "tom_dark@2x.png",
+      "idiom" : "iphone",
       "scale" : "2x"
     },
     {
-      "filename" : "Webp.net-resizeimage.png",
-      "idiom" : "universal",
+      "filename" : "tom_dark@3x.png",
+      "idiom" : "iphone",
       "scale" : "3x"
     }
   ],

@@ -69,22 +69,18 @@ module.exports = {
 					process.exit(1);
 				}
 
-				console.log('💣 Removing typescript dependencies source...');
-				execSync(
-					`${packageManager} remove ` +
-						'@tsconfig/react-native ' +
-						'@types/jest ' +
-						'@types/node ' +
-						'@types/react ' +
-						'@types/react-test-renderer ' +
-						'typescript',
-					{ stdio: 'pipe' }
-				);
+				console.log('💣 change eslint config...');
+				execSync('cp .eslintrcJsVersion.js .eslintrc.js', { stdio: 'pipe' });
+				execSync('rm .eslintrcJsVersion.js', { stdio: 'pipe' });
 
 				console.log('🌀 Removing types ...');
-				execSync('rm -rf @types', { stdio: 'pipe' });
-				execSync('rm tsconfig.json', { stdio: 'pipe' });
+				execSync('rm -rf src/types/theme', { stdio: 'pipe' });
+				execSync('rm -rf src/types/*.ts', { stdio: 'pipe' });
+
+			} else {
+				execSync('rm .eslintrcJsVersion.js', { stdio: 'pipe' });
 			}
+
 			resolve();
 		});
 	},

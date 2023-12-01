@@ -72,8 +72,11 @@ function Example() {
 	return (
 		<SafeScreen>
 			<ScrollView
-				style={[layout.flex_1]}
-				contentContainerStyle={[layout.justifyCenter, layout.itemsCenter]}
+				contentContainerStyle={[
+					layout.flex_1,
+					layout.justifyCenter,
+					layout.itemsCenter,
+				]}
 			>
 				<View
 					style={[

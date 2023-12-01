@@ -1,7 +1,7 @@
 import { config } from '@/theme/_config';
+import { hasProperty } from '@/types/guards/theme';
 
 import type { Variant } from '@/types/theme/config';
-import { hasProperty } from '@/types/theme/common';
 
 export default (variant: Variant) => {
 	const { variants, ...defaultConfig } = config;
