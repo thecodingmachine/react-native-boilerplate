@@ -20,7 +20,7 @@ If you love this boilerplate, give us a star, you will be a ray of sunshine in o
 
 ## Requirements
 
-Node 14 or greater is required. Development for iOS requires a Mac and Xcode 10 or up, and will target iOS 11 and up.
+Node 18 or greater is required. Development for iOS requires a Mac and Xcode 10 or up, and will target iOS 11 and up.
 
 You also need to install the dependencies required by React Native.  
 Go to the [React Native environment setup](https://reactnative.dev/docs/environment-setup), then select `React Native CLI Quickstart` tab.  
