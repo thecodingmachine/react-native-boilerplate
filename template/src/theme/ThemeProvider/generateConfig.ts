@@ -33,9 +33,9 @@ export default (variant: Variant) => {
 	};
 
 	const colors = {
+		...borderColors,
 		...fontColors,
 		...backgroundColors,
-		...borderColors,
 		...navigationColors,
 	};
 

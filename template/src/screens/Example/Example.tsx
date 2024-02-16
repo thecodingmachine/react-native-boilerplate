@@ -71,24 +71,16 @@ function Example() {
 
 	return (
 		<SafeScreen>
-			<ScrollView
-				contentContainerStyle={[
-					layout.flex_1,
-					layout.justifyCenter,
-					layout.itemsCenter,
-				]}
-			>
+			<ScrollView>
 				<View
 					style={[
-						layout.flex_1,
-						layout.relative,
-						layout.fullWidth,
 						layout.justifyCenter,
 						layout.itemsCenter,
+						gutters.marginTop_80,
 					]}
 				>
 					<View
-						style={[layout.absolute, backgrounds.gray100, components.circle250]}
+						style={[layout.relative, backgrounds.gray100, components.circle250]}
 					/>
 
 					<View style={[layout.absolute, gutters.paddingTop_80]}>
@@ -96,17 +88,8 @@ function Example() {
 					</View>
 				</View>
 
-				<View
-					style={[
-						layout.flex_1,
-						layout.justifyBetween,
-						layout.itemsStart,
-						layout.fullWidth,
-						gutters.paddingHorizontal_32,
-						gutters.marginTop_40,
-					]}
-				>
-					<View>
+				<View style={[gutters.paddingHorizontal_32, gutters.marginTop_40]}>
+					<View style={[gutters.marginTop_40]}>
 						<Text style={[fonts.size_40, fonts.gray800, fonts.bold]}>
 							{t('welcome:title')}
 						</Text>
@@ -120,7 +103,9 @@ function Example() {
 						>
 							{t('welcome:subtitle')}
 						</Text>
-						<Text style={[fonts.size_16, fonts.gray200]}>
+						<Text
+							style={[fonts.size_16, fonts.gray200, gutters.marginBottom_40]}
+						>
 							{t('welcome:description')}
 						</Text>
 					</View>
