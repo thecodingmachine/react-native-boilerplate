@@ -11,6 +11,7 @@ export type ThemeState = {
 };
 
 export type FulfilledThemeConfiguration = {
+	readonly colors: Record<string, string>;
 	fonts: {
 		sizes: readonly number[];
 		readonly colors: Record<string, string>;
@@ -26,6 +27,7 @@ export type FulfilledThemeConfiguration = {
 };
 
 export type VariantThemeConfiguration = {
+	readonly colors: FulfilledThemeConfiguration['colors'];
 	fonts: {
 		readonly colors: FulfilledThemeConfiguration['fonts']['colors'];
 	};

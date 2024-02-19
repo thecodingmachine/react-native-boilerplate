@@ -1,6 +1,6 @@
 import { config } from '@/theme/_config';
 
-export type ArrayValue<T extends readonly any[]> = T[number];
+export type ArrayValue<T extends readonly unknown[]> = T[number];
 
 export type RemoveAfterSeparator<S extends string> =
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -12,7 +12,7 @@ export type RemoveBeforeSeparator<S extends string> =
 
 export type ToNumber<
 	S extends string,
-	T extends any[] = [],
+	T extends unknown[] = [],
 > = S extends `${T['length']}` ? T['length'] : ToNumber<S, [...T, '']>;
 
 export type AllPartial<T> = {
