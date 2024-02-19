@@ -13,3 +13,5 @@ fastlane/test_output
 # fastlane builds
 builds/*
 *.xcarchive
+
+.xcode.env.local

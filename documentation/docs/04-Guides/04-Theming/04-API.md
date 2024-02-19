@@ -8,6 +8,12 @@ keywords: [theme, theming, configuration, config, api, reference, api reference]
 
 ## Theme Configuration
 
+### ColorConfig
+
+| Key      | Type                   | Description          |
+|----------|------------------------|----------------------|
+| `colors` | Record<string, string> | Define global colors |
+
 ### FontConfig
 
 | Key      | Type                   | Description                                     |
