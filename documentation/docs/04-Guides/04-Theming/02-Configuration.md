@@ -11,14 +11,15 @@ keywords: [theme, theming, configuration, config, colors, fonts, gutters, spacin
 The idea behind the theme configuration is to have a single source of truth for all the theme related values.
 This is why the theme configuration is a simple object with the following structure:
 
-| Key                | Type                                                                            | Description                                                                                                  |
-|--------------------|---------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| `fonts`            | [`FontConfig`](/docs/theming/api-reference#fontconfig)                          | Define colors and sizes to generate associated styles (`color` and `fontSize`)                               |
-| `gutters`          | [`GuttersConfig`](/docs/theming/api-reference#guttersconfig)                    | Define sizes to generate associated styles (`padding` and `margin`)                                          |
-| `backgrounds`      | `Record<string, string>`                                                        | Define colors generate associated styles (`backgroundColor`)                                                 |
-| `borders`          | [`BordersConfig`](/docs/theming/api-reference#bordersconfig)                    | Define colors, sizes and radius to generate associated styles (`borderColor`, `borderRadius`, `borderWidth`) |
-| `navigationColors` | [`NavigationColorsConfig`](/docs/theming/api-reference#navigationcolorsconfig)  | Define colors override ReactNavigation theme colors                                                          |
-| `variants`         | [`VariantsConfig`](/docs/theming/api-reference#variantsconfig)                  | Define a new theme based on the previous values                                                              |
+| Key                | Type                                                                           | Description                                                                                                  |
+|--------------------|--------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| `colors`           | [`colorConfig`](/docs/theming/api-reference#colorconfig)                       | Define global colors                                                                                         |
+| `fonts`            | [`FontConfig`](/docs/theming/api-reference#fontconfig)                         | Define colors and sizes to generate associated styles (`color` and `fontSize`)                               |
+| `gutters`          | [`GuttersConfig`](/docs/theming/api-reference#guttersconfig)                   | Define sizes to generate associated styles (`padding` and `margin`)                                          |
+| `backgrounds`      | `Record<string, string>`                                                       | Define colors generate associated styles (`backgroundColor`)                                                 |
+| `borders`          | [`BordersConfig`](/docs/theming/api-reference#bordersconfig)                   | Define colors, sizes and radius to generate associated styles (`borderColor`, `borderRadius`, `borderWidth`) |
+| `navigationColors` | [`NavigationColorsConfig`](/docs/theming/api-reference#navigationcolorsconfig) | Define colors override ReactNavigation theme colors                                                          |
+| `variants`         | [`VariantsConfig`](/docs/theming/api-reference#variantsconfig)                 | Define a new theme based on the previous values                                                              |
 
 ## Variants
 A variant is a new theme based on the previous values.
