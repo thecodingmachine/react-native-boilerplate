@@ -4,7 +4,7 @@
   <ShortName>The React Native Boilerplate</ShortName>
   <Description>Search The React Native Boilerplate</Description>
   <InputEncoding>UTF-8</InputEncoding>
-  <Image width="16" height="16" type="image/x-icon">https://thecodingmachine.github.io/react-native-boilerplate/img/favicon.png</Image>
+  <Image width="16" height="16" type="image/x-icon">https://thecodingmachine.github.io/react-native-boilerplate/img/TOM-small.webp</Image>
   <Url type="text/html" method="get" template="https://thecodingmachine.github.io/react-native-boilerplate/search?q={searchTerms}"/>
   <Url type="application/opensearchdescription+xml" rel="self" template="https://thecodingmachine.github.io/react-native-boilerplate/opensearch.xml" />
   <moz:SearchForm>https://thecodingmachine.github.io/react-native-boilerplate/</moz:SearchForm>

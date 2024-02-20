@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdocumentation=self.webpackChunkdocumentation||[]).push([[8009],{7051:t=>{t.exports=JSON.parse('{"label":"kickstart","permalink":"/react-native-boilerplate/blog/tags/kickstart","allTagsPath":"/react-native-boilerplate/blog/tags","count":1}')}}]);

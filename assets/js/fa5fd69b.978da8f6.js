@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocumentation=self.webpackChunkdocumentation||[]).push([[1570],{2645:e=>{e.exports=JSON.parse('{"label":"react","permalink":"/react-native-boilerplate/blog/tags/react","allTagsPath":"/react-native-boilerplate/blog/tags","count":1,"unlisted":false}')}}]);
