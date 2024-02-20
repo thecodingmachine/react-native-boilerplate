@@ -7,7 +7,7 @@ function Tom() {
         width="300"
         height="300"
         className="dark:block hidden dark:block"
-        src={require('../../static/img/tom_dark.png').default}
+        src={require('../../static/img/tom_dark.webp').default}
         alt="tom"
       />
 
@@ -15,7 +15,7 @@ function Tom() {
         width="300"
         height="300"
         className="dark:hidden sm:block"
-        src={require('../../static/img/tom_light.png').default}
+        src={require('../../static/img/tom_light.webp').default}
         alt="tom"
       />
     </div>

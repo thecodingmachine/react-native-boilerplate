@@ -10,16 +10,16 @@ keywords: [theme, theming, configuration, config, api, reference, api reference]
 
 ### ColorConfig
 
-| Key      | Type                   | Description          |
-|----------|------------------------|----------------------|
-| `colors` | Record<string, string> | Define global colors |
+| Key      | Type                     | Description          |
+|----------|--------------------------|----------------------|
+| `colors` | Record\<string, string\> | Define global colors |
 
 ### FontConfig
 
-| Key      | Type                   | Description                                     |
-|----------|------------------------|-------------------------------------------------|
-| `sizes`  | number[]               | Define font sizes to generate associated style  |
-| `colors` | Record<string, string> | Define font colors to generate associated style |
+| Key      | Type                     | Description                                     |
+|----------|--------------------------|-------------------------------------------------|
+| `sizes`  | number[]                 | Define font sizes to generate associated style  |
+| `colors` | Record\<string, string\> | Define font colors to generate associated style |
 
 ### GuttersConfig
 
@@ -30,11 +30,11 @@ keywords: [theme, theming, configuration, config, api, reference, api reference]
 
 ### BordersConfig
 
-| Key      | Type                   | Description                                                |
-|----------|------------------------|------------------------------------------------------------|
-| `widths` | number[]               | Define sizes to generate associated styles (borderWidth)   |
-| `radius` | number[]               | Define radius to generate associated styles (borderRadius) |
-| `colors` | Record<string, string> | Define colors to generate associated styles (borderColor)  |
+| Key      | Type                     | Description                                                |
+|----------|--------------------------|------------------------------------------------------------|
+| `widths` | number[]                 | Define sizes to generate associated styles (borderWidth)   |
+| `radius` | number[]                 | Define radius to generate associated styles (borderRadius) |
+| `colors` | Record\<string, string\> | Define colors to generate associated styles (borderColor)  |
 
 ### NavigationColorsConfig
 
@@ -69,7 +69,7 @@ keywords: [theme, theming, configuration, config, api, reference, api reference]
 | fonts           | [`Fonts`](/docs/theming/api-reference#fonts)                     |
 | backgrounds     | [`Backgrounds`](/docs/theming/api-reference#backgrounds)         |
 | borders         | [`Borders`](/docs/theming/api-reference#borders)                 |
-| navigationTheme | [`NavigationTheme`](/docs/theming/api-reference#navigationTheme) |
+| navigationTheme | [`NavigationTheme`](/docs/theming/api-reference#navigationcolorsconfig) |
 | components      | [`Components`](/docs/theming/api-reference#components)           |
 
 ### Layout
@@ -89,7 +89,7 @@ The type of the generated styles is `Record<string, TextStyle>` but will be infe
 
 ### Backgrounds
 Generated styles provided by the `backgrounds` section of the theme configuration assist in applying background color to your components.
-The type of the generated styles is `Record<`bg_${string}`, {backGroundColor: string}>` but will be inferred by the `Backgrounds` type.
+The type of the generated styles is `Record<`bg_$\{string\}`, {backGroundColor: string}>` but will be inferred by the `Backgrounds` type.
 
 ### Borders
 Generated styles provided by the `borders` section of the theme configuration assist in applying border radius, width and color to your components.
@@ -100,4 +100,3 @@ Generated styles provided by the `navigationColors` section of the theme configu
 
 ### Components
 Generated styles provided by the `components` file of the theme configuration assist in applying styles to specific components.
-

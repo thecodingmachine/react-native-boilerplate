@@ -96,7 +96,7 @@ function Feature({
         <p className="text-2xl">{icon}</p>
       </div>
       <div className="flex flex-col">
-        <h3 className="font-bold mb-4">{title}</h3>
+        <div className="font-bold mb-4">{title}</div>
         <p className="text-xs text-slate-500 dark:text-slate-300">
           {description}
         </p>

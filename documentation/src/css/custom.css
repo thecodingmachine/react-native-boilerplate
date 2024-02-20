@@ -201,6 +201,17 @@ table tr:nth-child(2n) {
   --ifm-link-hover-decoration: none;
 }
 
+.footer__title {
+  @apply dark:text-white !important;
+}
+
+.footer__link-item, .footer__copyright {
+  @apply text-neutral-500;
+  @apply dark:text-neutral-300;
+  @apply hover:text-red-500;
+  @apply dark:hover:text-red-400;
+}
+
 @media (max-width: 996px){
   .navbar__item {
     display: none !important;

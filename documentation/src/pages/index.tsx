@@ -15,13 +15,13 @@ function HomepageHeader() {
 
         <img
           className="dark:block pointer-events-none hidden object-contain z-10 w-full md:w-3/4"
-          src="./img/tom_dark.png"
+          src="./img/tom_dark.webp"
           alt="tom"
         />
 
         <img
           className="dark:hidden pointer-events-none sm:block object-contain z-10 w-full md:w-3/4"
-          src="./img/tom_light.png"
+          src="./img/tom_light.webp"
           alt="tom"
         />
       </div>
