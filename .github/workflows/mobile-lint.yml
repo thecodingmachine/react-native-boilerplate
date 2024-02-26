@@ -1,0 +1,41 @@
+name: Eslint, Prettier and Jest tests
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - template/**/*
+
+jobs:
+  install_dependencies:
+    name: Run eslint and prettier
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'yarn'
+      - name: Install dependencies
+        run: cd template && yarn install --frozen-lockfile
+  lint:
+    name: Run and verify code linting
+    runs-on: ubuntu-latest
+    needs: [install_dependencies]
+    steps:
+      - name: Run lint
+        run: cd template && yarn lint
+        shell: bash
+      - name: Run type check
+        run: cd template && yarn type-check
+        shell: bash
+  test:
+    name: Run and verify jest tests
+    runs-on: ubuntu-latest
+    needs: [install_dependencies, lint]
+    steps:
+      - name: Run tests
+        run: cd template && yarn test
+        shell: bash
