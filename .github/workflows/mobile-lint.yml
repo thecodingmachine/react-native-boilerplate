@@ -13,13 +13,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: navigate to template
-        run: cd template
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'yarn'
+          cache-dependency-path: template/yarn.lock
       - name: Install dependencies
         run: cd template && yarn install --frozen-lockfile
   lint:
