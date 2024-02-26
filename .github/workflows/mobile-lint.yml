@@ -27,10 +27,10 @@ jobs:
     needs: [install_dependencies]
     steps:
       - name: Run lint
-        run: cd template && yarn lint
+        run: yarn lint
         shell: bash
       - name: Run type check
-        run: cd template && yarn type-check
+        run: yarn type-check
         shell: bash
   test:
     name: Run and verify jest tests
@@ -38,5 +38,5 @@ jobs:
     needs: [install_dependencies, lint]
     steps:
       - name: Run tests
-        run: cd template && yarn test
+        run: yarn test
         shell: bash
