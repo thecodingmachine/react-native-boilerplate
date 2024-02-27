@@ -18,7 +18,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - run: |
           git config --global user.name "ReactNativeBoilerplate Bot"
           git config --global user.email "j.dolle.bot@thecodingmachine.com"
