@@ -1,7 +1,0 @@
-name: Install dependencies
-description: Install dependencies on the project under template/
-runs:
-  using: composite
-  steps:
-    - run: cd template && yarn install
-      shell: bash
