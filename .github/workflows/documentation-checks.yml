@@ -1,0 +1,40 @@
+name: Documentation => EsLint, Typescript check and build
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - documentation/**/*
+      - template/theme/**/*
+      - template/package.json
+      - template/yarn.lock
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  lint_type_build:
+    name: Run eslint, prettier, type check and build tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: ./.github/actions/deps-setup
+        with:
+          working_directory: ./documentation
+      - name: Run Eslint
+        run: yarn lint
+        working-directory: ./documentation
+      - name: Run Typescript check
+        run: yarn type-check
+        working-directory: ./documentation
+      - name: Remove previous build
+        run: rm -rf .docusaurus/
+        working-directory: ./documentation
+      - name: Build documentation
+        run: yarn build
+        working-directory: ./documentation
