@@ -6,7 +6,7 @@
 ![React Native Boilerplate Release Date](https://img.shields.io/github/release-date/thecodingmachine/react-native-boilerplate)
 ![React Native Boilerplate Download](https://flat.badgen.net/npm/dt/@thecodingmachine/react-native-boilerplate)
 ![React Native Boilerplate Top Language](https://img.shields.io/github/languages/top/thecodingmachine/react-native-boilerplate)
-![CI](https://github.com/thecodingmachine/react-native-boilerplate/actions/workflows/boilerplate-checks.yml)
+[![CI](https://github.com/thecodingmachine/react-native-boilerplate/actions/workflows/boilerplate-checks.yml/badge.svg)](https://github.com/thecodingmachine/react-native-boilerplate/actions/workflows/CI.yml)
 
 # TheCodingMachine React Native boilerplate
 
