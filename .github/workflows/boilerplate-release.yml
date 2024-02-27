@@ -21,7 +21,8 @@ jobs:
           git config --global user.name "ReactNativeBoilerplate Bot"
           git config --global user.email "j.dolle.bot@thecodingmachine.com"
           npm --no-git-tag-version version ${{ github.event.release.name }}
-      - run: npm publish
+      - name: Publish to NPM
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Commit and push
