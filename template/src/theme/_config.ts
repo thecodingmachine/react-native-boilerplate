@@ -1,4 +1,4 @@
-import { DarkTheme } from '@react-navigation/native';
+import { DarkTheme, DefaultTheme } from '@react-navigation/native';
 
 import type { ThemeConfiguration } from '@/types/theme/config';
 
@@ -42,7 +42,7 @@ export const config = {
 		colors: colorsLight,
 	},
 	navigationColors: {
-		...DarkTheme.colors,
+		...DefaultTheme.colors,
 		background: colorsLight.gray50,
 		card: colorsLight.gray50,
 	},
