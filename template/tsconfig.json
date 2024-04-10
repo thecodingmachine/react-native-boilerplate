@@ -4,7 +4,8 @@
     "types": ["jest", "node"],
     "paths": {
       "@/*": ["./src/*"],
-    }
+    },
+    "allowImportingTsExtensions": false
   },
   "include": [
     "./src/**/*",
