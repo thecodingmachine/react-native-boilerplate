@@ -1,0 +1,13 @@
+diff --git a/node_modules/reactotron-core-client/package.json b/node_modules/reactotron-core-client/package.json
+index 92c5d75..a19bd44 100644
+--- a/node_modules/reactotron-core-client/package.json
++++ b/node_modules/reactotron-core-client/package.json
+@@ -19,7 +19,7 @@
+   "react-native": "src/index.ts",
+   "exports": {
+     "import": "./dist/index.esm.js",
+-    "react-native": "./src/index.ts",
++    "react-native": "./dist/index.js",
+     "types": "./dist/types/src/index.d.ts",
+     "default": "./dist/index.js"
+   },
