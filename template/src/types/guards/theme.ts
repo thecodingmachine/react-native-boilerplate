@@ -5,6 +5,7 @@ export function hasProperty<Config, KeyPath extends string>(
 	property: KeyPath,
 ): configuration is HasProperty<Config, KeyPath> & Config {
 	const parts = property.split('.');
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	let currentObj: any = configuration;
 
 	for (let i = 0; i < parts.length; i += 1) {

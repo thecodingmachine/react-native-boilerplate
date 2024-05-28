@@ -4,6 +4,8 @@ import type {
 	BorderColors,
 	BorderWidths,
 	BorderRadius,
+	BorderTopRadius,
+	BorderBottomRadius,
 } from '@/types/theme/borders';
 import type { UnionConfiguration } from '@/types/theme/config';
 import type { ViewStyle } from 'react-native';
@@ -34,8 +36,16 @@ export const generateBorderRadius = () => {
 			[`rounded_${radius}`]: {
 				borderRadius: radius,
 			},
+			[`roundedTop_${radius}`]: {
+				borderTopLeftRadius: radius,
+				borderTopRightRadius: radius,
+			},
+			[`roundedBottom_${radius}`]: {
+				borderBottomLeftRadius: radius,
+				borderBottomRightRadiusRadius: radius,
+			},
 		});
-	}, {} as BorderRadius);
+	}, {} as BorderRadius & BorderTopRadius & BorderBottomRadius);
 };
 
 /**
@@ -44,19 +54,19 @@ export const generateBorderRadius = () => {
 export const generateBorderWidths = () => {
 	return config.borders.widths.reduce((acc, width) => {
 		return Object.assign(acc, {
-			[`${width}`]: {
+			[`w_${width}`]: {
 				borderWidth: width,
 			},
-			[`top_${width}`]: {
+			[`wTop_${width}`]: {
 				borderTopWidth: width,
 			},
-			[`bottom_${width}`]: {
+			[`wBottom_${width}`]: {
 				borderBottomWidth: width,
 			},
-			[`left_${width}`]: {
+			[`wLeft_${width}`]: {
 				borderLeftWidth: width,
 			},
-			[`right_${width}`]: {
+			[`wRight_${width}`]: {
 				borderRightWidth: width,
 			},
 		});

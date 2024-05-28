@@ -1,6 +1,9 @@
 import { ImageStyle, TextStyle, ViewStyle } from 'react-native';
 import type { ComponentTheme } from '@/types/theme/theme';
 
+interface AllStyle
+	extends Record<string, AllStyle | ImageStyle | TextStyle | ViewStyle> {}
+
 export default ({ layout, backgrounds, fonts }: ComponentTheme) => {
 	return {
 		buttonCircle: {
@@ -17,5 +20,5 @@ export default ({ layout, backgrounds, fonts }: ComponentTheme) => {
 			height: 250,
 			width: 250,
 		},
-	} as const satisfies Record<string, ImageStyle | TextStyle | ViewStyle>;
+	} as const satisfies AllStyle;
 };

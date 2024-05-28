@@ -42,7 +42,7 @@ type Props = PropsWithChildren<{
 	storage: MMKV;
 }>;
 
-function ThemeProvider({ children, storage }: Props) {
+function ThemeProvider({ children = false, storage }: Props) {
 	// Current theme variant
 	const [variant, setVariant] = useState(
 		(storage.getString('theme') as Variant) || 'default',
