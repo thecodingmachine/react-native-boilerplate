@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ThemeProvider } from '@/theme';
 import i18n from '@/translations';
 
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Example from './Example';
 
 describe('Example screen should render correctly', () => {
@@ -28,13 +29,15 @@ describe('Example screen should render correctly', () => {
 
 	test('the user change the language', () => {
 		const component = (
-			<ThemeProvider storage={storage}>
-				<I18nextProvider i18n={i18n}>
-					<QueryClientProvider client={queryClient}>
-						<Example />
-					</QueryClientProvider>
-				</I18nextProvider>
-			</ThemeProvider>
+			<SafeAreaProvider>
+				<ThemeProvider storage={storage}>
+					<I18nextProvider i18n={i18n}>
+						<QueryClientProvider client={queryClient}>
+							<Example />
+						</QueryClientProvider>
+					</I18nextProvider>
+				</ThemeProvider>
+			</SafeAreaProvider>
 		);
 
 		render(component);
@@ -50,13 +53,15 @@ describe('Example screen should render correctly', () => {
 
 	test('the user change the theme', () => {
 		const component = (
-			<ThemeProvider storage={storage}>
-				<I18nextProvider i18n={i18n}>
-					<QueryClientProvider client={queryClient}>
-						<Example />
-					</QueryClientProvider>
-				</I18nextProvider>
-			</ThemeProvider>
+			<SafeAreaProvider>
+				<ThemeProvider storage={storage}>
+					<I18nextProvider i18n={i18n}>
+						<QueryClientProvider client={queryClient}>
+							<Example />
+						</QueryClientProvider>
+					</I18nextProvider>
+				</ThemeProvider>
+			</SafeAreaProvider>
 		);
 
 		render(component);

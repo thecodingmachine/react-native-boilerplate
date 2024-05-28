@@ -53,6 +53,7 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'react/display-name': 'off',
+    'no-console': ['error', { allow: ['error'] }],
     'prettier/prettier': [
       'error',
       {

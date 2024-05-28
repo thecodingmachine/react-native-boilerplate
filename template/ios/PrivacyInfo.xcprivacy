@@ -12,7 +12,7 @@
 				<string>C617.1</string>
 			</array>
 		</dict>
-		<dic
+		<dict>
 			<key>NSPrivacyAccessedAPIType</key>
 			<string>NSPrivacyAccessedAPICategoryUserDefaults</string>
 			<key>NSPrivacyAccessedAPITypeReasons</key>

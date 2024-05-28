@@ -46,6 +46,15 @@ type PaddingGutters = {
 	};
 };
 
+type Gaps = `gap_${ArrayValue<typeof config.gutters>}`;
+
+type GapGutters = {
+	[key in Gaps]: {
+		gap: ToNumber<RemoveBeforeSeparator<key>>;
+	};
+};
+
 export type Gutters = MarginGutters &
 	PaddingGutters &
+	GapGutters &
 	typeof staticGutterStyles;
