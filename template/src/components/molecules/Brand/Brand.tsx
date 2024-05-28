@@ -13,7 +13,7 @@ type Props = {
 	mode?: 'contain' | 'cover' | 'stretch' | 'repeat' | 'center';
 };
 
-function Brand({ height, width, mode }: Props) {
+function Brand({ height = 200, width = 200, mode = 'contain' }: Props) {
 	const { layout } = useTheme();
 
 	if (!isImageSourcePropType(LogoLight) || !isImageSourcePropType(LogoDark)) {
@@ -32,11 +32,5 @@ function Brand({ height, width, mode }: Props) {
 		</View>
 	);
 }
-
-Brand.defaultProps = {
-	height: 200,
-	width: 200,
-	mode: 'contain',
-};
 
 export default Brand;

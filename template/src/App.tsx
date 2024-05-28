@@ -7,7 +7,7 @@ import { ThemeProvider } from '@/theme';
 import ApplicationNavigator from './navigators/Application';
 import './translations';
 
-const queryClient = new QueryClient();
+export const queryClient = new QueryClient();
 
 export const storage = new MMKV();
 

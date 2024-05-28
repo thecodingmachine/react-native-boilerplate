@@ -2,14 +2,15 @@ import { useEffect } from 'react';
 import { ActivityIndicator, Text, View } from 'react-native';
 import { useQuery } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
+import { CommonActions } from '@react-navigation/native';
 
 import { useTheme } from '@/theme';
 import { Brand } from '@/components/molecules';
 import { SafeScreen } from '@/components/template';
 
-import type { ApplicationScreenProps } from '@/types/navigation';
+import type { RootScreenProps } from '@/types/navigation';
 
-function Startup({ navigation }: ApplicationScreenProps) {
+function Startup({ navigation }: RootScreenProps<'Startup'>) {
 	const { layout, gutters, fonts } = useTheme();
 	const { t } = useTranslation(['startup']);
 
@@ -21,10 +22,14 @@ function Startup({ navigation }: ApplicationScreenProps) {
 	});
 
 	useEffect(() => {
-		navigation.reset({
-			index: 0,
-			routes: [{ name: 'Example' }],
-		});
+		if (isSuccess) {
+			navigation.dispatch(
+				CommonActions.reset({
+					index: 0,
+					routes: [{ name: 'Example' }],
+				}),
+			);
+		}
 	}, [isSuccess]);
 
 	return (
