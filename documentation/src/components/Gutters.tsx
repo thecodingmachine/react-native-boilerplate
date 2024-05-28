@@ -51,6 +51,10 @@ function Gutters() {
                 values.map((value) => (
                   <>
                     <tr>
+                      <td>{`gap_${value}`}</td>
+                      <td><code>{`{ gap: ${value} }`}</code></td>
+                    </tr>
+                    <tr>
                       <td>{`margin_${value}`}</td>
                       <td><code>{`{ margin: ${value} }`}</code></td>
                     </tr>

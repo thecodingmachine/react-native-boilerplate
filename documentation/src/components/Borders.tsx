@@ -87,18 +87,46 @@ function Borders() {
           <tbody>
             {
                 sizeValues.map((value) => (
-                  <tr>
-                    <td>{`borders.w_${value}`}</td>
-                    <td><code>{`{ borderWidth: ${value} }`}</code></td>
-                  </tr>
+                  <>
+                    <tr>
+                      <td>{`borders.w_${value}`}</td>
+                      <td><code>{`{ borderWidth: ${value} }`}</code></td>
+                    </tr>
+                    <tr>
+                      <td>{`borders.wTop_${value}`}</td>
+                      <td><code>{`{ borderTopWidth: ${value} }`}</code></td>
+                    </tr>
+                    <tr>
+                      <td>{`borders.wRight_${value}`}</td>
+                      <td><code>{`{ borderRightWidth: ${value} }`}</code></td>
+                    </tr>
+                    <tr>
+                      <td>{`borders.wBottom_${value}`}</td>
+                      <td><code>{`{ borderBottomWidth: ${value} }`}</code></td>
+                    </tr>
+                    <tr>
+                      <td>{`borders.wLeft_${value}`}</td>
+                      <td><code>{`{ borderLeftWidth: ${value} }`}</code></td>
+                    </tr>
+                  </>
                 ))
             }
             {
                 radiusValues.map((value) => (
-                  <tr>
-                    <td>{`borders.rounded_${value}`}</td>
-                    <td><code>{`{ borderRadius: ${value} }`}</code></td>
-                  </tr>
+                  <>
+                    <tr>
+                      <td>{`borders.rounded_${value}`}</td>
+                      <td><code>{`{ borderRadius: ${value} }`}</code></td>
+                    </tr>
+                    <tr>
+                      <td>{`borders.roundedTop_${value}`}</td>
+                      <td><code>{`{ borderRadius: ${value} }`}</code></td>
+                    </tr>
+                    <tr>
+                      <td>{`borders.roundedBottom_${value}`}</td>
+                      <td><code>{`{ borderRadius: ${value} }`}</code></td>
+                    </tr>
+                  </>
                 ))
             }
             <tr>
