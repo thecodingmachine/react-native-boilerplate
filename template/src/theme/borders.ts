@@ -42,7 +42,13 @@ export const generateBorderRadius = () => {
 			},
 			[`roundedBottom_${radius}`]: {
 				borderBottomLeftRadius: radius,
-				borderBottomRightRadiusRadius: radius,
+				borderBottomRightRadius: radius,
+			},
+			[`roundedBottomRight_${radius}`]: {
+				borderBottomRightRadius: radius,
+			},
+			[`roundedTopLeft_${radius}`]: {
+				borderTopLeftRadius: radius,
 			},
 		});
 	}, {} as BorderRadius & BorderTopRadius & BorderBottomRadius);

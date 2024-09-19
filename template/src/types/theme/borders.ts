@@ -1,6 +1,5 @@
-import { config } from '@/theme/_config';
-import { staticBorderStyles } from '@/theme/borders';
-
+import type { config } from '@/theme/_config';
+import type { staticBorderStyles } from '@/theme/borders';
 import type { ArrayValue, RemoveBeforeSeparator, ToNumber } from './common';
 import type { UnionConfiguration } from './config';
 
@@ -29,10 +28,26 @@ type BorderBottomRadiusKeys = `roundedBottom_${ArrayValue<
 	typeof config.borders.radius
 >}`;
 
+type BorderBottomRightRadiusKeys = `roundedBottomRight_${ArrayValue<
+	typeof config.borders.radius
+>}`;
+
+type BorderTopLeftRadiusKeys = `roundedTopLeft_${ArrayValue<
+	typeof config.borders.radius
+>}`;
+
 export type BorderBottomRadius = {
 	[key in BorderBottomRadiusKeys]: {
 		borderBottomLeftRadius: ToNumber<RemoveBeforeSeparator<key>>;
 		borderBottomRightRadius: ToNumber<RemoveBeforeSeparator<key>>;
+	};
+} & {
+	[key in BorderBottomRightRadiusKeys]: {
+		borderBottomRightRadius: ToNumber<RemoveBeforeSeparator<key>>;
+	};
+} & {
+	[key in BorderTopLeftRadiusKeys]: {
+		borderTopLeftRadius: ToNumber<RemoveBeforeSeparator<key>>;
 	};
 };
 
