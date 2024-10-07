@@ -58,6 +58,9 @@ export const config = {
 				background: colorsDark.purple50,
 				card: colorsDark.purple50,
 			},
+			borders: {
+				colors: colorsDark,
+			},
 		},
 	},
 } as const satisfies ThemeConfiguration;

@@ -1,10 +1,32 @@
 import { config } from '@/theme/_config';
-import { hasProperty } from '@/types/guards/theme';
 
 import type {
 	FulfilledThemeConfiguration,
 	Variant,
 } from '@/types/theme/config';
+
+import type { HasProperty } from '@/types/theme/common';
+
+function hasProperty<Config, KeyPath extends string>(
+	configuration: Config,
+	property: KeyPath,
+): configuration is HasProperty<Config, KeyPath> & Config {
+	const parts = property.split('.');
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	let currentObj: any = configuration;
+
+	for (let i = 0; i < parts.length; i += 1) {
+		const part = parts[i];
+		if (!(part in currentObj)) {
+			return false;
+		}
+
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access
+		currentObj = currentObj[part];
+	}
+
+	return true;
+}
 
 export default (variant: Variant) => {
 	const { variants, ...defaultConfig } = config;

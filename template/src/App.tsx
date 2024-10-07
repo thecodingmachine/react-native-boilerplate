@@ -4,7 +4,7 @@ import { MMKV } from 'react-native-mmkv';
 
 import { ThemeProvider } from '@/theme';
 
-import ApplicationNavigator from './navigators/Application';
+import ApplicationNavigator from '@/navigations/Application';
 import './translations';
 
 export const queryClient = new QueryClient();

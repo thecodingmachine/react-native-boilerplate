@@ -16,11 +16,12 @@ import {
 	generateBorderColors,
 	generateBorderRadius,
 	generateBorderWidths,
+	staticBorderStyles
 } from '@/theme/borders';
 import layout from '@/theme/layout';
 import componentsGenerator from '@/theme/components';
-import { generateBackgrounds } from '@/theme/backgrounds';
-import { generateGutters } from '@/theme/gutters';
+import { generateBackgrounds, staticBackgroundStyles } from '@/theme/backgrounds';
+import { generateGutters, staticGutterStyles } from '@/theme/gutters';
 import generateConfig from '@/theme/ThemeProvider/generateConfig';
 
 import type { MMKV } from 'react-native-mmkv';
@@ -76,7 +77,17 @@ function ThemeProvider({ children = false, storage }: Props) {
 	}, [fullConfig]);
 
 	const backgrounds = useMemo(() => {
-		return generateBackgrounds(fullConfig);
+		return {
+			...generateBackgrounds(fullConfig),
+				...staticBackgroundStyles
+		};
+	}, [fullConfig]);
+
+	const gutters = useMemo(() => {
+		return {
+			...generateGutters(fullConfig),
+				...staticGutterStyles
+		};
 	}, [fullConfig]);
 
 	const borders = useMemo(() => {
@@ -84,6 +95,7 @@ function ThemeProvider({ children = false, storage }: Props) {
 			...generateBorderColors(fullConfig),
 			...generateBorderRadius(),
 			...generateBorderWidths(),
+			...staticBorderStyles,
 		};
 	}, [fullConfig]);
 
@@ -98,7 +110,7 @@ function ThemeProvider({ children = false, storage }: Props) {
 		return {
 			colors: fullConfig.colors,
 			variant,
-			gutters: generateGutters(),
+			gutters,
 			layout,
 			fonts,
 			backgrounds,

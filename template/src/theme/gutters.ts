@@ -1,10 +1,9 @@
-import { config } from '@/theme/_config';
-
 import type { Gutters } from '@/types/theme/gutters';
-import type { ViewStyle } from 'react-native';
+import type {UnionConfiguration} from "@/types/theme/config";
+import {type ViewStyle} from "react-native";
 
-export const generateGutters = (): Gutters => {
-	return config.gutters.reduce((acc, curr) => {
+export const generateGutters = (configuration: UnionConfiguration): Gutters => {
+	return configuration.gutters.reduce((acc, curr) => {
 		return Object.assign(acc, {
 			[`margin_${curr}`]: {
 				margin: curr,
