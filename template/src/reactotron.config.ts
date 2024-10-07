@@ -1,24 +1,26 @@
-import Reactotron, { ReactotronReactNative } from 'reactotron-react-native';
+import type { ReactotronReactNative } from 'reactotron-react-native';
+
+import Reactotron from 'reactotron-react-native';
 import mmkvPlugin from 'reactotron-react-native-mmkv';
 import {
-	QueryClientManager,
-	reactotronReactQuery,
+  QueryClientManager,
+  reactotronReactQuery,
 } from 'reactotron-react-query';
 
-import { storage, queryClient } from './App';
 import config from '../app.json';
+import { queryClient, storage } from './App';
 
 const queryClientManager = new QueryClientManager({
-	queryClient,
+  queryClient,
 });
 
 Reactotron.configure({
-	name: config.name,
-	onDisconnect: () => {
-		queryClientManager.unsubscribe();
-	},
+  name: config.name,
+  onDisconnect: () => {
+    queryClientManager.unsubscribe();
+  },
 })
-	.useReactNative()
-	.use(mmkvPlugin<ReactotronReactNative>({ storage }))
-	.use(reactotronReactQuery(queryClientManager))
-	.connect();
+  .useReactNative()
+  .use(mmkvPlugin<ReactotronReactNative>({ storage }))
+  .use(reactotronReactQuery(queryClientManager))
+  .connect();

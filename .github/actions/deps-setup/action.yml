@@ -4,7 +4,6 @@ inputs:
   working_directory:
     description: 'The directory where the install command will be run'
     required: true
-    type: string
 runs:
   using: composite
   steps:

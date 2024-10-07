@@ -1,1 +1,1 @@
-export { default as ImageVariant } from './ImageVariant/ImageVariant';
+export { default as AssetByVariant } from './AssetByVariant/AssetByVariant';
