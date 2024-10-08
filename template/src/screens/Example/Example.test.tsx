@@ -5,6 +5,7 @@ import { MMKV } from 'react-native-mmkv';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { ThemeProvider } from '@/theme';
+import { SupportedLanguages } from '@/hooks/language/schema';
 import i18n from '@/translations';
 
 import Example from './Example';
@@ -42,13 +43,13 @@ describe('Example screen should render correctly', () => {
 
     render(component);
 
-    expect(i18n.language).toBe('en');
+    expect(i18n.language).toBe(SupportedLanguages.FR_FR);
 
     const button = screen.getByTestId('change-language-button');
     expect(button).toBeDefined();
     fireEvent.press(button);
 
-    expect(i18n.language).toBe('fr');
+    expect(i18n.language).toBe(SupportedLanguages.EN_EN);
   });
 
   test('the user change the theme', () => {

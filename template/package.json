@@ -11,7 +11,7 @@
     "lint:coventions": "eslint . --cache",
     "lint:code-format": "prettier --check \"{src,__mocks__}/**/*.{js,json,md,ts,tsx,yml,yaml}\"",
     "lint": "yarn lint:coventions && yarn lint:code-format && yarn lint:type-check",
-    "lint:fix": "lint:coventions --fix && lint:code-format --write && lint:type-check",
+    "lint:fix": "yarn lint:coventions --fix && yarn lint:code-format --write && yarn lint:type-check",
     "test:report": "jest --collectCoverage --coverageDirectory=\"./coverage\" --ci --reporters=default --reporters=jest-junit --coverage",
     "pod-install": "cd ios && pod install && cd ..",
     "postinstall": "npx patch-package"
@@ -73,5 +73,6 @@
   },
   "engines": {
     "node": ">=18"
-  }
+  },
+  "packageManager": "yarn@4.5.0"
 }

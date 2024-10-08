@@ -2,7 +2,7 @@ import type { ThemeConfiguration } from '@/theme/types/config';
 
 import { DarkTheme, DefaultTheme } from '@react-navigation/native';
 
-export enum Variant {
+export const enum Variant {
   DARK = 'dark',
 }
 

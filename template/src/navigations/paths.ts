@@ -1,4 +1,4 @@
-export enum Paths {
+export const enum Paths {
   Example = 'example',
   Startup = 'startup',
 }

@@ -6,7 +6,7 @@ import { queryClient } from '@/App';
 
 import { UserServices } from './userService';
 
-enum QueryKey {
+const enum QueryKey {
   fetchOne = 'fetchOneUser',
 }
 
