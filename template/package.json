@@ -26,7 +26,7 @@
     "ky": "^1.2.4",
     "react": "18.3.1",
     "react-i18next": "^14.1.0",
-    "react-native": "0.75.3",
+    "react-native": "0.75.4",
     "react-native-gesture-handler": "^2.16.0",
     "react-native-mmkv": "^2.12.2",
     "react-native-reanimated": "^3.9.0-rc.1",
