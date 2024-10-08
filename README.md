@@ -22,8 +22,8 @@ If you love this boilerplate, give us a star, you will be a ray of sunshine in o
 
 Node 18 or greater is required. Development for iOS requires a Mac and Xcode 10 or up, and will target iOS 11 and up.
 
-You also need to install the dependencies required by React Native.  
-Go to the [React Native environment setup](https://reactnative.dev/docs/environment-setup), then select `React Native CLI Quickstart` tab.  
+You also need to install the dependencies required by React Native.
+Go to the [React Native environment setup](https://reactnative.dev/docs/environment-setup), then select `React Native CLI Quickstart` tab.
 Follow instructions for your given `development OS` and `target OS`.
 
 ## Quick start
@@ -31,7 +31,7 @@ Follow instructions for your given `development OS` and `target OS`.
 To create a new project using the boilerplate simply run :
 
 ```
-npx react-native@latest init MyApp --template @thecodingmachine/react-native-boilerplate
+npx @react-native-community/cli@latest init MyApp --template @thecodingmachine/react-native-boilerplate
 ```
 
 Assuming you have all the requirements installed, you can run the project by running:

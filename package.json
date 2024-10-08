@@ -28,5 +28,5 @@
     "kleur": "^4.1.4",
     "prompts": "^2.4.1"
   },
-  "devDependencies": {}
+  "packageManager": "yarn@4.5.0"
 }

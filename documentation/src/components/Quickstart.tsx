@@ -23,8 +23,8 @@ export default function Quickstart() {
               title=">_ terminal"
               metastring="bash"
             >
-              npx react-native@latest init MyApp --template
-              @thecodingmachine/react-native-boilerplate
+              npx @react-native-community/cli@latest init MyApp
+              --template @thecodingmachine/react-native-boilerplate
             </CodeBlock>
 
             <div>
@@ -32,7 +32,7 @@ export default function Quickstart() {
                 type="button"
                 className="transition-all ease-in mt-5 hover:bg-green-700 hover:text-white hover:text text-md text-white
                 font-bold py-3 px-4 rounded bg-green-500 shadow-lg shadow-green-500/50"
-                onClick={() => { navigator.clipboard.writeText('npx react-native@latest init MyApp --template @thecodingmachine/react-native-boilerplate'); }}
+                onClick={() => { navigator.clipboard.writeText('npx @react-native-community/cli@latest init MyApp --template @thecodingmachine/react-native-boilerplate'); }}
               >
                 Copy and test it
                 <span className="ml-3">🧪</span>
