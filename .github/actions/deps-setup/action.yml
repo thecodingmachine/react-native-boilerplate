@@ -15,7 +15,7 @@ runs:
         cache-dependency-path: ${{ inputs.working_directory }}/yarn.lock
     - name: Install Yarn v4
       shell: bash
-      run: corepack enable && corepack prepare yarn@4.0.0 --activate
+      run: corepack enable && corepack prepare yarn@4 --activate
     - name: Install dependencies
       run: yarn install --frozen-lockfile
       shell: bash
