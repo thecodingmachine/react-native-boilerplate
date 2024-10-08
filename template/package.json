@@ -7,9 +7,9 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint:type-check": "tsc",
     "lint:coventions": "eslint . --cache",
     "lint:code-format": "prettier --check \"{src,__mocks__}/**/*.{js,json,md,ts,tsx,yml,yaml}\"",
+    "lint:type-check": "tsc",
     "lint": "yarn lint:coventions && yarn lint:code-format && yarn lint:type-check",
     "lint:fix": "yarn lint:coventions --fix && yarn lint:code-format --write && yarn lint:type-check",
     "test:report": "jest --collectCoverage --coverageDirectory=\"./coverage\" --ci --reporters=default --reporters=jest-junit --coverage",
@@ -58,6 +58,7 @@
     "eslint": "^8.57.1",
     "eslint-import-resolver-typescript": "^3.6.3",
     "eslint-plugin-import": "^2.30.0",
+    "eslint-plugin-jest": "^28.8.3",
     "eslint-plugin-no-instanceof": "^1.0.1",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-typescript-sort-keys": "^3.2.0",
@@ -73,6 +74,5 @@
   },
   "engines": {
     "node": ">=18"
-  },
-  "packageManager": "yarn@4.5.0"
+  }
 }

@@ -6,19 +6,19 @@ import { queryClient } from '@/App';
 
 import { UserServices } from './userService';
 
-const enum QueryKey {
+const enum UserQueryKey {
   fetchOne = 'fetchOneUser',
 }
 
 const useFetchOneQuery = (currentId: User['id']) =>
   useQuery({
-    queryKey: [QueryKey.fetchOne, currentId],
+    queryKey: [UserQueryKey.fetchOne, currentId],
     queryFn: () => UserServices.fetchOne(currentId),
     enabled: currentId >= 0,
   });
 
 const invalidateFetchOneQuery = queryClient.invalidateQueries({
-  queryKey: [QueryKey.fetchOne],
+  queryKey: [UserQueryKey.fetchOne],
 });
 
 export const useUser = () => {

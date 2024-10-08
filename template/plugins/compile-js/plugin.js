@@ -72,9 +72,6 @@ module.exports = {
         execSync('rm -rf src/theme/types', { stdio: 'pipe' });
         execSync('rm -f src/navigations/paths.js', { stdio: 'pipe' });
         execSync('rm -f src/navigations/types.js', { stdio: 'pipe' });
-        execSync(
-          `${packageManager} add -D @typescript-eslint/eslint-plugin eslint-plugin-jest`,
-        );
       }
 
       resolve();
