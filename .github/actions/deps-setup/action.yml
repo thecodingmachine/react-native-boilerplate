@@ -11,11 +11,12 @@ runs:
       uses: actions/setup-node@v4
       with:
         node-version: '20.x'
-        cache: 'yarn'
         cache-dependency-path: ${{ inputs.working_directory }}/yarn.lock
 
     - name: Install Yarn v4
-      run: corepack enable && corepack prepare yarn@4 --activate
+      run: |
+        corepack enable
+        corepack prepare yarn@4.5.0 --activate
       shell: bash
 
     - name: Install dependencies
