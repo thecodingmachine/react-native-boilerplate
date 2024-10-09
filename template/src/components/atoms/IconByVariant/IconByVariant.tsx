@@ -14,7 +14,7 @@ type Props = SvgProps & {
 const icons = getAssetsContext('icons');
 const EXTENSION = 'svg';
 
-function IconByVariant({ path, ...props }: Props) {
+function IconByVariant({ path, width = 24, height = 24, ...props }: Props) {
   const [icon, setIcon] = useState<ReactElement<SvgProps>>();
   const { variant } = useTheme();
 
@@ -59,11 +59,13 @@ function IconByVariant({ path, ...props }: Props) {
         ...icon,
         props: {
           ...icon.props,
+          height,
+          width,
           ...currentProps,
         },
       };
     },
-    [icon],
+    [icon, width, height],
   );
 
   return <Component {...props} />;

@@ -11,8 +11,8 @@ export default ({ layout, backgrounds, fonts }: ComponentTheme) => {
       ...layout.itemsCenter,
       ...backgrounds.purple100,
       ...fonts.gray400,
-      height: 70,
-      width: 70,
+      height: 64,
+      width: 64,
       borderRadius: 35,
     },
     circle250: {

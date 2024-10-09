@@ -9,6 +9,11 @@
       "hello_user": "Hi, my name is {{name}}",
       "title": "Welcome on The $t(common_appName.full)",
       "description": "Do you want to discover some features? Just click on one of the three buttons at the bottom of the screen. The first allows you to call a REST API. The second lets you change the theme color. And the third allows you to change the language."
+    },
+    "error_boundary": {
+      "title": "Oops! Something went wrong.",
+      "description": "We are sorry for the inconvenience. Please try again later.",
+      "cta": "Reload the screen"
     }
   }
 }

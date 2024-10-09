@@ -1,18 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import {
-  ActivityIndicator,
-  Alert,
-  ScrollView,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { Alert, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 
 import { useTheme } from '@/theme';
 import { useI18n, useUser } from '@/hooks';
 
-import { IconByVariant } from '@/components/atoms';
+import { IconByVariant, Skeleton } from '@/components/atoms';
 import { Brand } from '@/components/molecules';
 import { SafeScreen } from '@/components/templates';
 
@@ -34,20 +27,25 @@ function Example() {
 
   const [currentId, setCurrentId] = useState(-1);
 
-  const { isSuccess, data, isFetching } = useFetchOneQuery(currentId);
+  const fetchOneUserQuery = useFetchOneQuery(currentId);
 
   useEffect(() => {
-    if (isSuccess) {
-      Alert.alert(t('screen_example.hello_user', { name: data.name }));
+    if (fetchOneUserQuery.isSuccess) {
+      Alert.alert(
+        t('screen_example.hello_user', { name: fetchOneUserQuery.data.name }),
+      );
     }
-  }, [isSuccess, data, t]);
+  }, [fetchOneUserQuery.isSuccess, fetchOneUserQuery.data, t]);
 
   const onChangeTheme = () => {
     changeTheme(variant === 'default' ? 'dark' : 'default');
   };
 
   return (
-    <SafeScreen>
+    <SafeScreen
+      isError={fetchOneUserQuery.isError}
+      onResetError={fetchOneUserQuery.refetch}
+    >
       <ScrollView>
         <View
           style={[
@@ -85,34 +83,27 @@ function Example() {
               gutters.marginTop_16,
             ]}
           >
-            <TouchableOpacity
-              onPress={() => setCurrentId(Math.ceil(Math.random() * 10 + 1))}
-              style={[components.buttonCircle, gutters.marginBottom_16]}
-              testID="fetch-user-button"
+            <Skeleton
+              height={64}
+              loading={fetchOneUserQuery.isLoading}
+              style={{ borderRadius: components.buttonCircle.borderRadius }}
+              width={64}
             >
-              {isFetching ? (
-                <ActivityIndicator />
-              ) : (
-                <IconByVariant
-                  height={26}
-                  path={'send'}
-                  stroke={colors.purple500}
-                  width={26}
-                />
-              )}
-            </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => setCurrentId(Math.ceil(Math.random() * 10 + 1))}
+                style={[components.buttonCircle, gutters.marginBottom_16]}
+                testID="fetch-user-button"
+              >
+                <IconByVariant path={'send'} stroke={colors.purple500} />
+              </TouchableOpacity>
+            </Skeleton>
 
             <TouchableOpacity
               onPress={onChangeTheme}
               style={[components.buttonCircle, gutters.marginBottom_16]}
               testID="change-theme-button"
             >
-              <IconByVariant
-                height={26}
-                path={'theme'}
-                stroke={colors.purple500}
-                width={26}
-              />
+              <IconByVariant path={'theme'} stroke={colors.purple500} />
             </TouchableOpacity>
 
             <TouchableOpacity
@@ -120,12 +111,7 @@ function Example() {
               style={[components.buttonCircle, gutters.marginBottom_16]}
               testID="change-language-button"
             >
-              <IconByVariant
-                height={26}
-                path={'language'}
-                stroke={colors.purple500}
-                width={26}
-              />
+              <IconByVariant path={'language'} stroke={colors.purple500} />
             </TouchableOpacity>
           </View>
         </View>
