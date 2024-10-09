@@ -7,7 +7,7 @@ jest.mock('@/theme/assets/getAssetsContext', () =>
         return jest.mock('@/theme/assets/images/tom.png');
       }
       if (type === 'icons') {
-        return jest.mock('@/theme/assets/images/tom.svg');
+        return jest.mock('@/theme/assets/icons/send.svg');
       }
       return key;
     };
@@ -17,7 +17,7 @@ jest.mock('@/theme/assets/getAssetsContext', () =>
         return ['images/tom.png'];
       }
       if (type === 'icons') {
-        return ['images/tom.png'];
+        return ['icons/send.svg'];
       }
       return [];
     };

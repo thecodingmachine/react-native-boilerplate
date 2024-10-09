@@ -1,0 +1,10 @@
+{
+  "configurations": [
+    {
+      "type": "radon-ide",
+      "request": "launch",
+      "name": "Radon IDE panel",
+      "ios": {}
+    }
+  ]
+}

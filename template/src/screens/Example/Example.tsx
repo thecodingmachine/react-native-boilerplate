@@ -12,7 +12,7 @@ import {
 import { useTheme } from '@/theme';
 import { useI18n, useUser } from '@/hooks';
 
-import { AssetByVariant } from '@/components/atoms';
+import { IconByVariant } from '@/components/atoms';
 import { Brand } from '@/components/molecules';
 import { SafeScreen } from '@/components/templates';
 
@@ -38,9 +38,9 @@ function Example() {
 
   useEffect(() => {
     if (isSuccess) {
-      Alert.alert(t('screen_example.hello_user', data.name));
+      Alert.alert(t('screen_example.hello_user', { name: data.name }));
     }
-  }, [isSuccess, data, t, currentId]);
+  }, [isSuccess, data, t]);
 
   const onChangeTheme = () => {
     changeTheme(variant === 'default' ? 'dark' : 'default');
@@ -93,21 +93,25 @@ function Example() {
               {isFetching ? (
                 <ActivityIndicator />
               ) : (
-                <AssetByVariant
+                <IconByVariant
+                  height={26}
                   path={'send'}
-                  style={{ tintColor: colors.purple500 }}
+                  stroke={colors.purple500}
+                  width={26}
                 />
               )}
             </TouchableOpacity>
 
             <TouchableOpacity
-              onPress={() => onChangeTheme()}
+              onPress={onChangeTheme}
               style={[components.buttonCircle, gutters.marginBottom_16]}
               testID="change-theme-button"
             >
-              <AssetByVariant
-                path={'colorswatch'}
-                style={{ tintColor: colors.purple500 }}
+              <IconByVariant
+                height={26}
+                path={'theme'}
+                stroke={colors.purple500}
+                width={26}
               />
             </TouchableOpacity>
 
@@ -116,9 +120,11 @@ function Example() {
               style={[components.buttonCircle, gutters.marginBottom_16]}
               testID="change-language-button"
             >
-              <AssetByVariant
-                path={'translate'}
-                style={{ tintColor: colors.purple500 }}
+              <IconByVariant
+                height={26}
+                path={'language'}
+                stroke={colors.purple500}
+                width={26}
               />
             </TouchableOpacity>
           </View>
