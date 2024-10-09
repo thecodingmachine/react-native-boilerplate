@@ -49,6 +49,7 @@
     "@types/node": "^18.14.1",
     "@types/react": "^18.2.6",
     "@types/react-test-renderer": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "7.1.1",
     "@typescript-eslint/parser": "^6.13.1",
     "babel-jest": "^29.6.3",
     "babel-plugin-inline-dotenv": "^1.7.0",

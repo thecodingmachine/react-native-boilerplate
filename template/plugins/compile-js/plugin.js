@@ -1,7 +1,6 @@
 const { execSync } = require('child_process');
 
 const TYPESCRIPT_VERSION = '5.6.2';
-const TYPESCRIPT_ESLINT_VERSION = '7.1.1';
 
 function isYarnAvailable() {
   try {
@@ -63,6 +62,8 @@ module.exports = {
           console.log('♻️  Replacing source...');
           execSync('rm -rf src', { stdio: 'pipe' });
           execSync('cp -R js/src ./src', { stdio: 'pipe' });
+          execSync('rm -rf __mocks__', { stdio: 'pipe' });
+          execSync('cp -R js/__mocks__ ./__mocks__', { stdio: 'pipe' });
           execSync('rm -rf js', { stdio: 'pipe' });
         } catch (error) {
           console.error(
@@ -76,11 +77,6 @@ module.exports = {
         execSync('rm -f src/navigations/paths.js', { stdio: 'pipe' });
         execSync('rm -f src/navigations/types.js', { stdio: 'pipe' });
       }
-
-      // FIXME: This is a temporary solution to fix the eslint issue
-      execSync(
-        `${packageManager} add -D @typescript-eslint/eslint-plugin@${TYPESCRIPT_VERSION}`,
-      );
 
       resolve();
     });
