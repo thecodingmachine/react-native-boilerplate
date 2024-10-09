@@ -24,10 +24,21 @@ function AssetByVariant({ path, extension = 'png', ...props }: Props) {
         .custom<ImageSourcePropType>()
         .parse(images(`./${path}.${extension}`));
 
-      const fetchedModule = z
-        .custom<ImageSourcePropType>()
-        .parse(images(`./${variant}/${path}.${extension}`));
-      setImage(fetchedModule ?? defaultSource);
+      if (variant === 'default') {
+        setImage(defaultSource);
+        return;
+      }
+
+      try {
+        const fetchedModule = z
+          .custom<ImageSourcePropType>()
+          .parse(images(`./${variant}/${path}.${extension}`));
+        setImage(fetchedModule);
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.error(`Couldn't load the image: ${path}.${extension} for the variant ${variant}, Fallback to default`, error);
+        setImage(defaultSource);
+      }
     } catch (error) {
       // eslint-disable-next-line no-console
       console.error(`Couldn't load the image: ${path}`, error);

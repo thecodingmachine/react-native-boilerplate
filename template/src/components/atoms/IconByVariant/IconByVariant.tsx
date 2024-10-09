@@ -24,21 +24,23 @@ function IconByVariant({ path, ...props }: Props) {
         .object({ default: z.custom<ReactElement<SvgProps>>() })
         .parse(icons(`./${path}.${EXTENSION}`));
 
-      if (variant !== 'default') {
-        try {
-          const fetchedModule = z
-            .object({ default: z.custom<ReactElement<SvgProps>>() })
-            .parse(icons(`./${variant}/${path}.${EXTENSION}`));
+      if (variant === 'default') {
+        setIcon(defaultSource.default);
+        return;
+      }
 
-          setIcon(fetchedModule.default);
-        } catch (error) {
-          // eslint-disable-next-line no-console
-          console.error(`Couldn't load the icon: ${path}.${EXTENSION} for the variant ${variant}, Fallback to default`, error);
-          setIcon(defaultSource.default);
-        }
-      } else {
+      try {
+        const fetchedModule = z
+          .object({ default: z.custom<ReactElement<SvgProps>>() })
+          .parse(icons(`./${variant}/${path}.${EXTENSION}`));
+
+        setIcon(fetchedModule.default);
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.error(`Couldn't load the icon: ${path}.${EXTENSION} for the variant ${variant}, Fallback to default`, error);
         setIcon(defaultSource.default);
       }
+
     } catch (error) {
       // eslint-disable-next-line no-console
       console.error(`Couldn't load the icon: ${path}.${EXTENSION}`, error);
