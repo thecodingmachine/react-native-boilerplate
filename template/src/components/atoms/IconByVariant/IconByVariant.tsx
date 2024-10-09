@@ -37,10 +37,12 @@ function IconByVariant({ path, ...props }: Props) {
         setIcon(fetchedModule.default);
       } catch (error) {
         // eslint-disable-next-line no-console
-        console.error(`Couldn't load the icon: ${path}.${EXTENSION} for the variant ${variant}, Fallback to default`, error);
+        console.error(
+          `Couldn't load the icon: ${path}.${EXTENSION} for the variant ${variant}, Fallback to default`,
+          error,
+        );
         setIcon(defaultSource.default);
       }
-
     } catch (error) {
       // eslint-disable-next-line no-console
       console.error(`Couldn't load the icon: ${path}.${EXTENSION}`, error);
