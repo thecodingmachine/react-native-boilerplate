@@ -1,36 +1,28 @@
-import { View, DimensionValue } from 'react-native';
+import type { ImageProps } from 'react-native';
 
-import LogoLight from '@/theme/assets/images/tom_light.png';
-import LogoDark from '@/theme/assets/images/tom_dark.png';
+import { View } from 'react-native';
 
-import { ImageVariant } from '@/components/atoms';
 import { useTheme } from '@/theme';
-import { isImageSourcePropType } from '@/types/guards/image';
 
-type Props = {
-	height?: DimensionValue;
-	width?: DimensionValue;
-	mode?: 'contain' | 'cover' | 'stretch' | 'repeat' | 'center';
-};
+import { AssetByVariant } from '@/components/atoms';
 
-function Brand({ height = 200, width = 200, mode = 'contain' }: Props) {
-	const { layout } = useTheme();
+function Brand({
+  height = 200,
+  width = 200,
+  resizeMode = 'contain',
+}: Pick<ImageProps, 'height' | 'width' | 'resizeMode'>) {
+  const { layout } = useTheme();
 
-	if (!isImageSourcePropType(LogoLight) || !isImageSourcePropType(LogoDark)) {
-		throw new Error('Image source is not valid');
-	}
-
-	return (
-		<View testID="brand-img-wrapper" style={{ height, width }}>
-			<ImageVariant
-				testID="brand-img"
-				style={[layout.fullHeight, layout.fullWidth]}
-				source={LogoLight}
-				sourceDark={LogoDark}
-				resizeMode={mode}
-			/>
-		</View>
-	);
+  return (
+    <View style={{ height, width }} testID="brand-img-wrapper">
+      <AssetByVariant
+        path={'tom'}
+        resizeMode={resizeMode}
+        style={[layout.fullHeight, layout.fullWidth]}
+        testID="brand-img"
+      />
+    </View>
+  );
 }
 
 export default Brand;

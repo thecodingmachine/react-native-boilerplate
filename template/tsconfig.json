@@ -7,14 +7,20 @@
     },
     "allowImportingTsExtensions": false,
     "module": "esnext",
+    "skipLibCheck": true,
+    "noUnusedLocals": true
   },
   "include": [
+    "__mocks__/**/*",
     "./src/**/*",
     "index.d.ts",
     ".eslintrc.js",
     "jest.setup.js",
     "jest.config.js",
     "babel.config.js",
-    "index.js"
+    "index.js",
+    "react-native.config.js",
+    "jest.setup.ts"
   ],
+  "exclude": ["node_modules", "_", "android", "ios"]
 }

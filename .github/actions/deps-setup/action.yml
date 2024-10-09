@@ -4,7 +4,6 @@ inputs:
   working_directory:
     description: 'The directory where the install command will be run'
     required: true
-    type: string
 runs:
   using: composite
   steps:
@@ -14,6 +13,7 @@ runs:
         node-version: '20.x'
         cache: 'yarn'
         cache-dependency-path: ${{ inputs.working_directory }}/yarn.lock
+
     - name: Install dependencies
       run: yarn install --frozen-lockfile
       shell: bash

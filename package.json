@@ -27,6 +27,5 @@
   "dependencies": {
     "kleur": "^4.1.4",
     "prompts": "^2.4.1"
-  },
-  "devDependencies": {}
+  }
 }

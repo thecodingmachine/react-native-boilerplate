@@ -24,10 +24,13 @@ jobs:
         with:
           working_directory: ./template
       - name: Run Eslint
-        run: yarn lint
+        run: yarn lint:coventions
+        working-directory: ./template
+      - name: Run Prettier
+        run: yarn lint:code-format
         working-directory: ./template
       - name: Run Typescript check
-        run: yarn type-check
+        run: yarn lint:type-check
         working-directory: ./template
       - name: Run Jest tests
         run: yarn test
