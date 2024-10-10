@@ -30,7 +30,6 @@ function SafeScreen({
       <StatusBar
         backgroundColor={navigationTheme.colors.background}
         barStyle={variant === 'dark' ? 'light-content' : 'dark-content'}
-        translucent
       />
       <ErrorBoundary fallback={<DefaultError onReset={onResetError} />}>
         {isError ? <DefaultError onReset={onResetError} /> : children}

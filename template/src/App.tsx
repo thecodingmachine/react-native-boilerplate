@@ -9,7 +9,16 @@ import ApplicationNavigator from '@/navigations/Application';
 
 import '@/translations';
 
-export const queryClient = new QueryClient();
+export const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: false,
+    },
+    mutations: {
+      retry: false,
+    },
+  },
+});
 
 export const storage = new MMKV();
 

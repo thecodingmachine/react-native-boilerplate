@@ -18,12 +18,13 @@ const useFetchOneQuery = (currentId: User['id']) =>
 export const useUser = () => {
   const client = useQueryClient();
 
-  const invalidateFetchOneQuery = client.invalidateQueries({
-    queryKey: [UserQueryKey.fetchOne],
-  });
+  const invalidateQuery = (queryKeys: UserQueryKey[]) =>
+    client.invalidateQueries({
+      queryKey: queryKeys,
+    });
 
   return {
     useFetchOneQuery,
-    invalidateFetchOneQuery,
+    invalidateQuery,
   };
 };
