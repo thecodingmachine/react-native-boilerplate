@@ -13,7 +13,7 @@ any new features and improvements.
 
 ## Navigation structure
 
-All navigation-related configurations and navigators are neatly organized within the `src/navigations` folder. Here's a brief overview:
+All navigation-related configurations and navigators are neatly organized within the `src/navigation` folder. Here's a brief overview:
 
 ### Root file (`Application.{js, tsx}`)
 
@@ -34,7 +34,7 @@ You can either add your own navigators or, if you prefer, replace the existing s
 ## Using typescript
 
 It's crucial not to overlook the creation of types for your navigation parameters. This practice helps prevent errors and enhances autocompletion.
-You can define these types in the `@/navigations/types.ts` file.
+You can define these types in the `@/navigation/types.ts` file.
 
 For more in-depth information on this topic, please refer to the [React Navigation documentation](https://reactnavigation.org/docs/typescript/).
 
