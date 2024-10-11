@@ -4,7 +4,7 @@
       "full": "React Native Boilerplate",
       "initials": "RNB"
     },
-    "common_error": "Quelque chose s'est mal passé.",
+    "common_error": "Oops! Something went wrong.",
     "screen_example": {
       "hello_user": "Hi, my name is {{name}}",
       "title": "Welcome on The $t(common_appName.full)",
