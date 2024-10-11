@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
+/* eslint-disable no-console */
+// eslint-disable-next-line import/no-extraneous-dependencies
 const { green, blue, yellow, red } = require('kleur');
 
 module.exports = {
