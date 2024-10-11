@@ -1,6 +1,5 @@
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import tsEslint from 'typescript-eslint';
 import importPlugin from 'eslint-plugin-import';
 import jest from 'eslint-plugin-jest';
 import react from 'eslint-plugin-react';
@@ -8,6 +7,7 @@ import reactHooks from 'eslint-plugin-react-hooks';
 import typescriptSortKeys from 'eslint-plugin-typescript-sort-keys';
 import unicorn from 'eslint-plugin-unicorn';
 import unusedImports from 'eslint-plugin-unused-imports';
+import tsEslint from 'typescript-eslint';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -56,6 +56,13 @@ export default [
       'react/jsx-sort-props': 2,
       'react/prop-types': 2,
       'react/react-in-jsx-scope': 0,
+      'react/require-default-props': [
+        2,
+        {
+          forbidDefaultForRequired: true,
+          functions: 'defaultArguments',
+        },
+      ],
       'unicorn/better-regex': 2,
       'unicorn/catch-error-name': 2,
       'unicorn/consistent-empty-array-spread': 2,

@@ -6,7 +6,7 @@ id: default-error
 keywords: [DefaultError, Error, boundary]
 ---
 
-The molecule `DefaultError` component is used into the `SafeScreen` component as the default error UI.
+The molecule `DefaultError` component is used into the [`ErrorBoundary` component](/docs/components/error-boundary) as the default error UI.
 This component is composed of `Text` components and a `Button` to reset the error (for re-executing the query for example).
 
 ### Props

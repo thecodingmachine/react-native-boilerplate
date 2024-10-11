@@ -10,7 +10,7 @@ type Props = {
   onReset?: () => void;
 };
 
-function DefaultErrorScreen({ onReset }: Props) {
+function DefaultErrorScreen({ onReset = undefined }: Props) {
   const { gutters, layout, colors, fonts } = useTheme();
   const { t } = useTranslation();
   const { resetBoundary } = useErrorBoundary();
