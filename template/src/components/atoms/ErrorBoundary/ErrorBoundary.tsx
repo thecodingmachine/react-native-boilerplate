@@ -9,7 +9,7 @@ type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
 type Props = Optional<ErrorBoundaryPropsWithFallback, 'fallback'>;
 
 function ErrorBoundary({ fallback = <View />, onError, ...props }: Props) {
-  const onErrorReportCrashlytics = (error: Error, info: ErrorInfo) => {
+  const onErrorReport = (error: Error, info: ErrorInfo) => {
     // use any crash reporting tool here
     return onError?.(error, info);
   };
@@ -18,7 +18,7 @@ function ErrorBoundary({ fallback = <View />, onError, ...props }: Props) {
     <DefaultErrorBoundary
       {...props}
       fallback={fallback}
-      onError={onErrorReportCrashlytics}
+      onError={onErrorReport}
     />
   );
 }
