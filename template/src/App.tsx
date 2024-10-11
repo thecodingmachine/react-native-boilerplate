@@ -5,7 +5,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { MMKV } from 'react-native-mmkv';
 
 import { ThemeProvider } from '@/theme';
-import ApplicationNavigator from '@/navigations/Application';
+import ApplicationNavigator from '@/navigation/Application';
 
 import '@/translations';
 

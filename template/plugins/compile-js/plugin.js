@@ -1,6 +1,8 @@
-const { execSync } = require('child_process');
+/* eslint-disable @typescript-eslint/no-require-imports */
+/* eslint-disable no-console */
+const { execSync, spawnSync } = require('node:child_process');
 
-const TYPESCRIPT_VERSION = '5.6.2';
+const TYPESCRIPT_VERSION = '5.6.3';
 
 function isYarnAvailable() {
   try {
@@ -9,7 +11,7 @@ function isYarnAvailable() {
         stdio: [0, 'pipe', 'ignore'],
       }).toString() || ''
     ).trim();
-  } catch (error) {
+  } catch {
     return null;
   }
 }
@@ -20,21 +22,24 @@ function isNpmAvailable() {
         stdio: [0, 'pipe', 'ignore'],
       }).toString() || ''
     ).trim();
-  } catch (error) {
+  } catch {
     return null;
   }
 }
 
 module.exports = {
-  async apply(value, previousValues) {
+  async apply(value) {
     return new Promise((resolve) => {
       let packageManager = null;
+      let addCmd = null;
 
       // react-native cli prefer yarn so we follow the same logic
       if (isYarnAvailable()) {
         packageManager = 'yarn';
+        addCmd = 'add';
       } else if (isNpmAvailable()) {
         packageManager = 'npm';
+        addCmd = 'install';
       }
 
       if (!packageManager) {
@@ -48,12 +53,26 @@ module.exports = {
         console.log('\n');
 
         console.log('📦 Loading the build tool...');
-        execSync(`${packageManager} add -D typescript@${TYPESCRIPT_VERSION}`);
+        const installTypeScriptCmd = spawnSync(
+          packageManager,
+          [addCmd, '-D', `typescript@${TYPESCRIPT_VERSION}`],
+          { stdio: 'inherit' },
+        );
+        if (installTypeScriptCmd.error) {
+          console.error(installTypeScriptCmd.error);
+          process.exit(1);
+        }
 
         console.log('🧱 Building the javascript source...');
-        execSync(
-          'npx tsc --jsx react-native --module ESNext --outDir js --noEmit false --isolatedModules false --esModuleInterop true',
+        const transpileCmd = spawnSync(
+          'npx',
+          ['tsc', '--project', `plugins/compile-js/tsconfig.build.json`],
+          { stdio: 'inherit' },
         );
+        if (transpileCmd.error) {
+          console.error(transpileCmd.error);
+          process.exit(1);
+        }
 
         try {
           console.log('🖼️  Copying assets...');
@@ -65,7 +84,7 @@ module.exports = {
           execSync('rm -rf __mocks__', { stdio: 'pipe' });
           execSync('cp -R js/__mocks__ ./__mocks__', { stdio: 'pipe' });
           execSync('rm -rf js', { stdio: 'pipe' });
-        } catch (error) {
+        } catch {
           console.error(
             '🚨 Failed to copy assets or replace source. If you are using windows, please use git bash.',
           );
@@ -74,8 +93,8 @@ module.exports = {
 
         console.log('🌀 Removing types ...');
         execSync('rm -rf src/theme/types', { stdio: 'pipe' });
-        execSync('rm -f src/navigations/paths.js', { stdio: 'pipe' });
-        execSync('rm -f src/navigations/types.js', { stdio: 'pipe' });
+        execSync('rm -f src/navigation/paths.js', { stdio: 'pipe' });
+        execSync('rm -f src/navigation/types.js', { stdio: 'pipe' });
       }
 
       resolve();

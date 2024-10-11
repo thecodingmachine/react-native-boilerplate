@@ -1,6 +1,7 @@
 import type { ImageStyle, TextStyle, ViewStyle } from 'react-native';
 import type { ComponentTheme } from '@/theme/types/theme';
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface AllStyle
   extends Record<string, AllStyle | ImageStyle | TextStyle | ViewStyle> {}
 

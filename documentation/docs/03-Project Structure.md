@@ -16,7 +16,7 @@ To achieve this, the project structure is thoughtfully organized into distinct s
 |--------------------|-------------------------------------------------------------------------------------------------------------------|
 | `src/components`   | Home to application components, following the atomic design methodology for organizing presentational components. |
 | `src/hooks`        | Custom hooks used throughout the application.                                                                     |
-| `src/navigations`  | Navigator components responsible for handling navigation.                                                         |
+| `src/navigation`  | Navigator components responsible for handling navigation.                                                         |
 | `src/screens`      | Screen components representing various app screens.                                                               |
 | `src/services` ️    | Houses data fetching and related services.                                                                        |
 | `src/theme`        | Holds theme configuration for the application.                                                                    |

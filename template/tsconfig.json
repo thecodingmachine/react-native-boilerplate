@@ -14,7 +14,7 @@
     "__mocks__/**/*",
     "./src/**/*",
     "index.d.ts",
-    ".eslintrc.js",
+    ".eslint.config.js",
     "jest.setup.js",
     "jest.config.js",
     "babel.config.js",

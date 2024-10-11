@@ -1,4 +1,4 @@
-import type { RootScreenProps } from '@/navigations/types';
+import type { RootScreenProps } from '@/navigation/types';
 
 import { useQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
@@ -6,9 +6,9 @@ import { useTranslation } from 'react-i18next';
 import { ActivityIndicator, Text, View } from 'react-native';
 
 import { useTheme } from '@/theme';
-import { Paths } from '@/navigations/paths';
+import { Paths } from '@/navigation/paths';
 
-import { Brand } from '@/components/molecules';
+import { AssetByVariant } from '@/components/atoms';
 import { SafeScreen } from '@/components/templates';
 
 function Startup({ navigation }: RootScreenProps<Paths.Startup>) {
@@ -41,7 +41,11 @@ function Startup({ navigation }: RootScreenProps<Paths.Startup>) {
           layout.justifyCenter,
         ]}
       >
-        <Brand />
+        <AssetByVariant
+          path={'tom'}
+          resizeMode={'contain'}
+          style={{ height: 300, width: 300 }}
+        />
         {isFetching && (
           <ActivityIndicator size="large" style={[gutters.marginVertical_24]} />
         )}

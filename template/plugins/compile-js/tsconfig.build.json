@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "jsx": "react-native",
+    "module": "ESNext",
+    "outDir": "../../js",
+    "noEmit": false,
+    "isolatedModules": false,
+    "esModuleInterop": true
+  }
+}
