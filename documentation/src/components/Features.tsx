@@ -75,21 +75,20 @@ function Feature({
         rounded-xl
         p-4
         hover:shadow-xl
-        hover:cursor-pointer
      "
     >
       <div
         className={`
-          flex 
-          items-center 
-          justify-center 
-          ${colorClass} 
-          border-sm 
-          w-[50px] 
-          h-[50px] 
-          min-w-[50px] 
-          min-h-[50px] 
-          mr-4 
+          flex
+          items-center
+          justify-center
+          ${colorClass}
+          border-sm
+          w-[50px]
+          h-[50px]
+          min-w-[50px]
+          min-h-[50px]
+          mr-4
           rounded-xl
         `}
       >
