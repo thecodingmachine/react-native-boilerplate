@@ -5,8 +5,7 @@ import { Alert, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { useTheme } from '@/theme';
 import { useI18n, useUser } from '@/hooks';
 
-import { IconByVariant, Skeleton } from '@/components/atoms';
-import { Brand } from '@/components/molecules';
+import { AssetByVariant, IconByVariant, Skeleton } from '@/components/atoms';
 import { SafeScreen } from '@/components/templates';
 
 function Example() {
@@ -59,7 +58,11 @@ function Example() {
           />
 
           <View style={[layout.absolute, gutters.paddingTop_80]}>
-            <Brand height={300} width={300} />
+            <AssetByVariant
+              path={'tom'}
+              resizeMode={'contain'}
+              style={{ height: 300, width: 300 }}
+            />
           </View>
         </View>
 

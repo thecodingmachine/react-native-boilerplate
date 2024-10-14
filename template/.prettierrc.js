@@ -11,7 +11,7 @@ module.exports = {
     '', // empty line
     '^@/theme(.*)$',
     '^@/hooks(.*)$',
-    '^@/navigations(.*)$',
+    '^@/navigation(.*)$',
     '^@/translations(.*)$',
     '', // empty line
     '^@/components/atoms(.*)$',

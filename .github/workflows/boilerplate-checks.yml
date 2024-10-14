@@ -24,7 +24,7 @@ jobs:
         with:
           working_directory: ./template
       - name: Run Eslint
-        run: yarn lint:coventions
+        run: yarn lint:rules
         working-directory: ./template
       - name: Run Prettier
         run: yarn lint:code-format

@@ -1,11 +1,11 @@
-import type { RootStackParamList } from '@/navigations/types';
+import type { RootStackParamList } from '@/navigation/types';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { useTheme } from '@/theme';
-import { Paths } from '@/navigations/paths';
+import { Paths } from '@/navigation/paths';
 
 import { Example, Startup } from '@/screens';
 
