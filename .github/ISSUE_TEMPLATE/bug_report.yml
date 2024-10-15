@@ -33,15 +33,15 @@ body:
     attributes:
       label: Do you use TypeScript?
       options:
-        - label: "Yes"
-        - label: "No"
+        - Yes
+        - No
   - type: dropdown
     id: device
     attributes:
       label: On which OS this issue appear on?
       options:
-        - label: IOS
-        - label: Android
+        - IOS
+        - Android
   - type: input
     id: os
     attributes:
