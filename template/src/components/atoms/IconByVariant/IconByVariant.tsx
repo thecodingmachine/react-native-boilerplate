@@ -37,7 +37,7 @@ function IconByVariant({ height = 24, path, width = 24, ...props }: Props) {
         setIcon(fetchedModule.default);
       } catch (error) {
         // eslint-disable-next-line no-console
-        console.error(
+        console.warn(
           `Couldn't load the icon: ${path}.${EXTENSION} for the variant ${variant}, Fallback to default`,
           error,
         );

@@ -36,7 +36,7 @@ function AssetByVariant({ extension = 'png', path, ...props }: Props) {
         setImage(fetchedModule);
       } catch (error) {
         // eslint-disable-next-line no-console
-        console.error(
+        console.warn(
           `Couldn't load the image: ${path}.${extension} for the variant ${variant}, Fallback to default`,
           error,
         );
