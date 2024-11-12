@@ -28,6 +28,7 @@ export default [
     },
     rules: {
       // `import/default`, `import/namespace` and `import/no-duplicates` are slow.
+      '@typescript-eslint/no-var-requires': 0,
       curly: 2,
       'import/default': 0,
       'import/named': 0,
