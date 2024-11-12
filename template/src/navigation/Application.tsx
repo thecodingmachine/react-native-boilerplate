@@ -12,7 +12,7 @@ import { Example, Startup } from '@/screens';
 const Stack = createStackNavigator<RootStackParamList>();
 
 function ApplicationNavigator() {
-  const { variant, navigationTheme } = useTheme();
+  const { navigationTheme, variant } = useTheme();
 
   return (
     <SafeAreaProvider>

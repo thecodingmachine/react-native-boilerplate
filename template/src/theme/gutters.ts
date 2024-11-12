@@ -6,26 +6,29 @@ import { type ViewStyle } from 'react-native';
 export const generateGutters = (configuration: UnionConfiguration): Gutters => {
   return configuration.gutters.reduce((acc, curr) => {
     return Object.assign(acc, {
+      [`gap_${curr}`]: {
+        gap: curr,
+      },
       [`margin_${curr}`]: {
         margin: curr,
       },
       [`marginBottom_${curr}`]: {
         marginBottom: curr,
       },
-      [`marginTop_${curr}`]: {
-        marginTop: curr,
-      },
-      [`marginRight_${curr}`]: {
-        marginRight: curr,
+      [`marginHorizontal_${curr}`]: {
+        marginHorizontal: curr,
       },
       [`marginLeft_${curr}`]: {
         marginLeft: curr,
       },
+      [`marginRight_${curr}`]: {
+        marginRight: curr,
+      },
+      [`marginTop_${curr}`]: {
+        marginTop: curr,
+      },
       [`marginVertical_${curr}`]: {
         marginVertical: curr,
-      },
-      [`marginHorizontal_${curr}`]: {
-        marginHorizontal: curr,
       },
       [`padding_${curr}`]: {
         padding: curr,
@@ -33,23 +36,20 @@ export const generateGutters = (configuration: UnionConfiguration): Gutters => {
       [`paddingBottom_${curr}`]: {
         paddingBottom: curr,
       },
-      [`paddingTop_${curr}`]: {
-        paddingTop: curr,
-      },
-      [`paddingRight_${curr}`]: {
-        paddingRight: curr,
+      [`paddingHorizontal_${curr}`]: {
+        paddingHorizontal: curr,
       },
       [`paddingLeft_${curr}`]: {
         paddingLeft: curr,
       },
+      [`paddingRight_${curr}`]: {
+        paddingRight: curr,
+      },
+      [`paddingTop_${curr}`]: {
+        paddingTop: curr,
+      },
       [`paddingVertical_${curr}`]: {
         paddingVertical: curr,
-      },
-      [`paddingHorizontal_${curr}`]: {
-        paddingHorizontal: curr,
-      },
-      [`gap_${curr}`]: {
-        gap: curr,
       },
     });
   }, {} as Gutters);

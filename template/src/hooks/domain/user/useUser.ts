@@ -10,9 +10,9 @@ const enum UserQueryKey {
 
 const useFetchOneQuery = (currentId: User['id']) =>
   useQuery({
-    queryKey: [UserQueryKey.fetchOne, currentId],
-    queryFn: () => UserServices.fetchOne(currentId),
     enabled: currentId >= 0,
+    queryFn: () => UserServices.fetchOne(currentId),
+    queryKey: [UserQueryKey.fetchOne, currentId],
   });
 
 export const useUser = () => {
@@ -24,7 +24,7 @@ export const useUser = () => {
     });
 
   return {
-    useFetchOneQuery,
     invalidateQuery,
+    useFetchOneQuery,
   };
 };

@@ -14,14 +14,14 @@ function Example() {
   const { toggleLanguage } = useI18n();
 
   const {
-    colors,
-    variant,
-    changeTheme,
-    layout,
-    gutters,
-    fonts,
-    components,
     backgrounds,
+    changeTheme,
+    colors,
+    components,
+    fonts,
+    gutters,
+    layout,
+    variant,
   } = useTheme();
 
   const [currentId, setCurrentId] = useState(-1);
@@ -93,7 +93,7 @@ function Example() {
               width={64}
             >
               <TouchableOpacity
-                onPress={() => setCurrentId(Math.ceil(Math.random() * 10 + 1))}
+                onPress={() => setCurrentId(Math.ceil(Math.random() * 9 + 1))}
                 style={[components.buttonCircle, gutters.marginBottom_16]}
                 testID="fetch-user-button"
               >

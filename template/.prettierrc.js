@@ -1,6 +1,4 @@
 module.exports = {
-  singleQuote: true,
-  plugins: ['@ianvs/prettier-plugin-sort-imports'],
   importOrder: [
     '<TYPES>^(node:)',
     '<TYPES>',
@@ -25,4 +23,6 @@ module.exports = {
     '^[.]', // relative imports
   ],
   importOrderTypeScriptVersion: '5.0.0',
+  plugins: ['@ianvs/prettier-plugin-sort-imports'],
+  singleQuote: true,
 };

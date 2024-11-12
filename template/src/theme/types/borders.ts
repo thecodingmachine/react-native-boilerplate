@@ -37,12 +37,12 @@ export type BorderBottomRadius = {
 
 type BorderRadiusKeys = `rounded_${ArrayValue<typeof config.borders.radius>}`;
 
-export type BorderRadius = BorderBottomRadius &
-  BorderTopRadius & {
-    [key in BorderRadiusKeys]: {
-      borderRadius: ToNumber<RemoveBeforeSeparator<key>>;
-    };
+export type BorderRadius = {
+  [key in BorderRadiusKeys]: {
+    borderRadius: ToNumber<RemoveBeforeSeparator<key>>;
   };
+} & BorderBottomRadius &
+  BorderTopRadius;
 
 type BorderWidthTopKeys = `wTop_${ArrayValue<typeof config.borders.widths>}`;
 
@@ -82,14 +82,14 @@ export type BorderWidthsRight = {
 
 type BorderWidthKeys = `w_${ArrayValue<typeof config.borders.widths>}`;
 
-export type BorderWidths = BorderWidthsTop &
-  BorderWidthsBottom &
-  BorderWidthsLeft &
-  BorderWidthsRight & {
-    [key in BorderWidthKeys]: {
-      borderWidth: ToNumber<RemoveBeforeSeparator<key>>;
-    };
+export type BorderWidths = {
+  [key in BorderWidthKeys]: {
+    borderWidth: ToNumber<RemoveBeforeSeparator<key>>;
   };
+} & BorderWidthsBottom &
+  BorderWidthsLeft &
+  BorderWidthsRight &
+  BorderWidthsTop;
 
 export type Borders = BorderColors &
   BorderRadius &

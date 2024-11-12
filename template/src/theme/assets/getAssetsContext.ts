@@ -1,4 +1,4 @@
-export type AssetType = 'images' | 'icons';
+export type AssetType = 'icons' | 'images';
 
 export default (type: AssetType) =>
   type === 'images'

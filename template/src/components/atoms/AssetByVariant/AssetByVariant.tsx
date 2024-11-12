@@ -7,14 +7,14 @@ import { z } from 'zod';
 import { useTheme } from '@/theme';
 import getAssetsContext from '@/theme/assets/getAssetsContext';
 
-type Props = Omit<ImageProps, 'source'> & {
+type Props = {
   extension?: string;
   path: string;
-};
+} & Omit<ImageProps, 'source'>;
 
 const images = getAssetsContext('images');
 
-function AssetByVariant({ path, extension = 'png', ...props }: Props) {
+function AssetByVariant({ extension = 'png', path, ...props }: Props) {
   const [image, setImage] = useState<ImageSourcePropType>();
   const { variant } = useTheme();
 
@@ -36,7 +36,7 @@ function AssetByVariant({ path, extension = 'png', ...props }: Props) {
         setImage(fetchedModule);
       } catch (error) {
         // eslint-disable-next-line no-console
-        console.error(
+        console.warn(
           `Couldn't load the image: ${path}.${extension} for the variant ${variant}, Fallback to default`,
           error,
         );

@@ -11,11 +11,11 @@ import Animated, {
 
 import { useTheme } from '@/theme';
 
-type Props = ViewProps & {
+type Props = {
   height?: DimensionValue;
   loading?: boolean;
   width?: DimensionValue;
-};
+} & ViewProps;
 
 const FROM = 0.2;
 const TO = 1;

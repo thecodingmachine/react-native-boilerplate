@@ -7,17 +7,11 @@ export default {
   colReverse: {
     flexDirection: 'column-reverse',
   },
-  wrap: {
-    flexWrap: 'wrap',
-  },
-  row: {
-    flexDirection: 'row',
-  },
-  rowReverse: {
-    flexDirection: 'row-reverse',
-  },
   itemsCenter: {
     alignItems: 'center',
+  },
+  itemsEnd: {
+    alignItems: 'flex-end',
   },
   itemsStart: {
     alignItems: 'flex-start',
@@ -25,17 +19,14 @@ export default {
   itemsStretch: {
     alignItems: 'stretch',
   },
-  itemsEnd: {
-    alignItems: 'flex-end',
-  },
-  justifyCenter: {
-    justifyContent: 'center',
-  },
   justifyAround: {
     justifyContent: 'space-around',
   },
   justifyBetween: {
     justifyContent: 'space-between',
+  },
+  justifyCenter: {
+    justifyContent: 'center',
   },
   justifyEnd: {
     justifyContent: 'flex-end',
@@ -43,25 +34,28 @@ export default {
   justifyStart: {
     justifyContent: 'flex-start',
   },
+  row: {
+    flexDirection: 'row',
+  },
+  rowReverse: {
+    flexDirection: 'row-reverse',
+  },
+  wrap: {
+    flexWrap: 'wrap',
+  },
   /* Sizes Layouts */
   flex_1: {
     flex: 1,
   },
-  fullWidth: {
-    width: '100%',
-  },
   fullHeight: {
     height: '100%',
   },
-  /* Positions */
-  relative: {
-    position: 'relative',
+  fullWidth: {
+    width: '100%',
   },
+  /* Positions */
   absolute: {
     position: 'absolute',
-  },
-  top0: {
-    top: 0,
   },
   bottom0: {
     bottom: 0,
@@ -69,8 +63,14 @@ export default {
   left0: {
     left: 0,
   },
+  relative: {
+    position: 'relative',
+  },
   right0: {
     right: 0,
+  },
+  top0: {
+    top: 0,
   },
   z1: {
     zIndex: 1,

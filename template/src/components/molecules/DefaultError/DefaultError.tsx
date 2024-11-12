@@ -11,7 +11,7 @@ type Props = {
 };
 
 function DefaultErrorScreen({ onReset = undefined }: Props) {
-  const { gutters, layout, colors, fonts } = useTheme();
+  const { colors, fonts, gutters, layout } = useTheme();
   const { t } = useTranslation();
   const { resetBoundary } = useErrorBoundary();
 

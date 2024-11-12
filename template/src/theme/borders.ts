@@ -37,10 +37,6 @@ export const generateBorderRadius = () => {
         [`rounded_${radius}`]: {
           borderRadius: radius,
         },
-        [`roundedTop_${radius}`]: {
-          borderTopLeftRadius: radius,
-          borderTopRightRadius: radius,
-        },
         [`roundedBottom_${radius}`]: {
           borderBottomLeftRadius: radius,
           borderBottomRightRadius: radius,
@@ -48,12 +44,16 @@ export const generateBorderRadius = () => {
         [`roundedBottomRight_${radius}`]: {
           borderBottomRightRadius: radius,
         },
+        [`roundedTop_${radius}`]: {
+          borderTopLeftRadius: radius,
+          borderTopRightRadius: radius,
+        },
         [`roundedTopLeft_${radius}`]: {
           borderTopLeftRadius: radius,
         },
       });
     },
-    {} as BorderRadius & BorderTopRadius & BorderBottomRadius,
+    {} as BorderBottomRadius & BorderRadius & BorderTopRadius,
   );
 };
 
@@ -66,9 +66,6 @@ export const generateBorderWidths = () => {
       [`w_${width}`]: {
         borderWidth: width,
       },
-      [`wTop_${width}`]: {
-        borderTopWidth: width,
-      },
       [`wBottom_${width}`]: {
         borderBottomWidth: width,
       },
@@ -77,6 +74,9 @@ export const generateBorderWidths = () => {
       },
       [`wRight_${width}`]: {
         borderRightWidth: width,
+      },
+      [`wTop_${width}`]: {
+        borderTopWidth: width,
       },
     });
   }, {} as BorderWidths);
