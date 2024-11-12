@@ -5,6 +5,7 @@ import jest from 'eslint-plugin-jest';
 import perfectionist from 'eslint-plugin-perfectionist';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
+import testingLibrary from 'eslint-plugin-testing-library';
 import unicorn from 'eslint-plugin-unicorn';
 import unusedImports from 'eslint-plugin-unused-imports';
 import tsEslint from 'typescript-eslint';
@@ -15,7 +16,7 @@ const __dirname = dirname(__filename);
 export default [
   ...tsEslint.configs.strict,
   {
-    files: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx'],
+    files: ['**/*.mjs', '**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx'],
     plugins: {
       import: importPlugin,
       jest,
@@ -153,6 +154,9 @@ export default [
   },
   {
     files: ['./**/*.test.{ts,tsx}'],
+    plugins: {
+      'testing-library': testingLibrary,
+    },
     rules: {
       '@typescript-eslint/no-unsafe-assignment': 0,
       '@typescript-eslint/no-unsafe-call': 0,

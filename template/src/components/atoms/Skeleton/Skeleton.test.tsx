@@ -37,13 +37,23 @@ describe('SkeletonLoader', () => {
       { wrapper: TestAppWrapper },
     );
     const skeleton = getByTestId('skeleton-loader');
-    expect(skeleton).toHaveAnimatedStyle({
+    // TODO: use toHaveAnimatedStyle for better API but for now there is an issue with the library
+    // expect(skeleton).toHaveAnimatedStyle({
+    //   opacity: 0.2,
+    // });
+
+    expect(skeleton.props.jestAnimatedStyle.value).toEqual({
       opacity: 0.2,
     });
+
     jest.advanceTimersByTime(800);
-    expect(skeleton).toHaveAnimatedStyle({
+    expect(skeleton.props.jestAnimatedStyle.value).toEqual({
       opacity: 1,
     });
+    // TODO: use toHaveAnimatedStyle for better API but for now there is an issue with the library
+    // expect(skeleton).toHaveAnimatedStyle({
+    //   opacity: 1,
+    // });
     expect(skeleton).toHaveStyle({
       backgroundColor: '#A1A1A1',
       borderRadius: 4,
