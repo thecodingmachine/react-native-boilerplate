@@ -14,14 +14,14 @@ function Example() {
   const { toggleLanguage } = useI18n();
 
   const {
-    colors,
-    variant,
-    changeTheme,
-    layout,
-    gutters,
-    fonts,
-    components,
     backgrounds,
+    changeTheme,
+    colors,
+    components,
+    fonts,
+    gutters,
+    layout,
+    variant,
   } = useTheme();
 
   const [currentId, setCurrentId] = useState(-1);

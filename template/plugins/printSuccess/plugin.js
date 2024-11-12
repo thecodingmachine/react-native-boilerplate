@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 /* eslint-disable no-console */
 // eslint-disable-next-line import/no-extraneous-dependencies
-const { green, blue, yellow, red } = require('kleur');
+const { blue, green, red, yellow } = require('kleur');
 
 module.exports = {
   async apply(value, previousValues) {

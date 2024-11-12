@@ -10,11 +10,11 @@ import type { staticGutterStyles } from '@/theme/gutters';
 type Margins =
   | 'margin'
   | 'marginBottom'
-  | 'marginTop'
-  | 'marginRight'
+  | 'marginHorizontal'
   | 'marginLeft'
-  | 'marginVertical'
-  | 'marginHorizontal';
+  | 'marginRight'
+  | 'marginTop'
+  | 'marginVertical';
 
 type MarginKeys = `${Margins}_${ArrayValue<typeof config.gutters>}`;
 
@@ -29,11 +29,11 @@ type MarginGutters = {
 type Paddings =
   | 'padding'
   | 'paddingBottom'
-  | 'paddingTop'
-  | 'paddingRight'
+  | 'paddingHorizontal'
   | 'paddingLeft'
-  | 'paddingVertical'
-  | 'paddingHorizontal';
+  | 'paddingRight'
+  | 'paddingTop'
+  | 'paddingVertical';
 
 type PaddingKeys = `${Paddings}_${ArrayValue<typeof config.gutters>}`;
 
@@ -53,7 +53,7 @@ type GapGutters = {
   };
 };
 
-export type Gutters = MarginGutters &
+export type Gutters = GapGutters &
+  MarginGutters &
   PaddingGutters &
-  GapGutters &
   typeof staticGutterStyles;

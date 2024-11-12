@@ -5,7 +5,7 @@ import { MMKV } from 'react-native-mmkv';
 import { ThemeProvider, useTheme } from '@/theme';
 
 function TestChildComponent() {
-  const { variant, changeTheme } = useTheme();
+  const { changeTheme, variant } = useTheme();
   return (
     <View>
       <Text testID="theme-variant">{variant}</Text>

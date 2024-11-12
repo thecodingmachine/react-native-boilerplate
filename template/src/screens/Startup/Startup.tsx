@@ -12,14 +12,14 @@ import { AssetByVariant } from '@/components/atoms';
 import { SafeScreen } from '@/components/templates';
 
 function Startup({ navigation }: RootScreenProps<Paths.Startup>) {
-  const { layout, gutters, fonts } = useTheme();
+  const { fonts, gutters, layout } = useTheme();
   const { t } = useTranslation();
 
-  const { isSuccess, isFetching, isError } = useQuery({
-    queryKey: ['startup'],
+  const { isError, isFetching, isSuccess } = useQuery({
     queryFn: () => {
       return Promise.resolve(true);
     },
+    queryKey: ['startup'],
   });
 
   useEffect(() => {

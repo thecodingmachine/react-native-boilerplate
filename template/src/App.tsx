@@ -11,10 +11,10 @@ import '@/translations';
 
 export const queryClient = new QueryClient({
   defaultOptions: {
-    queries: {
+    mutations: {
       retry: false,
     },
-    mutations: {
+    queries: {
       retry: false,
     },
   },

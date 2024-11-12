@@ -7,14 +7,14 @@ import { z } from 'zod';
 import { useTheme } from '@/theme';
 import getAssetsContext from '@/theme/assets/getAssetsContext';
 
-type Props = Omit<ImageProps, 'source'> & {
+type Props = {
   extension?: string;
   path: string;
-};
+} & Omit<ImageProps, 'source'>;
 
 const images = getAssetsContext('images');
 
-function AssetByVariant({ path, extension = 'png', ...props }: Props) {
+function AssetByVariant({ extension = 'png', path, ...props }: Props) {
   const [image, setImage] = useState<ImageSourcePropType>();
   const { variant } = useTheme();
 

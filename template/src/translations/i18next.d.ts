@@ -1,8 +1,8 @@
 import type { SupportedLanguages } from '@/hooks/language/schema';
 import type { defaultNS, resources } from '@/translations';
 
-type Join<K, P> = K extends string | number
-  ? P extends string | number
+type Join<K, P> = K extends number | string
+  ? P extends number | string
     ? `${K}.${P}`
     : never
   : never;

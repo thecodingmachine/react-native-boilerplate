@@ -21,4 +21,4 @@ export type FontColors = {
     : never;
 };
 
-export type Fonts = FontSizes & FontColors & typeof staticFontStyles;
+export type Fonts = FontColors & FontSizes & typeof staticFontStyles;

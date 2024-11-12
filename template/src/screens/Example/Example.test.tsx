@@ -14,12 +14,12 @@ describe('Example screen should render correctly', () => {
   let storage: MMKV;
   const queryClient = new QueryClient({
     defaultOptions: {
-      queries: {
-        retry: false,
-        gcTime: Infinity,
-      },
       mutations: {
         gcTime: Infinity,
+      },
+      queries: {
+        gcTime: Infinity,
+        retry: false,
       },
     },
   });

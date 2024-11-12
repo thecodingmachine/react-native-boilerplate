@@ -7,14 +7,14 @@ import { z } from 'zod';
 import { useTheme } from '@/theme';
 import getAssetsContext from '@/theme/assets/getAssetsContext';
 
-type Props = SvgProps & {
+type Props = {
   path: string;
-};
+} & SvgProps;
 
 const icons = getAssetsContext('icons');
 const EXTENSION = 'svg';
 
-function IconByVariant({ path, width = 24, height = 24, ...props }: Props) {
+function IconByVariant({ height = 24, path, width = 24, ...props }: Props) {
   const [icon, setIcon] = useState<ReactElement<SvgProps>>();
   const { variant } = useTheme();
 

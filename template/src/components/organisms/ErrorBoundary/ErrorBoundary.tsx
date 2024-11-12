@@ -5,16 +5,16 @@ import { ErrorBoundary as DefaultErrorBoundary } from 'react-error-boundary';
 
 import { DefaultError } from '@/components/molecules';
 
-type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
+type Optional<T, K extends keyof T> = Omit<T, K> & Pick<Partial<T>, K>;
 
-type Props = Optional<ErrorBoundaryPropsWithFallback, 'fallback'> & {
+type Props = {
   onReset?: () => void;
-};
+} & Optional<ErrorBoundaryPropsWithFallback, 'fallback'>;
 
 function ErrorBoundary({
   fallback = undefined,
-  onReset = undefined,
   onError,
+  onReset = undefined,
   ...props
 }: Props) {
   const onErrorReport = (error: Error, info: ErrorInfo) => {

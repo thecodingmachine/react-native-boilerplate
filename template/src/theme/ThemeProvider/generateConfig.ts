@@ -9,7 +9,7 @@ import { config } from '@/theme/_config';
 function hasProperty<Config, KeyPath extends string>(
   configuration: Config,
   property: KeyPath,
-): configuration is HasProperty<Config, KeyPath> & Config {
+): configuration is Config & HasProperty<Config, KeyPath> {
   const parts = property.split('.');
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -63,18 +63,18 @@ export default (variant: Variant) => {
   };
 
   return {
-    colors,
-    fonts: {
-      sizes: defaultConfig.fonts.sizes,
-      colors: fontColors,
-    },
-    gutters: defaultConfig.gutters,
     backgrounds: backgroundColors,
     borders: {
-      widths: defaultConfig.borders.widths,
-      radius: defaultConfig.borders.radius,
       colors: borderColors,
+      radius: defaultConfig.borders.radius,
+      widths: defaultConfig.borders.widths,
     },
+    colors,
+    fonts: {
+      colors: fontColors,
+      sizes: defaultConfig.fonts.sizes,
+    },
+    gutters: defaultConfig.gutters,
     navigationColors,
   } as const satisfies FulfilledThemeConfiguration;
 };

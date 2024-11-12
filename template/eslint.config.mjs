@@ -2,9 +2,9 @@ import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import importPlugin from 'eslint-plugin-import';
 import jest from 'eslint-plugin-jest';
+import perfectionist from 'eslint-plugin-perfectionist';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
-import typescriptSortKeys from 'eslint-plugin-typescript-sort-keys';
 import unicorn from 'eslint-plugin-unicorn';
 import unusedImports from 'eslint-plugin-unused-imports';
 import tsEslint from 'typescript-eslint';
@@ -18,24 +18,25 @@ export default [
     files: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx'],
     plugins: {
       import: importPlugin,
+      jest,
+      perfectionist,
       react,
       'react-hooks': reactHooks,
       unicorn,
       'unused-imports': unusedImports,
-      jest,
     },
     rules: {
-      'import/no-unresolved': 0, // handled by TypeScript
-      'unicorn/prefer-top-level-await': 0, // not valid on RN for the moment
-      curly: 2,
       // `import/default`, `import/namespace` and `import/no-duplicates` are slow.
+      curly: 2,
       'import/default': 0,
       'import/named': 0,
       'import/namespace': 0,
       'import/no-duplicates': 0,
       'import/no-extraneous-dependencies': 2,
       'import/no-named-as-default-member': 0,
+      'import/no-unresolved': 0,
       'import/order': 0,
+      'no-console': 2,
       'no-const-assign': 2,
       'no-constant-binary-expression': 2,
       'no-extra-parens': [2, 'functions'],
@@ -46,14 +47,30 @@ export default [
       'no-unused-vars': 0,
       'no-useless-rename': 2,
       'no-var': 2,
-      'no-console': 2,
       'no-warning-comments': [2, { terms: ['@nocommit'] }],
       'object-curly-spacing': 0,
       'object-shorthand': 2,
+      'perfectionist/sort-array-includes': 'error',
+      'perfectionist/sort-classes': 'error',
+      'perfectionist/sort-enums': 'error',
+      'perfectionist/sort-exports': 'error',
+      'perfectionist/sort-imports': 0,
+      'perfectionist/sort-interfaces': 'error',
+      'perfectionist/sort-intersection-types': 'error',
+      'perfectionist/sort-jsx-props': 'error',
+      'perfectionist/sort-maps': 'error',
+      'perfectionist/sort-named-exports': 'error',
+      'perfectionist/sort-named-imports': 'error',
+      'perfectionist/sort-object-types': 'error',
+      'perfectionist/sort-objects': 'error',
+      'perfectionist/sort-sets': 'error',
+      'perfectionist/sort-switch-case': 'error',
+      'perfectionist/sort-union-types': 'error',
+      'perfectionist/sort-variable-declarations': 'error',
       'prefer-arrow-callback': [2, { allowNamedFunctions: true }],
       'prefer-const': 2,
       'react-hooks/exhaustive-deps': 2,
-      'react/jsx-sort-props': 2,
+      'react/jsx-sort-props': 0, // Handled by perfectionist
       'react/prop-types': 2,
       'react/react-in-jsx-scope': 0,
       'react/require-default-props': [
@@ -92,10 +109,15 @@ export default [
       'unicorn/prefer-string-slice': 2,
       'unicorn/prefer-structured-clone': 2,
       'unicorn/prefer-ternary': 2,
+      'unicorn/prefer-top-level-await': 0, // not valid on RN for the moment
       'unicorn/text-encoding-identifier-case': 2,
       'unused-imports/no-unused-imports': 0,
     },
     settings: {
+      perfectionist: {
+        partitionByComment: true,
+        type: 'alphabetical',
+      },
       react: {
         version: 'detect',
       },
@@ -105,21 +127,19 @@ export default [
     files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
       ecmaVersion: 'latest',
-      sourceType: 'module',
       parser: tsEslint.parser,
       parserOptions: {
         project: ['./tsconfig.json'],
         tsconfigRootDir: __dirname,
       },
+      sourceType: 'module',
     },
     plugins: {
       '@typescript-eslint': tsEslint.plugin,
-      'typescript-sort-keys': typescriptSortKeys,
     },
     rules: {
-      'import/no-unresolved': 0, // handled by TypeScript
-      '@typescript-eslint/consistent-type-imports': 2,
       '@typescript-eslint/ban-ts-comment': 0,
+      '@typescript-eslint/consistent-type-imports': 2,
       '@typescript-eslint/no-dynamic-delete': 0,
       '@typescript-eslint/no-invalid-void-type': 0,
       '@typescript-eslint/no-namespace': 0,
@@ -127,9 +147,8 @@ export default [
       '@typescript-eslint/no-this-alias': 0,
       '@typescript-eslint/no-unused-vars': 0,
       '@typescript-eslint/no-var-requires': 0,
+      'import/no-unresolved': 0, // handled by TypeScript
       'react/prop-types': 0,
-      'typescript-sort-keys/interface': 2,
-      'typescript-sort-keys/string-enum': 2,
     },
   },
   {

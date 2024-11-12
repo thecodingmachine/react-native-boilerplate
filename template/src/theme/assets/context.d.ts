@@ -40,7 +40,7 @@ declare namespace __MetroModuleApi {
       path: string,
       recursive?: boolean,
       filter?: RegExp,
-      mode?: 'sync' | 'eager' | 'weak' | 'lazy' | 'lazy-once',
+      mode?: 'eager' | 'lazy-once' | 'lazy' | 'sync' | 'weak',
     ): RequireContext;
   }
 }

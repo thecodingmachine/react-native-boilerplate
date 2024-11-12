@@ -10,10 +10,10 @@ import { DefaultError } from '@/components/molecules';
 import { ErrorBoundary } from '@/components/organisms';
 
 type Props = PropsWithChildren<
-  Omit<SafeAreaViewProps, 'mode'> & {
+  {
     isError?: boolean;
     onResetError?: () => void;
-  }
+  } & Omit<SafeAreaViewProps, 'mode'>
 >;
 
 function SafeScreen({
@@ -23,7 +23,7 @@ function SafeScreen({
   style,
   ...props
 }: Props) {
-  const { layout, variant, navigationTheme } = useTheme();
+  const { layout, navigationTheme, variant } = useTheme();
 
   return (
     <SafeAreaView {...props} mode="padding" style={[layout.flex_1, style]}>

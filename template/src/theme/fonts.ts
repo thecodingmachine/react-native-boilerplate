@@ -28,16 +28,16 @@ export const generateFontSizes = () => {
 };
 
 export const staticFontStyles = {
+  alignCenter: {
+    textAlign: 'center',
+  },
   bold: {
     fontWeight: 'bold',
-  },
-  uppercase: {
-    textTransform: 'uppercase',
   },
   capitalize: {
     textTransform: 'capitalize',
   },
-  alignCenter: {
-    textAlign: 'center',
+  uppercase: {
+    textTransform: 'uppercase',
   },
 } as const satisfies Record<string, TextStyle>;

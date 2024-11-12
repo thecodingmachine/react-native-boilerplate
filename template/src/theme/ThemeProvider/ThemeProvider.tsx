@@ -34,9 +34,9 @@ import { generateGutters, staticGutterStyles } from '@/theme/gutters';
 import layout from '@/theme/layout';
 import generateConfig from '@/theme/ThemeProvider/generateConfig';
 
-type Context = Theme & {
+type Context = {
   changeTheme: (variant: Variant) => void;
-};
+} & Theme;
 
 export const ThemeContext = createContext<Context | undefined>(undefined);
 
@@ -105,20 +105,20 @@ function ThemeProvider({ children = false, storage }: Props) {
 
   const navigationTheme = useMemo(() => {
     return {
-      dark: variant === 'dark',
       colors: fullConfig.navigationColors,
+      dark: variant === 'dark',
     };
   }, [variant, fullConfig.navigationColors]);
 
   const theme = useMemo(() => {
     return {
-      colors: fullConfig.colors,
-      variant,
-      gutters,
-      layout,
-      fonts,
       backgrounds,
       borders,
+      colors: fullConfig.colors,
+      fonts,
+      gutters,
+      layout,
+      variant,
     } satisfies ComponentTheme;
   }, [variant, fonts, backgrounds, borders, fullConfig.colors, gutters]);
 
@@ -127,7 +127,7 @@ function ThemeProvider({ children = false, storage }: Props) {
   }, [theme]);
 
   const value = useMemo(() => {
-    return { ...theme, components, navigationTheme, changeTheme };
+    return { ...theme, changeTheme, components, navigationTheme };
   }, [theme, components, navigationTheme, changeTheme]);
 
   return (
