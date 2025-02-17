@@ -1,6 +1,6 @@
 import type { ImageProps, ImageSourcePropType } from 'react-native';
 
-import { useEffect, useState } from 'react';
+import { useMemo } from 'react';
 import { Image } from 'react-native';
 import { z } from 'zod';
 
@@ -15,38 +15,35 @@ type Props = {
 const images = getAssetsContext('images');
 
 function AssetByVariant({ extension = 'png', path, ...props }: Props) {
-  const [image, setImage] = useState<ImageSourcePropType>();
   const { variant } = useTheme();
 
-  useEffect(() => {
-    try {
-      const defaultSource = z
-        .custom<ImageSourcePropType>()
-        .parse(images(`./${path}.${extension}`));
+  const image = useMemo(() => {
+    const getDefaultSource = () =>
+      z.custom<ImageSourcePropType>().parse(images(`./${path}.${extension}`));
 
+    try {
       if (variant === 'default') {
-        setImage(defaultSource);
-        return;
+        return getDefaultSource();
       }
 
       try {
-        const fetchedModule = z
+        return z
           .custom<ImageSourcePropType>()
           .parse(images(`./${variant}/${path}.${extension}`));
-        setImage(fetchedModule);
       } catch (error) {
         // eslint-disable-next-line no-console
         console.warn(
           `Couldn't load the image: ${path}.${extension} for the variant ${variant}, Fallback to default`,
           error,
         );
-        setImage(defaultSource);
+        return getDefaultSource();
       }
     } catch (error) {
       // eslint-disable-next-line no-console
       console.error(`Couldn't load the image: ${path}`, error);
+      return null;
     }
-  }, [variant, extension, path]);
+  }, [path, extension, variant]);
 
   return image && <Image source={image} testID="variant-image" {...props} />;
 }

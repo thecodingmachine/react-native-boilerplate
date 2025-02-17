@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react';
 import type { SvgProps } from 'react-native-svg';
 
-import { useCallback, useEffect, useState } from 'react';
+import { useMemo } from 'react';
 import { z } from 'zod';
 
 import { useTheme } from '@/theme';
@@ -15,60 +15,46 @@ const icons = getAssetsContext('icons');
 const EXTENSION = 'svg';
 
 function IconByVariant({ height = 24, path, width = 24, ...props }: Props) {
-  const [icon, setIcon] = useState<ReactElement<SvgProps>>();
   const { variant } = useTheme();
 
-  useEffect(() => {
+  const iconProps = { ...props, height, width };
+  const Icon = useMemo(() => {
     try {
-      const defaultSource = z
-        .object({ default: z.custom<ReactElement<SvgProps>>() })
-        .parse(icons(`./${path}.${EXTENSION}`));
+      const getDefaultSource = () =>
+        z
+          .object({
+            default: z.function().returns(z.custom<ReactElement<SvgProps>>()),
+          })
+          .parse(icons(`./${path}.${EXTENSION}`)).default;
 
       if (variant === 'default') {
-        setIcon(defaultSource.default);
-        return;
+        return getDefaultSource();
       }
 
       try {
         const fetchedModule = z
-          .object({ default: z.custom<ReactElement<SvgProps>>() })
+          .object({
+            default: z.function().returns(z.custom<ReactElement<SvgProps>>()),
+          })
           .parse(icons(`./${variant}/${path}.${EXTENSION}`));
 
-        setIcon(fetchedModule.default);
+        return fetchedModule.default;
       } catch (error) {
         // eslint-disable-next-line no-console
         console.warn(
           `Couldn't load the icon: ${path}.${EXTENSION} for the variant ${variant}, Fallback to default`,
           error,
         );
-        setIcon(defaultSource.default);
+        return getDefaultSource();
       }
     } catch (error) {
       // eslint-disable-next-line no-console
       console.error(`Couldn't load the icon: ${path}.${EXTENSION}`, error);
+      throw error;
     }
   }, [variant, path]);
 
-  const Component = useCallback(
-    (currentProps: SvgProps) => {
-      if (!icon) {
-        return null;
-      }
-
-      return {
-        ...icon,
-        props: {
-          ...icon.props,
-          height,
-          width,
-          ...currentProps,
-        },
-      };
-    },
-    [icon, width, height],
-  );
-
-  return <Component {...props} />;
+  return <Icon {...iconProps} />;
 }
 
 export default IconByVariant;
