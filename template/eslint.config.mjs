@@ -1,9 +1,11 @@
 import eslintConfigPrettier from 'eslint-config-prettier';
 import importPlugin from 'eslint-plugin-import';
+import jest from 'eslint-plugin-jest';
 import perfectionist from 'eslint-plugin-perfectionist';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
+import testingLibrary from 'eslint-plugin-testing-library';
 import unicorn from 'eslint-plugin-unicorn';
 
 const ERROR = 2;
@@ -24,6 +26,7 @@ export default tseslint.config(
   react.configs.flat.all,
   react.configs.flat['jsx-runtime'],
   reactRefresh.configs.recommended,
+  testingLibrary.configs['flat/react'],
   eslintConfigPrettier, // last
   {
     languageOptions: {
@@ -55,6 +58,7 @@ export default tseslint.config(
       'react-hooks': reactHooks,
     },
     rules: {
+      ...reactHooks.configs.recommended.rules,
       '@typescript-eslint/consistent-type-definitions': [ERROR, 'type'],
       '@typescript-eslint/dot-notation': [ERROR, { allowKeywords: true }],
       '@typescript-eslint/no-empty-function': OFF,
@@ -140,6 +144,13 @@ export default tseslint.config(
       '@typescript-eslint/no-unsafe-call': OFF,
       'no-undef': OFF,
       'unicorn/prefer-module': OFF,
+    },
+  },
+  {
+    files: ['**/*.spec.{js,ts,jsx,tsx}', '**/*.test.{js,ts,jsx,tsx}'],
+    ...jest.configs['flat/recommended'],
+    rules: {
+      ...jest.configs['flat/recommended'].rules,
     },
   },
   {

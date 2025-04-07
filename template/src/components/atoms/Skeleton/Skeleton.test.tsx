@@ -1,5 +1,5 @@
-import TestAppWrapper from '@/../__mocks__/TestAppWrapper';
-import { render } from '@testing-library/react-native';
+import TestAppWrapper from '@/../tests/TestAppWrapper';
+import { render, screen } from '@testing-library/react-native';
 import { Text } from 'react-native';
 
 import SkeletonLoader from './Skeleton';
@@ -12,7 +12,7 @@ describe('SkeletonLoader', () => {
   });
 
   it('renders children when not loading', () => {
-    const { getByText } = render(
+    render(
       <SkeletonLoader loading={false}>
         <Text>Loaded Content</Text>
       </SkeletonLoader>,
@@ -20,24 +20,23 @@ describe('SkeletonLoader', () => {
         wrapper: TestAppWrapper,
       },
     );
-    expect(getByText('Loaded Content')).toBeTruthy();
+    expect(screen.getByText('Loaded Content')).toBeTruthy();
   });
 
   it('renders skeleton when loading', () => {
-    const { getByTestId } = render(<SkeletonLoader loading />, {
+    render(<SkeletonLoader loading />, {
       wrapper: TestAppWrapper,
     });
-    const skeleton = getByTestId('skeleton-loader');
+    const skeleton = screen.getByTestId('skeleton-loader');
     jest.advanceTimersByTime(WAIT);
     expect(skeleton).toBeTruthy();
   });
 
   it('applies correct height and width', () => {
-    const { getByTestId } = render(
-      <SkeletonLoader height={50} loading width={100} />,
-      { wrapper: TestAppWrapper },
-    );
-    const skeleton = getByTestId('skeleton-loader');
+    render(<SkeletonLoader height={50} loading width={100} />, {
+      wrapper: TestAppWrapper,
+    });
+    const skeleton = screen.getByTestId('skeleton-loader');
 
     const animatedStyle: {
       value: { opacity: number };

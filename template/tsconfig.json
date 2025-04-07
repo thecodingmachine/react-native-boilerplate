@@ -8,7 +8,7 @@
     "noUnusedLocals": true
   },
   "include": [
-    "__mocks__/**/*",
+    "tests/**/*",
     "./src/**/*",
     "index.d.ts",
     "*.mjs",
@@ -16,7 +16,7 @@
     "*.js",
     ".*.js",
     "*.ts",
-     ".prettierrc.mjs"
-],
+    ".prettierrc.mjs"
+  ],
   "exclude": ["node_modules", "_", "android", "ios"]
 }
