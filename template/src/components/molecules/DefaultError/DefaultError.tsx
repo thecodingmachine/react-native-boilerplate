@@ -6,11 +6,11 @@ import { useTheme } from '@/theme';
 
 import { IconByVariant } from '@/components/atoms';
 
-type Props = {
-  onReset?: () => void;
+type Properties = {
+  readonly onReset?: () => void;
 };
 
-function DefaultErrorScreen({ onReset = undefined }: Props) {
+function DefaultErrorScreen({ onReset = undefined }: Properties) {
   const { colors, fonts, gutters, layout } = useTheme();
   const { t } = useTranslation();
   const { resetBoundary } = useErrorBoundary();
@@ -38,18 +38,18 @@ function DefaultErrorScreen({ onReset = undefined }: Props) {
         {t('error_boundary.description')}
       </Text>
 
-      {onReset && (
+      {onReset ? (
         <TouchableOpacity
           onPress={() => {
             resetBoundary();
-            onReset?.();
+            onReset();
           }}
         >
           <Text style={[fonts.gray800, fonts.size_16]}>
             {t('error_boundary.cta')}
           </Text>
         </TouchableOpacity>
-      )}
+      ) : undefined}
     </View>
   );
 }

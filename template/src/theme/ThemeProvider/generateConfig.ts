@@ -13,23 +13,23 @@ function hasProperty<Config, KeyPath extends string>(
   const parts = property.split('.');
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let currentObj: any = configuration;
+  let currentObject: any = configuration;
 
-  for (let i = 0; i < parts.length; i += 1) {
-    const part = parts[i];
-    if (!(part in currentObj)) {
+  for (const part of parts) {
+    if (!(part in currentObject)) {
       return false;
     }
 
-    currentObj = currentObj[part];
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
+    currentObject = currentObject[part];
   }
 
   return true;
 }
 
-export default (variant: Variant) => {
+const buildConfig = (variant: Variant) => {
   const { variants, ...defaultConfig } = config;
-  const variantConfig = variant !== 'default' ? variants[variant] : null;
+  const variantConfig = variant === 'default' ? undefined : variants[variant];
 
   const fontColors = {
     ...defaultConfig.fonts.colors,
@@ -78,3 +78,5 @@ export default (variant: Variant) => {
     navigationColors,
   } as const satisfies FulfilledThemeConfiguration;
 };
+
+export default buildConfig;

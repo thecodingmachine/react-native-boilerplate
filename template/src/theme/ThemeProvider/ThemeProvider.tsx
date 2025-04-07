@@ -1,11 +1,12 @@
-import type { PropsWithChildren } from 'react';
-import type { MMKV } from 'react-native-mmkv';
 import type {
   FulfilledThemeConfiguration,
   Variant,
 } from '@/theme/types/config';
 import type { ComponentTheme, Theme } from '@/theme/types/theme';
+import type { PropsWithChildren } from 'react';
+import type { MMKV } from 'react-native-mmkv';
 
+import { DarkTheme, DefaultTheme } from '@react-navigation/native';
 import {
   createContext,
   useCallback,
@@ -40,14 +41,14 @@ type Context = {
 
 export const ThemeContext = createContext<Context | undefined>(undefined);
 
-type Props = PropsWithChildren<{
-  storage: MMKV;
+type Properties = PropsWithChildren<{
+  readonly storage: MMKV;
 }>;
 
-function ThemeProvider({ children = false, storage }: Props) {
+function ThemeProvider({ children = false, storage }: Properties) {
   // Current theme variant
   const [variant, setVariant] = useState(
-    (storage.getString('theme') as Variant) || 'default',
+    (storage.getString('theme') ?? 'default') as Variant,
   );
 
   // Initialize theme at default if not defined
@@ -104,9 +105,17 @@ function ThemeProvider({ children = false, storage }: Props) {
   }, [fullConfig]);
 
   const navigationTheme = useMemo(() => {
+    if (variant === 'dark') {
+      return {
+        ...DarkTheme,
+        colors: fullConfig.navigationColors,
+        dark: true,
+      };
+    }
     return {
+      ...DefaultTheme,
       colors: fullConfig.navigationColors,
-      dark: variant === 'dark',
+      dark: false,
     };
   }, [variant, fullConfig.navigationColors]);
 

@@ -10,7 +10,9 @@ function TestChildComponent() {
     <View>
       <Text testID="theme-variant">{variant}</Text>
       <Button
-        onPress={() => changeTheme('dark')}
+        onPress={() => {
+          changeTheme('dark');
+        }}
         testID="change-btn"
         title="button"
       />

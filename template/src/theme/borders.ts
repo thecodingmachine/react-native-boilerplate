@@ -1,4 +1,3 @@
-import type { ViewStyle } from 'react-native';
 import type {
   BorderBottomRadius,
   BorderColors,
@@ -7,6 +6,7 @@ import type {
   BorderWidths,
 } from '@/theme/types/borders';
 import type { UnionConfiguration } from '@/theme/types/config';
+import type { ViewStyle } from 'react-native';
 
 import { config } from '@/theme/_config';
 
@@ -15,25 +15,28 @@ import { config } from '@/theme/_config';
  * @param configuration
  */
 export const generateBorderColors = (configuration: UnionConfiguration) => {
-  return Object.entries(configuration.borders.colors ?? {}).reduce(
-    (acc, [key, value]) => {
-      return Object.assign(acc, {
-        [`${key}`]: {
-          borderColor: value,
-        },
-      });
-    },
-    {} as BorderColors,
-  );
+  return Object.entries(
+    configuration.borders.colors,
+    // eslint-disable-next-line unicorn/no-array-reduce
+  ).reduce<BorderColors>((accumulator, [key, value]) => {
+    return Object.assign(accumulator, {
+      [key]: {
+        borderColor: value,
+      },
+    });
+  }, {} as BorderColors);
 };
 
 /**
  * Generates border radius styles from configuration
  */
 export const generateBorderRadius = () => {
-  return config.borders.radius.reduce(
-    (acc, radius) => {
-      return Object.assign(acc, {
+  // eslint-disable-next-line unicorn/no-array-reduce
+  return config.borders.radius.reduce<
+    BorderBottomRadius & BorderRadius & BorderTopRadius
+  >(
+    (accumulator, radius) => {
+      return Object.assign(accumulator, {
         [`rounded_${radius}`]: {
           borderRadius: radius,
         },
@@ -61,8 +64,9 @@ export const generateBorderRadius = () => {
  * Generates border width styles from configuration
  */
 export const generateBorderWidths = () => {
-  return config.borders.widths.reduce((acc, width) => {
-    return Object.assign(acc, {
+  // eslint-disable-next-line unicorn/no-array-reduce
+  return config.borders.widths.reduce<BorderWidths>((accumulator, width) => {
+    return Object.assign(accumulator, {
       [`w_${width}`]: {
         borderWidth: width,
       },

@@ -3,7 +3,12 @@ import type { UnionConfiguration } from './config';
 import type { config } from '@/theme/_config';
 import type { staticBorderStyles } from '@/theme/borders';
 
-type BorderColorKeys = keyof UnionConfiguration['borders']['colors'];
+export type BorderBottomRadius = {
+  [key in BorderBottomRadiusKeys]: {
+    borderBottomLeftRadius: ToNumber<RemoveBeforeSeparator<key>>;
+    borderBottomRightRadius: ToNumber<RemoveBeforeSeparator<key>>;
+  };
+};
 
 export type BorderColors = {
   [key in BorderColorKeys]: RemoveBeforeSeparator<key> extends keyof UnionConfiguration['borders']['colors']
@@ -13,30 +18,6 @@ export type BorderColors = {
     : never;
 };
 
-type BorderTopRadiusKeys = `roundedTop_${ArrayValue<
-  typeof config.borders.radius
->}`;
-
-export type BorderTopRadius = {
-  [key in BorderTopRadiusKeys]: {
-    borderTopLeftRadius: ToNumber<RemoveBeforeSeparator<key>>;
-    borderTopRightRadius: ToNumber<RemoveBeforeSeparator<key>>;
-  };
-};
-
-type BorderBottomRadiusKeys = `roundedBottom_${ArrayValue<
-  typeof config.borders.radius
->}`;
-
-export type BorderBottomRadius = {
-  [key in BorderBottomRadiusKeys]: {
-    borderBottomLeftRadius: ToNumber<RemoveBeforeSeparator<key>>;
-    borderBottomRightRadius: ToNumber<RemoveBeforeSeparator<key>>;
-  };
-};
-
-type BorderRadiusKeys = `rounded_${ArrayValue<typeof config.borders.radius>}`;
-
 export type BorderRadius = {
   [key in BorderRadiusKeys]: {
     borderRadius: ToNumber<RemoveBeforeSeparator<key>>;
@@ -44,43 +25,17 @@ export type BorderRadius = {
 } & BorderBottomRadius &
   BorderTopRadius;
 
-type BorderWidthTopKeys = `wTop_${ArrayValue<typeof config.borders.widths>}`;
+export type Borders = BorderColors &
+  BorderRadius &
+  BorderWidths &
+  typeof staticBorderStyles;
 
-export type BorderWidthsTop = {
-  [key in BorderWidthTopKeys]: {
-    borderWidth: ToNumber<RemoveBeforeSeparator<key>>;
+export type BorderTopRadius = {
+  [key in BorderTopRadiusKeys]: {
+    borderTopLeftRadius: ToNumber<RemoveBeforeSeparator<key>>;
+    borderTopRightRadius: ToNumber<RemoveBeforeSeparator<key>>;
   };
 };
-
-type BorderWidthBottomKeys = `wBottom_${ArrayValue<
-  typeof config.borders.widths
->}`;
-
-export type BorderWidthsBottom = {
-  [key in BorderWidthBottomKeys]: {
-    borderWidth: ToNumber<RemoveBeforeSeparator<key>>;
-  };
-};
-
-type BorderWidthLeftKeys = `wLeft_${ArrayValue<typeof config.borders.widths>}`;
-
-export type BorderWidthsLeft = {
-  [key in BorderWidthLeftKeys]: {
-    borderWidth: ToNumber<RemoveBeforeSeparator<key>>;
-  };
-};
-
-type BorderWidthRightKeys = `wRight_${ArrayValue<
-  typeof config.borders.widths
->}`;
-
-export type BorderWidthsRight = {
-  [key in BorderWidthRightKeys]: {
-    borderWidth: ToNumber<RemoveBeforeSeparator<key>>;
-  };
-};
-
-type BorderWidthKeys = `w_${ArrayValue<typeof config.borders.widths>}`;
 
 export type BorderWidths = {
   [key in BorderWidthKeys]: {
@@ -91,7 +46,52 @@ export type BorderWidths = {
   BorderWidthsRight &
   BorderWidthsTop;
 
-export type Borders = BorderColors &
-  BorderRadius &
-  BorderWidths &
-  typeof staticBorderStyles;
+export type BorderWidthsBottom = {
+  [key in BorderWidthBottomKeys]: {
+    borderWidth: ToNumber<RemoveBeforeSeparator<key>>;
+  };
+};
+
+export type BorderWidthsLeft = {
+  [key in BorderWidthLeftKeys]: {
+    borderWidth: ToNumber<RemoveBeforeSeparator<key>>;
+  };
+};
+
+export type BorderWidthsRight = {
+  [key in BorderWidthRightKeys]: {
+    borderWidth: ToNumber<RemoveBeforeSeparator<key>>;
+  };
+};
+
+export type BorderWidthsTop = {
+  [key in BorderWidthTopKeys]: {
+    borderWidth: ToNumber<RemoveBeforeSeparator<key>>;
+  };
+};
+
+type BorderBottomRadiusKeys = `roundedBottom_${ArrayValue<
+  typeof config.borders.radius
+>}`;
+
+type BorderColorKeys = keyof UnionConfiguration['borders']['colors'];
+
+type BorderRadiusKeys = `rounded_${ArrayValue<typeof config.borders.radius>}`;
+
+type BorderTopRadiusKeys = `roundedTop_${ArrayValue<
+  typeof config.borders.radius
+>}`;
+
+type BorderWidthBottomKeys = `wBottom_${ArrayValue<
+  typeof config.borders.widths
+>}`;
+
+type BorderWidthKeys = `w_${ArrayValue<typeof config.borders.widths>}`;
+
+type BorderWidthLeftKeys = `wLeft_${ArrayValue<typeof config.borders.widths>}`;
+
+type BorderWidthRightKeys = `wRight_${ArrayValue<
+  typeof config.borders.widths
+>}`;
+
+type BorderWidthTopKeys = `wTop_${ArrayValue<typeof config.borders.widths>}`;

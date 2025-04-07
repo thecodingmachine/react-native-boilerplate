@@ -1,13 +1,7 @@
 import type { AllPartial } from './common';
-import type { Theme as NavigationTheme } from '@react-navigation/native';
 import type { config } from '@/theme/_config';
 import type generateConfig from '@/theme/ThemeProvider/generateConfig';
-
-export type Variant = 'default' | keyof typeof config.variants;
-
-export type ThemeState = {
-  variant: Variant;
-};
+import type { Theme as NavigationTheme } from '@react-navigation/native';
 
 export type FulfilledThemeConfiguration = {
   readonly backgrounds: Record<string, string>;
@@ -25,6 +19,18 @@ export type FulfilledThemeConfiguration = {
   readonly navigationColors: NavigationTheme['colors'];
 };
 
+export type ThemeConfiguration = {
+  variants: Record<PropertyKey, AllPartial<VariantThemeConfiguration>>;
+} & FulfilledThemeConfiguration;
+
+export type ThemeState = {
+  variant: Variant;
+};
+
+export type UnionConfiguration = ReturnType<typeof generateConfig>;
+
+export type Variant = 'default' | keyof typeof config.variants;
+
 export type VariantThemeConfiguration = {
   readonly backgrounds: FulfilledThemeConfiguration['backgrounds'];
   borders: {
@@ -36,11 +42,3 @@ export type VariantThemeConfiguration = {
   };
   readonly navigationColors: Partial<NavigationTheme['colors']>;
 };
-
-export type ThemeConfiguration = {
-  variants: {
-    [key: PropertyKey]: AllPartial<VariantThemeConfiguration>;
-  };
-} & FulfilledThemeConfiguration;
-
-export type UnionConfiguration = ReturnType<typeof generateConfig>;

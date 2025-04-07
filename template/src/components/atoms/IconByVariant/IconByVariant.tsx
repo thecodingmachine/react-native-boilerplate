@@ -7,17 +7,23 @@ import { z } from 'zod';
 import { useTheme } from '@/theme';
 import getAssetsContext from '@/theme/assets/getAssetsContext';
 
-type Props = {
-  path: string;
+type Properties = {
+  readonly path: string;
 } & SvgProps;
 
 const icons = getAssetsContext('icons');
 const EXTENSION = 'svg';
+const SIZE = 24;
 
-function IconByVariant({ height = 24, path, width = 24, ...props }: Props) {
+function IconByVariant({
+  height = SIZE,
+  path,
+  width = SIZE,
+  ...props
+}: Properties) {
   const { variant } = useTheme();
 
-  const iconProps = { ...props, height, width };
+  const iconProperties = { ...props, height, width };
   const Icon = useMemo(() => {
     try {
       const getDefaultSource = () =>
@@ -40,7 +46,6 @@ function IconByVariant({ height = 24, path, width = 24, ...props }: Props) {
 
         return fetchedModule.default;
       } catch (error) {
-        // eslint-disable-next-line no-console
         console.warn(
           `Couldn't load the icon: ${path}.${EXTENSION} for the variant ${variant}, Fallback to default`,
           error,
@@ -48,13 +53,12 @@ function IconByVariant({ height = 24, path, width = 24, ...props }: Props) {
         return getDefaultSource();
       }
     } catch (error) {
-      // eslint-disable-next-line no-console
       console.error(`Couldn't load the icon: ${path}.${EXTENSION}`, error);
       throw error;
     }
   }, [variant, path]);
 
-  return <Icon {...iconProps} />;
+  return <Icon {...iconProperties} />;
 }
 
 export default IconByVariant;

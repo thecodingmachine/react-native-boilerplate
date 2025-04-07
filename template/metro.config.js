@@ -7,16 +7,16 @@ const { assetExts, sourceExts } = defaultConfig.resolver;
  * Metro configuration
  * https://reactnative.dev/docs/metro
  *
- * @type {import('metro-config').MetroConfig}
+ * @type {import('@react-native/metro-config').MetroConfig}
  */
 const config = {
+  resolver: {
+    assetExts: assetExts.filter((extension) => extension !== 'svg'),
+    sourceExts: [...sourceExts, 'svg'],
+  },
   transformer: {
     babelTransformerPath: require.resolve('react-native-svg-transformer'),
     unstable_allowRequireContext: true,
-  },
-  resolver: {
-    sourceExts: [...sourceExts, 'svg'],
-    assetExts: assetExts.filter((ext) => ext !== 'svg'),
   },
 };
 
