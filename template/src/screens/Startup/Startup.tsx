@@ -5,8 +5,8 @@ import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ActivityIndicator, Text, View } from 'react-native';
 
-import { useTheme } from '@/theme';
 import { Paths } from '@/navigation/paths';
+import { useTheme } from '@/theme';
 
 import { AssetByVariant } from '@/components/atoms';
 import { SafeScreen } from '@/components/templates';
@@ -42,16 +42,16 @@ function Startup({ navigation }: RootScreenProps<Paths.Startup>) {
         ]}
       >
         <AssetByVariant
-          path={'tom'}
-          resizeMode={'contain'}
+          path="tom"
+          resizeMode="contain"
           style={{ height: 300, width: 300 }}
         />
-        {isFetching && (
+        {isFetching ? (
           <ActivityIndicator size="large" style={[gutters.marginVertical_24]} />
-        )}
-        {isError && (
+        ) : undefined}
+        {isError ? (
           <Text style={[fonts.size_16, fonts.red500]}>{t('common_error')}</Text>
-        )}
+        ) : undefined}
       </View>
     </SafeScreen>
   );

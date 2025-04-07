@@ -1,16 +1,17 @@
-import type { ViewStyle } from 'react-native';
 import type { Backgrounds } from '@/theme/types/backgrounds';
 import type { UnionConfiguration } from '@/theme/types/config';
+import type { ViewStyle } from 'react-native';
 
 /**
  * Generates background styles from configuration
  * @param configuration
  */
 export const generateBackgrounds = (configuration: UnionConfiguration) => {
-  return Object.entries(configuration.backgrounds ?? {}).reduce(
-    (acc, [key, value]) => {
-      return Object.assign(acc, {
-        [`${key}`]: {
+  // eslint-disable-next-line unicorn/no-array-reduce
+  return Object.entries(configuration.backgrounds).reduce<Backgrounds>(
+    (accumulator, [key, value]) => {
+      return Object.assign(accumulator, {
+        [key]: {
           backgroundColor: value,
         },
       });

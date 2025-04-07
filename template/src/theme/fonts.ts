@@ -1,14 +1,15 @@
-import type { TextStyle } from 'react-native';
 import type { UnionConfiguration } from '@/theme/types/config';
 import type { FontColors, FontSizes } from '@/theme/types/fonts';
+import type { TextStyle } from 'react-native';
 
 import { config } from '@/theme/_config';
 
 export const generateFontColors = (configuration: UnionConfiguration) => {
-  return Object.entries(configuration.fonts.colors ?? {}).reduce(
-    (acc, [key, value]) => {
-      return Object.assign(acc, {
-        [`${key}`]: {
+  // eslint-disable-next-line unicorn/no-array-reduce
+  return Object.entries(configuration.fonts.colors).reduce<FontColors>(
+    (accumulator, [key, value]) => {
+      return Object.assign(accumulator, {
+        [key]: {
           color: value,
         },
       });
@@ -18,8 +19,9 @@ export const generateFontColors = (configuration: UnionConfiguration) => {
 };
 
 export const generateFontSizes = () => {
-  return config.fonts.sizes.reduce((acc, size) => {
-    return Object.assign(acc, {
+  // eslint-disable-next-line unicorn/no-array-reduce
+  return config.fonts.sizes.reduce<FontSizes>((accumulator, size) => {
+    return Object.assign(accumulator, {
       [`size_${size}`]: {
         fontSize: size,
       },

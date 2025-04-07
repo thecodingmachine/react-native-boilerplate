@@ -1,6 +1,12 @@
 import type { SupportedLanguages } from '@/hooks/language/schema';
 import type { defaultNS, resources } from '@/translations';
 
+export type TranslationKeys = RecursiveKeys<
+  defaultTranslations[typeof defaultNS]
+>;
+
+type defaultTranslations = (typeof resources)[SupportedLanguages.EN_EN];
+
 type Join<K, P> = K extends number | string
   ? P extends number | string
     ? `${K}.${P}`
@@ -13,15 +19,9 @@ type RecursiveKeys<T> = T extends object
     }[keyof T]
   : never;
 
-type defaultTranslations = (typeof resources)[SupportedLanguages.EN_EN];
-
-export type TranslationKeys = RecursiveKeys<
-  defaultTranslations[typeof defaultNS]
->;
-
 declare module 'i18next' {
-  interface CustomTypeOptions {
+  type CustomTypeOptions = {
     defaultNS: typeof defaultNS;
     resources: defaultTranslations;
-  }
+  };
 }

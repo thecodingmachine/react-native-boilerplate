@@ -2,11 +2,13 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Alert, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 
-import { useTheme } from '@/theme';
 import { useI18n, useUser } from '@/hooks';
+import { useTheme } from '@/theme';
 
 import { AssetByVariant, IconByVariant, Skeleton } from '@/components/atoms';
 import { SafeScreen } from '@/components/templates';
+
+const MAX_RANDOM_ID = 9;
 
 function Example() {
   const { t } = useTranslation();
@@ -40,10 +42,16 @@ function Example() {
     changeTheme(variant === 'default' ? 'dark' : 'default');
   };
 
+  const handleResetError = () => {
+    void fetchOneUserQuery.refetch();
+  };
+
   return (
     <SafeScreen
       isError={fetchOneUserQuery.isError}
-      onResetError={fetchOneUserQuery.refetch}
+      onResetError={() => {
+        handleResetError();
+      }}
     >
       <ScrollView>
         <View
@@ -59,8 +67,8 @@ function Example() {
 
           <View style={[layout.absolute, gutters.paddingTop_80]}>
             <AssetByVariant
-              path={'tom'}
-              resizeMode={'contain'}
+              path="tom"
+              resizeMode="contain"
               style={{ height: 300, width: 300 }}
             />
           </View>
@@ -93,11 +101,13 @@ function Example() {
               width={64}
             >
               <TouchableOpacity
-                onPress={() => setCurrentId(Math.ceil(Math.random() * 9 + 1))}
+                onPress={() => {
+                  setCurrentId(Math.ceil(Math.random() * MAX_RANDOM_ID + 1));
+                }}
                 style={[components.buttonCircle, gutters.marginBottom_16]}
                 testID="fetch-user-button"
               >
-                <IconByVariant path={'send'} stroke={colors.purple500} />
+                <IconByVariant path="send" stroke={colors.purple500} />
               </TouchableOpacity>
             </Skeleton>
 
@@ -106,7 +116,7 @@ function Example() {
               style={[components.buttonCircle, gutters.marginBottom_16]}
               testID="change-theme-button"
             >
-              <IconByVariant path={'theme'} stroke={colors.purple500} />
+              <IconByVariant path="theme" stroke={colors.purple500} />
             </TouchableOpacity>
 
             <TouchableOpacity
@@ -114,7 +124,7 @@ function Example() {
               style={[components.buttonCircle, gutters.marginBottom_16]}
               testID="change-language-button"
             >
-              <IconByVariant path={'language'} stroke={colors.purple500} />
+              <IconByVariant path="language" stroke={colors.purple500} />
             </TouchableOpacity>
           </View>
         </View>

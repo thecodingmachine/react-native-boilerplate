@@ -7,14 +7,14 @@ import { z } from 'zod';
 import { useTheme } from '@/theme';
 import getAssetsContext from '@/theme/assets/getAssetsContext';
 
-type Props = {
-  extension?: string;
-  path: string;
+type Properties = {
+  readonly extension?: string;
+  readonly path: string;
 } & Omit<ImageProps, 'source'>;
 
 const images = getAssetsContext('images');
 
-function AssetByVariant({ extension = 'png', path, ...props }: Props) {
+function AssetByVariant({ extension = 'png', path, ...props }: Properties) {
   const { variant } = useTheme();
 
   const image = useMemo(() => {
@@ -31,7 +31,6 @@ function AssetByVariant({ extension = 'png', path, ...props }: Props) {
           .custom<ImageSourcePropType>()
           .parse(images(`./${variant}/${path}.${extension}`));
       } catch (error) {
-        // eslint-disable-next-line no-console
         console.warn(
           `Couldn't load the image: ${path}.${extension} for the variant ${variant}, Fallback to default`,
           error,
@@ -39,9 +38,8 @@ function AssetByVariant({ extension = 'png', path, ...props }: Props) {
         return getDefaultSource();
       }
     } catch (error) {
-      // eslint-disable-next-line no-console
       console.error(`Couldn't load the image: ${path}`, error);
-      return null;
+      return undefined;
     }
   }, [path, extension, variant]);
 

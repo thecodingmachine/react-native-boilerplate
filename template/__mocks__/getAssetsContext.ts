@@ -2,24 +2,25 @@ import type { AssetType } from '@/theme/assets/getAssetsContext';
 
 jest.mock('@/theme/assets/getAssetsContext', () =>
   jest.fn((type: AssetType) => {
-    const context = (key: string) => {
+    const testIcon = 'mocked-icon-uri'; // Simulated URI for icons
+    const testImage = 'test-image-uri'; // Simulated URI for images
+
+    const context = () => {
       if (type === 'images') {
-        return jest.mock('@/theme/assets/images/tom.png');
+        return {
+          default: () => testImage,
+        };
       }
-      if (type === 'icons') {
-        return jest.mock('@/theme/assets/icons/send.svg');
-      }
-      return key;
+      return {
+        default: () => testIcon,
+      };
     };
 
     context.keys = () => {
       if (type === 'images') {
-        return ['images/tom.png'];
+        return [testImage];
       }
-      if (type === 'icons') {
-        return ['icons/send.svg'];
-      }
-      return [];
+      return [testIcon];
     };
 
     return context;

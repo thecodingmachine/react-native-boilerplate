@@ -1,9 +1,10 @@
+import TestAppWrapper from '@/../__mocks__/TestAppWrapper';
 import { render } from '@testing-library/react-native';
 import { Text } from 'react-native';
 
-import TestAppWrapper from '@/../__mocks__/TestAppWrapper';
-
 import SkeletonLoader from './Skeleton';
+
+const WAIT = 800;
 
 describe('SkeletonLoader', () => {
   beforeAll(() => {
@@ -27,7 +28,7 @@ describe('SkeletonLoader', () => {
       wrapper: TestAppWrapper,
     });
     const skeleton = getByTestId('skeleton-loader');
-    jest.advanceTimersByTime(800);
+    jest.advanceTimersByTime(WAIT);
     expect(skeleton).toBeTruthy();
   });
 
@@ -37,17 +38,23 @@ describe('SkeletonLoader', () => {
       { wrapper: TestAppWrapper },
     );
     const skeleton = getByTestId('skeleton-loader');
+
+    const animatedStyle: {
+      value: { opacity: number };
+    } = skeleton.props.jestAnimatedStyle as {
+      value: { opacity: number };
+    };
     // TODO: use toHaveAnimatedStyle for better API but for now there is an issue with the library
     // expect(skeleton).toHaveAnimatedStyle({
     //   opacity: 0.2,
     // });
 
-    expect(skeleton.props.jestAnimatedStyle.value).toEqual({
+    expect(animatedStyle.value).toEqual({
       opacity: 0.2,
     });
 
-    jest.advanceTimersByTime(800);
-    expect(skeleton.props.jestAnimatedStyle.value).toEqual({
+    jest.advanceTimersByTime(WAIT);
+    expect(animatedStyle.value).toEqual({
       opacity: 1,
     });
     // TODO: use toHaveAnimatedStyle for better API but for now there is an issue with the library

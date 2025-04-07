@@ -4,52 +4,53 @@ import type { Gutters } from '@/theme/types/gutters';
 import { type ViewStyle } from 'react-native';
 
 export const generateGutters = (configuration: UnionConfiguration): Gutters => {
-  return configuration.gutters.reduce((acc, curr) => {
-    return Object.assign(acc, {
-      [`gap_${curr}`]: {
-        gap: curr,
+  // eslint-disable-next-line unicorn/no-array-reduce
+  return configuration.gutters.reduce<Gutters>((accumulator, current) => {
+    return Object.assign(accumulator, {
+      [`gap_${current}`]: {
+        gap: current,
       },
-      [`margin_${curr}`]: {
-        margin: curr,
+      [`margin_${current}`]: {
+        margin: current,
       },
-      [`marginBottom_${curr}`]: {
-        marginBottom: curr,
+      [`marginBottom_${current}`]: {
+        marginBottom: current,
       },
-      [`marginHorizontal_${curr}`]: {
-        marginHorizontal: curr,
+      [`marginHorizontal_${current}`]: {
+        marginHorizontal: current,
       },
-      [`marginLeft_${curr}`]: {
-        marginLeft: curr,
+      [`marginLeft_${current}`]: {
+        marginLeft: current,
       },
-      [`marginRight_${curr}`]: {
-        marginRight: curr,
+      [`marginRight_${current}`]: {
+        marginRight: current,
       },
-      [`marginTop_${curr}`]: {
-        marginTop: curr,
+      [`marginTop_${current}`]: {
+        marginTop: current,
       },
-      [`marginVertical_${curr}`]: {
-        marginVertical: curr,
+      [`marginVertical_${current}`]: {
+        marginVertical: current,
       },
-      [`padding_${curr}`]: {
-        padding: curr,
+      [`padding_${current}`]: {
+        padding: current,
       },
-      [`paddingBottom_${curr}`]: {
-        paddingBottom: curr,
+      [`paddingBottom_${current}`]: {
+        paddingBottom: current,
       },
-      [`paddingHorizontal_${curr}`]: {
-        paddingHorizontal: curr,
+      [`paddingHorizontal_${current}`]: {
+        paddingHorizontal: current,
       },
-      [`paddingLeft_${curr}`]: {
-        paddingLeft: curr,
+      [`paddingLeft_${current}`]: {
+        paddingLeft: current,
       },
-      [`paddingRight_${curr}`]: {
-        paddingRight: curr,
+      [`paddingRight_${current}`]: {
+        paddingRight: current,
       },
-      [`paddingTop_${curr}`]: {
-        paddingTop: curr,
+      [`paddingTop_${current}`]: {
+        paddingTop: current,
       },
-      [`paddingVertical_${curr}`]: {
-        paddingVertical: curr,
+      [`paddingVertical_${current}`]: {
+        paddingVertical: current,
       },
     });
   }, {} as Gutters);

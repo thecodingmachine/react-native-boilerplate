@@ -1,11 +1,13 @@
-import type { ImageStyle, TextStyle, ViewStyle } from 'react-native';
 import type { ComponentTheme } from '@/theme/types/theme';
+import type { ImageStyle, TextStyle, ViewStyle } from 'react-native';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-interface AllStyle
-  extends Record<string, AllStyle | ImageStyle | TextStyle | ViewStyle> {}
+type AllStyle = {} & Record<string, ImageStyle | TextStyle | ViewStyle>;
 
-export default ({ backgrounds, fonts, layout }: ComponentTheme) => {
+const generateComponentStyles = ({
+  backgrounds,
+  fonts,
+  layout,
+}: ComponentTheme) => {
   return {
     buttonCircle: {
       ...layout.justifyCenter,
@@ -23,3 +25,5 @@ export default ({ backgrounds, fonts, layout }: ComponentTheme) => {
     },
   } as const satisfies AllStyle;
 };
+
+export default generateComponentStyles;

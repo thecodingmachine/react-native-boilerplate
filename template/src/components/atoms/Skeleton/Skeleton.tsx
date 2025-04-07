@@ -11,22 +11,23 @@ import Animated, {
 
 import { useTheme } from '@/theme';
 
-type Props = {
-  height?: DimensionValue;
-  loading?: boolean;
-  width?: DimensionValue;
+type Properties = {
+  readonly height?: DimensionValue;
+  readonly loading?: boolean;
+  readonly width?: DimensionValue;
 } & ViewProps;
 
 const FROM = 0.2;
 const TO = 1;
+const HEIGHT = 24;
 
 function SkeletonLoader({
   children,
-  height = 24,
+  height = HEIGHT,
   loading = false,
   width = '100%',
   ...props
-}: Props) {
+}: Properties) {
   const { backgrounds, borders } = useTheme();
 
   const opacity = useSharedValue(FROM);
