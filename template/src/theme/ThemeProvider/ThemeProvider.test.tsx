@@ -1,4 +1,4 @@
-import { fireEvent, render } from '@testing-library/react-native';
+import { fireEvent, render, screen } from '@testing-library/react-native';
 import { Button, Text, View } from 'react-native';
 import { MMKV } from 'react-native-mmkv';
 
@@ -28,45 +28,40 @@ describe('ThemeProvider', () => {
   });
 
   it('initializes with the default theme when no theme is defined in storage', () => {
-    const { getByTestId } = render(
+    render(
       <ThemeProvider storage={storage}>
         <TestChildComponent />
       </ThemeProvider>,
     );
-    const themeContext = getByTestId('theme-variant');
-
     // Assert that the theme context is initialized with 'default'
-    expect(themeContext.children[0]).toBe('default');
+    expect(screen.getByText('default')).toBeTruthy();
   });
 
   it('loads the theme from storage if defined', () => {
     storage.set('theme', 'dark');
 
-    const { getByTestId } = render(
+    render(
       <ThemeProvider storage={storage}>
         <TestChildComponent />
       </ThemeProvider>,
     );
-    const themeContext = getByTestId('theme-variant');
 
     // Assert that the theme context is initialized with 'dark'
-    expect(themeContext.children[0]).toBe('dark');
+    expect(screen.getByText('dark')).toBeTruthy();
   });
 
   it('changes the theme when calling changeTheme', () => {
-    const { getByTestId } = render(
+    render(
       <ThemeProvider storage={storage}>
         <TestChildComponent />
       </ThemeProvider>,
     );
-    const themeContext = getByTestId('theme-variant');
 
-    expect(themeContext.children[0]).toBe('default');
-
-    // Change the theme to 'light'
-    fireEvent.press(getByTestId('change-btn'));
+    // Assert that the theme context is initialized with 'default'
+    expect(screen.getByText('default')).toBeTruthy();
+    fireEvent.press(screen.getByTestId('change-btn'));
 
     // Assert that the theme has changed to 'light'
-    expect(themeContext.children[0]).toBe('dark');
+    expect(screen.getByText('dark')).toBeTruthy();
   });
 });
