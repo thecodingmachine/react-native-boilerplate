@@ -1,6 +1,7 @@
-import TestAppWrapper from '@/../tests/TestAppWrapper';
 import { render, screen } from '@testing-library/react-native';
 import { Text } from 'react-native';
+
+import TestAppWrapper from '@/tests/TestAppWrapper';
 
 import SkeletonLoader from './Skeleton';
 

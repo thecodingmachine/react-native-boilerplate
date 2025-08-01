@@ -6,6 +6,7 @@
     "outDir": "../../js",
     "noEmit": false,
     "isolatedModules": false,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "allowImportingTsExtensions": false
   }
 }
