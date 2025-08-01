@@ -2,7 +2,7 @@ import type { ImageProps, ImageSourcePropType } from 'react-native';
 
 import { useMemo } from 'react';
 import { Image } from 'react-native';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { useTheme } from '@/theme';
 import getAssetsContext from '@/theme/assets/getAssetsContext';

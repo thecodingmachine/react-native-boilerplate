@@ -31,7 +31,7 @@ export default tseslint.config(
   {
     languageOptions: {
       globals: {
-        __DEV__: 'readonly', // Définit __DEV__ comme une variable globale en lecture seule
+        __DEV__: 'readonly', // define it as a global variable
       },
       parserOptions: {
         projectService: true,

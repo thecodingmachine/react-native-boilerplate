@@ -1,2 +1,2 @@
-import './tests/__mocks__/libs';
-import './tests/__mocks__/getAssetsContext';
+import './src/tests/__mocks__/libs';
+import './src/tests/__mocks__/getAssetsContext';
