@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react';
-import type { Shape, SvgProps } from 'react-native-svg';
+import type { SvgProps } from 'react-native-svg';
 
 import { useMemo } from 'react';
 import * as z from 'zod';
@@ -29,7 +29,7 @@ function IconByVariant({
       const getDefaultSource = () =>
         z
           .object({
-            default: z.custom<Shape<SvgProps>>(() =>
+            default: z.custom<React.FC<SvgProps>>(() =>
               z.custom<ReactElement<SvgProps>>(),
             ),
           })
@@ -42,7 +42,7 @@ function IconByVariant({
       try {
         const fetchedModule = z
           .object({
-            default: z.custom<Shape<SvgProps>>(() =>
+            default: z.custom<React.FC<SvgProps>>(() =>
               z.custom<ReactElement<SvgProps>>(),
             ),
           })
