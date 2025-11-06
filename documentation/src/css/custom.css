@@ -2,25 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
+/* StableJack Navbar Customization */
 .navbar {
-  @apply bg-transparent;
-  @apply backdrop-blur-sm;
-  @apply shadow-none;
-  @apply -mt-16;
+  background-color: #121212 !important; /* Dark matte background */
+  border-bottom: 1px solid rgba(214, 254, 81, 0.2);
+  box-shadow: none;
 }
 
-.navbar__item.navbar__link {
-  @apply flex;
-  @apply items-center;
-  @apply justify-center;
-  @apply hover:bg-red-500;
-  @apply hover:text-white;
-  @apply hover:rounded-full;
-  @apply hover:shadow-lg;
-  @apply hover:shadow-red-500/50;
-  @apply mx-1;
-  @apply transition-all;
-  @apply ease-in;
+.navbar__brand {
+  color: #D6FE51 !important;
+  font-weight: 600;
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+}
+
+.navbar__logo {
+  filter: hue-rotate(40deg) brightness(1.2); /* optional for neon accent */
+}
+
+.navbar__items a,
+.navbar__item {
+  color: #EAEAEA !important;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar__items a:hover {
+  color: #D6FE51 !important;
+}
+
+.navbar__toggle {
+  color: #D6FE51 !important;
+}
+
+[data-theme='dark'] .navbar {
+  background-color: #121212 !important;
 }
 
 main {
