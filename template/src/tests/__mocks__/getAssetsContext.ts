@@ -1,4 +1,4 @@
-import type { AssetType } from '@/Theme/assets/getAssetsContext';
+import type { AssetType } from '@/theme/assets/getAssetsContext';
 
 jest.mock('@/theme/assets/getAssetsContext', () =>
   jest.fn((type: AssetType) => {

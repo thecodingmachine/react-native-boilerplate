@@ -4,9 +4,9 @@ import { I18nextProvider } from 'react-i18next';
 import { createMMKV, MMKV } from 'react-native-mmkv';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import { SupportedLanguages } from '@/Hooks/language/schema';
-import { ThemeProvider } from '@/Theme';
-import i18n from '@/Translations';
+import { SupportedLanguages } from '@/hooks/language/schema';
+import { ThemeProvider } from '@/theme';
+import i18n from '@/translations';
 
 import Example from './Example';
 

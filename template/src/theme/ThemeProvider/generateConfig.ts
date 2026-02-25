@@ -1,10 +1,9 @@
-import type { HasProperty } from '@/Theme/types/common';
+import { config } from '@/theme/_config';
+import type { HasProperty } from '@/theme/types/common';
 import type {
   FulfilledThemeConfiguration,
   Variant,
-} from '@/Theme/types/config';
-
-import { config } from '@/Theme/_config';
+} from '@/theme/types/config';
 
 function hasProperty<Config, KeyPath extends string>(
   configuration: Config,

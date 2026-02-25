@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from '@testing-library/react-native';
 import { Button, Text, View } from 'react-native';
 import { createMMKV, MMKV } from 'react-native-mmkv';
 
-import { ThemeProvider, useTheme } from '@/Theme';
+import { ThemeProvider, useTheme } from '@/theme';
 
 function TestChildComponent() {
   const { changeTheme, variant } = useTheme();

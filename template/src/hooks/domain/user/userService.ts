@@ -1,4 +1,4 @@
-import { instance } from '@/Services/instance';
+import { instance } from '@/services/instance';
 
 import { userSchema } from './schema';
 

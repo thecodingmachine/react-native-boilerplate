@@ -5,10 +5,11 @@ import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ActivityIndicator, Text, View } from 'react-native';
 
-import { AssetByVariant } from '@/Components/Atoms';
-import { SafeScreen } from '@/Components/Templates';
-import { Paths } from '@/Navigation/paths';
-import { useTheme } from '@/Theme';
+import { Paths } from '@/navigation/paths';
+import { useTheme } from '@/theme';
+
+import { AssetByVariant } from '@/components/atoms';
+import { SafeScreen } from '@/components/templates';
 
 function Startup({ navigation }: RootScreenProps<Paths.Startup>) {
   const { fonts, gutters, layout } = useTheme();

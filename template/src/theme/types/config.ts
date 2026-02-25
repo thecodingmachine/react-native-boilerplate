@@ -1,7 +1,8 @@
 import type { AllPartial } from './common';
-import type { config } from '@/Theme/_config';
-import type generateConfig from '@/Theme/ThemeProvider/generateConfig';
 import type { Theme as NavigationTheme } from '@react-navigation/native';
+
+import type { config } from '@/theme/_config';
+import type generateConfig from '@/theme/ThemeProvider/generateConfig';
 
 export type FulfilledThemeConfiguration = {
   readonly backgrounds: Record<string, string>;

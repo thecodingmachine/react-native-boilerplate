@@ -1,5 +1,5 @@
-import type { SupportedLanguages } from '@/Hooks/language/schema';
-import type { defaultNS, resources } from '@/Translations';
+import type { SupportedLanguages } from '@/hooks/language/schema';
+import type { defaultNS, resources } from '@/translations';
 
 export type TranslationKeys = RecursiveKeys<
   defaultTranslations[typeof defaultNS]

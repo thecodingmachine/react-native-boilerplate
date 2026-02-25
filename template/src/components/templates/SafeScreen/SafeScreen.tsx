@@ -4,9 +4,10 @@ import type { SafeAreaViewProps } from 'react-native-safe-area-context';
 import { StatusBar } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { DefaultError } from '@/Components/Molecules';
-import { ErrorBoundary } from '@/Components/Organisms';
-import { useTheme } from '@/Theme';
+import { useTheme } from '@/theme';
+
+import { DefaultError } from '@/components/molecules';
+import { ErrorBoundary } from '@/components/organisms';
 
 type Properties = PropsWithChildren<
   {

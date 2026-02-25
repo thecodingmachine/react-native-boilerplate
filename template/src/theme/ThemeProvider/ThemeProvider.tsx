@@ -1,8 +1,3 @@
-import type {
-  FulfilledThemeConfiguration,
-  Variant,
-} from '@/Theme/types/config';
-import type { ComponentTheme, Theme } from '@/Theme/types/theme';
 import type { PropsWithChildren } from 'react';
 import type { MMKV } from 'react-native-mmkv';
 
@@ -12,22 +7,27 @@ import { createContext, useCallback, useMemo, useState } from 'react';
 import {
   generateBackgrounds,
   staticBackgroundStyles,
-} from '@/Theme/backgrounds';
+} from '@/theme/backgrounds';
 import {
   generateBorderColors,
   generateBorderRadius,
   generateBorderWidths,
   staticBorderStyles,
-} from '@/Theme/borders';
-import componentsGenerator from '@/Theme/components';
+} from '@/theme/borders';
+import componentsGenerator from '@/theme/components';
 import {
   generateFontColors,
   generateFontSizes,
   staticFontStyles,
-} from '@/Theme/fonts';
-import { generateGutters, staticGutterStyles } from '@/Theme/gutters';
-import layout from '@/Theme/layout';
-import generateConfig from '@/Theme/ThemeProvider/generateConfig';
+} from '@/theme/fonts';
+import { generateGutters, staticGutterStyles } from '@/theme/gutters';
+import layout from '@/theme/layout';
+import generateConfig from '@/theme/ThemeProvider/generateConfig';
+import type {
+  FulfilledThemeConfiguration,
+  Variant,
+} from '@/theme/types/config';
+import type { ComponentTheme, Theme } from '@/theme/types/theme';
 
 type Context = {
   changeTheme: (variant: Variant) => void;

@@ -2,10 +2,11 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Alert, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 
-import { AssetByVariant, IconByVariant, Skeleton } from '@/Components/Atoms';
-import { SafeScreen } from '@/Components/Templates';
-import { useI18n, useUser } from '@/Hooks';
-import { useTheme } from '@/Theme';
+import { useI18n, useUser } from '@/hooks';
+import { useTheme } from '@/theme';
+
+import { AssetByVariant, IconByVariant, Skeleton } from '@/components/atoms';
+import { SafeScreen } from '@/components/templates';
 
 const MAX_RANDOM_ID = 9;
 

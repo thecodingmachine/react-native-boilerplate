@@ -2,8 +2,9 @@ import { useErrorBoundary } from 'react-error-boundary';
 import { useTranslation } from 'react-i18next';
 import { Text, TouchableOpacity, View } from 'react-native';
 
-import { IconByVariant } from '@/Components/Atoms';
-import { useTheme } from '@/Theme';
+import { useTheme } from '@/theme';
+
+import { IconByVariant } from '@/components/atoms';
 
 type Properties = {
   readonly onReset?: () => void;

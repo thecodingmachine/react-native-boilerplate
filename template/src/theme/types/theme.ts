@@ -3,10 +3,11 @@ import type { Borders } from './borders';
 import type { Variant } from './config';
 import type { Fonts } from './fonts';
 import type { Gutters } from './gutters';
-import type componentGenerators from '@/Theme/components';
-import type layout from '@/Theme/layout';
-import type { Colors } from '@/Theme/types/colors';
 import type { Theme as NavigationTheme } from '@react-navigation/native';
+
+import type componentGenerators from '@/theme/components';
+import type layout from '@/theme/layout';
+import type { Colors } from '@/theme/types/colors';
 
 export type ComponentTheme = Omit<Theme, 'components' | 'navigationTheme'>;
 

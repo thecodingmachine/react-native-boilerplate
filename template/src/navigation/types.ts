@@ -1,5 +1,6 @@
-import type { Paths } from '@/Navigation/paths';
 import type { StackScreenProps } from '@react-navigation/stack';
+
+import type { Paths } from '@/navigation/paths';
 
 export type RootScreenProps<
   S extends keyof RootStackParamList = keyof RootStackParamList,

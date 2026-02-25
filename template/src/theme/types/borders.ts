@@ -1,7 +1,8 @@
 import type { ArrayValue, RemoveBeforeSeparator, ToNumber } from './common';
 import type { UnionConfiguration } from './config';
-import type { config } from '@/Theme/_config';
-import type { staticBorderStyles } from '@/Theme/borders';
+
+import type { config } from '@/theme/_config';
+import type { staticBorderStyles } from '@/theme/borders';
 
 export type BorderBottomRadius = {
   [key in BorderBottomRadiusKeys]: {

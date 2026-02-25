@@ -9,7 +9,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 
-import { useTheme } from '@/Theme';
+import { useTheme } from '@/theme';
 
 type Properties = {
   readonly height?: DimensionValue;
