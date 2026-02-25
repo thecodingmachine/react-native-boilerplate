@@ -4,9 +4,10 @@ import { QueryClientProvider } from '@tanstack/react-query';
 import { type PropsWithChildren } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
-import { ThemeProvider } from '@/theme';
+import { ThemeProvider } from '@/components/providers';
 
-import { queryClient, storage } from '../app';
+import { queryClient } from '@/services/http-client';
+import { storage } from '@/services/storage';
 
 function TestAppWrapper({ children }: PropsWithChildren) {
   return (

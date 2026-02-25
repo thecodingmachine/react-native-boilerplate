@@ -21,7 +21,7 @@ type Properties = PropsWithChildren<
 function SafeScreen({
   children = undefined,
   isError = false,
-  onResetError,
+  onResetError = undefined,
   style,
   ...props
 }: Properties) {

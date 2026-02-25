@@ -24,7 +24,7 @@ export const generateBorderColors = (configuration: UnionConfiguration) => {
         borderColor: value,
       },
     });
-  }, {});
+  }, {} as BorderColors);
 };
 
 /**

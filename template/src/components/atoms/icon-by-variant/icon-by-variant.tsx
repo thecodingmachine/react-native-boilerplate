@@ -1,11 +1,11 @@
-import type { FC } from 'react';
 import type { SvgProps } from 'react-native-svg';
 
-import { useMemo } from 'react';
+import { FC, useMemo } from 'react';
 import * as z from 'zod';
 
-import { useTheme } from '@/theme';
-import getAssetsContext from '@/theme/assets/getAssetsContext';
+import { useTheme } from '@/hooks';
+
+import getAssetsContext from '@/theme/assets/get-assets-context';
 
 type Properties = {
   readonly path: string;
