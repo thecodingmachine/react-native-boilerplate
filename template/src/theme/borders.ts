@@ -1,6 +1,3 @@
-import type { ViewStyle } from 'react-native';
-
-import { config } from '@/theme/_config';
 import type {
   BorderBottomRadius,
   BorderColors,
