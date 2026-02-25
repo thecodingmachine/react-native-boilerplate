@@ -5,11 +5,10 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "noUnusedLocals": true,
-    "allowJs": true // For eslint and prettier configs
+    "noUnusedLocals": true
   },
   "include": [
-    "src/__tests__/**/*",
+    "src/tests/**/*",
     "./src/**/*",
     "index.d.ts",
     "*.mjs",
@@ -17,8 +16,7 @@
     "*.js",
     ".*.js",
     "*.ts",
-    ".prettierrc.mjs",
-    "eslint/**/*.mjs"
+    ".prettierrc.mjs"
   ],
   "exclude": ["**/node_modules", "_", "android", "ios", "**/Pods"]
 }
