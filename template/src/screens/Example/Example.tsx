@@ -1,19 +1,20 @@
+import { useQuery } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Alert, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 
-import { useI18n, useUser } from '@/hooks';
-import { useTheme } from '@/theme';
+import { useTheme } from '@/hooks';
 
 import { AssetByVariant, IconByVariant, Skeleton } from '@/components/atoms';
 import { SafeScreen } from '@/components/templates';
 
+import { fetchOneQueryOptions } from '@/services/domains/user/user.query-options';
+import { SupportedLanguages } from '@/services/i18n/instance';
+
 const MAX_RANDOM_ID = 9;
 
 function Example() {
-  const { t } = useTranslation();
-  const { useFetchOneQuery } = useUser();
-  const { toggleLanguage } = useI18n();
+  const { i18n, t } = useTranslation();
 
   const {
     backgrounds,
@@ -28,15 +29,16 @@ function Example() {
 
   const [currentId, setCurrentId] = useState(-1);
 
-  const fetchOneUserQuery = useFetchOneQuery(currentId);
+  const fetchOneUserQuery = useQuery(fetchOneQueryOptions(currentId));
 
   useEffect(() => {
+    // eslint-disable-next-line react-you-might-not-need-an-effect/no-event-handler
     if (fetchOneUserQuery.isSuccess) {
       Alert.alert(
         t('screen_example.hello_user', { name: fetchOneUserQuery.data.name }),
       );
     }
-  }, [fetchOneUserQuery.isSuccess, fetchOneUserQuery.data, t]);
+  }, [fetchOneUserQuery.data?.name, fetchOneUserQuery.isSuccess, t]);
 
   const onChangeTheme = () => {
     changeTheme(variant === 'default' ? 'dark' : 'default');
@@ -120,7 +122,13 @@ function Example() {
             </TouchableOpacity>
 
             <TouchableOpacity
-              onPress={toggleLanguage}
+              onPress={() => {
+                const newLanguage =
+                  i18n.language === SupportedLanguages.FR_FR
+                    ? SupportedLanguages.EN_EN
+                    : SupportedLanguages.FR_FR;
+                void i18n.changeLanguage(newLanguage);
+              }}
               style={[components.buttonCircle, gutters.marginBottom_16]}
               testID="change-language-button"
             >

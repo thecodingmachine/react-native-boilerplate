@@ -1,7 +1,6 @@
+import type { Backgrounds } from '@/services/theme-generation/types/backgrounds';
+import type { UnionConfiguration } from '@/services/theme-generation/types/config';
 import type { ViewStyle } from 'react-native';
-
-import type { Backgrounds } from '@/theme/types/backgrounds';
-import type { UnionConfiguration } from '@/theme/types/config';
 
 /**
  * Generates background styles from configuration

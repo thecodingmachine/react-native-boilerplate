@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react-native';
 import { Text } from 'react-native';
 
-import TestAppWrapper from '@/tests/TestAppWrapper';
+import TestAppWrapper from '@/__tests__/test-wrappers';
 
-import SkeletonLoader from './Skeleton';
+import SkeletonLoader from './skeleton';
 
 const WAIT = 800;
 
@@ -15,7 +15,7 @@ describe('SkeletonLoader', () => {
   it('renders children when not loading', () => {
     render(
       <SkeletonLoader loading={false}>
-        <Text>Loaded Content</Text>
+        <Text>{'Loaded Content'}</Text>
       </SkeletonLoader>,
       {
         wrapper: TestAppWrapper,

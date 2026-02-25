@@ -1,7 +1,5 @@
-import type { DimensionValue, ViewProps } from 'react-native';
-
 import { useEffect } from 'react';
-import { View } from 'react-native';
+import { type DimensionValue, View, type ViewProps } from 'react-native';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
@@ -9,7 +7,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 
-import { useTheme } from '@/theme';
+import { useTheme } from '@/hooks';
 
 type Properties = {
   readonly height?: DimensionValue;

@@ -1,0 +1,14 @@
+[
+  {
+    "filename": "/Users/jeremydolle/Documents/Projets/react-native-boilerplate/template/src/screens/Example/Example.test.tsx",
+    "errorMessage": "🔥 Folder 'screens' is invalid. 🔥\n\nAllowed names  = __tests__, components, hooks, routes, services, theme, translations\nError location = ./src/screens\n\n"
+  },
+  {
+    "filename": "/Users/jeremydolle/Documents/Projets/react-native-boilerplate/template/src/components/atoms/Skeleton/Skeleton.test.tsx",
+    "errorMessage": "🔥 Folder 'Skeleton' is invalid. 🔥\n\nAllowed names  = {kebab-case}\nError location = ./src/components/atoms/Skeleton\n\n"
+  },
+  {
+    "filename": "/Users/jeremydolle/Documents/Projets/react-native-boilerplate/template/src/App.tsx",
+    "errorMessage": "🔥 File 'App.tsx' is invalid. 🔥\n\nAllowed names  = main.tsx\nError location = ./src/App.tsx\n\n"
+  }
+]
