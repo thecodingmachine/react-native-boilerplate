@@ -1,4 +1,4 @@
-import type { ThemeConfiguration } from '@/theme/types/config';
+import type { ThemeConfiguration } from '@/Theme/types/config';
 
 import { DarkTheme, DefaultTheme } from '@react-navigation/native';
 

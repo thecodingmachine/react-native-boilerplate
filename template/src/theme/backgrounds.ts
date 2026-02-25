@@ -1,5 +1,5 @@
-import type { Backgrounds } from '@/theme/types/backgrounds';
-import type { UnionConfiguration } from '@/theme/types/config';
+import type { Backgrounds } from '@/Theme/types/backgrounds';
+import type { UnionConfiguration } from '@/Theme/types/config';
 import type { ViewStyle } from 'react-native';
 
 /**

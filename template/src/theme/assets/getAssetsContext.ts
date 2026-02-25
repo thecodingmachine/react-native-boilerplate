@@ -1,4 +1,3 @@
-/* eslint-disable unicorn/prefer-module */
 export type AssetType = 'icons' | 'images';
 
 const getAssetsContext = (type: AssetType) =>

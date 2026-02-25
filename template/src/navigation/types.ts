@@ -1,4 +1,4 @@
-import type { Paths } from '@/navigation/paths';
+import type { Paths } from '@/Navigation/paths';
 import type { StackScreenProps } from '@react-navigation/stack';
 
 export type RootScreenProps<

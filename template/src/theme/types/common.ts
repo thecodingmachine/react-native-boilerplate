@@ -1,4 +1,4 @@
-import type { config } from '@/theme/_config';
+import type { config } from '@/Theme/_config';
 
 export type AllPartial<T> = {
   [K in keyof T]?: T[K] extends Record<string, unknown>

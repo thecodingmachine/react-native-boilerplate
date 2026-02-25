@@ -1,15 +1,14 @@
-import type { RootScreenProps } from '@/navigation/types';
+import type { RootScreenProps } from '@/Navigation/types';
 
 import { useQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ActivityIndicator, Text, View } from 'react-native';
 
-import { Paths } from '@/navigation/paths';
-import { useTheme } from '@/theme';
-
-import { AssetByVariant } from '@/components/atoms';
-import { SafeScreen } from '@/components/templates';
+import { AssetByVariant } from '@/Components/Atoms';
+import { SafeScreen } from '@/Components/Templates';
+import { Paths } from '@/Navigation/paths';
+import { useTheme } from '@/Theme';
 
 function Startup({ navigation }: RootScreenProps<Paths.Startup>) {
   const { fonts, gutters, layout } = useTheme();

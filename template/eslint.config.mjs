@@ -7,6 +7,7 @@ import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import testingLibrary from 'eslint-plugin-testing-library';
 import unicorn from 'eslint-plugin-unicorn';
+import { defineConfig } from 'eslint/config';
 
 const ERROR = 2;
 const OFF = 0;
@@ -14,7 +15,8 @@ const OFF = 0;
 import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
 
-export default tseslint.config(
+export default defineConfig(
+  tseslint.configs.recommended,
   eslint.configs.recommended,
   tseslint.configs.strictTypeChecked,
   tseslint.configs.stylisticTypeChecked,
@@ -62,6 +64,7 @@ export default tseslint.config(
       '@typescript-eslint/consistent-type-definitions': [ERROR, 'type'],
       '@typescript-eslint/dot-notation': [ERROR, { allowKeywords: true }],
       '@typescript-eslint/no-empty-function': OFF,
+      '@typescript-eslint/no-useless-default-assignment': OFF,
       '@typescript-eslint/restrict-template-expressions': OFF,
       'import/no-unresolved': OFF, // handled by TypeScript
       'no-console': [ERROR, { allow: ['warn', 'error'] }],
@@ -72,20 +75,39 @@ export default tseslint.config(
       'perfectionist/sort-imports': [
         'error',
         {
-          customGroups: {
-            value: {
-              components: '@/components(/.+)?',
-              hooks: '@/hooks(/.+)?',
-              navigation: '@/navigation(/.+)?',
-              screens: '@/screens(/.+)?',
-              test: '@/test(/.+)?',
-              theme: '@/theme(/.+)?',
-              translations: '@/translations(/.+)?',
+          customGroups: [
+            {
+              elementNamePattern: '@/components(/.+)?',
+              groupName: 'components',
             },
-          },
+            {
+              elementNamePattern: '@/hooks(/.+)?',
+              groupName: 'hooks',
+            },
+            {
+              elementNamePattern: '@/navigation(/.+)?',
+              groupName: 'navigation',
+            },
+            {
+              elementNamePattern: '@/screens(/.+)?',
+              groupName: 'screens',
+            },
+            {
+              elementNamePattern: '@/test(/.+)?',
+              groupName: 'test',
+            },
+            {
+              elementNamePattern: '@/theme(/.+)?',
+              groupName: 'theme',
+            },
+            {
+              elementNamePattern: '@/translations(/.+)?',
+              groupName: 'translations',
+            },
+          ],
           groups: [
             'side-effect',
-            ['type', 'internal-type'],
+            ['type', 'type-internal'],
             ['builtin', 'external'],
             ['theme', 'hooks', 'navigation', 'translations'],
             ['components', 'screens'],
@@ -93,7 +115,7 @@ export default tseslint.config(
             'internal',
             'unknown',
           ],
-          newlinesBetween: 'always',
+          newlinesBetween: 1,
           type: 'alphabetical',
         },
       ],

@@ -1,4 +1,4 @@
-import type { ComponentTheme } from '@/theme/types/theme';
+import type { ComponentTheme } from '@/Theme/types/theme';
 import type { ImageStyle, TextStyle, ViewStyle } from 'react-native';
 
 type AllStyle = {} & Record<string, ImageStyle | TextStyle | ViewStyle>;

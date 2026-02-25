@@ -1,5 +1,5 @@
-import type { UnionConfiguration } from '@/theme/types/config';
-import type { Gutters } from '@/theme/types/gutters';
+import type { UnionConfiguration } from '@/Theme/types/config';
+import type { Gutters } from '@/Theme/types/gutters';
 
 import { type ViewStyle } from 'react-native';
 

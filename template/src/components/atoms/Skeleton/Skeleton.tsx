@@ -9,7 +9,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 
-import { useTheme } from '@/theme';
+import { useTheme } from '@/Theme';
 
 type Properties = {
   readonly height?: DimensionValue;
@@ -40,7 +40,7 @@ function SkeletonLoader({
     if (!loading) {
       return;
     }
-    opacity.value = withRepeat(withTiming(TO, { duration: 800 }), -1, true);
+    opacity.set(withRepeat(withTiming(TO, { duration: 800 }), -1, true));
   }, [loading, opacity]);
 
   return (

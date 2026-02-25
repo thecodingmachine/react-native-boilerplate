@@ -4,8 +4,8 @@ import { useMemo } from 'react';
 import { Image } from 'react-native';
 import * as z from 'zod';
 
-import { useTheme } from '@/theme';
-import getAssetsContext from '@/theme/assets/getAssetsContext';
+import { useTheme } from '@/Theme';
+import getAssetsContext from '@/Theme/assets/getAssetsContext';
 
 type Properties = {
   readonly extension?: string;

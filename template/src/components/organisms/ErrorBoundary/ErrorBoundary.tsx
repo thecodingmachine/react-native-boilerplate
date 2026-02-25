@@ -3,7 +3,7 @@ import type { ErrorBoundaryPropsWithFallback } from 'react-error-boundary';
 
 import { ErrorBoundary as DefaultErrorBoundary } from 'react-error-boundary';
 
-import { DefaultError } from '@/components/molecules';
+import { DefaultError } from '@/Components/Molecules';
 
 type Optional<T, K extends keyof T> = Omit<T, K> & Pick<Partial<T>, K>;
 
@@ -12,12 +12,12 @@ type Properties = {
 } & Optional<ErrorBoundaryPropsWithFallback, 'fallback'>;
 
 function ErrorBoundary({
-  fallback = undefined,
+  fallback,
   onError,
   onReset = undefined,
   ...props
 }: Properties) {
-  const onErrorReport = (error: Error, info: ErrorInfo) => {
+  const onErrorReport = (error: unknown, info: ErrorInfo) => {
     // use any crash reporting tool here
     return onError?.(error, info);
   };

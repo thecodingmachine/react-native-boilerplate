@@ -1,7 +1,7 @@
 import type { ArrayValue, RemoveBeforeSeparator, ToNumber } from './common';
 import type { UnionConfiguration } from './config';
-import type { config } from '@/theme/_config';
-import type { staticFontStyles } from '@/theme/fonts';
+import type { config } from '@/Theme/_config';
+import type { staticFontStyles } from '@/Theme/fonts';
 
 export type FontColors = {
   [key in FontColorsKeys]: RemoveBeforeSeparator<key> extends keyof UnionConfiguration['fonts']['colors']

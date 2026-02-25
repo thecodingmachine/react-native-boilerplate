@@ -4,8 +4,8 @@ import type {
   RemoveBeforeSeparator,
   ToNumber,
 } from './common';
-import type { config } from '@/theme/_config';
-import type { staticGutterStyles } from '@/theme/gutters';
+import type { config } from '@/Theme/_config';
+import type { staticGutterStyles } from '@/Theme/gutters';
 
 export type Gutters = GapGutters &
   MarginGutters &

@@ -1,11 +1,11 @@
-import type { ReactElement } from 'react';
+import type { FC } from 'react';
 import type { SvgProps } from 'react-native-svg';
 
 import { useMemo } from 'react';
 import * as z from 'zod';
 
-import { useTheme } from '@/theme';
-import getAssetsContext from '@/theme/assets/getAssetsContext';
+import { useTheme } from '@/Theme';
+import getAssetsContext from '@/Theme/assets/getAssetsContext';
 
 type Properties = {
   readonly path: string;
@@ -15,6 +15,33 @@ const icons = getAssetsContext('icons');
 const EXTENSION = 'svg';
 const SIZE = 24;
 
+// 1. Declare the fallback outside to guarantee a stable, single reference in memory.
+const FallbackIcon: FC<SvgProps> = () => undefined;
+
+// 2. Resolve the component without creating ANY new functions inline.
+const resolveIconComponent = (path: string, variant: string): FC<SvgProps> => {
+  const schema = z.object({
+    default: z.custom<FC<SvgProps>>(),
+  });
+
+  const getModule = (p: string) => schema.parse(icons(p)).default;
+
+  try {
+    if (variant !== 'default') {
+      try {
+        return getModule(`./${variant}/${path}.${EXTENSION}`);
+      } catch {
+        // Continue to default fallback below
+      }
+    }
+    return getModule(`./${path}.${EXTENSION}`);
+  } catch (error) {
+    console.warn(`Icon ${path} not found. Returning fallback.`, error);
+    // 3. Return the stable reference instead of an inline function
+    return FallbackIcon;
+  }
+};
+
 function IconByVariant({
   height = SIZE,
   path,
@@ -23,46 +50,13 @@ function IconByVariant({
 }: Properties) {
   const { variant } = useTheme();
 
-  const iconProperties = { ...props, height, width };
-  const Icon = useMemo(() => {
-    try {
-      const getDefaultSource = () =>
-        z
-          .object({
-            default: z.custom<React.FC<SvgProps>>(() =>
-              z.custom<ReactElement<SvgProps>>(),
-            ),
-          })
-          .parse(icons(`./${path}.${EXTENSION}`)).default;
+  const IconComponent = useMemo(
+    () => resolveIconComponent(path, variant),
+    [path, variant],
+  );
 
-      if (variant === 'default') {
-        return getDefaultSource();
-      }
-
-      try {
-        const fetchedModule = z
-          .object({
-            default: z.custom<React.FC<SvgProps>>(() =>
-              z.custom<ReactElement<SvgProps>>(),
-            ),
-          })
-          .parse(icons(`./${variant}/${path}.${EXTENSION}`));
-
-        return fetchedModule.default;
-      } catch (error) {
-        console.warn(
-          `Couldn't load the icon: ${path}.${EXTENSION} for the variant ${variant}, Fallback to default`,
-          error,
-        );
-        return getDefaultSource();
-      }
-    } catch (error) {
-      console.error(`Couldn't load the icon: ${path}.${EXTENSION}`, error);
-      throw error;
-    }
-  }, [variant, path]);
-
-  return <Icon {...iconProperties} />;
+  // eslint-disable-next-line react-hooks/static-components
+  return <IconComponent height={height} width={width} {...props} />;
 }
 
 export default IconByVariant;

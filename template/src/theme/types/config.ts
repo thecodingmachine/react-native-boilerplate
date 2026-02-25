@@ -1,6 +1,6 @@
 import type { AllPartial } from './common';
-import type { config } from '@/theme/_config';
-import type generateConfig from '@/theme/ThemeProvider/generateConfig';
+import type { config } from '@/Theme/_config';
+import type generateConfig from '@/Theme/ThemeProvider/generateConfig';
 import type { Theme as NavigationTheme } from '@react-navigation/native';
 
 export type FulfilledThemeConfiguration = {

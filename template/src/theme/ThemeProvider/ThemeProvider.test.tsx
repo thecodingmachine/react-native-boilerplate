@@ -1,8 +1,8 @@
 import { fireEvent, render, screen } from '@testing-library/react-native';
 import { Button, Text, View } from 'react-native';
-import { MMKV } from 'react-native-mmkv';
+import { createMMKV, MMKV } from 'react-native-mmkv';
 
-import { ThemeProvider, useTheme } from '@/theme';
+import { ThemeProvider, useTheme } from '@/Theme';
 
 function TestChildComponent() {
   const { changeTheme, variant } = useTheme();
@@ -24,7 +24,7 @@ describe('ThemeProvider', () => {
   let storage: MMKV;
 
   beforeEach(() => {
-    storage = new MMKV();
+    storage = createMMKV();
   });
 
   it('initializes with the default theme when no theme is defined in storage', () => {

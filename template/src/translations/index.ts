@@ -1,6 +1,6 @@
 import 'intl-pluralrules';
 
-import type { Language } from '@/hooks/language/schema';
+import type { Language } from '@/Hooks/language/schema';
 
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
