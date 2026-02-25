@@ -11,7 +11,7 @@ The template `SafeScreen` component is a helper component that allows you to dis
 ### Usage
 
 ```jsx
-import { useI18n, useUser } from '@/hooks';
+import { useTranslation, useUser } from '@/hooks';
 
 import { SafeScreen } from '@/components/templates';
 

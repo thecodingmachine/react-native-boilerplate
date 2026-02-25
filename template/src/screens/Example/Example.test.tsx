@@ -4,11 +4,11 @@ import { I18nextProvider } from 'react-i18next';
 import { createMMKV, MMKV } from 'react-native-mmkv';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import { SupportedLanguages } from '@/hooks/language/schema';
-import { ThemeProvider } from '@/theme';
-import i18n from '@/translations';
+import { ThemeProvider } from '@/components/providers';
 
-import Example from './Example';
+import i18n, { SupportedLanguages } from '@/services/i18n/instance';
+
+import Example from './example';
 
 describe('Example screen should render correctly', () => {
   let storage: MMKV;
