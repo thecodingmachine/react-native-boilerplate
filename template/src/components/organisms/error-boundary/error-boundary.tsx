@@ -19,7 +19,7 @@ function ErrorBoundary({
   onReset = undefined,
   ...props
 }: Properties) {
-  const onErrorReport = (error: Error, info: ErrorInfo) => {
+  const onErrorReport = (error: unknown, info: ErrorInfo) => {
     // use any crash reporting tool here
     return onError?.(error, info);
   };
