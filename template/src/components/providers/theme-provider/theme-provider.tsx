@@ -74,10 +74,9 @@ function ThemeProvider({ children = false, storage }: Properties) {
   }, [variant]);
 
   const fonts = useMemo(() => {
-    const fontColors = generateFontColors(fullConfig);
     return {
+      ...generateFontColors(fullConfig),
       ...generateFontSizes(),
-      ...(Array.isArray(fontColors) ? { fontColors } : fontColors),
       ...staticFontStyles,
     };
   }, [fullConfig]);
@@ -97,9 +96,8 @@ function ThemeProvider({ children = false, storage }: Properties) {
   }, [fullConfig]);
 
   const borders = useMemo(() => {
-    const borderColors = generateBorderColors(fullConfig);
     return {
-      ...(Array.isArray(borderColors) ? { borderColors } : borderColors),
+      ...generateBorderColors(fullConfig),
       ...generateBorderRadius(),
       ...generateBorderWidths(),
       ...staticBorderStyles,
