@@ -51,6 +51,20 @@ Yes, but it's not automated after initialization. You would need to:
 
 **Recommendation**: Make this choice during project initialization as it's much simpler.
 
+## Installation & Troubleshooting
+
+### Installation fails on Windows
+
+**Recommendation**: Use Git Bash or WSL (Windows Subsystem for Linux) for the best experience.
+
+The boilerplate uses POSIX shell commands (`cp`, `rm`, etc.) which are not available in Windows Command Prompt or PowerShell.
+
+**Options**:
+1. **Git Bash** (recommended for Windows): Comes with Git for Windows
+2. **WSL**: Full Linux environment on Windows
+3. **PowerShell with Unix commands**: Install [Git for Windows](https://gitforwindows.org/) which includes basic Unix utilities
+
+
 ## ESLint & Code Quality
 
 ### Are ESLint rules the same for JavaScript and TypeScript?

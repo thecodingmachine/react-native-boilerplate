@@ -50,6 +50,12 @@ If you choose **No**, the boilerplate will automatically:
 
 The resulting project will be pure JavaScript while maintaining the same architecture and structure.
 
+:::tip Windows Users
+If you're on Windows, we recommend using **Git Bash** or **WSL** for the installation process. The JavaScript compilation uses POSIX shell commands that are not available in Command Prompt or PowerShell.
+
+If you encounter `spawnSync ENOENT` errors, ensure you're using Git Bash or check the [FAQ troubleshooting section](/docs/faq#installation--troubleshooting).
+:::
+
 :::note ESLint Configuration
 The ESLint configuration is designed to work with both TypeScript and JavaScript projects. When using JavaScript, TypeScript-specific rules are automatically disabled.
 :::
