@@ -89,7 +89,7 @@ This means you get the same architectural enforcement and code quality rules reg
 
 ### Can I disable the strict project structure rules?
 
-Yes! The project structure enforcement rules are optional. You can disable them by commenting out the configuration in `eslint.config.js`:
+Yes! The project structure enforcement rules are optional. You can disable them by commenting out the configuration in `eslint.config.mjs`:
 
 ```js
 // Comment out this section to disable project structure enforcement

@@ -31,7 +31,7 @@ To achieve this, the project structure is thoughtfully organized into distinct s
 | `jest.config.js`   | Configuration file for Jest testing.                |
 | `tsconfig.json`    | TypeScript configuration (for TypeScript projects). |
 | `src/app.tsx`      | Main component of the application.                  |
-| `eslint.config.js` | ESLint configuration with project structure rules.  |
+| `eslint.config.mjs` | ESLint configuration with project structure rules.  |
 
 ## Atomic Design
 

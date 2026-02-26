@@ -12,9 +12,9 @@ These rules help maintain consistency and prevent common architectural issues as
 :::tip Optional Strict Rules
 The project structure enforcement rules are **intentionally strict** to maintain architectural consistency. However, they are:
 - **Evolutionary**: These rules will be refined and updated over time as best practices emerge
-- **Optional**: If you find them too restrictive for your use case, you can disable them by commenting out the project-structure configuration in `eslint.config.js`:
+- **Optional**: If you find them too restrictive for your use case, you can disable them by commenting out the project-structure configuration in `eslint.config.mjs`:
 
-```js title="eslint.config.js"
+```js title="eslint.config.mjs"
 export default defineConfig([
   // {
   //   files: ['**/*.{js,jsx,ts,tsx}'],
@@ -40,7 +40,7 @@ You can also selectively disable specific rules (e.g., only keep `folder-structu
 
 The boilerplate now uses a modern ESLint flat config with several powerful plugins:
 
-```js title="eslint.config.js"
+```js title="eslint.config.mjs"
 import { defineConfig } from 'eslint/config';
 import tseslint from 'typescript-eslint';
 import eslint from '@eslint/js';
@@ -64,7 +64,7 @@ export default defineConfig([
 
 The ESLint configuration works seamlessly with both TypeScript and JavaScript projects:
 
-```js title="eslint.config.js"
+```js title="eslint.config.mjs"
 export default defineConfig([
   // ... TypeScript configs
 
@@ -543,7 +543,7 @@ npm run lint
 
 If TypeScript type checking is slow:
 
-```js title="eslint.config.js"
+```js title="eslint.config.mjs"
 {
   languageOptions: {
     parserOptions: {
