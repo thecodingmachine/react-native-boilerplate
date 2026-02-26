@@ -9,7 +9,7 @@ import { createFolderStructure } from 'eslint-plugin-project-structure';
 // |   |   |   ├── lib-name.ts
 // |   |   └── *.ts
 // │   ├── setup.ts
-// │   └── test-wrappers.tsx
+// │   └── *.tsx
 // ├── components/
 // │   ├── atoms/
 // │   |   ├── component-folder/
@@ -100,14 +100,15 @@ export const folderStructureConfig = createFolderStructure({
       // child
       children: [
         {
-          children: [
-            { children: [{ name: '*.ts' }], name: 'libs' },
-            { name: '*.ts' },
-          ],
           name: 'mocks',
+          // child
+          children: [
+            { children: [{ name: '{kebab-case}.ts' }], name: 'libs' },
+            { name: '{kebab-case}.ts' },
+          ],
         },
         { name: 'setup.ts' },
-        { name: 'test-wrappers.tsx' },
+        { name: '{kebab-case}.tsx' },
       ],
     },
     // ├── components/
@@ -153,7 +154,6 @@ export const folderStructureConfig = createFolderStructure({
       // child
       children: [
         { name: '{folder-name}(-{kebab-case})?.tsx' },
-        { name: '{folder-name}(-{kebab-case})?.stories.tsx' },
         { name: '{folder-name}(-{kebab-case})?.test.tsx' },
       ],
     },
@@ -164,9 +164,8 @@ export const folderStructureConfig = createFolderStructure({
         {
           name: '{folder-name}(-{kebab-case})?.tsx',
           // force existence
-          enforceExistence: ['{node-name}.stories.tsx', '{node-name}.test.tsx'],
+          enforceExistence: ['{node-name}.test.tsx'],
         },
-        { name: '{folder-name}(-{kebab-case})?.stories.tsx' },
         { name: '{folder-name}(-{kebab-case})?.test.tsx' },
       ],
     },
@@ -190,7 +189,7 @@ export const folderStructureConfig = createFolderStructure({
       // child
       children: [
         { name: 'index.ts' },
-        { name: '*.tsx' },
+        { name: '{kebab-case}.tsx' },
         {
           children: [
             { name: '{folder-name}.tsx' },
@@ -252,17 +251,24 @@ export const folderStructureConfig = createFolderStructure({
       ],
     },
     // ├── services/navigation
-
     navigation: {
       name: 'navigation',
       // child
-      children: [{ name: 'paths.ts' }, { name: 'types.ts' }],
+      children: [
+        { name: 'paths.ts' },
+        { name: 'types.ts' },
+        { name: '{kebab-case}.ts' },
+      ],
     },
     // ├── services/i18n
     i18n: {
       name: 'i18n',
       // child
-      children: [{ name: 'instance.ts' }, { name: 'i18next.d.ts' }],
+      children: [
+        { name: 'instance.ts' },
+        { name: 'i18next.d.ts' },
+        { name: '{kebab-case}.ts' },
+      ],
     },
     // ├── services/theme-generation
     themeGen: {
@@ -305,10 +311,10 @@ export const folderStructureConfig = createFolderStructure({
               // child
               children: [
                 {
-                  children: [{ name: 'kebab-case.{webp}' }],
+                  children: [{ name: 'kebab-case.{webp,png}' }],
                   name: 'dark',
                 },
-                { name: 'kebab-case.{webp}' },
+                { name: 'kebab-case.{webp,png}' },
               ],
             },
             {
@@ -332,7 +338,7 @@ export const folderStructureConfig = createFolderStructure({
     translations: {
       name: 'translations',
       // child
-      children: [{ name: '*.json' }],
+      children: [{ name: '{kebab-case}.json' }],
     },
   },
   structure: [

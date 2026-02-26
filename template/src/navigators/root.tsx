@@ -13,7 +13,7 @@ import { Paths } from '@/services/navigation/paths';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
-function ApplicationNavigator() {
+function RootNavigator() {
   const { navigationTheme, variant } = useTheme();
 
   const { isError, isSuccess } = useQuery({
@@ -42,4 +42,4 @@ function ApplicationNavigator() {
   );
 }
 
-export default ApplicationNavigator;
+export default RootNavigator;

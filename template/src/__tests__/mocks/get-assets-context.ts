@@ -1,6 +1,6 @@
 import type { AssetType } from '@/theme/assets/get-assets-context';
 
-jest.mock('@/theme/assets/getAssetsContext', () =>
+jest.mock('@/theme/assets/get-assets-context', () =>
   jest.fn((type: AssetType) => {
     const testIcon = 'mocked-icon-uri'; // Simulated URI for icons
     const testImage = 'test-image-uri'; // Simulated URI for images

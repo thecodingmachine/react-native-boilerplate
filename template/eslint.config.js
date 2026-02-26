@@ -3,10 +3,10 @@ import eslint from '@eslint/js';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import jest from 'eslint-plugin-jest';
 import perfectionist from 'eslint-plugin-perfectionist';
-// import {
-//   projectStructureParser,
-//   projectStructurePlugin,
-// } from 'eslint-plugin-project-structure';
+import {
+  projectStructureParser,
+  projectStructurePlugin,
+} from 'eslint-plugin-project-structure';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
@@ -15,30 +15,30 @@ import unicorn from 'eslint-plugin-unicorn';
 import { defineConfig } from 'eslint/config';
 import tseslint from 'typescript-eslint';
 
-// import { fileCompositionConfig } from './eslint/file-composition/index.mjs';
-// import { folderStructureConfig } from './eslint/folder-structure.mjs';
-// import { independentModulesConfig } from './eslint/independent-modules.mjs';
+import { fileCompositionConfig } from './eslint/file-composition/index.mjs';
+import { folderStructureConfig } from './eslint/folder-structure.mjs';
+import { independentModulesConfig } from './eslint/independent-modules.mjs';
 
 const ERROR = 2;
 const OFF = 0;
 
 export default defineConfig([
-  // {
-  //   files: ['**/*.{js,jsx,ts,tsx}'],
-  //   ignores: ['project-structure.cache.json'],
-  //   languageOptions: { parser: projectStructureParser },
-  //   plugins: {
-  //     'project-structure': projectStructurePlugin,
-  //   },
-  //   rules: {
-  //     'project-structure/file-composition': [ERROR, fileCompositionConfig],
-  //     'project-structure/folder-structure': [ERROR, folderStructureConfig],
-  //     'project-structure/independent-modules': [
-  //       ERROR,
-  //       independentModulesConfig,
-  //     ],
-  //   },
-  // },
+  {
+    files: ['**/*.{js,jsx,ts,tsx}'],
+    ignores: ['project-structure.cache.json'],
+    languageOptions: { parser: projectStructureParser },
+    plugins: {
+      'project-structure': projectStructurePlugin,
+    },
+    rules: {
+      'project-structure/file-composition': [ERROR, fileCompositionConfig],
+      'project-structure/folder-structure': [ERROR, folderStructureConfig],
+      'project-structure/independent-modules': [
+        ERROR,
+        independentModulesConfig,
+      ],
+    },
+  },
   {
     ignores: ['coverage/**', 'dist/**'],
   },

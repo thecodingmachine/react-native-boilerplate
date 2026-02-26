@@ -1,1 +1,1 @@
-export { default as ApplicationNavigator } from './root';
+export { default as RootNavigator } from './root';

@@ -1,4 +1,4 @@
-import '@/services/translation';
+import '@/services/i18n/instance';
 
 import { QueryClientProvider } from '@tanstack/react-query';
 import { type PropsWithChildren } from 'react';
