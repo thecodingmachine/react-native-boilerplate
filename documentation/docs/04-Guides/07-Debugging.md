@@ -7,7 +7,7 @@ keywords: [debugging, reactotron]
 ---
 
 Found a bug in your app? It can be difficult to identify, especially if you're unsure whether it's related to the network or not.
-In our boilerplate, we've seamlessly integrated [Reactotron](https://github.com/infinitered/reactotron), a powerful desktop app for inspecting React Native projects. 
+In our boilerplate, we've seamlessly integrated [Reactotron](https://github.com/infinitered/reactotron), a powerful desktop app for inspecting React Native projects.
 Reactotron is invaluable during development, offering an easy way to view your application's logs, async storage, network calls, and state.
 
 ### Setup
@@ -15,7 +15,7 @@ By default, the boilerplate comes with Reactotron already configured, saving you
 However, if you ever need to fine-tune your Reactotron settings to better suit your
 project's requirements, rest assured that it's a breeze to do so.
 
-Simply navigate to the `./ReactotronConfig.js` file, where you'll find
+Simply navigate to the `./src/reactotron.config.ts` file, where you'll find
 the Reactotron configuration. By default, we've set it up to use the configuration suitable for development environment, ensuring a smooth and hassle-free experience from the get-go.
 
 
@@ -27,8 +27,9 @@ import {
   reactotronReactQuery,
 } from 'reactotron-react-query';
 
-import { storage, queryClient } from './src/App';
-import config from './app.json';
+import { queryClient } from './services/http-client';
+import { storage } from './services/storage';
+import config from '../app.json';
 
 const queryClientManager = new QueryClientManager({
   queryClient,

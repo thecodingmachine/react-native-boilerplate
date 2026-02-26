@@ -14,86 +14,151 @@ greatly enhance the efficiency and reliability of data management in your applic
 ## Fetching Data at Startup
 
 This boilerplate offers a convenient method for fetching data before presenting the application content to the user.
-This capability is made possible through the [navigation structure](/docs/navigate#navigation-structure) of the initial
-setup and the inclusion of the `Startup` screen.
+This capability is made possible through the [navigation structure](/docs/navigate#navigation-structure) where the
+`RootNavigator` conditionally renders screens based on startup state.
 
-The `Startup` screen takes on the role of being the very first screen shown to the user upon launching the application.
-It serves as the entry point where essential data can be fetched and prepared before the user interacts with the app's content.
-This ensures a smoother and more responsive user experience.
+The `RootNavigator` uses TanStack Query to handle initialization logic:
 
-```tsx title="src/screens/Startup/Startup.tsx"
-  // highlight-next-line
+```tsx title="src/navigators/root.tsx"
 import { useQuery } from '@tanstack/react-query';
 
-const Startup = ({ navigation }: ApplicationScreenProps) => {
-    const { layout, gutters, fonts } = useTheme();
-    const { t } = useTranslation();
+function RootNavigator() {
+  const { navigationTheme, variant } = useTheme();
 
-    // highlight-start
-    const { isSuccess, isFetching, isError } = useQuery({
-        queryKey: ['startup'],
-        queryFn: () => {
-            // Fetch data here
-            return Promise.resolve(true);
-        },
-    });
-    // highlight-end
+  // highlight-start
+  const { isError, isSuccess } = useQuery({
+    queryFn: () => {
+      // Fetch startup data here
+      return Promise.resolve(true);
+    },
+    queryKey: ['startup'],
+  });
+  // highlight-end
 
-    useEffect(() => {
-        navigation.reset({
-            index: 0,
-            routes: [{ name: 'Main' }],
-        });
-    }, [isSuccess]);
+  return (
+    <SafeAreaProvider>
+      <NavigationContainer theme={navigationTheme}>
+        <Stack.Navigator key={variant} screenOptions={{ headerShown: false }}>
+          {/* highlight-start */}
+          {isSuccess ? (
+            <Stack.Screen component={Example} name={Paths.Example} />
+          ) : (
+            <Stack.Screen
+              component={Startup}
+              initialParams={{ isError }}
+              name={Paths.Startup}
+            />
+          )}
+          {/* highlight-end */}
+        </Stack.Navigator>
+      </NavigationContainer>
+    </SafeAreaProvider>
+  );
+}
+```
 
-    return (
-        //...
-    );
+This approach ensures a cleaner separation of concerns: the navigator handles navigation logic while screens focus on UI and user interaction.
+
+## Domain-Based Data Fetching
+
+The boilerplate uses a domain-based architecture for organizing data fetching logic. Each domain contains:
+
+### 1. Schema Definition
+
+Define your data types and validation using Zod:
+
+```ts title="src/services/domains/user/user.schema.ts"
+import * as z from 'zod';
+
+export const UserSchema = z.object({
+  id: z.number(),
+  name: z.string(),
+  email: z.string().email(),
+});
+
+export type User = z.infer<typeof UserSchema>;
+```
+
+### 2. API Calls
+
+Create API functions using the HTTP client:
+
+```ts title="src/services/domains/user/user.api.ts"
+import { httpClient } from '@/services/http-client';
+import { UserSchema } from './user.schema';
+
+export const UserApis = {
+  fetchOne: async (id: number) => {
+    const response = await httpClient.get(`users/${id}`).json();
+    return UserSchema.parse(response);
+  },
+
+  fetchAll: async () => {
+    const response = await httpClient.get('users').json();
+    return z.array(UserSchema).parse(response);
+  },
 };
 ```
 
-The `useQuery` hook is employed for data fetching. Now, let's explore how to formulate the request.
+The `httpClient` is a pre-configured [Ky](https://github.com/sindresorhus/ky) instance located in `src/services/http-client.ts`.
 
-Consider a scenario where we wish to retrieve application settings from an API before the user accesses the application's content.
-To achieve this, we will create a service responsible for fetching this data.
+### 3. Query Options
 
-```ts
-import { instance } from '@/services/instance';
+Define TanStack Query configuration:
 
-export default async () => instance.get(`/settings`);
-```
+```ts title="src/services/domains/user/user.query-options.ts"
+import { queryOptions } from '@tanstack/react-query';
+import { UserApis } from './user.api';
+import type { User } from './user.schema';
 
-The `instance` is an http client instance that comes pre-configured in the boilerplate.
-
-Next, we will use the `fetchSettings` service within the `Startup` screen.
-
-```tsx title="src/screens/Startup/Startup.tsx"
-import { useQuery } from '@tanstack/react-query';
-// highlight-next-line
-import fetchSettings from '@/folder/fetchSettings';
-
-const Startup = ({ navigation }: ApplicationScreenProps) => {
-    const { layout, gutters, fonts } = useTheme();
-    const { t } = useTranslation(['startup']);
-
-    const { isSuccess, isFetching, isError } = useQuery({
-        queryKey: ['startup'],
-        // highlight-next-line
-        queryFn: fetchSettings,
-    });
-
-    useEffect(() => {
-        navigation.reset({
-            index: 0,
-            routes: [{ name: 'Main' }],
-        });
-    }, [isSuccess]);
-
-    return (
-        //...
-    );
+export const UserQueryKeys = {
+  fetchOne: 'fetchOneUser',
+  fetchAll: 'fetchAllUsers',
 };
+
+export const fetchOneUserQueryOptions = (userId: User['id']) =>
+  queryOptions({
+    enabled: userId >= 0,
+    queryFn: () => UserApis.fetchOne(userId),
+    queryKey: [UserQueryKeys.fetchOne, userId],
+  });
+
+export const fetchAllUsersQueryOptions = () =>
+  queryOptions({
+    queryFn: () => UserApis.fetchAll(),
+    queryKey: [UserQueryKeys.fetchAll],
+  });
 ```
+
+### 4. Using in Components
+
+Import and use the query options in your components:
+
+```tsx title="src/screens/example/example.tsx"
+import { useQuery } from '@tanstack/react-query';
+import { fetchOneUserQueryOptions } from '@/services/domains/user/user.query-options';
+
+function ExampleScreen() {
+  const userId = 1;
+
+  const { data: user, isLoading, isError } = useQuery(
+    fetchOneUserQueryOptions(userId)
+  );
+
+  if (isLoading) return <Text>Loading...</Text>;
+  if (isError) return <Text>Error loading user</Text>;
+
+  return <Text>{user.name}</Text>;
+}
+```
+
+## Benefits of This Architecture
+
+- **Type Safety**: Zod schemas provide runtime validation and compile-time types
+- **Centralized Logic**: All domain logic is in one place
+- **Reusability**: Query options can be reused across components
+- **Testability**: Each layer can be tested independently
+- **Consistency**: Enforced by ESLint rules for project structure
 
 ## Advanced usage
 
