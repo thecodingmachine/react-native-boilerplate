@@ -3,6 +3,7 @@
 import { createIndependentModules } from 'eslint-plugin-project-structure';
 
 const reusableImportPatterns = {
+  testWrappers: ['src/__tests__/**/*.tsx'],
   // ├── components/
   // │   ├── atoms/
   atomsBarrel: ['src/components/atoms/index.ts'],
@@ -39,18 +40,16 @@ const reusableImportPatterns = {
     'src/services/theme-generation/**/*.ts',
   ],
   // ├── theme/
+  themeConfig: ['src/theme/*.ts'],
   // │   ├── assets/
-  // │   |   ├── icons/
   getAssetsContext: ['src/theme/assets/get-assets-context.ts'],
+  // │   |   ├── icons/
   themeIcons: [String.raw`src/theme/assets/icons/*.svg`],
   // |   |   └── images/
-  themeConfig: ['src/theme/*.ts'],
   themeImages: [
     'src/theme/assets/images/*.webp',
     'src/theme/assets/images/**/*.png',
   ],
-  // |   ├── styles/
-  themeStyles: ['src/theme/styles/*.css'],
   // ├── translations/
   translations: ['src/translations/*.json'],
 };
@@ -59,16 +58,12 @@ export const independentModulesConfig = createIndependentModules({
   modules: [
     // src
     // ├── __tests__/
-    // │   ├── mocks/
-    // |   |   └── *.ts
-    // │   ├── setup.ts
-    // │   └── test-wrappers.tsx
     {
       name: 'Tests files',
       pattern: 'src/__tests__/**/*.(ts|tsx)',
       // can import:
       allowImportsFrom: [
-        '{family}/**/*.(ts|tsx)',
+        '{dirname}/**/*.(ts|tsx)',
         '{hooksBarrel}',
         '{services}',
         '{providersBarrel}',
@@ -76,24 +71,25 @@ export const independentModulesConfig = createIndependentModules({
       ],
     },
     // ├── components/
-    // │   ├── atoms/
-    // │   |   ├── component-folder/
-    // |   |   |   ├── component-folder.tsx
-    // |   |   |   └── (component-folder.test.tsx)
-    // │   |   ├── ...
-    // │   |   └── index.ts
-    // TODO: improve this rule to allow imports from same family only but also from all barrels below
     {
-      name: 'Tests component files',
-      pattern: 'src/components/**/*.(test|stories).tsx',
+      name: 'tests Components',
+      pattern: 'src/components/**/*.test.tsx',
       // can import:
-      allowImportsFrom: ['**/*'],
+      allowImportsFrom: [
+        '{testWrappers}',
+        '{dirname}/*.tsx',
+        '{hooksBarrel}',
+        '{services}',
+        '{providersBarrel}',
+      ],
     },
+    // │   ├── atoms/
     {
       name: 'Atoms Components',
       pattern: 'src/components/atoms/**/*.tsx',
       // can import:
       allowImportsFrom: [
+        '{dirname}/*.tsx',
         '{providersBarrel}',
         '{hooksBarrel}',
         '{themeIcons}',
@@ -102,12 +98,13 @@ export const independentModulesConfig = createIndependentModules({
         '{getAssetsContext}',
       ],
     },
-    // │   ├── molecules/                 // same structure as atoms/
+    // │   ├── molecules/
     {
       name: 'Molecules Components',
       pattern: 'src/components/molecules/**/*.tsx',
       // can import:
       allowImportsFrom: [
+        '{dirname}/*.tsx',
         '{atomsBarrel}',
         '{providersBarrel}',
         '{hooksBarrel}',
@@ -117,15 +114,15 @@ export const independentModulesConfig = createIndependentModules({
         '{getAssetsContext}',
       ],
     },
-    // │   ├── organisms/                 // same structure as atoms/
+    // │   ├── organisms/
     {
       name: 'Organisms Components',
       pattern: 'src/components/organisms/**/*.tsx',
       // can import:
       allowImportsFrom: [
+        '{dirname}/*.tsx',
         '{atomsBarrel}',
         '{moleculesBarrel}',
-        '{family_1}/**/*.tsx', // allow imports from same family so organisms can import other organisms
         '{providersBarrel}',
         '{hooksBarrel}',
         '{themeIcons}',
@@ -134,12 +131,14 @@ export const independentModulesConfig = createIndependentModules({
         '{getAssetsContext}',
       ],
     },
-    // │   ├── templates/                 // same structure as atoms/
+    // │   ├── templates/
     {
       name: 'Templates Components',
       pattern: 'src/components/templates/**/*.tsx',
       // can import:
       allowImportsFrom: [
+        '{family_2}/**/*.tsx', // allow imports from same family so templates can import other templates
+        '{dirname}/*.tsx',
         '{atomsBarrel}',
         '{moleculesBarrel}',
         '{organismsBarrel}',
@@ -148,11 +147,10 @@ export const independentModulesConfig = createIndependentModules({
         '{themeIcons}',
         '{themeImages}',
         '{services}',
-        '{family_2}/**/*.tsx', // allow imports from same family so templates can import other templates
         '{getAssetsContext}',
       ],
     },
-    // │   └── providers/                 // same structure as atoms/
+    // │   └── providers/
     {
       name: 'Theme Provider',
       pattern: 'src/components/providers/theme-provider/theme-provider.tsx',
@@ -168,27 +166,15 @@ export const independentModulesConfig = createIndependentModules({
       name: 'Providers Components',
       pattern: 'src/components/providers/**/*.tsx',
       // can import:
-      allowImportsFrom: [
-        '{hooksBarrel}',
-        '{themeIcons}', // why ?
-        '{themeImages}', // why ?
-        '{services}',
-        '{getAssetsContext}',
-      ],
+      allowImportsFrom: ['{hooksBarrel}', '{services}', '{getAssetsContext}'],
     },
     // ├── hooks/
-    // │   ├── use-hook-name/
-    // │   |   ├── use-hook-name.ts
-    // │   |   └── (use-hook-name.test.tsx)
-    // │   └── index.ts
     {
       name: 'Hooks',
       pattern: 'src/hooks/**/*.tsx',
       // can import:
       allowImportsFrom: [
         '{family_1}/**/use-*.ts', // allow imports from same family so hooks can import other hooks
-        // '{themeIcons}', // why ?
-        // '{themeImages}', // why ?
         '{services}',
       ],
     },
@@ -240,21 +226,6 @@ export const independentModulesConfig = createIndependentModules({
       ],
     },
     // ├── services/
-    // │   ├── domains/
-    // │   │   ├── domain-name/
-    // │   │   │   ├── (api.ts)
-    // │   │   │   ├── (query-options.ts)
-    // │   │   │   ├── (schema.ts)
-    // │   │   │   └── index.ts
-    // │   ├── navigation/
-    // │   │   ├── router.ts
-    // │   │   └── routeTree.gen.ts
-    // │   ├── i18n/
-    // │   │   ├── instance.ts
-    // │   │   └── i18next.d.ts
-    // │   ├── api.ts
-    // │   ├── instance.ts
-    // │   └── *.ts
     {
       name: 'Services',
       pattern: 'src/services/**/*.ts',
@@ -267,13 +238,6 @@ export const independentModulesConfig = createIndependentModules({
       ], // allow imports from same family so services can import other services
     },
     // ├── theme/
-    // |   ├── assets/
-    // |   |   ├── icons/
-    // |   |   |   └── kebab-case.{svg}
-    // |   |   └── images/
-    // |   |   |   └── kebab-case.{webp}
-    // |   ├── styles/
-    // |   |   └── *.css
     {
       name: 'Theme',
       pattern: 'src/theme/**/*.ts',
@@ -285,7 +249,6 @@ export const independentModulesConfig = createIndependentModules({
       ],
     },
     // ├── translations/
-    // |   └── *.json
     {
       name: 'Translations',
       pattern: 'src/translations/**/*.ts',
@@ -302,8 +265,8 @@ export const independentModulesConfig = createIndependentModules({
         '{hooksBarrel}',
         '{themeIcons}',
         '{themeImages}',
-        '{themeStyles}',
         '{services}',
+        '{navigatorsBarrel}',
       ],
     },
   ],
