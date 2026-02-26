@@ -4,8 +4,8 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import * as z from 'zod';
 
-import en from '../../translations/en-EN.json';
-import fr from '../../translations/fr-FR.json';
+import en from '@/translations/en-en.json';
+import fr from '@/translations/fr-fr.json';
 
 export const enum SupportedLanguages {
   EN_EN = 'en-EN',
