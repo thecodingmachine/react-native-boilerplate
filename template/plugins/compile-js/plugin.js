@@ -4,7 +4,7 @@ const { execSync, spawnSync } = require('node:child_process');
 const fs = require('node:fs');
 const path = require('node:path');
 
-const TYPESCRIPT_VERSION = '5.6.3';
+const TYPESCRIPT_VERSION = '5.8.3';
 
 function isYarnAvailable() {
   try {
@@ -83,22 +83,36 @@ module.exports = {
           fs.cpSync(
             path.join('src', 'theme', 'assets', 'images'),
             path.join('js', 'src', 'theme', 'assets', 'images'),
-            { recursive: true }
+            { recursive: true },
           );
           console.log('♻️  Replacing source...');
           fs.rmSync('src', { recursive: true, force: true });
           fs.cpSync(path.join('js', 'src'), 'src', { recursive: true });
           fs.rmSync('js', { recursive: true, force: true });
         } catch {
-          console.error(
-            '🚨 Failed to copy assets or replace source.',
-          );
+          console.error('🚨 Failed to copy assets or replace source.');
           process.exit(1);
         }
-        console.log('🌀 Removing types ...');
-        fs.rmSync(path.join('src', 'theme', 'types'), { recursive: true, force: true });
-        fs.rmSync(path.join('src', 'navigation', 'paths.js'), { force: true });
-        fs.rmSync(path.join('src', 'navigation', 'types.js'), { force: true });
+
+        console.log('🌀 Removing TypeScript type files...');
+        // Remove type definition files
+        fs.rmSync(path.join('src', 'theme', 'assets', 'context.d.js'), {
+          force: true,
+        });
+        fs.rmSync(path.join('src', 'services', 'i18n', 'i18next.d.js'), {
+          force: true,
+        });
+
+        // Remove types directories
+        fs.rmSync(path.join('src', 'services', 'theme-generation', 'types'), {
+          force: true,
+          recursive: true,
+        });
+
+        // Remove navigation type files (keep implementation)
+        fs.rmSync(path.join('src', 'services', 'navigation', 'types.js'), {
+          force: true,
+        });
       }
 
       resolve();

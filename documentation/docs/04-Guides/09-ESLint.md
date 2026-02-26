@@ -60,6 +60,37 @@ export default defineConfig([
 ]);
 ```
 
+### JavaScript Support
+
+The ESLint configuration works seamlessly with both TypeScript and JavaScript projects:
+
+```js title="eslint.config.js"
+export default defineConfig([
+  // ... TypeScript configs
+
+  // Specific configuration for JavaScript files
+  {
+    files: ['**/*.{js,jsx}'],
+    ...tseslint.configs.disableTypeChecked,
+  },
+
+  // ... rest of config
+]);
+```
+
+When you choose JavaScript during project initialization, TypeScript-specific type-checking rules are automatically disabled for `.js` and `.jsx` files. This includes:
+- All rules requiring type information (from `strictTypeChecked` and `stylisticTypeChecked`)
+- Type-aware linting rules
+
+**All other rules remain active for JavaScript:**
+- Project structure enforcement
+- Code composition rules
+- Import sorting (perfectionist)
+- React best practices
+- Unicorn JS/TS best practices
+
+This ensures code quality and architectural consistency regardless of whether you use TypeScript or JavaScript.
+
 ## Key Plugins
 
 ### 1. eslint-plugin-project-structure

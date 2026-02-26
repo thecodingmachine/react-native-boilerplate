@@ -52,6 +52,11 @@ export default defineConfig([
   reactRefresh.configs.recommended,
   reactYouMightNotNeedAnEffect.configs.strict,
   eslintConfigPrettier, // last
+  // Specific configuration for JavaScript files
+  {
+    files: ['**/*.{js,jsx}'],
+    ...tseslint.configs.disableTypeChecked,
+  },
   {
     languageOptions: {
       globals: {
