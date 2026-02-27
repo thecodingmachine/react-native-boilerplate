@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 /* eslint-disable no-console */
 const { execSync, spawnSync } = require('node:child_process');
+const fs = require('node:fs');         // ← tambah di bagian atas
+const path = require('node:path');     // ← tambah di bagian atas
 
 const TYPESCRIPT_VERSION = '5.6.3';
 
@@ -9,17 +11,20 @@ function isYarnAvailable() {
     return !!(
       execSync('yarn --version', {
         stdio: [0, 'pipe', 'ignore'],
+        shell: true, // ← tambahkan ini
       }).toString() || ''
     ).trim();
   } catch {
     return null;
   }
 }
+
 function isNpmAvailable() {
   try {
     return !!(
       execSync('npm --version', {
         stdio: [0, 'pipe', 'ignore'],
+        shell: true, // ← tambahkan ini
       }).toString() || ''
     ).trim();
   } catch {
@@ -56,7 +61,7 @@ module.exports = {
         const installTypeScriptCmd = spawnSync(
           packageManager,
           [addCmd, '-D', `typescript@${TYPESCRIPT_VERSION}`],
-          { stdio: 'inherit' },
+          { stdio: 'inherit', shell: true }, // ← tambahkan shell: true
         );
         if (installTypeScriptCmd.error) {
           console.error(installTypeScriptCmd.error);
@@ -67,7 +72,7 @@ module.exports = {
         const transpileCmd = spawnSync(
           'npx',
           ['tsc', '--project', `plugins/compile-js/tsconfig.build.json`],
-          { stdio: 'inherit' },
+          { stdio: 'inherit', shell: true }, // ← tambahkan shell: true
         );
         if (transpileCmd.error) {
           console.error(transpileCmd.error);
@@ -76,23 +81,25 @@ module.exports = {
 
         try {
           console.log('🖼️  Copying assets...');
-          execSync('cp -R src/theme/assets/images js/src/theme/assets/images');
-
+          fs.cpSync(
+            path.join('src', 'theme', 'assets', 'images'),
+            path.join('js', 'src', 'theme', 'assets', 'images'),
+            { recursive: true }
+          );
           console.log('♻️  Replacing source...');
-          execSync('rm -rf src', { stdio: 'pipe' });
-          execSync('cp -R js/src ./src', { stdio: 'pipe' });
-          execSync('rm -rf js', { stdio: 'pipe' });
+          fs.rmSync('src', { recursive: true, force: true });
+          fs.cpSync(path.join('js', 'src'), 'src', { recursive: true });
+          fs.rmSync('js', { recursive: true, force: true });
         } catch {
           console.error(
-            '🚨 Failed to copy assets or replace source. If you are using windows, please use git bash.',
+            '🚨 Failed to copy assets or replace source.',
           );
           process.exit(1);
         }
-
         console.log('🌀 Removing types ...');
-        execSync('rm -rf src/theme/types', { stdio: 'pipe' });
-        execSync('rm -f src/navigation/paths.js', { stdio: 'pipe' });
-        execSync('rm -f src/navigation/types.js', { stdio: 'pipe' });
+        fs.rmSync(path.join('src', 'theme', 'types'), { recursive: true, force: true });
+        fs.rmSync(path.join('src', 'navigation', 'paths.js'), { force: true });
+        fs.rmSync(path.join('src', 'navigation', 'types.js'), { force: true });
       }
 
       resolve();
