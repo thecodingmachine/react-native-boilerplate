@@ -1,95 +1,68 @@
+import type * as Preset from '@docusaurus/preset-classic';
 import type { Config } from '@docusaurus/types';
+
 import { themes as prismThemes } from 'prism-react-renderer';
 
-export default {
-  title: 'The React Native Boilerplate',
-  tagline: 'Simple, Lightweight and Scalable.',
-  url: 'https://thecodingmachine.github.io',
+const config: Config = {
   baseUrl: '/react-native-boilerplate/',
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
   favicon: 'img/TOM-small.webp',
-  organizationName: 'thecodingmachine',
-  projectName: 'react-native-boilerplate',
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
   },
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
+  organizationName: 'thecodingmachine',
   plugins: [
-    async function myPlugin() {
+    function myPlugin() {
       return {
-        name: 'docusaurus-tailwindcss',
         configurePostCss(postcssOptions) {
-          // eslint-disable-next-line global-require,import/no-extraneous-dependencies
-          postcssOptions.plugins.push(require('tailwindcss'));
-          // eslint-disable-next-line global-require,import/no-extraneous-dependencies
-          postcssOptions.plugins.push(require('autoprefixer'));
+          // eslint-disable-next-line @typescript-eslint/no-require-imports
+          postcssOptions.plugins = [require('@tailwindcss/postcss')];
           return postcssOptions;
         },
+        name: 'docusaurus-tailwindcss',
       };
     },
   ],
   presets: [
     [
       'classic',
-      /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
-        docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
-          editUrl:
-            'https://github.com/thecodingmachine/react-native-boilerplate/edit/main/website-documentation/docs',
-        },
+      {
         blog: {
-          showReadingTime: true,
           editUrl:
             'https://github.com/thecodingmachine/react-native-boilerplate/edit/main/website-documentation/blog',
+          showReadingTime: true,
+        },
+        docs: {
+          editUrl:
+            'https://github.com/thecodingmachine/react-native-boilerplate/edit/main/website-documentation/docs',
+          sidebarPath: require.resolve('./sidebars.js'),
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
-      }),
+      } satisfies Preset.Options,
     ],
   ],
-
+  projectName: 'react-native-boilerplate',
+  tagline: 'Simple, Lightweight and Scalable.',
   themeConfig: {
     algolia: {
-      appId: '9PEYN0H12D',
-      indexName: 'rnboilerplate',
       apiKey: '983439b6ebef49ed3394ecfa290f1c6a',
+      appId: '9PEYN0H12D',
       contextualSearch: true,
+      indexName: 'rnboilerplate',
     },
     colorMode: {
       defaultMode: 'dark',
       disableSwitch: false,
       respectPrefersColorScheme: false,
     },
-    navbar: {
-      title: 'React Native Boilerplate',
-      logo: {
-        alt: 'octopus tentacle logo',
-        src: 'img/TOM-small.webp',
-      },
-      items: [
-        {
-          type: 'doc',
-          docId: 'getting-started',
-          position: 'left',
-          label: 'Docs',
-        },
-        { to: '/blog', label: 'Blog', position: 'left' },
-        {
-          to: 'https://github.com/thecodingmachine/react-native-boilerplate',
-          label: ' ',
-          className: 'header-github-link group',
-          position: 'right',
-        },
-      ],
-    },
     footer: {
-      style: 'dark',
+      copyright: `Copyright © ${new Date().getFullYear()} React Native Boilerplate, by TheCodingMachine. Built with Docusaurus.`,
       links: [
         {
-          title: 'Features',
           items: [
             {
               label: 'Javascript or TypeScript ? You choose !',
@@ -112,9 +85,9 @@ export default {
               to: '/docs/theming/how-to-use',
             },
           ],
+          title: 'Features',
         },
         {
-          title: 'More',
           items: [
             {
               label: 'Blog',
@@ -125,13 +98,41 @@ export default {
               to: 'https://github.com/thecodingmachine/react-native-boilerplate',
             },
           ],
+          title: 'More',
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} React Native Boilerplate, by TheCodingMachine. Built with Docusaurus.`,
+      style: 'dark',
+    },
+    navbar: {
+      items: [
+        {
+          docId: 'getting-started',
+          label: 'Docs',
+          position: 'left',
+          type: 'doc',
+        },
+        { label: 'Blog', position: 'left', to: '/blog' },
+        {
+          className: 'header-github-link group',
+          label: ' ',
+          position: 'right',
+          to: 'https://github.com/thecodingmachine/react-native-boilerplate',
+        },
+      ],
+      logo: {
+        alt: 'octopus tentacle logo',
+        src: 'img/TOM-small.webp',
+      },
+      title: 'React Native Boilerplate',
     },
     prism: {
-      theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
+      theme: prismThemes.github,
     },
   },
-} satisfies Config;
+  title: 'The React Native Boilerplate',
+
+  url: 'https://thecodingmachine.github.io',
+};
+
+export default config;

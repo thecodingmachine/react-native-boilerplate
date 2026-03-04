@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
-import Navbar from '@theme-original/Navbar';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { useColorMode } from '@docusaurus/theme-common';
+import Navbar from '@theme-original/Navbar';
+import { useEffect } from 'react';
 
 export default function NavbarWrapper(props) {
   const { colorMode } = useColorMode();
@@ -10,7 +9,7 @@ export default function NavbarWrapper(props) {
     const element = document.querySelector('html');
 
     const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
+      for (const mutation of mutations) {
         if (mutation.type === 'attributes') {
           const html = document.documentElement;
           const needOverride = colorMode === 'dark' && !html.classList.contains('dark');
@@ -18,12 +17,15 @@ export default function NavbarWrapper(props) {
             html.classList.add('dark');
           }
         }
-      });
+      }
     });
 
-    observer.observe(element, {
+    if (element) {
+
+observer.observe(element, {
       attributes: true,
     });
+  }
 
     return () => {
       observer.disconnect();
@@ -32,11 +34,7 @@ export default function NavbarWrapper(props) {
 
   useEffect(() => {
     const html = document.documentElement;
-    if (colorMode === 'dark') {
-      html.classList.add('dark');
-    } else {
-      html.classList.remove('dark');
-    }
+    html.classList.toggle('dark', colorMode === 'dark');
   }, [colorMode]);
 
   return <Navbar {...props} />;
