@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 /* eslint-disable no-console */
 const { execSync, spawnSync } = require('node:child_process');
-const fs = require('node:fs');         // ← tambah di bagian atas
-const path = require('node:path');     // ← tambah di bagian atas
+const fs = require('node:fs');
+const path = require('node:path');
 
 const TYPESCRIPT_VERSION = '5.6.3';
 
@@ -11,7 +11,7 @@ function isYarnAvailable() {
     return !!(
       execSync('yarn --version', {
         stdio: [0, 'pipe', 'ignore'],
-        shell: true, // ← tambahkan ini
+        shell: true,
       }).toString() || ''
     ).trim();
   } catch {
@@ -24,7 +24,7 @@ function isNpmAvailable() {
     return !!(
       execSync('npm --version', {
         stdio: [0, 'pipe', 'ignore'],
-        shell: true, // ← tambahkan ini
+        shell: true,
       }).toString() || ''
     ).trim();
   } catch {
@@ -38,7 +38,6 @@ module.exports = {
       let packageManager = null;
       let addCmd = null;
 
-      // react-native cli prefer yarn so we follow the same logic
       if (isYarnAvailable()) {
         packageManager = 'yarn';
         addCmd = 'add';
@@ -61,7 +60,7 @@ module.exports = {
         const installTypeScriptCmd = spawnSync(
           packageManager,
           [addCmd, '-D', `typescript@${TYPESCRIPT_VERSION}`],
-          { stdio: 'inherit', shell: true }, // ← tambahkan shell: true
+          { stdio: 'inherit', shell: true },
         );
         if (installTypeScriptCmd.error) {
           console.error(installTypeScriptCmd.error);
@@ -72,7 +71,7 @@ module.exports = {
         const transpileCmd = spawnSync(
           'npx',
           ['tsc', '--project', `plugins/compile-js/tsconfig.build.json`],
-          { stdio: 'inherit', shell: true }, // ← tambahkan shell: true
+          { stdio: 'inherit', shell: true },
         );
         if (transpileCmd.error) {
           console.error(transpileCmd.error);
