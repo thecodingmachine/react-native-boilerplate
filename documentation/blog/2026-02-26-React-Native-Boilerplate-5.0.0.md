@@ -33,6 +33,7 @@ This version includes several breaking changes that require manual migration:
 All component files now use kebab-case instead of PascalCase:
 
 **Before:**
+
 ```
 src/components/
   atoms/
@@ -45,6 +46,7 @@ src/components/
 ```
 
 **After:**
+
 ```
 src/components/
   atoms/
@@ -57,6 +59,7 @@ src/components/
 ```
 
 **Migration steps:**
+
 - Rename all component folders to kebab-case
 - Rename all component files to kebab-case
 - Update all import statements accordingly
@@ -75,6 +78,7 @@ export { default as Skeleton } from './skeleton/skeleton';
 The main App file has been renamed to lowercase:
 
 **Before:**
+
 ```tsx
 // src/App.tsx
 import ApplicationNavigator from '@/navigation/Application';
@@ -93,6 +97,7 @@ function App() {
 ```
 
 **After:**
+
 ```tsx
 // src/app.tsx
 import '@/services/i18n/instance';
@@ -114,6 +119,7 @@ function App() {
 ```
 
 **Migration steps:**
+
 - Rename `src/App.tsx` to `src/app.tsx`
 - Update imports to use new services structure
 - Update navigator import
@@ -125,6 +131,7 @@ A new services layer has been introduced to centralize business logic, API calls
 ##### HTTP Client
 
 **Before:**
+
 ```tsx
 // src/App.tsx
 export const queryClient = new QueryClient({
@@ -136,6 +143,7 @@ export const queryClient = new QueryClient({
 ```
 
 **After:**
+
 ```ts
 // src/services/http-client.ts
 import { QueryClient } from '@tanstack/react-query';
@@ -157,6 +165,7 @@ export const queryClient = new QueryClient({
 ##### Storage
 
 **Before:**
+
 ```tsx
 // src/App.tsx
 import { createMMKV } from 'react-native-mmkv';
@@ -164,6 +173,7 @@ export const storage = createMMKV();
 ```
 
 **After:**
+
 ```ts
 // src/services/storage.ts
 import { createMMKV } from 'react-native-mmkv';
@@ -229,6 +239,7 @@ export const fetchOneQueryOptions = (currentId: User['id']) =>
 ```
 
 **Migration steps:**
+
 - Move existing API calls to `services/domains/{domain}/{domain}.api.ts`
 - Create schemas in `services/domains/{domain}/{domain}.schema.ts`
 - Create query options in `services/domains/{domain}/{domain}.query-options.ts`
@@ -239,6 +250,7 @@ export const fetchOneQueryOptions = (currentId: User['id']) =>
 Internationalization has been moved to the services layer:
 
 **Before:**
+
 ```
 src/
   translations/
@@ -252,6 +264,7 @@ src/
 ```
 
 **After:**
+
 ```
 src/
   translations/
@@ -264,6 +277,7 @@ src/
 ```
 
 **Migration steps:**
+
 - Rename translation files to lowercase (en-EN.json → en-en.json)
 - Move i18n configuration to `services/i18n/instance.ts`
 - Import i18n at the top of `app.tsx`: `import '@/services/i18n/instance';`
@@ -274,6 +288,7 @@ src/
 The navigator has been renamed and relocated:
 
 **Before:**
+
 ```tsx
 // src/navigation/Application.tsx
 function ApplicationNavigator() {
@@ -293,6 +308,7 @@ function ApplicationNavigator() {
 ```
 
 **After:**
+
 ```tsx
 // src/navigators/root.tsx
 function RootNavigator() {
@@ -324,6 +340,7 @@ function RootNavigator() {
 ```
 
 **Migration steps:**
+
 - Move `src/navigation/Application.tsx` to `src/navigators/root.tsx`
 - Rename `ApplicationNavigator` to `RootNavigator`
 - Move navigation types to `src/services/navigation/types.ts`
@@ -333,6 +350,7 @@ function RootNavigator() {
 #### 6. Hooks Reorganization
 
 **Before:**
+
 ```
 src/
   theme/
@@ -350,6 +368,7 @@ src/
 ```
 
 **After:**
+
 ```
 src/
   hooks/
@@ -364,6 +383,7 @@ src/
 ```
 
 **Migration steps:**
+
 - Move `useTheme` to `hooks/use-theme/use-theme.ts`
 - Move domain hooks to services layer
 - Update import paths: `import { useTheme } from '@/hooks';`
@@ -374,11 +394,13 @@ src/
 The ThemeProvider has been moved to components/providers:
 
 **Before:**
+
 ```tsx
 import { ThemeProvider } from '@/theme';
 ```
 
 **After:**
+
 ```tsx
 import { ThemeProvider } from '@/components/providers';
 ```
@@ -388,6 +410,7 @@ import { ThemeProvider } from '@/components/providers';
 Tests have been reorganized with a cleaner structure:
 
 **Before:**
+
 ```
 src/
   __mocks__/
@@ -402,6 +425,7 @@ src/
 ```
 
 **After:**
+
 ```
 src/
   __tests__/
@@ -421,6 +445,7 @@ src/
 ```
 
 **Migration steps:**
+
 - Move `tests/TestAppWrapper.tsx` to `__tests__/test-wrappers.tsx`
 - Create `__tests__/setup.ts` for test configuration
 - Organize mocks in `__tests__/mocks/`
@@ -449,6 +474,7 @@ import TestAppWrapper from '@/__tests__/test-wrappers';
 Screens follow the same kebab-case convention:
 
 **Before:**
+
 ```
 src/screens/
   Example/
@@ -459,6 +485,7 @@ src/screens/
 ```
 
 **After:**
+
 ```
 src/screens/
   example/
@@ -473,11 +500,13 @@ src/screens/
 Asset helper functions have been renamed:
 
 **Before:**
+
 ```tsx
 import getAssetsContext from '@/theme/assets/getAssetsContext';
 ```
 
 **After:**
+
 ```tsx
 import getAssetsContext from '@/theme/assets/get-assets-context';
 ```
@@ -496,12 +525,14 @@ Version 5.0 introduces a powerful ESLint configuration that enforces project str
 #### Configuration Structure
 
 **Before:**
+
 ```js
 // eslint.config.mjs
 export default tseslint.config(/*...*/);
 ```
 
 **After:**
+
 ```js
 // eslint.config.js
 import { fileCompositionConfig } from './eslint/file-composition/index.mjs';
@@ -515,7 +546,10 @@ export default defineConfig([
     rules: {
       'project-structure/file-composition': [ERROR, fileCompositionConfig],
       'project-structure/folder-structure': [ERROR, folderStructureConfig],
-      'project-structure/independent-modules': [ERROR, independentModulesConfig],
+      'project-structure/independent-modules': [
+        ERROR,
+        independentModulesConfig,
+      ],
     },
   },
   // ... other configs
@@ -540,11 +574,21 @@ export const folderStructureConfig = {
       {
         name: 'src',
         children: [
-          { name: 'components', children: [/* atoms, molecules, organisms, templates */] },
+          {
+            name: 'components',
+            children: [
+              /* atoms, molecules, organisms, templates */
+            ],
+          },
           { name: 'hooks' },
           { name: 'navigators' },
           { name: 'screens' },
-          { name: 'services', children: [/* domains, i18n, navigation, storage */] },
+          {
+            name: 'services',
+            children: [
+              /* domains, i18n, navigation, storage */
+            ],
+          },
           { name: 'theme' },
           { name: 'translations' },
         ],
@@ -605,25 +649,6 @@ const { isError, isSuccess } = useQuery({
 
 This makes it easier to handle initialization logic and conditional rendering based on app state.
 
-### Ky HTTP Client
-
-The boilerplate now uses Ky as the HTTP client, providing a modern, lightweight alternative to axios:
-
-```ts
-import ky from 'ky';
-
-export const httpClient = ky.extend({
-  headers: { Accept: 'application/json' },
-  prefixUrl: `${process.env.API_URL ?? ''}/`,
-});
-```
-
-Ky provides:
-- Better TypeScript support
-- Simpler API
-- Smaller bundle size
-- Native Fetch API under the hood
-
 ### Domain-Driven Architecture
 
 The new services layer encourages domain-driven design:
@@ -637,6 +662,7 @@ services/
 ```
 
 Each domain contains:
+
 - **schema**: Type definitions and validation
 - **api**: API calls
 - **query-options**: TanStack Query configuration
@@ -660,7 +686,7 @@ Use this checklist to ensure a complete migration:
 - [ ] Move navigation paths to services/navigation/paths.ts
 - [ ] Move useTheme to hooks/use-theme/use-theme.ts
 - [ ] Update ThemeProvider import
-- [ ] Reorganize tests to __tests__ structure
+- [ ] Reorganize tests to **tests** structure
 - [ ] Update jest.config.js setupFilesAfterEnv
 - [ ] Migrate domain hooks to services structure
 - [ ] Update all import paths throughout the codebase
