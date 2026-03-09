@@ -1,6 +1,47 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@custom-variant dark (&:is([data-theme="dark"] *));
+
+@theme {
+  /* Custom Colors */
+  --color-docusaurus-dark: #1b1b1d;
+
+  /* Custom Screens (Breakpoints) */
+  --breakpoint-xs: 375px;
+
+  /* Keyframes */
+  @keyframes blob {
+    0%,
+    100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    33% {
+      transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+  }
+
+  @keyframes circle {
+    0%,
+    100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    33% {
+      transform: translate(10px, -10px) scale(1.1);
+    }
+    66% {
+      transform: translate(-5px, 5px) scale(0.9);
+    }
+  }
+
+  /* Animations */
+  --animate-blob: blob 7s infinite;
+  --animate-blob-delay-1: blob 10s 1s infinite;
+  --animate-circle: circle 20s infinite;
+  --animate-circle-delay-1: circle 20s 2s infinite;
+}
 
 .navbar {
   @apply bg-transparent;
@@ -31,8 +72,8 @@ main {
   @apply text-red-500;
 }
 
-
-.breadcrumbs, .breadcrumbs li {
+.breadcrumbs,
+.breadcrumbs li {
   @apply p-0;
   @apply flex;
   @apply items-center;
@@ -105,25 +146,26 @@ main {
   @apply hover:text-red-500;
 }
 
-.navbar-sidebar__backdrop, .navbar-sidebar {
+.navbar-sidebar__backdrop,
+.navbar-sidebar {
   @apply h-screen;
 }
 
 .DocSearch-Modal {
-  @apply bg-white/50 !important;
-  @apply dark:bg-black/50 !important;
-  @apply backdrop-blur-sm !important;
-  @apply shadow-lg !important;
-  @apply shadow-red-500/50 !important;
+  @apply !bg-white/50;
+  @apply dark:!bg-black/50;
+  @apply !backdrop-blur-sm;
+  @apply !shadow-lg;
+  @apply !shadow-red-500/50;
 }
 
 .DocSearch-Footer {
-  @apply bg-red-500 !important;
+  @apply !bg-red-500;
   border-radius: 0 0 5px 5px !important;
 }
 
 .DocSearch-Help {
-  @apply text-neutral-800 !important;
+  @apply !text-neutral-800;
 }
 
 .DocSearch-NoResults {
@@ -133,12 +175,12 @@ main {
 }
 
 .DocSearch-Screen-Icon {
-  @apply p-0 !important;
+  @apply !p-0;
   @apply mr-3;
 }
 
 .DocSearch-Label {
-  @apply text-white !important;
+  @apply !text-white;
 }
 
 .blog-wrapper main {
@@ -162,7 +204,8 @@ table thead tr {
   @apply border-0;
 }
 
-table th, table td {
+table th,
+table td {
   @apply border-0;
 }
 
@@ -171,14 +214,14 @@ table tr:nth-child(2n) {
 }
 
 :root {
-  --ifm-color-secondary: #C2C3C6;
-  --ifm-color-primary: #F44949;
-  --ifm-color-primary-dark: #AD2020;
-  --ifm-color-primary-darker: #A31F1F;
-  --ifm-color-primary-darkest: #871B1B;
-  --ifm-color-primary-light: #C94646;
-  --ifm-color-primary-lighter: #D36767;
-  --ifm-color-primary-lightest: #DD9292;
+  --ifm-color-secondary: #c2c3c6;
+  --ifm-color-primary: #f44949;
+  --ifm-color-primary-dark: #ad2020;
+  --ifm-color-primary-darker: #a31f1f;
+  --ifm-color-primary-darkest: #871b1b;
+  --ifm-color-primary-light: #c94646;
+  --ifm-color-primary-lighter: #d36767;
+  --ifm-color-primary-lightest: #dd9292;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --ifm-navbar-shadow: none;
@@ -187,14 +230,14 @@ table tr:nth-child(2n) {
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-secondary: #C2C3C6;
-  --ifm-color-primary: #F44949;
-  --ifm-color-primary-dark: #AD2020;
-  --ifm-color-primary-darker: #A31F1F;
-  --ifm-color-primary-darkest: #871B1B;
-  --ifm-color-primary-light: #C94646;
-  --ifm-color-primary-lighter: #D36767;
-  --ifm-color-primary-lightest: #DD9292;
+  --ifm-color-secondary: #c2c3c6;
+  --ifm-color-primary: #f44949;
+  --ifm-color-primary-dark: #ad2020;
+  --ifm-color-primary-darker: #a31f1f;
+  --ifm-color-primary-darkest: #871b1b;
+  --ifm-color-primary-light: #c94646;
+  --ifm-color-primary-lighter: #d36767;
+  --ifm-color-primary-lightest: #dd9292;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   --ifm-navbar-shadow: none;
@@ -202,17 +245,18 @@ table tr:nth-child(2n) {
 }
 
 .footer__title {
-  @apply dark:text-white !important;
+  @apply dark:!text-white;
 }
 
-.footer__link-item, .footer__copyright {
+.footer__link-item,
+.footer__copyright {
   @apply text-neutral-500;
   @apply dark:text-neutral-300;
   @apply hover:text-red-500;
   @apply dark:hover:text-red-400;
 }
 
-@media (max-width: 996px){
+@media (max-width: 996px) {
   .navbar__item {
     display: none !important;
   }
@@ -233,19 +277,18 @@ table tr:nth-child(2n) {
   @apply text-red-500;
 }
 
-
 .header-github-link::before {
   content: '';
   width: 24px;
   height: 24px;
   display: flex;
   background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E")
-  no-repeat;
+    no-repeat;
 }
 
 [data-theme='dark'] .header-github-link::before {
   background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='white' d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E")
-  no-repeat;
+    no-repeat;
 }
 div:has(> .theme-doc-sidebar-container) {
   @apply !min-h-screen;

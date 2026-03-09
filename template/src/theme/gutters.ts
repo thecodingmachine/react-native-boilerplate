@@ -1,7 +1,7 @@
-import { type ViewStyle } from 'react-native';
+import type { UnionConfiguration } from '@/services/theme-generation/types/config';
+import type { Gutters } from '@/services/theme-generation/types/gutters';
 
-import type { UnionConfiguration } from '@/theme/types/config';
-import type { Gutters } from '@/theme/types/gutters';
+import { ViewStyle } from 'react-native';
 
 export const generateGutters = (configuration: UnionConfiguration): Gutters => {
   // eslint-disable-next-line unicorn/no-array-reduce

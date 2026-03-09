@@ -26,8 +26,43 @@ During the installation process, you will encounter the following prompt:
 📘 Using typescript ? (Y/n)
 ```
 
-This prompt gives you the flexibility to choose whether you want to use TypeScript or not.
-If you choose not to use TypeScript, the project will be created without any TypeScript configuration.
+This prompt gives you the flexibility to choose whether you want to use TypeScript or JavaScript for your project.
+
+### TypeScript (Default - Recommended)
+
+If you choose **Yes** (or simply press Enter), your project will be set up with TypeScript. This includes:
+- Full TypeScript support with strict type checking
+- Type definitions for all services, components, and hooks
+- Enhanced IDE autocomplete and error detection
+- Better refactoring capabilities
+
+### JavaScript
+
+If you choose **No**, the boilerplate will automatically:
+1. 📦 Install TypeScript temporarily as a build tool
+2. 🧱 Compile all TypeScript source files to JavaScript
+3. 🖼️ Copy assets (images, icons) to the compiled output
+4. ♻️ Replace the TypeScript source with the compiled JavaScript code
+5. 🌀 Remove TypeScript-specific files:
+   - Type definition files (`*.d.ts`)
+   - Type directories (`src/services/theme-generation/types/`)
+   - Navigation type files
+
+The resulting project will be pure JavaScript while maintaining the same architecture and structure.
+
+:::tip Windows Users
+If you're on Windows, we recommend using **Git Bash** or **WSL** for the installation process. The JavaScript compilation uses POSIX shell commands that are not available in Command Prompt or PowerShell.
+
+If you encounter `spawnSync ENOENT` errors, ensure you're using Git Bash or check the [FAQ troubleshooting section](/docs/faq#installation--troubleshooting).
+:::
+
+:::note ESLint Configuration
+The ESLint configuration is designed to work with both TypeScript and JavaScript projects. When using JavaScript, TypeScript-specific rules are automatically disabled.
+:::
+
+:::warning Migration Limitation
+Once you choose JavaScript, migrating back to TypeScript requires manual effort. Consider your team's preferences carefully before making this choice.
+:::
 
 ## Running the project
 

@@ -16,7 +16,8 @@
     "*.js",
     ".*.js",
     "*.ts",
-    ".prettierrc.mjs"
+    ".prettierrc.mjs",
+    "eslint/**/*.mjs"
   ],
   "exclude": ["**/node_modules", "_", "android", "ios", "**/Pods"]
 }
