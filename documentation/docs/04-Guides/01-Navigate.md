@@ -13,16 +13,24 @@ any new features and improvements.
 
 ## Navigation structure
 
-All navigation-related configurations and navigators are neatly organized within the `src/navigation` folder. Here's a brief overview:
+All navigation-related configurations and navigators are neatly organized within the `src/navigators` folder. Here's a brief overview:
 
-### Root file (`Application.{js, tsx}`)
+### Root file (`root.tsx`)
 
 This serves as the root navigator, which is responsible for handling the initial navigation of the application.
-It's a simple stack navigator that includes the [`Startup`](/docs/data-fetching#fetching-data-at-startup) screen and an Example screen.
+It's a simple stack navigator that includes a `Startup` screen and an `Example` screen with conditional rendering based on startup state.
 
-The workflow is designed so that when the application launches, the user is initially presented with the `Startup` screen.
-This screen takes on the responsibility of loading essential application data, such as user profiles and settings.
-Once this data is loaded, the `Startup` screen facilitates navigation to the `Example` screen.
+The workflow is designed so that when the application launches, the user is initially presented with the `Startup` screen or the `Example` screen depending on the result of the startup query.
+The navigator uses TanStack Query to handle initialization logic:
+
+```tsx
+const { isError, isSuccess } = useQuery({
+  queryFn: () => Promise.resolve(true),
+  queryKey: ['startup'],
+});
+```
+
+Once the startup query succeeds, users are navigated to the `Example` screen. This pattern makes it easy to handle loading states, errors, and conditional navigation.
 
 As your application evolves, you have the flexibility to extend this file by adding more screens and navigators.
 
@@ -34,7 +42,9 @@ You can either add your own navigators or, if you prefer, replace the existing s
 ## Using typescript
 
 It's crucial not to overlook the creation of types for your navigation parameters. This practice helps prevent errors and enhances autocompletion.
-You can define these types in the `@/navigation/types.ts` file.
+You can define these types in the `src/services/navigation/types.ts` file.
+
+Navigation paths are defined in `src/services/navigation/paths.ts` for centralized path management.
 
 For more in-depth information on this topic, please refer to the [React Navigation documentation](https://reactnavigation.org/docs/typescript/).
 

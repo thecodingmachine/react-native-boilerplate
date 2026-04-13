@@ -11,14 +11,15 @@ The template `SafeScreen` component is a helper component that allows you to dis
 ### Usage
 
 ```jsx
-import { useI18n, useUser } from '@/hooks';
+import { useQuery } from '@tanstack/react-query';
+import { fetchOneUserQueryOptions } from '@/services/domains/user/user.query-options';
 
 import { SafeScreen } from '@/components/templates';
 
 function Example() {
-  const { useFetchOneQuery } = useUser();
+  const userId = 1;
 
-  const fetchOneUserQuery = useFetchOneQuery(1);
+  const fetchOneUserQuery = useQuery(fetchOneUserQueryOptions(userId));
 
   return (
     <SafeScreen

@@ -1,8 +1,11 @@
+import type { UnionConfiguration } from '@/services/theme-generation/types/config';
+import type {
+  FontColors,
+  FontSizes,
+} from '@/services/theme-generation/types/fonts';
 import type { TextStyle } from 'react-native';
 
-import { config } from '@/theme/_config';
-import type { UnionConfiguration } from '@/theme/types/config';
-import type { FontColors, FontSizes } from '@/theme/types/fonts';
+import { config } from './_config';
 
 export const generateFontColors = (configuration: UnionConfiguration) => {
   // eslint-disable-next-line unicorn/no-array-reduce

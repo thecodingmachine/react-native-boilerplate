@@ -6,9 +6,9 @@ id: theming-how-to-use
 keywords: [theme, theming, useTheme, hooks, themeProvider]
 ---
 
-The boilerplate provides a pre-configured theme ready for use. 
-To make use of it, simply follow this section's instructions. 
-If you'd like to gain a deeper understanding of the theme configuration, please refer to 
+The boilerplate provides a pre-configured theme ready for use.
+To make use of it, simply follow this section's instructions.
+If you'd like to gain a deeper understanding of the theme configuration, please refer to
 the [configuration](/docs/theming/configuration) section for more details.
 
 ## `useTheme` hook
@@ -16,7 +16,7 @@ the [configuration](/docs/theming/configuration) section for more details.
 If you need to access the style classes, you can use the `useTheme` hook in the following manner:
 
 ```tsx
-import { useTheme } from '@/theme';
+import { useTheme } from '@/hooks';
 
 const Example = () => {
     const {
@@ -32,7 +32,7 @@ const Example = () => {
       components,
       //highlight-end
     } = useTheme();
-    
+
     return (
         <View
             style={[
@@ -46,8 +46,8 @@ const Example = () => {
             {isError && (
                 <Text style={[
                     //highlight-start
-                    gutters.marginTop_30, 
-                    fonts.font_16, 
+                    gutters.marginTop_30,
+                    fonts.font_16,
                     fonts.text_red_500
                     //highlight-end
                 ]}>
@@ -61,18 +61,18 @@ const Example = () => {
 
 ## Change theme
 
-As mentioned in the [configuration](/docs/theming/configuration) section, you have the flexibility to add new themes 
+As mentioned in the [configuration](/docs/theming/configuration) section, you have the flexibility to add new themes
 (variants) and switch between them directly within the app. For example, if you have a `default` theme configured with a
 `dark` variant, you can switch the current theme to `dark` at any point.
 
 To achieve this, you can employ the `useTheme` hook as follows:
 
 ```tsx
-import { useTheme } from '@/theme';
+import { useTheme } from '@/hooks';
 
 const Example = () => {
     const { changeTheme } = useTheme();
-    
+
     return (
         <Button
             title="Change theme"
@@ -88,12 +88,12 @@ If you require assistance in defining a new theme variant, kindly consult the [c
 
 ## Theme Provider
 
-The magic of `useTheme` is made possible by our ThemeProvider component.
-This main component handles the generation of all the styles in your application. 
+The magic of `useTheme` is made possible by our ThemeProvider component located in `@/components/providers`.
+This main component handles the generation of all the styles in your application.
 As we've emphasized, a clean separation of concerns is paramount to us.
 
 That's why we've designed a single, transparent component, using the adapted [context pattern](https://react.dev/learn/passing-data-deeply-with-context)
-that takes care of generating all your styles, storing the theme variant, 
-and even offers you the flexibility to switch the theme for your entire app. 
-No black box magic here – you have full visibility into the code and the 
+that takes care of generating all your styles, storing the theme variant,
+and even offers you the flexibility to switch the theme for your entire app.
+No black box magic here – you have full visibility into the code and the
 freedom to enhance it as needed to meet your unique requirements.

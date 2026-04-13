@@ -1,3 +1,3 @@
-export { default as AssetByVariant } from './AssetByVariant/AssetByVariant';
-export { default as IconByVariant } from './IconByVariant/IconByVariant';
-export { default as Skeleton } from './Skeleton/Skeleton';
+export { default as AssetByVariant } from './asset-by-variant/asset-by-variant';
+export { default as IconByVariant } from './icon-by-variant/icon-by-variant';
+export { default as Skeleton } from './skeleton/skeleton';

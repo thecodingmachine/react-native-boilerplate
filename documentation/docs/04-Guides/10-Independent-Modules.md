@@ -1,0 +1,228 @@
+---
+slug: /independent-modules-architecture
+sidebar_label: Independent Modules Architecture
+title: Independent Modules Architecture
+description: Understanding the modular architecture and dependency rules in the React Native Boilerplate
+id: independent-modules-architecture
+keywords:
+  [
+    eslint,
+    project structure,
+    code quality,
+    linting,
+    folder structure,
+    independent modules,
+  ]
+---
+
+# Independent Modules Architecture
+
+This boilerplate uses a strict **layered architecture** with independent modules to ensure scalability, maintainability, and clear separation of concerns. Each module has well-defined responsibilities and knows exactly what it can import from.
+
+## Overview
+
+The architecture follows a concentric **onion model** where each layer can only import from inner layers. This prevents circular dependencies and creates a predictable, maintainable codebase.
+
+```
+┌─────────────────────────────┐
+│   ⭐ APP.tsx (Entry Point)  │
+├─────────────────────────────┤
+│  🗺️ Navigators (Navigation)  │
+├─────────────────────────────┤
+│  📱 Screens (Pages)          │
+├─────────────────────────────┤
+│  🎨 Components               │
+│  ├─ Templates (Layouts)      │
+│  ├─ Organisms                │
+│  ├─ Molecules                │
+│  ├─ Atoms                    │
+│  └─ Providers                │
+├─────────────────────────────┤
+│  🪝 Hooks (Custom hooks)     │
+├─────────────────────────────┤
+│  ⚙️ Services & Logic         │
+│  ├─ Domains (API/Query)      │
+│  ├─ Services (HTTP/Storage)  │
+│  ├─ Navigation Service       │
+│  └─ Theme Generation         │
+├─────────────────────────────┤
+│  🔷 Foundations              │
+│  ├─ Theme Configs            │
+│  └─ Translations             │
+└─────────────────────────────┘
+```
+
+## Layer Rules
+
+### 🔷 Layer 1: Foundations (Zero Dependencies)
+
+The innermost layer contains pure configuration files with **no imports from other modules**.
+
+**What lives here:**
+
+- `src/theme/` - Theme configuration (colors, fonts, spacing, etc.)
+- `src/translations/` - JSON translation files
+
+**Can import from:** Nothing (except external libraries)
+
+**Why:** These are the most stable, reusable assets that never change based on business logic.
+
+### ⚙️ Layer 2: Services & Business Logic
+
+Services contain the application's business logic, API interactions, and state management patterns.
+
+**What lives here:**
+
+- `src/services/domains/` - API domains (API calls, query options, schemas)
+- `src/services/` - Utilities (http-client, storage, i18n instance)
+- `src/services/navigation/` - Navigation paths and types
+- `src/services/theme-generation/` - Dynamic theme generation
+
+**Can import from:**
+
+- Foundation layer (themes, translations)
+- Same family (other services)
+
+**Why:** Services are the core logic layer. They're testable, independent of UI concerns.
+
+### 🪝 Layer 3: Hooks
+
+Custom hooks contain reusable stateful logic that can be used across components.
+
+**What lives here:**
+
+- `src/hooks/use-*/` - Custom React hooks
+
+**Can import from:**
+
+- Services layer (all services)
+- Same family (other hooks)
+
+**Why:** Hooks bridge business logic and UI. They encapsulate complex state management.
+
+### 🎨 Layer 4: Components
+
+Components are visual building blocks organized by atomic design principles.
+
+**Hierarchy:**
+
+1. **Atoms** - Single, isolated elements (Button, Input)
+2. **Molecules** - Simple component groups (Form, Card)
+3. **Organisms** - Complex components (UserForm, ProductCard)
+4. **Templates** - Page layouts (AuthLayout, MainLayout)
+5. **Providers** - Context providers
+
+**Can import from:**
+
+- Hooks
+- Services
+- Atoms (molecules import atoms)
+- Molecules (organisms import atoms & molecules)
+- Templates can import templates (same family)
+- Other components in same category (atoms/molecules/etc)
+
+**Why:** Components should be focused, reusable, and testable.
+
+### 📱 Layer 5: Screens
+
+Screens represent full pages in your application.
+
+**What lives here:**
+
+- `src/screens/*/screen.tsx` - Full page components
+
+**Can import from:**
+
+- Components (all types)
+- Hooks
+- Services
+- theme (images, icons)
+
+**Why:** Screens are the highest composable level, combining everything for a page.
+
+### 🗺️ Layer 6: Navigators
+
+Navigation structures that define app flows.
+
+**What lives here:**
+
+- `src/navigators/` - React Navigation stacks and tabs
+
+**Can import from:**
+
+- Screens
+- Components
+- Hooks
+- Services
+
+**Why:** Navigation is one level below the app entry point and should organize screens.
+
+### ⭐ Layer 7: App Entry Point
+
+The application's root component.
+
+**What lives here:**
+
+- `src/app.tsx` - Root component
+
+**Can import from:**
+
+- Navigators
+- Components
+- Services
+- theme (icons, images)
+- hooks
+
+**Why:** The entry point should only import the top-level navigator and global providers.
+
+## Module Independence Rules
+
+Each module follows these rules to maintain independence:
+
+### ✅ DO
+
+- ✅ Import from inner layers (towards the center)
+- ✅ Export barrel files (index.ts) for cleaner imports
+- ✅ Use relative imports within the same module
+- ✅ Keep modules focused on a single responsibility
+
+### ❌ DON'T
+
+- ❌ Import from outer layers (towards the edge)
+- ❌ Create circular dependencies
+- ❌ Skip module boundaries to "save a line"
+- ❌ Mix concerns (don't put business logic in components)
+
+## Enforcing Rules with ESLint
+
+The boilerplate uses two ESLint plugins to enforce these rules:
+
+:::info ESLint Configuration Details
+For a complete guide on ESLint configuration, customization options, and all available rules, see the [ESLint & Project Structure](/docs/eslint-project-structure) documentation.
+:::
+
+### 1. **folder-structure** - Validates file organization
+
+Ensures files are in the right folders with correct names.
+
+```javascript
+// ✅ Correct
+src / hooks / use - user / use - user.ts;
+src / components / atoms / button / button.tsx;
+
+// ❌ Wrong
+src / hooks / getUserHook.ts;
+src / components / Button.tsx;
+```
+
+### 2. **independent-modules** - Validates import rules
+
+Ensures modules only import from allowed layers.
+
+```javascript
+// ✅ Allowed
+import { Button } from '@/components/atoms';
+
+// ❌ Blocked
+import { Screen } from '@/screens'; // from atom component
+```
