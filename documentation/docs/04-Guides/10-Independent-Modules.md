@@ -1,6 +1,18 @@
 ---
+slug: /independent-modules-architecture
+sidebar_label: Independent Modules Architecture
 title: Independent Modules Architecture
 description: Understanding the modular architecture and dependency rules in the React Native Boilerplate
+id: independent-modules-architecture
+keywords:
+  [
+    eslint,
+    project structure,
+    code quality,
+    linting,
+    folder structure,
+    independent modules,
+  ]
 ---
 
 # Independent Modules Architecture

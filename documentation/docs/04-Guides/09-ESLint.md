@@ -11,7 +11,7 @@ Version 5.0 introduces powerful ESLint rules that enforce project structure, cod
 These rules help maintain consistency and prevent common architectural issues as your project grows.
 
 :::tip Architecture & Module Independence
-This guide covers **ESLint configuration and technical rules**. For a high-level understanding of the architectural model, layer hierarchy, and module dependency rules, see the [Independent Modules Architecture](/docs/independent-modules) guide.
+This guide covers **ESLint configuration and technical rules**. For a high-level understanding of the architectural model, layer hierarchy, and module dependency rules, see the [Independent Modules Architecture](/docs/independent-modules-architecture) guide.
 
 Think of it this way:
 
@@ -198,7 +198,7 @@ Prevents circular dependencies and enforces module boundaries:
 This creates a clear dependency hierarchy and prevents tight coupling.
 
 :::info Learn More
-For a complete understanding of the module architecture, layer hierarchy, and detailed import rules, see the dedicated guide: [Independent Modules Architecture](/docs/independent-modules)
+For a complete understanding of the module architecture, layer hierarchy, and detailed import rules, see the dedicated guide: [Independent Modules Architecture](/docs/independent-modules-architecture).
 :::
 
 ### 2. eslint-plugin-perfectionist
