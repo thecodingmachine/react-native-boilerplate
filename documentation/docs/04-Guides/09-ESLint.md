@@ -562,43 +562,6 @@ These ESLint rules provide several benefits:
 5. **Quality**: Catches common mistakes and anti-patterns early
 6. **Automation**: Many improvements are applied automatically
 
-## Troubleshooting
-
-### Cache Issues
-
-If ESLint seems to be using stale data:
-
-```bash
-rm -rf node_modules/.cache
-npm run lint
-```
-
-### Project Structure Cache
-
-The project structure plugin creates a cache file:
-
-```bash
-rm project-structure.cache.json
-npm run lint
-```
-
-### Type Checking Issues
-
-If TypeScript type checking is slow:
-
-```js title="eslint.config.mjs"
-{
-  languageOptions: {
-    parserOptions: {
-      projectService: true, // Uses TypeScript project service
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-}
-```
-
-This uses the TypeScript project service for faster type checking.
-
 ## Resources
 
 - [eslint-plugin-project-structure](https://github.com/Igorkowalski94/eslint-plugin-project-structure)
