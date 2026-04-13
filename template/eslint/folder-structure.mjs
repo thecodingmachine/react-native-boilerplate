@@ -97,8 +97,7 @@ import { createFolderStructure } from 'eslint-plugin-project-structure';
 // |   ├── layout.ts
 // ├── translations/
 // |   └── *.json
-// ├── app.tsx
-// └── reactotron.config.ts
+// └── app.tsx
 
 export const folderStructureConfig = createFolderStructure({
   ignorePatterns: [
@@ -369,7 +368,6 @@ export const folderStructureConfig = createFolderStructure({
         { ruleId: 'theme' },
         { ruleId: 'translations' },
         { name: 'app.tsx' },
-        { name: 'reactotron.config.ts' },
       ],
     },
     { name: 'index.d.ts' },

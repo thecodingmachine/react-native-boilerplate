@@ -77,9 +77,6 @@
     "prettier": "^3.6.2",
     "react-native-svg-transformer": "^1.5.0",
     "react-test-renderer": "19.2.3",
-    "reactotron-react-native": "^5.1.12",
-    "reactotron-react-native-mmkv": "^0.2.8",
-    "reactotron-react-query": "^2.0.2",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.38.0"
   },
