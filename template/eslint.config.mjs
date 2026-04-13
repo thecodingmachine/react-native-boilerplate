@@ -87,18 +87,6 @@ export default defineConfig([
     ...reactHooks.configs.flat['recommended-latest'],
     rules: {
       'import-x/order': OFF, // handled by perfectionist
-      // 'react-you-might-not-need-an-effect/no-adjust-state-on-prop-change':
-      //   ERROR,
-      // 'react-you-might-not-need-an-effect/no-chain-state-updates': ERROR,
-      // 'react-you-might-not-need-an-effect/no-derived-state': ERROR,
-      // 'react-you-might-not-need-an-effect/no-empty-effect': ERROR,
-      // 'react-you-might-not-need-an-effect/no-event-handler': ERROR,
-      // 'react-you-might-not-need-an-effect/no-initialize-state': ERROR,
-      // 'react-you-might-not-need-an-effect/no-manage-parent': ERROR,
-      // 'react-you-might-not-need-an-effect/no-pass-data-to-parent': ERROR,
-      // 'react-you-might-not-need-an-effect/no-pass-live-state-to-parent': ERROR,
-      // 'react-you-might-not-need-an-effect/no-reset-all-state-on-prop-change':
-      // ERROR,
       ...reactHooks.configs.recommended.rules,
       '@typescript-eslint/consistent-type-definitions': [ERROR, 'type'],
       '@typescript-eslint/dot-notation': [ERROR, { allowKeywords: true }],
@@ -111,7 +99,7 @@ export default defineConfig([
       'no-duplicate-imports': ERROR,
       'no-magic-numbers': [
         ERROR,
-        { ignore: [-1, 0, 1, 2, 3, 4, 5, 6], ignoreArrayIndexes: true },
+        { ignore: [-1, 0], ignoreArrayIndexes: true },
       ],
       'perfectionist/sort-imports': [
         'error',
@@ -150,8 +138,9 @@ export default defineConfig([
             'side-effect',
             ['type'],
             ['builtin', 'external'],
-            ['hooks', 'navigation', 'translations'],
+            ['theme', 'hooks', 'navigation', 'translations'],
             ['components', 'screens'],
+            ['test'],
             'internal',
             'unknown',
           ],
@@ -174,15 +163,6 @@ export default defineConfig([
         {
           forbidDefaultForRequired: true,
           functions: 'defaultArguments',
-        },
-      ],
-      // Disable perfectionist/sort-objects for createFileRoute calls to prioritize @tanstack/router/create-route-property-order
-      'perfectionist/sort-objects': [
-        ERROR,
-        {
-          useConfigurationIf: {
-            callingFunctionNamePattern: '^createFileRoute$',
-          },
         },
       ],
       'sort-imports': OFF, // handled by perfectionist

@@ -3,14 +3,25 @@ slug: /eslint-project-structure
 sidebar_label: ESLint & Project Structure
 title: ESLint & Project Structure
 id: eslint-project-structure
-keywords: [eslint, project structure, code quality, linting, perfectionist, unicorn]
+keywords:
+  [eslint, project structure, code quality, linting, perfectionist, unicorn]
 ---
 
 Version 5.0 introduces powerful ESLint rules that enforce project structure, code composition, and module independence.
 These rules help maintain consistency and prevent common architectural issues as your project grows.
 
+:::tip Architecture & Module Independence
+This guide covers **ESLint configuration and technical rules**. For a high-level understanding of the architectural model, layer hierarchy, and module dependency rules, see the [Independent Modules Architecture](/docs/independent-modules) guide.
+
+Think of it this way:
+
+- **Independent Modules** guide = "What is the architecture and why?"
+- **ESLint guide** = "How to configure and customize the rules?"
+  :::
+
 :::tip Optional Strict Rules
 The project structure enforcement rules are **intentionally strict** to maintain architectural consistency. However, they are:
+
 - **Evolutionary**: These rules will be refined and updated over time as best practices emerge
 - **Optional**: If you find them too restrictive for your use case, you can disable them by commenting out the project-structure configuration in `eslint.config.mjs`:
 
@@ -79,10 +90,12 @@ export default defineConfig([
 ```
 
 When you choose JavaScript during project initialization, TypeScript-specific type-checking rules are automatically disabled for `.js` and `.jsx` files. This includes:
+
 - All rules requiring type information (from `strictTypeChecked` and `stylisticTypeChecked`)
 - Type-aware linting rules
 
 **All other rules remain active for JavaScript:**
+
 - Project structure enforcement
 - Code composition rules
 - Import sorting (perfectionist)
@@ -130,14 +143,17 @@ This prevents files from being placed in incorrect locations and enforces the bo
 Enforces what each file can contain based on its location:
 
 **Hook files** (`hooks/**/*.ts`):
+
 - ✅ Only function declarations and exports
 - ❌ No class declarations, no inline objects
 
 **Domain API files** (`services/domains/*/*.api.ts`):
+
 - ✅ Only function declarations, exports, and API object
 - ❌ No React components, no hooks
 
 **Component files** (`components/**/*.tsx`):
+
 - ✅ React components and related types
 - ❌ No API calls, no business logic
 
@@ -181,6 +197,10 @@ Prevents circular dependencies and enforces module boundaries:
 
 This creates a clear dependency hierarchy and prevents tight coupling.
 
+:::info Learn More
+For a complete understanding of the module architecture, layer hierarchy, and detailed import rules, see the dedicated guide: [Independent Modules Architecture](/docs/independent-modules)
+:::
+
 ### 2. eslint-plugin-perfectionist
 
 Automatically sorts and organizes code elements alphabetically:
@@ -216,6 +236,7 @@ import { Text, View } from 'react-native';
 Enforces modern JavaScript/TypeScript best practices:
 
 Examples:
+
 - Prefer `node:` protocol for Node.js imports
 - Prefer array method callbacks over inline functions
 - Prefer `String#startsWith()` over regex
@@ -224,11 +245,13 @@ Examples:
 
 ```tsx
 // ❌ Avoid
-if (str.match(/^foo/)) { }
+if (str.match(/^foo/)) {
+}
 const btn = document.getElementById('btn');
 
 // ✅ Prefer
-if (str.startsWith('foo')) { }
+if (str.startsWith('foo')) {
+}
 const button = document.getElementById('button');
 ```
 
@@ -254,7 +277,7 @@ useEffect(() => {
 }, [userId]);
 
 // ✅ Prefer - Key-based reset
-<UserProfile key={userId} userId={userId} />
+<UserProfile key={userId} userId={userId} />;
 ```
 
 ## File Naming Conventions
@@ -307,7 +330,9 @@ Theme (theme/) & Translations
 ### Detailed Import Rules
 
 #### app.tsx
+
 **Can import:**
+
 - `@/components/*` (all component barrels: atoms, molecules, organisms, templates, providers)
 - `@/hooks` (hooks barrel)
 - `@/theme/assets/icons/*` and `@/theme/assets/images/*`
@@ -315,7 +340,9 @@ Theme (theme/) & Translations
 - `@/navigators` (navigators barrel)
 
 #### Navigators (`src/navigators/**/*.tsx`)
+
 **Can import:**
+
 - `@/screens` (screens barrel)
 - `@/components/*` (all component barrels)
 - `@/hooks` (hooks barrel)
@@ -323,7 +350,9 @@ Theme (theme/) & Translations
 - `@/services/**/*`
 
 #### Screens (`src/screens/**/*.tsx`)
+
 **Can import:**
+
 - `@/components/*` (all component barrels)
 - `@/hooks` (hooks barrel)
 - Theme assets (icons/images)
@@ -336,6 +365,7 @@ Theme (theme/) & Translations
 Components follow the atomic design hierarchy:
 
 **Templates** (`src/components/templates/**/*.tsx`):
+
 - ✅ Other templates (same family)
 - ✅ Atoms, Molecules, Organisms, Providers (via barrels)
 - ✅ Hooks barrel
@@ -344,6 +374,7 @@ Components follow the atomic design hierarchy:
 - ❌ Screens, Navigators
 
 **Organisms** (`src/components/organisms/**/*.tsx`):
+
 - ✅ Atoms, Molecules, Providers (via barrels)
 - ✅ Hooks barrel
 - ✅ Theme assets and `get-assets-context`
@@ -351,6 +382,7 @@ Components follow the atomic design hierarchy:
 - ❌ Templates, Screens, Navigators
 
 **Molecules** (`src/components/molecules/**/*.tsx`):
+
 - ✅ Atoms, Providers (via barrels)
 - ✅ Hooks barrel
 - ✅ Theme assets and `get-assets-context`
@@ -358,6 +390,7 @@ Components follow the atomic design hierarchy:
 - ❌ Molecules, Organisms, Templates, Screens, Navigators
 
 **Atoms** (`src/components/atoms/**/*.tsx`):
+
 - ✅ Providers (via barrel)
 - ✅ Hooks barrel
 - ✅ Theme assets and `get-assets-context`
@@ -365,37 +398,46 @@ Components follow the atomic design hierarchy:
 - ❌ Other component types, Screens, Navigators
 
 **Providers** (`src/components/providers/**/*.tsx`):
+
 - ✅ Hooks barrel
 - ✅ Services
 - ✅ `get-assets-context`
 - ❌ Other components, Screens, Navigators
 
 **Special case - Theme Provider** (`src/components/providers/theme-provider/theme-provider.tsx`):
+
 - ✅ Hooks barrel
 - ✅ Services
 - ✅ `get-assets-context`
 - ✅ Theme config (`src/theme/*.ts`)
 
 #### Hooks (`src/hooks/**/*.tsx`)
+
 **Can import:**
+
 - ✅ Other hooks from the same family (e.g., `use-*.ts`)
 - ✅ Services
 - ❌ Components, Screens, Navigators, Theme (except via services)
 
 #### Services (`src/services/**/*.ts`)
+
 **Can import:**
+
 - ✅ Other services (same family)
 - ✅ Translations (`src/translations/*.json`)
 - ✅ Theme assets (icons/images)
 - ❌ Components, Hooks, Screens, Navigators
 
 #### Theme (`src/theme/**/*.ts`)
+
 **Can import:**
+
 - ✅ Other theme files (same family)
 - ✅ Theme generation service (`src/services/theme-generation/**/*`)
 - ❌ Everything else
 
 #### Translations (`src/translations/**/*`)
+
 **Cannot import anything** - they are pure data files.
 
 ### Key Principles
@@ -443,6 +485,7 @@ npm run lint -- --fix
 ```
 
 This will automatically:
+
 - Sort imports
 - Sort object keys
 - Fix naming issues (where possible)

@@ -1,5 +1,19 @@
 // @ts-check
 
+/**
+ * DISCLAIMER - Work in Progress Configuration
+ * ==============================================
+ * ⚠️ This configuration is subject to evolution and will adapt to your needs.
+ *
+ * Feel free to modify this structure according to your requirements:
+ * - Add custom rules
+ * - Remove irrelevant rules
+ *
+ * 📖 To understand how to use, modify or disable this configuration,
+ *    check out the documentation: https://thecodingmachine.github.io/react-native-boilerplate/docs/eslint-project-structure
+ *
+ */
+
 import { createIndependentModules } from 'eslint-plugin-project-structure';
 
 const reusableImportPatterns = {
