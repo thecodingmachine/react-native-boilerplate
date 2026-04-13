@@ -99,7 +99,7 @@ export default defineConfig([
       'no-duplicate-imports': ERROR,
       'no-magic-numbers': [
         ERROR,
-        { ignore: [-1, 0], ignoreArrayIndexes: true },
+        { ignore: [-1, 0, 1], ignoreArrayIndexes: true },
       ],
       'perfectionist/sort-imports': [
         'error',

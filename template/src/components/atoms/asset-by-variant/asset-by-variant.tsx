@@ -3,7 +3,6 @@ import { Image, type ImageProps, type ImageSourcePropType } from 'react-native';
 import * as z from 'zod';
 
 import { useTheme } from '@/hooks';
-
 import getAssetsContext from '@/theme/assets/get-assets-context';
 
 type Properties = {

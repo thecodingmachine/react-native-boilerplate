@@ -4,6 +4,7 @@ import type {
   RemoveBeforeSeparator,
   ToNumber,
 } from './common';
+
 import type { config } from '@/theme/_config';
 import type { staticGutterStyles } from '@/theme/gutters';
 

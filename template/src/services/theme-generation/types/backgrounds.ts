@@ -1,5 +1,6 @@
 import type { RemoveBeforeSeparator } from './common';
 import type { UnionConfiguration } from './config';
+
 import type { staticBackgroundStyles } from '@/theme/backgrounds';
 
 export type Backgrounds = {

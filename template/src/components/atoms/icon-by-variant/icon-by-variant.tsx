@@ -4,7 +4,6 @@ import { FC, useMemo } from 'react';
 import * as z from 'zod';
 
 import { useTheme } from '@/hooks';
-
 import getAssetsContext from '@/theme/assets/get-assets-context';
 
 type Properties = {

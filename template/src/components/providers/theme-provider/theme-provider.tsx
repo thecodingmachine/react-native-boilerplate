@@ -17,7 +17,6 @@ import {
   useState,
 } from 'react';
 
-import generateConfig from '@/services/theme-generation/generate-config';
 import {
   generateBackgrounds,
   staticBackgroundStyles,
@@ -36,6 +35,8 @@ import {
 } from '@/theme/fonts';
 import { generateGutters, staticGutterStyles } from '@/theme/gutters';
 import layout from '@/theme/layout';
+
+import generateConfig from '@/services/theme-generation/generate-config';
 
 type Context = {
   changeTheme: (variant: Variant) => void;

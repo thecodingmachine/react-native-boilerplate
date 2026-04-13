@@ -1,5 +1,6 @@
 import type { ArrayValue, RemoveBeforeSeparator, ToNumber } from './common';
 import type { UnionConfiguration } from './config';
+
 import type { config } from '@/theme/_config';
 import type { staticBorderStyles } from '@/theme/borders';
 

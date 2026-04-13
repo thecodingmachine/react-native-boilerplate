@@ -4,9 +4,10 @@ import type { Colors } from './colors';
 import type { Variant } from './config';
 import type { Fonts } from './fonts';
 import type { Gutters } from './gutters';
+import type { Theme as NavigationTheme } from '@react-navigation/native';
+
 import type componentGenerators from '@/theme/components';
 import type layout from '@/theme/layout';
-import type { Theme as NavigationTheme } from '@react-navigation/native';
 
 export type ComponentTheme = Omit<Theme, 'components' | 'navigationTheme'>;
 
